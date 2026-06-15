@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Mountain, Coffee, Truck, Award, ShieldCheck, Sprout, Package, Globe2, MessageCircle, Mail } from 'lucide-react';
+import { Mountain, Coffee, Truck, Award, ShieldCheck, Sprout, Globe2, MessageCircle, Mail } from 'lucide-react';
 import { Language, Tab, Product, User, Order } from './types';
 import { t } from './i18n';
 import { PRODUCTS, COMPANY, EXPORT_MARKETS } from './constants';
@@ -177,65 +177,6 @@ function App() {
                     <p className="text-xs text-coffee-400 italic">
                       "{COMPANY.slogan}"
                     </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Entre Peces — retail packaging brand */}
-            <section className="bg-cream py-16">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                  {/* Coffee Colombia collage */}
-                  <div className="order-2 md:order-1">
-                    <img
-                      src="/imagen-cafetera.png"
-                      alt="Colombian specialty coffee origin map with cherries, green and roasted beans"
-                      className="w-full max-w-md mx-auto drop-shadow-xl rounded-2xl"
-                    />
-                  </div>
-                  {/* Entre Peces brand */}
-                  <div className="order-1 md:order-2">
-                    <span className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
-                      <Package className="w-4 h-4" />
-                      Retail packaging brand
-                    </span>
-                    <div className="flex items-center gap-4 mb-4">
-                      <img
-                        src="/logo-entre-peces.png"
-                        alt="Entre Peces logo"
-                        className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-md shrink-0"
-                      />
-                      <div>
-                        <h2 className="text-3xl font-display font-bold text-coffee-900 leading-tight">
-                          {COMPANY.packagingBrand.name}
-                        </h2>
-                        <p className="text-sm text-coffee-500 italic">
-                          Specialty roasted samples · small lots
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-coffee-600 leading-relaxed mb-6">
-                      {COMPANY.packagingBrand.description} The same Excelso green coffee we export in bulk, carefully roasted in small batches under our <strong>Entre Peces</strong> retail label — ideal for sample dispatch and tasting evaluations.
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      <a
-                        href={COMPANY.contact.whatsappLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-colors"
-                      >
-                        <MessageCircle className="w-4 h-4" />
-                        Request samples
-                      </a>
-                      <a
-                        href={`mailto:${COMPANY.contact.email}`}
-                        className="inline-flex items-center gap-2 bg-coffee-800 hover:bg-coffee-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-colors"
-                      >
-                        <Mail className="w-4 h-4" />
-                        {COMPANY.contact.email}
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>

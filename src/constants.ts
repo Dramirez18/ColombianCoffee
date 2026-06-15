@@ -26,11 +26,6 @@ export const COMPANY = {
     timezone: 'GMT-5 (Bogotá)',
     languages: 'EN · ES',
   },
-  packagingBrand: {
-    name: 'Entre Peces',
-    description: 'Our retail packaging brand for roasted samples and small specialty lots.',
-    logo: '/logo-entre-peces.png',
-  },
 };
 
 export const PRODUCTS: Product[] = [
