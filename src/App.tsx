@@ -107,37 +107,43 @@ function App() {
             <HeroCarousel lang={lang} onExplore={() => setActiveTab('products')} />
 
             {/* Featured Products — B2B wholesale */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-              <div className="text-center mx-auto mb-14 max-w-3xl">
-                <span className="block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-3">
-                  Wholesale · Samples · Bulk
-                </span>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-coffee-900 mb-4">
-                  {t(lang, 'products_title')}
-                </h2>
-                <p className="text-coffee-500 max-w-xl mx-auto">
-                  Specialty Colombian coffee in three formats. Click any photo to inspect bean quality up close.
-                </p>
-              </div>
+            <section className="py-24 lg:py-28">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Title block — full width, content centered */}
+                <div className="text-center mb-20">
+                  <span className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-4">
+                    Wholesale · Samples · Bulk
+                  </span>
+                  <h2 className="text-3xl md:text-5xl font-display font-bold text-coffee-900 mb-5 leading-tight">
+                    {t(lang, 'products_title')}
+                  </h2>
+                  <p className="text-coffee-500 max-w-xl mx-auto text-base md:text-lg">
+                    Specialty Colombian coffee in three formats. Click any photo to inspect bean quality up close.
+                  </p>
+                  <div className="w-16 h-0.5 bg-gold-500 mx-auto mt-8" aria-hidden="true" />
+                </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-                {activeProducts.slice(0, 3).map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    lang={lang}
-                    onZoom={setLightboxProduct}
-                  />
-                ))}
-              </div>
+                {/* Products grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                  {activeProducts.slice(0, 3).map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      lang={lang}
+                      onZoom={setLightboxProduct}
+                    />
+                  ))}
+                </div>
 
-              <div className="text-center mt-16">
-                <button
-                  onClick={() => setActiveTab('products')}
-                  className="bg-coffee-700 hover:bg-coffee-600 text-white px-8 py-3 rounded-full font-semibold transition-all hover:shadow-lg"
-                >
-                  {t(lang, 'products_all')} →
-                </button>
+                {/* All Coffee CTA — clear separation */}
+                <div className="text-center mt-20">
+                  <button
+                    onClick={() => setActiveTab('products')}
+                    className="bg-coffee-700 hover:bg-coffee-600 text-white px-10 py-4 rounded-full font-semibold transition-all hover:shadow-xl hover:scale-105"
+                  >
+                    {t(lang, 'products_all')} →
+                  </button>
+                </div>
               </div>
             </section>
 
@@ -265,29 +271,32 @@ function App() {
 
         {/* PRODUCTS */}
         {activeTab === 'products' && (
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="text-center mx-auto mb-14 max-w-3xl">
-              <span className="block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-3">
-                Wholesale catalogue
-              </span>
-              <h1 className="text-3xl md:text-4xl font-display font-bold text-coffee-900 mb-4">
-                {t(lang, 'products_title')}
-              </h1>
-              <p className="text-coffee-500 max-w-xl mx-auto">
-                All coffee is whole bean. Click any photo to inspect bean quality.
-                Pricing on request based on origin lot, volume and Incoterm.
-              </p>
-            </div>
+          <section className="py-24 lg:py-28">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-20">
+                <span className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-4">
+                  Wholesale catalogue
+                </span>
+                <h1 className="text-3xl md:text-5xl font-display font-bold text-coffee-900 mb-5 leading-tight">
+                  {t(lang, 'products_title')}
+                </h1>
+                <p className="text-coffee-500 max-w-xl mx-auto text-base md:text-lg">
+                  All coffee is whole bean. Click any photo to inspect bean quality.
+                  Pricing on request based on origin lot, volume and Incoterm.
+                </p>
+                <div className="w-16 h-0.5 bg-gold-500 mx-auto mt-8" aria-hidden="true" />
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-              {activeProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  lang={lang}
-                  onZoom={setLightboxProduct}
-                />
-              ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                {activeProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    lang={lang}
+                    onZoom={setLightboxProduct}
+                  />
+                ))}
+              </div>
             </div>
           </section>
         )}
