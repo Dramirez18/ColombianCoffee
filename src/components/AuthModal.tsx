@@ -41,7 +41,7 @@ export default function AuthModal({ lang, isOpen, onClose, onLogin }: AuthModalP
       postalCode: form.postalCode,
       province: form.province,
       userType,
-      role: form.email === 'admin@huilacoffee.nl' ? 'admin' : 'user',
+      role: form.email === 'admin@entrecafescolombianos.com' ? 'admin' : 'user',
       companyName: userType === 'wholesale' ? form.companyName : undefined,
       kvkNumber: userType === 'wholesale' ? form.kvkNumber : undefined,
     };
@@ -71,14 +71,14 @@ export default function AuthModal({ lang, isOpen, onClose, onLogin }: AuthModalP
               <X className="w-5 h-5" />
             </button>
 
-            <img src="/logo-cafe.png" alt="Colombian Coffee Huila" className="w-20 h-20 object-contain brightness-0 invert mx-auto mb-4 drop-shadow-lg" />
+            <img src="/logo-cafe.png" alt="Entre Cafés Colombianos" className="w-20 h-20 object-contain brightness-0 invert mx-auto mb-4 drop-shadow-lg" />
             <h2 className="text-2xl font-display font-bold text-white mb-1">
               {isRegister ? t(lang, 'auth_register') : 'Welcome Back'}
             </h2>
             <p className="text-sm text-coffee-300">
               {isRegister
-                ? 'Join the Colombian Coffee Huila family'
-                : 'Sign in to your Colombian Coffee Huila account'
+                ? 'Join the Entre Cafés Colombianos family'
+                : 'Sign in to your Entre Cafés Colombianos account'
               }
             </p>
           </div>

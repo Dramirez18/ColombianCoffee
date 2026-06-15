@@ -102,7 +102,8 @@ type TranslationKeys = {
   footer_links: string;
   footer_follow: string;
   footer_rights: string;
-  footer_delivery_area: string;
+  footer_export_markets: string;
+  footer_export_markets_text: string;
 
   // General
   general_loading: string;
@@ -128,8 +129,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Logout',
     nav_search: 'Search coffee...',
 
-    hero_title: 'Premium Colombian Coffee',
-    hero_subtitle: 'From the mountains of Huila to your cup. Specialty coffee crafted with passion, exported with pride.',
+    hero_title: 'Specialty Colombian Coffee',
+    hero_subtitle: 'From the highlands of Huila, Pereira and Santa Marta to your cup. Caramel, chocolate and red fruits — exported worldwide with pride.',
     hero_cta: 'Explore Our Coffee',
     hero_badge: 'Direct from Colombia',
 
@@ -199,17 +200,18 @@ const translations: Record<Language, TranslationKeys> = {
     admin_revenue: 'Revenue',
 
     about_title: 'Our Story',
-    about_story: 'Born in the lush mountains of Huila, Colombia, our coffee represents generations of knowledge passed down through families of dedicated coffee farmers. Every bean tells a story of volcanic soil, perfect altitude, and meticulous care.',
-    about_origin: 'Huila, Colombia',
-    about_delivery: 'Delivery Across the Netherlands',
-    about_delivery_text: 'We deliver fresh Colombian coffee to all 12 provinces of the Netherlands. From Amsterdam to Maastricht, enjoy specialty coffee at your doorstep.',
+    about_story: 'Born in the highlands of Colombia, our coffee represents generations of knowledge passed down through families of dedicated coffee farmers across Huila, Pereira and Santa Marta. Every bean tells a story of volcanic soil, ideal altitude, and meticulous care — culminating in a profile of caramel, chocolate and red fruits.',
+    about_origin: 'Huila · Pereira · Santa Marta — Colombia',
+    about_delivery: 'Worldwide Export from Colombia',
+    about_delivery_text: 'We export specialty Colombian coffee directly to roasters and importers worldwide. Active markets: Belgium, Sweden, Netherlands, Germany, United Arab Emirates and South Africa. DHL air freight for samples, CIF for container shipments.',
 
-    footer_tagline: 'Premium Colombian coffee from Huila, delivered fresh across the Netherlands.',
+    footer_tagline: 'Specialty Colombian coffee from Huila, Pereira and Santa Marta — exported worldwide.',
     footer_contact: 'Contact',
     footer_links: 'Quick Links',
     footer_follow: 'Follow Us',
     footer_rights: 'All rights reserved.',
-    footer_delivery_area: 'Delivering across all of the Netherlands',
+    footer_export_markets: 'Export Markets',
+    footer_export_markets_text: 'Direct export to Belgium, Sweden, Netherlands, Germany, UAE and South Africa.',
 
     general_loading: 'Loading...',
     general_close: 'Close',
@@ -233,8 +235,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Uitloggen',
     nav_search: 'Zoek koffie...',
 
-    hero_title: 'Premium Colombiaanse Koffie',
-    hero_subtitle: 'Van de bergen van Huila naar uw kopje. Speciale koffie met passie gemaakt, met trots geëxporteerd.',
+    hero_title: 'Specialty Colombiaanse Koffie',
+    hero_subtitle: 'Van de bergen van Huila, Pereira en Santa Marta naar uw kopje. Karamel, chocolade en rood fruit — wereldwijd geëxporteerd.',
     hero_cta: 'Ontdek Onze Koffie',
     hero_badge: 'Direct uit Colombia',
 
@@ -306,15 +308,16 @@ const translations: Record<Language, TranslationKeys> = {
     about_title: 'Ons Verhaal',
     about_story: 'Geboren in de weelderige bergen van Huila, Colombia, vertegenwoordigt onze koffie generaties kennis doorgegeven door families van toegewijde koffieboeren. Elke boon vertelt een verhaal van vulkanische grond, perfecte hoogte en zorgvuldige verzorging.',
     about_origin: 'Huila, Colombia',
-    about_delivery: 'Bezorging door heel Nederland',
-    about_delivery_text: 'Wij bezorgen verse Colombiaanse koffie in alle 12 provincies van Nederland. Van Amsterdam tot Maastricht, geniet van speciale koffie aan uw deur.',
+    about_delivery: 'Wereldwijde export vanuit Colombia',
+    about_delivery_text: 'Wij exporteren specialty Colombiaanse koffie rechtstreeks naar branders en importeurs wereldwijd. Actieve markten: België, Zweden, Nederland, Duitsland, Verenigde Arabische Emiraten en Zuid-Afrika.',
 
-    footer_tagline: 'Premium Colombiaanse koffie uit Huila, vers bezorgd door heel Nederland.',
+    footer_tagline: 'Specialty Colombiaanse koffie uit Huila, Pereira en Santa Marta — wereldwijd geëxporteerd.',
     footer_contact: 'Contact',
     footer_links: 'Snelle Links',
     footer_follow: 'Volg Ons',
     footer_rights: 'Alle rechten voorbehouden.',
-    footer_delivery_area: 'Bezorging door heel Nederland',
+    footer_export_markets: 'Exportmarkten',
+    footer_export_markets_text: 'Directe export naar België, Zweden, Nederland, Duitsland, VAE en Zuid-Afrika.',
 
     general_loading: 'Laden...',
     general_close: 'Sluiten',
@@ -338,8 +341,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Abmelden',
     nav_search: 'Kaffee suchen...',
 
-    hero_title: 'Premium Kolumbianischer Kaffee',
-    hero_subtitle: 'Von den Bergen Huilas in Ihre Tasse. Spezialkaffee mit Leidenschaft hergestellt, mit Stolz exportiert.',
+    hero_title: 'Specialty-Kaffee aus Kolumbien',
+    hero_subtitle: 'Von den Bergen Huilas, Pereiras und Santa Martas in Ihre Tasse. Karamell, Schokolade und rote Früchte — weltweit exportiert.',
     hero_cta: 'Unseren Kaffee Entdecken',
     hero_badge: 'Direkt aus Kolumbien',
 
@@ -411,15 +414,16 @@ const translations: Record<Language, TranslationKeys> = {
     about_title: 'Unsere Geschichte',
     about_story: 'Geboren in den üppigen Bergen von Huila, Kolumbien, repräsentiert unser Kaffee Generationen von Wissen, das durch Familien engagierter Kaffeebauern weitergegeben wurde. Jede Bohne erzählt eine Geschichte von vulkanischem Boden, perfekter Höhe und sorgfältiger Pflege.',
     about_origin: 'Huila, Kolumbien',
-    about_delivery: 'Lieferung in die gesamten Niederlande',
-    about_delivery_text: 'Wir liefern frischen kolumbianischen Kaffee in alle 12 Provinzen der Niederlande. Von Amsterdam bis Maastricht, genießen Sie Spezialkaffee an Ihrer Haustür.',
+    about_delivery: 'Weltweiter Export aus Kolumbien',
+    about_delivery_text: 'Wir exportieren Specialty-Kaffee aus Kolumbien direkt an Röstereien und Importeure weltweit. Aktive Märkte: Belgien, Schweden, Niederlande, Deutschland, Vereinigte Arabische Emirate und Südafrika.',
 
-    footer_tagline: 'Premium Kolumbianischer Kaffee aus Huila, frisch geliefert in die gesamten Niederlande.',
+    footer_tagline: 'Specialty-Kaffee aus Kolumbien — Huila, Pereira und Santa Marta, weltweit exportiert.',
     footer_contact: 'Kontakt',
     footer_links: 'Schnelllinks',
     footer_follow: 'Folgen Sie Uns',
     footer_rights: 'Alle Rechte vorbehalten.',
-    footer_delivery_area: 'Lieferung in die gesamten Niederlande',
+    footer_export_markets: 'Exportmärkte',
+    footer_export_markets_text: 'Direktexport nach Belgien, Schweden, Niederlande, Deutschland, VAE und Südafrika.',
 
     general_loading: 'Laden...',
     general_close: 'Schließen',
@@ -443,8 +447,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Déconnexion',
     nav_search: 'Rechercher du café...',
 
-    hero_title: 'Café Colombien Premium',
-    hero_subtitle: 'Des montagnes de Huila à votre tasse. Café de spécialité élaboré avec passion, exporté avec fierté.',
+    hero_title: 'Café Colombien de Spécialité',
+    hero_subtitle: 'Des montagnes de Huila, Pereira et Santa Marta à votre tasse. Caramel, chocolat et fruits rouges — exporté dans le monde entier.',
     hero_cta: 'Découvrir Notre Café',
     hero_badge: 'Direct de Colombie',
 
@@ -516,15 +520,16 @@ const translations: Record<Language, TranslationKeys> = {
     about_title: 'Notre Histoire',
     about_story: 'Né dans les montagnes luxuriantes de Huila, en Colombie, notre café représente des générations de savoir-faire transmis par des familles de caféiculteurs dévoués. Chaque grain raconte une histoire de sol volcanique, d\'altitude parfaite et de soins méticuleux.',
     about_origin: 'Huila, Colombie',
-    about_delivery: 'Livraison dans tous les Pays-Bas',
-    about_delivery_text: 'Nous livrons du café colombien frais dans les 12 provinces des Pays-Bas. D\'Amsterdam à Maastricht, savourez un café de spécialité à votre porte.',
+    about_delivery: 'Export mondial depuis la Colombie',
+    about_delivery_text: 'Nous exportons du café de spécialité colombien directement aux torréfacteurs et importateurs dans le monde entier. Marchés actifs : Belgique, Suède, Pays-Bas, Allemagne, Émirats Arabes Unis et Afrique du Sud.',
 
-    footer_tagline: 'Café colombien premium de Huila, livré frais dans tous les Pays-Bas.',
+    footer_tagline: 'Café colombien de spécialité de Huila, Pereira et Santa Marta — exporté dans le monde entier.',
     footer_contact: 'Contact',
     footer_links: 'Liens Rapides',
     footer_follow: 'Suivez-Nous',
     footer_rights: 'Tous droits réservés.',
-    footer_delivery_area: 'Livraison dans tous les Pays-Bas',
+    footer_export_markets: 'Marchés d\'exportation',
+    footer_export_markets_text: 'Export direct vers la Belgique, la Suède, les Pays-Bas, l\'Allemagne, les EAU et l\'Afrique du Sud.',
 
     general_loading: 'Chargement...',
     general_close: 'Fermer',
@@ -548,8 +553,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Logga Ut',
     nav_search: 'Sök kaffe...',
 
-    hero_title: 'Premium Colombianskt Kaffe',
-    hero_subtitle: 'Från Huilas berg till din kopp. Specialkaffe skapat med passion, exporterat med stolthet.',
+    hero_title: 'Specialkaffe från Colombia',
+    hero_subtitle: 'Från Huilas, Pereiras och Santa Martas berg till din kopp. Karamell, choklad och röda bär — exporterat världen över.',
     hero_cta: 'Utforska Vårt Kaffe',
     hero_badge: 'Direkt från Colombia',
 
@@ -621,15 +626,16 @@ const translations: Record<Language, TranslationKeys> = {
     about_title: 'Vår Historia',
     about_story: 'Född i de frodiga bergen i Huila, Colombia, representerar vårt kaffe generationers kunskap som förts vidare genom familjer av hängivna kaffebönder. Varje böna berättar en historia om vulkanjord, perfekt höjd och noggrann omsorg.',
     about_origin: 'Huila, Colombia',
-    about_delivery: 'Leverans i hela Nederländerna',
-    about_delivery_text: 'Vi levererar färskt colombianskt kaffe till alla 12 provinser i Nederländerna. Från Amsterdam till Maastricht, njut av specialkaffe vid din dörr.',
+    about_delivery: 'Världsomspännande export från Colombia',
+    about_delivery_text: 'Vi exporterar specialkaffe från Colombia direkt till rosterier och importörer världen över. Aktiva marknader: Belgien, Sverige, Nederländerna, Tyskland, Förenade Arabemiraten och Sydafrika.',
 
-    footer_tagline: 'Premium colombianskt kaffe från Huila, levererat färskt i hela Nederländerna.',
+    footer_tagline: 'Specialkaffe från Colombia — Huila, Pereira och Santa Marta, exporterat världen över.',
     footer_contact: 'Kontakt',
     footer_links: 'Snabblänkar',
     footer_follow: 'Följ Oss',
     footer_rights: 'Alla rättigheter förbehållna.',
-    footer_delivery_area: 'Leverans i hela Nederländerna',
+    footer_export_markets: 'Exportmarknader',
+    footer_export_markets_text: 'Direktexport till Belgien, Sverige, Nederländerna, Tyskland, FAE och Sydafrika.',
 
     general_loading: 'Laddar...',
     general_close: 'Stäng',

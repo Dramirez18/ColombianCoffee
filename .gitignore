@@ -5,3 +5,17 @@ dist
 *.log
 .DS_Store
 .claude/
+
+# Build artifacts
+tsconfig.tsbuildinfo
+
+# PRIVATE — Business documents (never push to public repo)
+# Generated PDFs (contain partner data, financial details, banking info)
+*.pdf
+
+# PRIVATE — Generator scripts (contain hardcoded sensitive data:
+# Binance IDs, Bre-B keys, NITs, partner info, real amounts)
+generar_*.py
+
+# PRIVATE — Internal docs and notes
+CLAUDE.md

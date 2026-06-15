@@ -1,4 +1,4 @@
-import { Coffee, MapPin, Mail, Phone, Instagram, Facebook, ShieldCheck } from 'lucide-react';
+import { MapPin, Mail, Instagram, Linkedin, ShieldCheck } from 'lucide-react';
 import { Language, Tab } from '../types';
 import { t } from '../i18n';
 import { COMPANY } from '../constants';
@@ -16,11 +16,11 @@ export default function Footer({ lang, setActiveTab }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo-cafe.png" alt="Colombian Coffee Huila" className="w-10 h-10 object-contain brightness-0 invert opacity-80" />
+              <img src="/logo-cafe.png" alt={COMPANY.name} className="w-10 h-10 object-contain brightness-0 invert opacity-80" />
               <div className="flex flex-col leading-none">
-                <span className="text-[9px] uppercase tracking-[0.25em] text-gold-300 font-medium">Colombian</span>
-                <span className="text-lg font-display font-bold text-gold-400 -mt-0.5">Coffee</span>
-                <span className="text-[9px] uppercase tracking-[0.2em] text-coffee-300 font-medium -mt-0.5">Huila</span>
+                <span className="text-[9px] uppercase tracking-[0.25em] text-gold-300 font-medium">Entre</span>
+                <span className="text-lg font-display font-bold text-gold-400 -mt-0.5">Cafés</span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-coffee-300 font-medium -mt-0.5">Colombianos</span>
               </div>
             </div>
             <p className="text-sm text-coffee-300 leading-relaxed italic mb-2">
@@ -34,7 +34,7 @@ export default function Footer({ lang, setActiveTab }: FooterProps) {
               <span>Reg. Sanitario: {COMPANY.registroSanitario}</span>
             </div>
             <p className="text-xs text-coffee-400 mt-1">
-              Roasted by {COMPANY.roaster}
+              {COMPANY.regions} · {COMPANY.altitude}
             </p>
           </div>
 
@@ -68,35 +68,32 @@ export default function Footer({ lang, setActiveTab }: FooterProps) {
               </li>
               <li className="flex items-center gap-2 text-sm text-coffee-300">
                 <Mail className="w-4 h-4 text-gold-400 shrink-0" />
-                {COMPANY.contact.email}
-              </li>
-              <li className="flex items-center gap-2 text-sm text-coffee-300">
-                <Phone className="w-4 h-4 text-gold-400 shrink-0" />
-                {COMPANY.contact.phone}
+                <a href={`mailto:${COMPANY.contact.email}`} className="hover:text-gold-400 transition-colors">
+                  {COMPANY.contact.email}
+                </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-coffee-300">
                 <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
                 <span>
-                  {COMPANY.contact.address}<br />
-                  {COMPANY.contact.postalCode} {COMPANY.contact.city}<br />
+                  {COMPANY.contact.city}<br />
                   {COMPANY.contact.country}
                 </span>
               </li>
             </ul>
           </div>
 
-          {/* Delivery & Social */}
+          {/* Export markets / Social */}
           <div>
-            <h4 className="text-white font-semibold mb-4">{t(lang, 'footer_delivery_area')}</h4>
+            <h4 className="text-white font-semibold mb-4">{t(lang, 'footer_export_markets')}</h4>
             <p className="text-sm text-coffee-300 mb-4">
-              {t(lang, 'about_delivery_text')}
+              {t(lang, 'footer_export_markets_text')}
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 rounded-full bg-coffee-800 hover:bg-gold-500 flex items-center justify-center transition-colors">
+              <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-coffee-800 hover:bg-gold-500 flex items-center justify-center transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-coffee-800 hover:bg-gold-500 flex items-center justify-center transition-colors">
-                <Facebook className="w-4 h-4" />
+              <a href="#" aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-coffee-800 hover:bg-gold-500 flex items-center justify-center transition-colors">
+                <Linkedin className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -105,7 +102,7 @@ export default function Footer({ lang, setActiveTab }: FooterProps) {
         {/* Bottom */}
         <div className="border-t border-coffee-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-coffee-400">
-            &copy; {new Date().getFullYear()} Colombian Coffee Huila. {t(lang, 'footer_rights')}
+            &copy; {new Date().getFullYear()} {COMPANY.legalName}. {t(lang, 'footer_rights')}
           </p>
           <div className="flex items-center gap-2">
             <img
@@ -115,8 +112,8 @@ export default function Footer({ lang, setActiveTab }: FooterProps) {
             />
             <span className="text-xs text-coffee-400">{COMPANY.slogan}</span>
             <img
-              src="https://flagcdn.com/w40/nl.png"
-              alt="Netherlands"
+              src="https://flagcdn.com/w40/eu.png"
+              alt="European Union"
               className="w-6 h-4 rounded-sm object-cover"
             />
           </div>

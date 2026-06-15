@@ -243,21 +243,21 @@ function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                   <div>
                     <img
-                      src="/products/complete.png"
-                      alt="Colombian Coffee Huila - Complete Product Line"
-                      className="w-full max-w-md mx-auto drop-shadow-xl"
+                      src="https://images.unsplash.com/photo-1599639957043-f3aa5c986398?w=800&h=800&fit=crop"
+                      alt="Entre Cafés Colombianos - Specialty Coffee Beans"
+                      className="w-full max-w-md mx-auto drop-shadow-xl rounded-2xl"
                     />
                   </div>
                   <div>
                     <span className="inline-flex items-center gap-2 bg-gold-500/15 text-gold-500 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
                       <Sprout className="w-4 h-4" />
-                      {COMPANY.farm} – {COMPANY.origin}
+                      {COMPANY.regions}
                     </span>
                     <h2 className="text-3xl font-display font-bold text-coffee-900 mb-4">
-                      Our Complete Collection
+                      Our Specialty Coffee Collection
                     </h2>
                     <p className="text-coffee-600 leading-relaxed mb-6">
-                      Four unique expressions of Colombian coffee from {COMPANY.farm} in El Gigante, Huila. Cultivated at {COMPANY.altitude} by local farming families, each variety is hand-picked and carefully processed to preserve its distinctive character.
+                      Specialty Colombian coffee sourced from our network of farms across {COMPANY.regions}, cultivated at {COMPANY.altitude}. Each lot is carefully selected, cupped and graded to deliver a consistent profile of {COMPANY.flavorProfile.toLowerCase()} — scoring {COMPANY.scaScore}.
                     </p>
                     <div className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm mb-4">
                       <ShieldCheck className="w-8 h-8 text-green-600 shrink-0" />
@@ -267,30 +267,30 @@ function App() {
                       </div>
                     </div>
                     <p className="text-xs text-coffee-400 italic">
-                      Roasted by {COMPANY.roaster} · "{COMPANY.slogan}"
+                      "{COMPANY.slogan}"
                     </p>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Why Colombian Coffee Huila */}
+            {/* Why Entre Cafés Colombianos */}
             <section className="bg-coffee-800 text-white py-16">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-display font-bold text-center mb-12 text-gold-400">
-                  Why Colombian Coffee Huila?
+                  Why {COMPANY.name}?
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                   {[
                     {
                       icon: <Mountain className="w-10 h-10" />,
-                      title: '1,750 masl',
-                      desc: 'Grown at 1,750 meters above sea level in the Andes mountains at Finca El Jardín, producing exceptional density and flavor.',
+                      title: COMPANY.altitude,
+                      desc: `Grown high in the Colombian Andes across ${COMPANY.regions}, where altitude, volcanic soil and microclimate produce exceptional density and complexity.`,
                     },
                     {
                       icon: <Award className="w-10 h-10" />,
-                      title: 'Specialty Grade',
-                      desc: 'Each batch is carefully cupped and graded. We only export beans that meet specialty coffee standards, scoring 80+ points.',
+                      title: `Specialty ${COMPANY.scaScore}`,
+                      desc: `Every lot is cupped and graded. We only export coffee that meets specialty standards — consistently scoring ${COMPANY.scaScore} with a profile of ${COMPANY.flavorProfile.toLowerCase()}.`,
                     },
                     {
                       icon: <ShieldCheck className="w-10 h-10" />,
@@ -299,8 +299,8 @@ function App() {
                     },
                     {
                       icon: <Truck className="w-10 h-10" />,
-                      title: 'Fresh to Your Door',
-                      desc: 'Delivered across all 12 provinces of the Netherlands. From our farm to your cup in the freshest possible state.',
+                      title: 'Worldwide Export',
+                      desc: 'Direct export from Colombia to Europe, the UAE and South Africa. DHL air freight for samples and small lots, CIF for container shipments.',
                     },
                   ].map((feature) => (
                     <div key={feature.title} className="text-center">

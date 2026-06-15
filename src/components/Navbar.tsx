@@ -41,11 +41,11 @@ export default function Navbar({
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => setActiveTab('home')}
           >
-            <img src="/logo-cafe.png" alt="Colombian Coffee Huila" className="w-10 h-10 object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
+            <img src="/logo-cafe.png" alt="Entre Cafés Colombianos" className="w-10 h-10 object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
             <div className="flex flex-col leading-none">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-gold-300 font-medium">Colombian</span>
-              <span className="text-lg font-display font-bold text-gold-400 -mt-0.5">Coffee</span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-coffee-200 font-medium -mt-0.5">Huila</span>
+              <span className="text-[10px] uppercase tracking-[0.25em] text-gold-300 font-medium">Entre</span>
+              <span className="text-lg font-display font-bold text-gold-400 -mt-0.5">Cafés</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-coffee-200 font-medium -mt-0.5">Colombianos</span>
             </div>
           </div>
 
