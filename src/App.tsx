@@ -21,11 +21,14 @@ function App() {
   // Navigation
   const [activeTab, setActiveTab] = useState<Tab>('home');
 
-  // Products
-  const [products, setProducts] = useState<Product[]>(() => {
-    const saved = localStorage.getItem('huila-products');
-    return saved ? JSON.parse(saved) : PRODUCTS;
-  });
+  // Products — sourced from code, no localStorage cache (B2B catalogue)
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+
+  // Clear any legacy products cache from old e-commerce phase
+  useEffect(() => {
+    localStorage.removeItem('huila-products');
+    localStorage.removeItem('huila-cart');
+  }, []);
 
   // Auth
   const [user, setUser] = useState<User | null>(() => {
@@ -49,7 +52,6 @@ function App() {
 
   // Persist state
   useEffect(() => { localStorage.setItem('huila-lang', lang); }, [lang]);
-  useEffect(() => { localStorage.setItem('huila-products', JSON.stringify(products)); }, [products]);
   useEffect(() => { localStorage.setItem('huila-user', JSON.stringify(user)); }, [user]);
   useEffect(() => { localStorage.setItem('huila-clients', JSON.stringify(clients)); }, [clients]);
 
@@ -105,20 +107,20 @@ function App() {
             <HeroCarousel lang={lang} onExplore={() => setActiveTab('products')} />
 
             {/* Featured Products — B2B wholesale */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-              <div className="text-center mb-12 max-w-2xl mx-auto">
-                <span className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-3">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+              <div className="text-center mx-auto mb-14 max-w-3xl">
+                <span className="block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-3">
                   Wholesale · Samples · Bulk
                 </span>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-coffee-900 mb-4">
                   {t(lang, 'products_title')}
                 </h2>
-                <p className="text-coffee-500">
+                <p className="text-coffee-500 max-w-xl mx-auto">
                   Specialty Colombian coffee in three formats. Click any photo to inspect bean quality up close.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
                 {activeProducts.slice(0, 3).map((product) => (
                   <ProductCard
                     key={product.id}
@@ -129,7 +131,7 @@ function App() {
                 ))}
               </div>
 
-              <div className="text-center mt-10">
+              <div className="text-center mt-16">
                 <button
                   onClick={() => setActiveTab('products')}
                   className="bg-coffee-700 hover:bg-coffee-600 text-white px-8 py-3 rounded-full font-semibold transition-all hover:shadow-lg"
@@ -263,21 +265,21 @@ function App() {
 
         {/* PRODUCTS */}
         {activeTab === 'products' && (
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="text-center mb-12 max-w-2xl mx-auto">
-              <span className="inline-block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-3">
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="text-center mx-auto mb-14 max-w-3xl">
+              <span className="block text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold mb-3">
                 Wholesale catalogue
               </span>
               <h1 className="text-3xl md:text-4xl font-display font-bold text-coffee-900 mb-4">
                 {t(lang, 'products_title')}
               </h1>
-              <p className="text-coffee-500">
+              <p className="text-coffee-500 max-w-xl mx-auto">
                 All coffee is whole bean. Click any photo to inspect bean quality.
                 Pricing on request based on origin lot, volume and Incoterm.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {activeProducts.map((product) => (
                 <ProductCard
                   key={product.id}
