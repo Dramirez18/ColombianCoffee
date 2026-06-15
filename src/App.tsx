@@ -243,8 +243,8 @@ function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                   <div>
                     <img
-                      src="https://images.unsplash.com/photo-1599639957043-f3aa5c986398?w=800&h=800&fit=crop"
-                      alt="Entre Cafés Colombianos - Specialty Coffee Beans"
+                      src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=800&h=800&fit=crop"
+                      alt="Entre Cafés Colombianos - Coffee cherries on the plant"
                       className="w-full max-w-md mx-auto drop-shadow-xl rounded-2xl"
                     />
                   </div>

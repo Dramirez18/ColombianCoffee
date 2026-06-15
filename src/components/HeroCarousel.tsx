@@ -9,21 +9,25 @@ interface HeroCarouselProps {
 }
 
 const HERO_SLIDES = [
+  // Coffee plantation in the Colombian Andes
+  {
+    image: 'https://images.unsplash.com/photo-1611605645802-c21be743c321?w=1600&h=800&fit=crop',
+    overlay: 'from-coffee-900/75 to-coffee-900/40',
+  },
+  // Cherries / coffee plantation closeup
+  {
+    image: 'https://images.unsplash.com/photo-1599639957043-f3aa5c986398?w=1600&h=800&fit=crop',
+    overlay: 'from-coffee-900/70 to-coffee-900/40',
+  },
+  // Green coffee beans / jute bags (export)
   {
     image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&h=800&fit=crop',
     overlay: 'from-coffee-900/80 to-coffee-900/40',
   },
+  // Cargo containers / global logistics (export)
   {
-    image: 'https://images.unsplash.com/photo-1542181961-9590d0c79dab?w=1600&h=800&fit=crop',
-    overlay: 'from-coffee-900/70 to-coffee-900/40',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1442550528053-c431ecb55509?w=1600&h=800&fit=crop',
-    overlay: 'from-coffee-900/70 to-coffee-900/40',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&h=800&fit=crop',
-    overlay: 'from-coffee-900/75 to-coffee-900/40',
+    image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1600&h=800&fit=crop',
+    overlay: 'from-coffee-900/80 to-coffee-900/45',
   },
 ];
 

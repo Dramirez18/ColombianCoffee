@@ -16,11 +16,11 @@ export default function Footer({ lang, setActiveTab }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo-cafe.png" alt={COMPANY.name} className="w-10 h-10 object-contain brightness-0 invert opacity-80" />
+              <img src="/logo-entre.png" alt={COMPANY.name} className="w-14 h-14 object-contain rounded-full bg-cream/95 p-1 shadow-md" />
               <div className="flex flex-col leading-none">
-                <span className="text-[9px] uppercase tracking-[0.25em] text-gold-300 font-medium">Entre</span>
-                <span className="text-lg font-display font-bold text-gold-400 -mt-0.5">Cafés</span>
-                <span className="text-[9px] uppercase tracking-[0.2em] text-coffee-300 font-medium -mt-0.5">Colombianos</span>
+                <span className="text-[9px] uppercase tracking-[0.25em] text-gold-300 font-medium">Entre Cafés</span>
+                <span className="text-base font-display font-bold text-gold-400 -mt-0.5">Colombianos</span>
+                <span className="text-[8px] uppercase tracking-[0.2em] text-coffee-300 font-medium -mt-0.5">Specialty Exporters</span>
               </div>
             </div>
             <p className="text-sm text-coffee-300 leading-relaxed italic mb-2">

@@ -129,8 +129,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Logout',
     nav_search: 'Search coffee...',
 
-    hero_title: 'Specialty Colombian Coffee',
-    hero_subtitle: 'From the highlands of Huila, Pereira and Santa Marta to your cup. Caramel, chocolate and red fruits — exported worldwide with pride.',
+    hero_title: 'Wholesale Colombian Coffee Exporters',
+    hero_subtitle: 'Specialty green coffee sourced from the Colombian Andes — Huila, Pereira and Santa Marta. SCA 84+, washed process, caramel · chocolate · red fruits. Direct supply for roasters and importers worldwide.',
     hero_cta: 'Explore Our Coffee',
     hero_badge: 'Direct from Colombia',
 
@@ -235,8 +235,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Uitloggen',
     nav_search: 'Zoek koffie...',
 
-    hero_title: 'Specialty Colombiaanse Koffie',
-    hero_subtitle: 'Van de bergen van Huila, Pereira en Santa Marta naar uw kopje. Karamel, chocolade en rood fruit — wereldwijd geëxporteerd.',
+    hero_title: 'Groothandel Colombiaanse Koffie Exporteurs',
+    hero_subtitle: 'Specialty groene koffie uit de Colombiaanse Andes — Huila, Pereira en Santa Marta. SCA 84+, gewassen proces, karamel · chocolade · rood fruit. Directe levering aan branders en importeurs wereldwijd.',
     hero_cta: 'Ontdek Onze Koffie',
     hero_badge: 'Direct uit Colombia',
 
@@ -341,8 +341,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Abmelden',
     nav_search: 'Kaffee suchen...',
 
-    hero_title: 'Specialty-Kaffee aus Kolumbien',
-    hero_subtitle: 'Von den Bergen Huilas, Pereiras und Santa Martas in Ihre Tasse. Karamell, Schokolade und rote Früchte — weltweit exportiert.',
+    hero_title: 'Großhandels-Exporteur für kolumbianischen Kaffee',
+    hero_subtitle: 'Specialty-Rohkaffee aus den kolumbianischen Anden — Huila, Pereira und Santa Marta. SCA 84+, gewaschener Prozess, Karamell · Schokolade · rote Früchte. Direkte Belieferung von Röstereien und Importeuren weltweit.',
     hero_cta: 'Unseren Kaffee Entdecken',
     hero_badge: 'Direkt aus Kolumbien',
 
@@ -447,8 +447,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Déconnexion',
     nav_search: 'Rechercher du café...',
 
-    hero_title: 'Café Colombien de Spécialité',
-    hero_subtitle: 'Des montagnes de Huila, Pereira et Santa Marta à votre tasse. Caramel, chocolat et fruits rouges — exporté dans le monde entier.',
+    hero_title: 'Exportateur en gros de café colombien',
+    hero_subtitle: 'Café vert de spécialité des Andes colombiennes — Huila, Pereira et Santa Marta. SCA 84+, processus lavé, caramel · chocolat · fruits rouges. Approvisionnement direct des torréfacteurs et importateurs dans le monde entier.',
     hero_cta: 'Découvrir Notre Café',
     hero_badge: 'Direct de Colombie',
 
@@ -553,8 +553,8 @@ const translations: Record<Language, TranslationKeys> = {
     nav_logout: 'Logga Ut',
     nav_search: 'Sök kaffe...',
 
-    hero_title: 'Specialkaffe från Colombia',
-    hero_subtitle: 'Från Huilas, Pereiras och Santa Martas berg till din kopp. Karamell, choklad och röda bär — exporterat världen över.',
+    hero_title: 'Colombiansk Specialkaffe – Grossistexportör',
+    hero_subtitle: 'Specialty råkaffe från de colombianska Anderna — Huila, Pereira och Santa Marta. SCA 84+, tvättad process, karamell · choklad · röda bär. Direkt leverans till rosterier och importörer världen över.',
     hero_cta: 'Utforska Vårt Kaffe',
     hero_badge: 'Direkt från Colombia',
 

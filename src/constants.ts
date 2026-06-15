@@ -17,7 +17,7 @@ export const COMPANY = {
   registroSanitario: 'NSA – 0006451-2019',
   contact: {
     name: 'David Leonardo Ramírez Contreras',
-    email: 'requests@shipsweetieboy.com',
+    email: 'cafecolombiano888@proton.com',
     country: 'Colombia',
     city: 'Bogotá D.C.',
   },
