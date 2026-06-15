@@ -1,30 +1,25 @@
 import { useState } from 'react';
-import { Coffee, ShoppingCart, User, Menu, X, Search, Globe, Shield } from 'lucide-react';
-import { Language, Tab, CartItem, User as UserType } from '../types';
+import { User, Menu, X, Globe, Shield, Mail, MessageCircle } from 'lucide-react';
+import { Language, Tab, User as UserType } from '../types';
 import { t, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '../i18n';
+import { COMPANY } from '../constants';
 
 interface NavbarProps {
   lang: Language;
   setLang: (lang: Language) => void;
   activeTab: Tab;
   setActiveTab: (tab: Tab) => void;
-  cart: CartItem[];
   user: UserType | null;
-  onCartClick: () => void;
   onAuthClick: () => void;
   onLogout: () => void;
-  searchQuery: string;
-  setSearchQuery: (q: string) => void;
 }
 
 export default function Navbar({
-  lang, setLang, activeTab, setActiveTab, cart, user,
-  onCartClick, onAuthClick, onLogout, searchQuery, setSearchQuery,
+  lang, setLang, activeTab, setActiveTab, user,
+  onAuthClick, onLogout,
 }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-
-  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const navItems: { key: Tab; label: string }[] = [
     { key: 'home', label: t(lang, 'nav_home') },
@@ -35,10 +30,10 @@ export default function Navbar({
   return (
     <nav className="bg-coffee-900 text-white sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
           <div
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group shrink-0"
             onClick={() => setActiveTab('home')}
           >
             <img src="/logo-entre.png" alt="Entre Cafés Colombianos" className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-full bg-cream/95 p-0.5 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all" />
@@ -50,7 +45,7 @@ export default function Navbar({
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-7 mx-auto">
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -64,24 +59,35 @@ export default function Navbar({
             ))}
           </div>
 
-          {/* Search */}
-          <div className="hidden md:flex items-center bg-coffee-800 rounded-full px-4 py-2 flex-1 max-w-xs mx-6">
-            <Search className="w-4 h-4 text-coffee-400 mr-2" />
-            <input
-              type="text"
-              placeholder={t(lang, 'nav_search')}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-transparent text-sm text-white placeholder-coffee-400 outline-none w-full"
-            />
-          </div>
+          {/* Right Side — Contact-first B2B */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* WhatsApp (desktop only) */}
+            <a
+              href={COMPANY.contact.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="hidden sm:flex items-center gap-2 bg-green-600/90 hover:bg-green-500 text-white px-3 py-2 rounded-full text-xs font-semibold transition-colors"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span className="hidden lg:inline">WhatsApp</span>
+            </a>
 
-          {/* Right Icons */}
-          <div className="flex items-center gap-3">
+            {/* Email (desktop only) */}
+            <a
+              href={`mailto:${COMPANY.contact.email}`}
+              aria-label="Email"
+              className="hidden sm:flex items-center gap-2 bg-coffee-800 hover:bg-coffee-700 text-coffee-100 px-3 py-2 rounded-full text-xs font-semibold transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              <span className="hidden lg:inline">Email</span>
+            </a>
+
             {/* Language Selector */}
             <div className="relative">
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
+                aria-label="Language selector"
                 className="flex items-center gap-1 text-coffee-200 hover:text-gold-400 transition-colors p-2"
               >
                 <Globe className="w-5 h-5" />
@@ -105,24 +111,12 @@ export default function Navbar({
               )}
             </div>
 
-            {/* Cart */}
-            <button
-              onClick={onCartClick}
-              className="relative text-coffee-200 hover:text-gold-400 transition-colors p-2"
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gold-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-
             {/* User */}
             {user ? (
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setActiveTab('profile')}
+                  aria-label="Profile"
                   className="text-coffee-200 hover:text-gold-400 transition-colors p-2"
                 >
                   <User className="w-5 h-5" />
@@ -130,6 +124,7 @@ export default function Navbar({
                 {user.role === 'admin' && (
                   <button
                     onClick={() => setActiveTab('admin')}
+                    aria-label="Admin"
                     className="text-coffee-200 hover:text-gold-400 transition-colors p-2"
                   >
                     <Shield className="w-5 h-5" />
@@ -145,7 +140,7 @@ export default function Navbar({
             ) : (
               <button
                 onClick={onAuthClick}
-                className="bg-gold-500 hover:bg-gold-400 text-coffee-900 px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                className="hidden sm:block bg-gold-500 hover:bg-gold-400 text-coffee-900 px-4 py-2 rounded-full text-sm font-semibold transition-colors"
               >
                 {t(lang, 'nav_login')}
               </button>
@@ -154,6 +149,7 @@ export default function Navbar({
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Menu"
               className="md:hidden text-coffee-200 p-2"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -163,17 +159,7 @@ export default function Navbar({
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-coffee-700 mt-2 pt-4">
-            <div className="flex items-center bg-coffee-800 rounded-full px-4 py-2 mb-4">
-              <Search className="w-4 h-4 text-coffee-400 mr-2" />
-              <input
-                type="text"
-                placeholder={t(lang, 'nav_search')}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-transparent text-sm text-white placeholder-coffee-400 outline-none w-full"
-              />
-            </div>
+          <div className="md:hidden pb-4 border-t border-coffee-700 mt-2 pt-4 space-y-1">
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -187,6 +173,24 @@ export default function Navbar({
                 {item.label}
               </button>
             ))}
+            <div className="grid grid-cols-2 gap-2 pt-3 mt-3 border-t border-coffee-800">
+              <a
+                href={COMPANY.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white px-3 py-2.5 rounded-full text-xs font-semibold"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
+              </a>
+              <a
+                href={`mailto:${COMPANY.contact.email}`}
+                className="flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-coffee-900 px-3 py-2.5 rounded-full text-xs font-semibold"
+              >
+                <Mail className="w-4 h-4" />
+                Email
+              </a>
+            </div>
           </div>
         )}
       </div>
