@@ -9,22 +9,22 @@ interface HeroCarouselProps {
 }
 
 const HERO_SLIDES = [
-  // Coffee plantation in the Colombian Andes
+  // OUR plantation in the Colombian cordillera (real photo)
   {
-    image: 'https://images.unsplash.com/photo-1611605645802-c21be743c321?w=1600&h=800&fit=crop',
+    image: '/hero/plantacion-cordillera.png',
+    overlay: 'from-coffee-900/70 to-coffee-900/30',
+  },
+  // OUR green coffee — Lot #84 (real photo)
+  {
+    image: '/products/grano-verde.jpg',
     overlay: 'from-coffee-900/75 to-coffee-900/40',
   },
-  // Cherries / coffee plantation closeup
+  // OUR medium roast (real photo)
   {
-    image: 'https://images.unsplash.com/photo-1599639957043-f3aa5c986398?w=1600&h=800&fit=crop',
-    overlay: 'from-coffee-900/70 to-coffee-900/40',
+    image: '/products/grano-tostado-medio.jpg',
+    overlay: 'from-coffee-900/75 to-coffee-900/40',
   },
-  // Green coffee beans / jute bags (export)
-  {
-    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&h=800&fit=crop',
-    overlay: 'from-coffee-900/80 to-coffee-900/40',
-  },
-  // Cargo containers / global logistics (export)
+  // Cargo containers / global logistics
   {
     image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1600&h=800&fit=crop',
     overlay: 'from-coffee-900/80 to-coffee-900/45',

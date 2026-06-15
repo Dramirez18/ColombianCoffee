@@ -243,21 +243,21 @@ function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                   <div>
                     <img
-                      src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=800&h=800&fit=crop"
-                      alt="Entre Cafés Colombianos - Coffee cherries on the plant"
+                      src="/products/calidad-humedad-densidad.jpg"
+                      alt="Quality control — CoffMeter measuring moisture (10.9%) and density (797 g/L) of our green coffee"
                       className="w-full max-w-md mx-auto drop-shadow-xl rounded-2xl"
                     />
                   </div>
                   <div>
                     <span className="inline-flex items-center gap-2 bg-gold-500/15 text-gold-500 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
                       <Sprout className="w-4 h-4" />
-                      {COMPANY.regions}
+                      Quality &amp; commitment
                     </span>
                     <h2 className="text-3xl font-display font-bold text-coffee-900 mb-4">
-                      Our Specialty Coffee Collection
+                      Every lot, measured. Every batch, traceable.
                     </h2>
                     <p className="text-coffee-600 leading-relaxed mb-6">
-                      Specialty Colombian coffee sourced from our network of farms across {COMPANY.regions}, cultivated at {COMPANY.altitude}. Each lot is carefully selected, cupped and graded to deliver a consistent profile of {COMPANY.flavorProfile.toLowerCase()} — scoring {COMPANY.scaScore}.
+                      We check moisture, density and screen size on every sample before we ship. Pictured: an actual reading from a recent green coffee lot — <strong>10.9% moisture, 797 g/L density</strong>, well within Excelso UGQ specifications. Cupped, graded and documented for full traceability from {COMPANY.regions} to your roastery.
                     </p>
                     <div className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm mb-4">
                       <ShieldCheck className="w-8 h-8 text-green-600 shrink-0" />
