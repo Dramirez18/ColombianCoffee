@@ -5,6 +5,7 @@ import { t } from './i18n';
 import { PRODUCTS, COMPANY, EXPORT_MARKETS } from './constants';
 import Navbar from './components/Navbar';
 import HeroCarousel from './components/HeroCarousel';
+import RoastVideo from './components/RoastVideo';
 import ProductCard from './components/ProductCard';
 import ImageLightbox from './components/ImageLightbox';
 import AuthModal from './components/AuthModal';
@@ -146,6 +147,9 @@ function App() {
                 </div>
               </div>
             </section>
+
+            {/* Roast video — vertical reel */}
+            <RoastVideo />
 
             {/* Quality & Commitment — CoffMeter showcase */}
             <section className="bg-coffee-50 py-16">
