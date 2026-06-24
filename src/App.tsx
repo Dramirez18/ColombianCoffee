@@ -159,6 +159,8 @@ function App() {
                     <img
                       src="/products/calidad-humedad-densidad.jpg"
                       alt="Quality control — CoffMeter measuring moisture (10.9%) and density (797 g/L) of our green coffee"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full max-w-md mx-auto drop-shadow-xl rounded-2xl cursor-zoom-in hover:scale-[1.02] transition-transform"
                       onClick={() => setLightboxProduct({
                         ...(activeProducts[0] || PRODUCTS[0]),
@@ -314,8 +316,10 @@ function App() {
 
             <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-8">
               <img
-                src="/hero/plantacion-cordillera.png"
+                src="/hero/plantacion-cordillera.webp"
                 alt="Coffee plantation at sunrise in the Colombian cordillera"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 md:h-80 object-cover"
               />
               <div className="p-8">

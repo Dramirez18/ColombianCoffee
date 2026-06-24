@@ -71,7 +71,7 @@ export default function AuthModal({ lang, isOpen, onClose, onLogin }: AuthModalP
               <X className="w-5 h-5" />
             </button>
 
-            <img src="/logo-entre.png" alt="Entre Cafés Colombianos" className="w-24 h-24 object-contain rounded-full bg-cream p-1.5 mx-auto mb-4 drop-shadow-xl ring-2 ring-gold-400/40" />
+            <img src="/logo-entre.webp" alt="Entre Cafés Colombianos" width={96} height={96} loading="lazy" decoding="async" className="w-24 h-24 object-contain rounded-full bg-cream p-1.5 mx-auto mb-4 drop-shadow-xl ring-2 ring-gold-400/40" />
             <h2 className="text-2xl font-display font-bold text-white mb-1">
               {isRegister ? t(lang, 'auth_register') : 'Welcome Back'}
             </h2>

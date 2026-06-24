@@ -52,6 +52,8 @@ export default function ProductCard({ product, lang, onZoom }: ProductCardProps)
         <img
           src={product.image}
           alt={product.name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-coffee-900/0 group-hover:bg-coffee-900/15 transition-colors" />

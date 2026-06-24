@@ -11,7 +11,7 @@ interface HeroCarouselProps {
 const HERO_SLIDES = [
   // OUR plantation in the Colombian cordillera (real photo)
   {
-    image: '/hero/plantacion-cordillera.png',
+    image: '/hero/plantacion-cordillera.webp',
     overlay: 'from-coffee-900/70 to-coffee-900/30',
   },
   // OUR green coffee — Lot #84 (real photo)
@@ -55,6 +55,9 @@ export default function HeroCarousel({ lang, onExplore }: HeroCarouselProps) {
           <img
             src={slide.image}
             alt="Colombian Coffee"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchPriority={i === 0 ? 'high' : 'low'}
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className={`absolute inset-0 bg-gradient-to-r ${slide.overlay}`} />

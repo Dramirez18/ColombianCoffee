@@ -36,7 +36,7 @@ export default function Navbar({
             className="flex items-center gap-3 cursor-pointer group shrink-0"
             onClick={() => setActiveTab('home')}
           >
-            <img src="/logo-entre.png" alt="Entre Cafés Colombianos" className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-full bg-cream/95 p-0.5 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all" />
+            <img src="/logo-entre.webp" alt="Entre Cafés Colombianos" width={56} height={56} fetchPriority="high" className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-full bg-cream/95 p-0.5 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all" />
             <div className="flex flex-col leading-none">
               <span className="text-[10px] uppercase tracking-[0.25em] text-gold-300 font-medium">Entre Cafés</span>
               <span className="text-base font-display font-bold text-gold-400 -mt-0.5">Colombianos</span>
