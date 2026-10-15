@@ -1,6 +1,8 @@
 export type UserType = 'retail' | 'wholesale';
 
-export type Language = 'en' | 'nl' | 'de' | 'fr' | 'sv';
+// 'en' and 'es' are fully translated and pre-rendered as static pages.
+// nl/de/fr/sv keep the original UI strings and fall back to English elsewhere.
+export type Language = 'en' | 'es' | 'nl' | 'de' | 'fr' | 'sv';
 
 export type RoastLevel = 'green' | 'medium' | 'medium-high' | 'decaf';
 
@@ -69,4 +71,6 @@ export interface OrderItem {
   weight: string;
 }
 
-export type Tab = 'home' | 'products' | 'about' | 'profile' | 'admin';
+// Public pages get their own URL and are pre-rendered (see router.ts).
+// 'profile' and 'admin' are client-only legacy views.
+export type Tab = 'home' | 'green' | 'products' | 'export' | 'faq' | 'about' | 'contact' | 'profile' | 'admin';

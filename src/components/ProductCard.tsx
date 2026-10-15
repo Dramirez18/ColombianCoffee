@@ -1,6 +1,7 @@
 import { Leaf, ZoomIn, MessageCircle, Mail } from 'lucide-react';
 import { Product, Language } from '../types';
 import { t } from '../i18n';
+import { content } from '../content';
 import { COMPANY } from '../constants';
 
 interface ProductCardProps {
@@ -24,24 +25,24 @@ const ROAST_KEY: Record<string, string> = {
 };
 
 export default function ProductCard({ product, lang, onZoom }: ProductCardProps) {
+  const c = content(lang).common;
+  const es = lang === 'es';
+
   const inquirySubject = encodeURIComponent(
-    `Inquiry — ${product.name} (Entre Cafés Colombianos)`
+    es ? `Consulta — ${product.name} (Entre Cafés Colombianos)` : `Inquiry — ${product.name} (Entre Cafés Colombianos)`,
   );
   const inquiryBody = encodeURIComponent(
-    `Hello,\n\nI'm interested in your "${product.name}".\n\n` +
-    `Quantity / sample size: \n` +
-    `Destination country: \n` +
-    `Preferred Incoterm (FOB / CIF): \n` +
-    `Timeline: \n\n` +
-    `Thanks.`
+    es
+      ? `Hola,\n\nMe interesa "${product.name}".\n\nCantidad / tamaño de muestra: \nPaís de destino: \nIncoterm preferido (FOB / CIF): \nFecha: \n\nGracias.`
+      : `Hello,\n\nI'm interested in your "${product.name}".\n\nQuantity / sample size: \nDestination country: \nPreferred Incoterm (FOB / CIF): \nTimeline: \n\nThanks.`,
   );
   const mailtoLink = `mailto:${COMPANY.contact.email}?subject=${inquirySubject}&body=${inquiryBody}`;
   const whatsappLink = `${COMPANY.contact.whatsappLink}?text=${encodeURIComponent(
-    `Hi! I'd like info about: ${product.name}`
+    es ? `Hola, quiero información sobre: ${product.name}` : `Hi! I'd like info about: ${product.name}`,
   )}`;
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col">
+    <article className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col">
       {/* Image — clickable for zoom */}
       <button
         type="button"
@@ -74,46 +75,37 @@ export default function ProductCard({ product, lang, onZoom }: ProductCardProps)
 
       {/* Content */}
       <div className="p-5 flex-1 flex flex-col">
-        <h3 className="font-display text-lg font-bold text-coffee-900 mb-1">
-          {product.name}
-        </h3>
-        <p className="text-sm text-coffee-500 mb-3 line-clamp-3">
-          {product.description}
-        </p>
+        <h3 className="font-display text-lg font-bold text-coffee-900 mb-1">{product.name}</h3>
+        <p className="text-sm text-coffee-500 mb-3">{product.description}</p>
 
         {/* Flavor Notes */}
         <div className="flex flex-wrap gap-1 mb-4">
-          {product.flavorNotes.slice(0, 4).map((note) => (
-            <span
-              key={note}
-              className="text-xs bg-coffee-50 text-coffee-600 px-2 py-0.5 rounded-full"
-            >
+          {product.flavorNotes.slice(0, 5).map((note) => (
+            <span key={note} className="text-xs bg-coffee-50 text-coffee-600 px-2 py-0.5 rounded-full">
               {note}
             </span>
           ))}
         </div>
 
-        {/* Specs — wholesale focused */}
-        <div className="grid grid-cols-2 gap-2 text-xs text-coffee-600 mb-4 pb-4 border-b border-coffee-100">
+        {/* Specs */}
+        <dl className="grid grid-cols-2 gap-2 text-xs text-coffee-600 mb-4 pb-4 border-b border-coffee-100">
           <div>
-            <span className="block text-[10px] uppercase tracking-wider text-coffee-400">Altitude</span>
-            <span className="font-semibold">{product.altitude}</span>
+            <dt className="block text-[10px] uppercase tracking-wider text-coffee-400">{c.altitude}</dt>
+            <dd className="font-semibold">{product.altitude}</dd>
           </div>
           <div>
-            <span className="block text-[10px] uppercase tracking-wider text-coffee-400">Process</span>
-            <span className="font-semibold">{product.process}</span>
+            <dt className="block text-[10px] uppercase tracking-wider text-coffee-400">{c.process}</dt>
+            <dd className="font-semibold">{product.process}</dd>
           </div>
           <div className="col-span-2">
-            <span className="block text-[10px] uppercase tracking-wider text-coffee-400">Sample size</span>
-            <span className="font-semibold">{product.weight}</span>
+            <dt className="block text-[10px] uppercase tracking-wider text-coffee-400">{c.sampleSize}</dt>
+            <dd className="font-semibold">{product.weight}</dd>
           </div>
-        </div>
+        </dl>
 
-        {/* CTAs — Contact for pricing */}
+        {/* CTAs */}
         <div className="mt-auto space-y-2">
-          <p className="text-[11px] text-coffee-500 italic mb-2">
-            Wholesale — pricing on request based on origin lot, volume and Incoterm.
-          </p>
+          <p className="text-[11px] text-coffee-500 italic mb-2">{c.pricingNote}</p>
           <div className="grid grid-cols-2 gap-2">
             <a
               href={whatsappLink}
@@ -122,18 +114,18 @@ export default function ProductCard({ product, lang, onZoom }: ProductCardProps)
               className="flex items-center justify-center gap-1.5 bg-green-600 hover:bg-green-500 text-white px-3 py-2.5 rounded-full text-xs font-semibold transition-colors"
             >
               <MessageCircle className="w-3.5 h-3.5" />
-              WhatsApp
+              {c.whatsapp}
             </a>
             <a
               href={mailtoLink}
               className="flex items-center justify-center gap-1.5 bg-coffee-800 hover:bg-coffee-700 text-white px-3 py-2.5 rounded-full text-xs font-semibold transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />
-              Email
+              {c.email}
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

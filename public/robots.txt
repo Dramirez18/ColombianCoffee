@@ -1,0 +1,36 @@
+# Entre Cafés Colombianos — www.entrecafescolombianos.coffee
+# All pages are public B2B information. Search engines and AI assistants are welcome.
+
+User-agent: *
+Allow: /
+Disallow: /profile
+Disallow: /admin
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.entrecafescolombianos.coffee/sitemap.xml

@@ -19,3 +19,6 @@ generar_*.py
 
 # PRIVATE — Internal docs and notes
 CLAUDE.md
+
+# SSR bundle used only by scripts/prerender.mjs during the build
+dist-ssr
