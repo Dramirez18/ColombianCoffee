@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { User, Menu, X, Globe, Shield, Mail, MessageCircle } from 'lucide-react';
+import { User, Menu, X, Globe, Shield, Mail, MessageCircle, LogIn, LogOut } from 'lucide-react';
 import { Language, Tab, User as UserType } from '../types';
 import { t, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '../i18n';
 import { COMPANY } from '../constants';
@@ -27,10 +27,16 @@ export default function Navbar({
     { key: 'green', label: t(lang, 'nav_green') },
     { key: 'products', label: t(lang, 'nav_products') },
     { key: 'export', label: t(lang, 'nav_export') },
+    { key: 'shipping', label: t(lang, 'nav_shipping') },
     { key: 'faq', label: t(lang, 'nav_faq') },
     { key: 'about', label: t(lang, 'nav_about') },
     { key: 'contact', label: t(lang, 'nav_contact') },
   ];
+
+  // Con sesión iniciada (área heredada) hay hasta tres íconos más a la derecha: el menú completo
+  // necesita más ancho, así que el hamburguesa se mantiene hasta 2xl.
+  const desktopNav = user ? 'hidden 2xl:flex' : 'hidden xl:flex';
+  const mobileOnly = user ? '2xl:hidden' : 'xl:hidden';
 
   const go = (tab: Tab) => {
     navigate(tab);
@@ -39,7 +45,7 @@ export default function Navbar({
 
   return (
     <nav className="bg-coffee-900 text-white sticky top-0 z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl 2xl:max-w-[96rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
           <Link tab="home" lang={lang} navigate={navigate} className="flex items-center gap-3 group shrink-0" ariaLabel={COMPANY.name}>
@@ -52,8 +58,8 @@ export default function Navbar({
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-5 xl:gap-7 mx-auto">
-            {navItems.slice(0, 6).map((item) => (
+          <div className={`${desktopNav} items-center gap-5 2xl:gap-7 mx-auto`}>
+            {navItems.filter((item) => item.key !== 'contact').map((item) => (
               <Link
                 key={item.key}
                 tab={item.key}
@@ -78,7 +84,7 @@ export default function Navbar({
               className="hidden sm:flex items-center gap-2 bg-green-600/90 hover:bg-green-500 text-white px-3 py-2 rounded-full text-xs font-semibold transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
-              <span className="hidden xl:inline">WhatsApp</span>
+              <span className="hidden 2xl:inline">WhatsApp</span>
             </a>
 
             <a
@@ -87,7 +93,7 @@ export default function Navbar({
               className="hidden sm:flex items-center gap-2 bg-coffee-800 hover:bg-coffee-700 text-coffee-100 px-3 py-2 rounded-full text-xs font-semibold transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span className="hidden xl:inline">Email</span>
+              <span className="hidden 2xl:inline">Email</span>
             </a>
 
             {/* Language Selector */}
@@ -140,17 +146,22 @@ export default function Navbar({
                 )}
                 <button
                   onClick={onLogout}
-                  className="text-xs text-coffee-300 hover:text-red-400 transition-colors hidden sm:block"
+                  aria-label={t(lang, 'nav_logout')}
+                  title={t(lang, 'nav_logout')}
+                  className="hidden sm:block text-coffee-300 hover:text-red-400 transition-colors p-2"
                 >
-                  {t(lang, 'nav_logout')}
+                  <LogOut className="w-5 h-5" />
                 </button>
               </div>
             ) : (
               <button
                 onClick={onAuthClick}
-                className="hidden xl:block bg-gold-500 hover:bg-gold-400 text-coffee-900 px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                aria-label={t(lang, 'nav_login')}
+                title={t(lang, 'nav_login')}
+                className="hidden xl:flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-coffee-900 p-2 2xl:px-4 rounded-full text-sm font-semibold transition-colors"
               >
-                {t(lang, 'nav_login')}
+                <LogIn className="w-4 h-4" />
+                <span className="hidden 2xl:inline">{t(lang, 'nav_login')}</span>
               </button>
             )}
 
@@ -159,7 +170,7 @@ export default function Navbar({
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Menu"
               aria-expanded={mobileMenuOpen}
-              className="lg:hidden text-coffee-200 p-2"
+              className={`${mobileOnly} text-coffee-200 p-2`}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -168,21 +179,33 @@ export default function Navbar({
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden pb-4 border-t border-coffee-700 mt-2 pt-4 space-y-1">
+          <div className={`${mobileOnly} pb-4 border-t border-coffee-700 mt-2 pt-4 space-y-1`}>
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.key}
-                href={undefined}
-                onClick={() => go(item.key)}
-                className={`block w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
+                tab={item.key}
+                lang={lang}
+                navigate={go}
+                className={`block w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
                   activeTab === item.key
                     ? 'bg-coffee-700 text-gold-400'
                     : 'text-coffee-200 hover:bg-coffee-800'
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (user) onLogout();
+                else onAuthClick();
+              }}
+              className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg text-coffee-200 hover:bg-coffee-800 transition-colors"
+            >
+              {user ? <LogOut className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
+              {t(lang, user ? 'nav_logout' : 'nav_login')}
+            </button>
             <div className="grid grid-cols-2 gap-2 pt-3 mt-3 border-t border-coffee-800">
               <a
                 href={COMPANY.contact.whatsappLink}

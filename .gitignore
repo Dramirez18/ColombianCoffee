@@ -22,3 +22,6 @@ CLAUDE.md
 
 # SSR bundle used only by scripts/prerender.mjs during the build
 dist-ssr
+
+# PRIVATE — tarifario DHL y parámetros del cotizador (en Vercel: variable PRICING_CONFIG)
+config/*.local.json

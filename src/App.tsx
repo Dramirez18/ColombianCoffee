@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import GreenCoffee from './pages/GreenCoffee';
 import Products from './pages/Products';
 import Export from './pages/Export';
+import Shipping from './pages/Shipping';
 import Faq from './pages/Faq';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -163,6 +164,7 @@ function App({ initialPath, initialLang }: AppProps) {
           <Products {...pageProps} products={activeProducts} onZoom={setLightboxProduct} />
         )}
         {activeTab === 'export' && <Export {...pageProps} />}
+        {activeTab === 'shipping' && <Shipping {...pageProps} />}
         {activeTab === 'faq' && <Faq {...pageProps} />}
         {activeTab === 'about' && <About {...pageProps} />}
         {activeTab === 'contact' && <Contact {...pageProps} />}

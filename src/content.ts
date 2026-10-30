@@ -1,5 +1,6 @@
 import { Language, Product } from './types';
 import { PublicTab } from './router';
+import type { ContainerProductGroup, ContainerProductId, ShippingProductGroup, ShippingProductId } from './shipping';
 
 /**
  * Everything a buyer (or a crawler) needs to know, as plain facts.
@@ -73,6 +74,74 @@ export interface SiteContent {
     complianceTitle: string;
     compliance: TitledText[];
   };
+  shipping: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    formTitle: string;
+    modeLabel: string;
+    modes: Record<'courier' | 'container', { title: string; detail: string }>;
+    container: {
+      coffeeLabel: string;
+      groups: Record<ContainerProductGroup, string>;
+      products: Record<ContainerProductId, string>;
+      bagsLabel: string;
+      bagsHint: string; // {min} {minKg} {full} {fullKg}
+      idle: string;
+      belowMin: string; // {min} {minKg}
+      overLimit: string; // {full}
+      perKgLine: string;
+      perLbLine: string;
+      totalLine: string; // {bags} {kg}
+      fullNote: string;
+      partialNote: string; // {full}
+      disclaimer: string;
+      included: string[];
+      notIncluded: string[];
+      paymentNote: string;
+      whatsappQuote: string; // {bags} {kg} {product} {total} {perKg}
+      whatsappNoPrice: string; // {bags} {product}
+      emailSubject: string; // {bags} {product}
+    };
+    countryLabel: string;
+    countryPlaceholder: string;
+    otherCountry: string;
+    productLabel: string;
+    groups: Record<ShippingProductGroup, string>;
+    products: Record<ShippingProductId, { name: string; detail: string; inText: string }>; // inText: dentro de una frase
+    kgLabel: string;
+    kgHint: string; // {min} {max}
+    resultTitle: string;
+    idle: string;
+    loading: string;
+    error: string;
+    belowMin: string; // {min}
+    overLimit: string; // {max}
+    otherCountryText: string;
+    coffeeLine: string; // {kg} {price}
+    prepLine: string;
+    freightLine: string;
+    totalLine: string;
+    perKgLine: string;
+    boxesLine: string; // {n} {kg}
+    disclaimer: string;
+    includedTitle: string;
+    packing: Record<ShippingProductGroup, string>;
+    included: string[];
+    notIncludedTitle: string;
+    notIncluded: string[];
+    paymentNote: string;
+    notesTitle: string;
+    notesLead: string;
+    countryNotes: Record<string, string>;
+    ctaTitle: string;
+    ctaText: string;
+    whatsappQuote: string; // {kg} {product} {country} {total}
+    whatsappNoPrice: string; // {kg} {product} {country}
+    whatsappOther: string; // {kg} {product}
+    whatsappGeneric: string;
+    emailSubject: string; // {kg} {product}
+  };
   faq: { eyebrow: string; title: string; lead: string; items: Faq[] };
   about: {
     title: string;
@@ -135,6 +204,11 @@ const en: SiteContent = {
       title: 'Export & Logistics — Samples, Pallets, Containers, Incoterms, EUDR | Entre Cafés Colombianos',
       description:
         'How we ship Colombian coffee: DHL Express for samples and lots up to 60 kg, air cargo pallets, 20\' containers (275 × 70 kg) FOB Cartagena or CIF. Documents, FNC/Almacafé quality control, EU tariffs and EUDR traceability explained.',
+    },
+    shipping: {
+      title: 'Shipping Estimate — Colombian Coffee Delivered by DHL Express | Entre Cafés Colombianos',
+      description:
+        'Estimate the delivered price of Colombian green coffee (10–60 kg) or roasted coffee (10–50 kg) by DHL Express to the US, Spain, Germany, France, the Netherlands, Belgium, Sweden, Poland or the UAE: coffee, packing and freight in one USD total. Also 20\' containers of green coffee, FOB Cartagena.',
     },
     faq: {
       title: 'FAQ — Buying Green Coffee from Colombia | Entre Cafés Colombianos',
@@ -281,14 +355,14 @@ const en: SiteContent = {
     ],
     pricingTitle: 'How we price',
     pricingText:
-      'Container business is priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port — the way Colombian coffee is traded. Samples and small air lots are priced per kilogram, freight shown as its own line. We do not hold an open price list for a market that moves daily; ask and you get a dated offer sheet.',
+      'Container business is priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port — the way Colombian coffee is traded. Courier lots of 10–60 kg are priced per kilogram, with freight as its own line, and our online shipping estimator gives you the delivered price instantly. For a 20\' container the estimator gives an indicative FOB Cartagena price; because the market moves daily, the firm price goes in a dated offer sheet.',
   },
 
   products: {
     eyebrow: 'Wholesale catalogue',
     title: 'Products',
     lead:
-      'Green coffee is our core business; roasted and ground coffee are supplied for distributors, private label and the Colombian market. Pricing on request by origin lot, volume and Incoterm.',
+      'Green coffee is our core business; roasted and ground coffee are supplied for distributors, private label and the Colombian market. Courier lots have an instant delivered estimate; containers are priced on request by origin lot, volume and Incoterm.',
     items: [
       {
         id: 'green-specialty',
@@ -311,14 +385,14 @@ const en: SiteContent = {
         id: 'green-commercial',
         name: 'Commercial green coffee — Excelso / UGQ, SCA 80–83',
         description:
-          'Clean, sound Colombian green coffee for blends, private label and volume roasting. Excelso or UGQ preparation, screen 14+, fully washed, moisture 10–12%. Priced against the market differential, FOB Cartagena or CIF. From a half container (10 t, 143 bags) to full 20\' containers (275 bags × 70 kg).',
+          'Clean, sound Colombian green coffee for blends, private label and volume roasting. Excelso or UGQ preparation, screen 14+, fully washed, moisture 10–12%. Containers are priced against the market differential, FOB Cartagena or CIF; courier lots of 10–60 kg have a per-kilogram price in our online shipping estimator. By sea, from a half container (10 t, 143 bags) to full 20\' containers (275 bags × 70 kg).',
         origin: 'Departmental blend — Huila, Cauca, Valle del Cauca, Quindío',
         roastLevel: 'green',
         price: 0,
         wholesaleDiscount: 0,
         image: IMG_GREEN,
         stock: 10000,
-        weight: 'From 10 t (half 20\') · 19.25 t per full 20\' container',
+        weight: 'Courier lots 10–60 kg · by sea from 10 t (half 20\') · 19.25 t per full 20\' container',
         active: true,
         flavorNotes: ['Caramel', 'Chocolate', 'Mild citrus'],
         altitude: '1,300–1,900 masl',
@@ -382,13 +456,13 @@ const en: SiteContent = {
       {
         title: 'Terms and routing',
         rows: [
-          { label: 'Incoterms 2020', value: 'EXW Bogotá · FCA Bogotá (courier and air) · FOB Cartagena or Santa Marta · CFR / CIF destination port.' },
+          { label: 'Incoterms 2020', value: 'DAP your address (courier lots, DHL Express) · EXW / FCA Bogotá (courier and air) · FOB Cartagena or Santa Marta · CFR / CIF destination port.' },
           { label: 'Ports of loading', value: 'Cartagena (Contecar) or Santa Marta on the Caribbean — direct services to northern Europe and the Mediterranean.' },
           { label: 'Destinations quoted', value: 'Gothenburg, Hamburg, Antwerp, Rotterdam, Valencia, Cape Town, Walvis Bay, Ashdod, Jebel Ali and US East Coast, among others.' },
           { label: 'Transit', value: 'Courier 5–8 business days. Sea freight 18–35 days depending on route and transhipment.' },
           { label: 'Lead time', value: 'Courier lots: 1–2 weeks from payment. Containers: typically 4–6 weeks from contract to loading (milling, Almacafé inspection and booking).' },
           { label: 'Payment', value: 'Samples and courier lots: in advance by bank transfer. Containers: deposit on contract with the balance against documents, or a confirmed letter of credit. Invoiced in USD.' },
-          { label: 'Pricing', value: 'Containers: NY "C" plus an agreed differential, fixed at contract. Courier lots: per kilogram, freight as its own line. Every offer carries its own validity period.' },
+          { label: 'Pricing', value: 'Containers: NY "C" plus an agreed differential, fixed at contract, with an indicative FOB Cartagena price for a 20\' container in the online estimator. Courier lots: per kilogram, freight as its own line; the online shipping estimator gives the delivered price instantly. Every offer carries its own validity period.' },
         ],
       },
     ],
@@ -427,6 +501,141 @@ const en: SiteContent = {
     ],
   },
 
+  shipping: {
+    eyebrow: 'Shipping estimate',
+    title: 'What will it cost to get Colombian coffee to your door?',
+    lead:
+      'Pick your country, the coffee and the quantity. You get the delivered price — coffee, packing and DHL Express freight — in US dollars, instantly. For courier lots of 10 to 60 kg of green or 10 to 50 kg of roasted coffee, and for 20\' containers of green coffee FOB Cartagena.',
+    formTitle: 'Your shipment',
+    modeLabel: 'Shipment type',
+    modes: {
+      courier: { title: 'Courier lot', detail: '10–60 kg green or 10–50 kg roasted · DHL Express to your door (DAP)' },
+      container: { title: '20\' container', detail: '100–275 bags of 70 kg · green coffee · FOB Cartagena' },
+    },
+    container: {
+      coffeeLabel: 'Green coffee',
+      groups: { standard: 'Washed and decaf', process: 'Honey, natural and fermented', variety: 'Rare varieties' },
+      products: {
+        'washed-79': 'Commercial washed · SCA 79',
+        'washed-81-antioquia': 'Washed · SCA 81 · Antioquia',
+        'washed-82': 'Washed · SCA 82',
+        'washed-84-antioquia': 'Washed · SCA 84 · Antioquia',
+        'decaf-84': 'Decaf (washed) · SCA 84',
+        'honey-yellow-85': 'Yellow honey · SCA 85.5',
+        'fermented-85': 'Extended fermentation · SCA 85.5',
+        'honey-red-86': 'Red honey · SCA 86',
+        'fermented-86': 'Extended fermentation · SCA 86+',
+        'honey-black-86': 'Black honey · SCA 86.5',
+        'natural-86': 'Natural · SCA 86.5',
+        'natural-87': 'Natural · SCA 87',
+        'chiroso-87': 'Chiroso variety, washed · SCA 87',
+        'pink-bourbon-87': 'Pink Bourbon, washed · SCA 87.5',
+        'geisha-88': 'Geisha, honey · SCA 88.5',
+        'wush-wush-89': 'Wush Wush, natural · SCA 89',
+      },
+      bagsLabel: 'Quantity (70 kg bags)',
+      bagsHint: 'From {min} bags ({minKg} kg) to {full} bags ({fullKg} kg), a full 20\' container. The fuller the container, the lower the price per kilogram.',
+      idle: 'Choose a coffee and the number of bags to see the FOB price.',
+      belowMin: 'Container prices start at {min} bags ({minKg} kg). For smaller lots, use the courier option or write to us.',
+      overLimit: 'Above {full} bags you need more than one 20\' container — write to us for a multi-container quote.',
+      perKgLine: 'Price per kilogram, FOB Cartagena',
+      perLbLine: 'Price per pound',
+      totalLine: 'Total FOB Cartagena · {bags} bags ({kg} kg)',
+      fullNote: 'Full 20\' container: the best price per kilogram.',
+      partialNote: 'Partial container. Fill it to {full} bags for the best price per kilogram — you can mix coffees to complete it.',
+      disclaimer:
+        'Indicative estimate in US dollars, not a binding offer. Green coffee prices move with the market every day; we confirm the price and its validity in a dated offer sheet.',
+      included: [
+        'Green coffee in 70 kg export bags (hermetic liner on request)',
+        'Colombian export file: FNC coffee contribution, Almacafé quality certificate, customs export declaration and certificate of origin',
+        'Inland transport to Cartagena, container stuffing, port handling and bill of lading',
+        'FOB Cartagena (Incoterms 2020): the coffee is delivered on board at Cartagena',
+      ],
+      notIncluded: [
+        'Ocean freight and insurance — we quote CFR / CIF to your port on request',
+        'Destination port charges, import duties and taxes',
+        'Any registration your country requires from the importer — see the import notes below',
+      ],
+      paymentNote:
+        'Deposit on contract and balance against documents, or a confirmed letter of credit. Typically 4–6 weeks from contract to loading. For EU-bound lots, EUDR farm geolocation is confirmed lot by lot in the offer.',
+      whatsappQuote: 'Hi, I would like a quote for {bags} bags ({kg} kg) of green coffee, {product}, FOB Cartagena. Website estimate: {total} ({perKg}/kg).',
+      whatsappNoPrice: 'Hi, I would like a quote for {bags} bags of green coffee, {product}, FOB Cartagena.',
+      emailSubject: 'Container quote — {bags} bags, {product}',
+    },
+    countryLabel: 'Destination country',
+    countryPlaceholder: 'Select a country…',
+    otherCountry: 'Another country',
+    productLabel: 'Coffee',
+    groups: { green: 'Green coffee', roasted: 'Roasted coffee' },
+    products: {
+      'green-basic': { name: 'Basic green coffee', detail: 'Excelso UGQ · screen 14+ · SCA 80–83 · for blends', inText: 'basic green coffee' },
+      'green-excelso': { name: 'Excelso green coffee', detail: 'Excelso EP · screen 14+ · SCA 84+ · fully washed', inText: 'Excelso green coffee' },
+      'green-supremo': { name: 'Supremo green coffee', detail: 'Supremo · screen 17/18 · fully washed', inText: 'Supremo green coffee' },
+      'roasted-castillo': { name: 'Castillo roasted coffee', detail: 'Whole bean · medium roast · 1 kg valve bags, unbranded', inText: 'Castillo roasted coffee' },
+      'roasted-bourbon': { name: 'Bourbon roasted coffee', detail: 'Bourbon varieties · whole bean · 1 kg valve bags, unbranded', inText: 'Bourbon roasted coffee' },
+      'roasted-fermented': { name: 'Special-fermentation roasted coffee', detail: 'Coconut, strawberry, tobacco and other fermentations · whole bean · 1 kg valve bags', inText: 'special-fermentation roasted coffee' },
+    },
+    kgLabel: 'Quantity (kg, net)',
+    kgHint: 'From {min} to {max} kg for this coffee. For samples of 250 g – 1 kg, write to us.',
+    resultTitle: 'Your estimate',
+    idle: 'Select a destination and a quantity to see the delivered price.',
+    loading: 'Calculating…',
+    error: 'We could not calculate the estimate right now. Write to us and we will quote it by hand.',
+    belowMin: 'The minimum per shipment is {min} kg. For samples of 250 g – 1 kg, write to us on WhatsApp.',
+    overLimit:
+      'Above {max} kg this coffee no longer ships as a courier lot. Pallets by air cargo and containers by sea are quoted case by case — write to us.',
+    otherCountryText:
+      'We ship worldwide with DHL Express. Tell us your country and quantity and we will send you an exact quote.',
+    coffeeLine: 'Coffee · {kg} kg × {price}/kg',
+    prepLine: 'Packing and export preparation',
+    freightLine: 'DHL Express freight, door to door',
+    totalLine: 'Total delivered (DAP)',
+    perKgLine: 'Per kilogram, delivered',
+    boxesLine: 'Ships in {n} box(es), about {kg} kg gross.',
+    disclaimer:
+      'Indicative estimate in US dollars, not a binding offer. Our prices are set in Colombian pesos and converted at the official exchange rate of the day, and the DHL fuel surcharge changes every week; we confirm the final price in a written proforma.',
+    includedTitle: 'What the price includes',
+    packing: {
+      green: 'The coffee packed for export: GrainPro-type hermetic liners inside boxes of up to 24 kg',
+      roasted: 'The coffee packed for export: 1 kg bags with a one-way degassing valve inside boxes of up to 24 kg',
+    },
+    included: [
+      'Colombian export paperwork under the FNC small-quantity regime, commercial invoice and packing list',
+      'DHL Express Worldwide freight, door to door and tracked — 5–8 business days',
+      'Delivered at place (DAP): the coffee arrives at your address',
+    ],
+    notIncludedTitle: 'What it does not include',
+    notIncluded: [
+      'Import duties, VAT and customs-clearance fees at destination — the importer pays them',
+      'The DHL remote-area surcharge, if your postcode has one — we check it before the proforma',
+      'Any registration your country requires from the importer — see the import notes below',
+      'Bank fees on your transfer',
+    ],
+    paymentNote:
+      'Payment in advance by bank transfer, invoiced in USD. Lead time 1–2 weeks from payment (for the United States, once the FDA registration is confirmed).',
+    notesTitle: 'Import notes by country',
+    notesLead: 'What the importer needs on arrival. Selecting a country above opens its note.',
+    countryNotes: {
+      US: 'Coffee for the United States must be roasted and packed — or, for green coffee, milled and stored — in a facility registered with the FDA. We ship to the US only once that registration is confirmed for your lot, and we give you the date in the proforma. Every shipment needs FDA Prior Notice, which we arrange with you or your customs broker. As importer you must comply with the Foreign Supplier Verification Program (FSVP) and have a DUNS number. Roasted coffee in retail bags needs English labels with the net weight in ounces and grams. US import duty on green and roasted coffee is 0%.',
+      DE: 'Green coffee enters the EU at 0% duty; roasted coffee pays 7.5% unless the EU–Colombia origin declaration applies, which we issue. Import VAT is charged at the German rate and paid by the importer. To import commercially you need an EORI number and, to resell, registration as a food business with the local authority.',
+      BE: 'Green coffee enters the EU at 0% duty; roasted coffee pays 7.5% unless the EU–Colombia origin declaration applies, which we issue. Import VAT is charged at the Belgian rate and paid by the importer. To import commercially you need an EORI number and, to resell, registration as a food business with the national food authority.',
+      ES: 'Green coffee enters the EU at 0% duty; roasted coffee pays 7.5% unless the EU–Colombia origin declaration applies, which we issue. Spain charges import VAT of about 10% on coffee and applies an official food-import control (AGRIM) that DHL handles. To resell you need an EORI number and a food-business registration (RGSEAA).',
+      FR: 'Green coffee enters the EU at 0% duty; roasted coffee pays 7.5% unless the EU–Colombia origin declaration applies, which we issue. Import VAT is charged at the French rate and paid by the importer. To import commercially you need an EORI number and, to resell, registration as a food business with the local authority.',
+      NL: 'Green coffee enters the EU at 0% duty; roasted coffee pays 7.5% unless the EU–Colombia origin declaration applies, which we issue. Import VAT is charged at the Dutch rate and paid by the importer. To import commercially you need an EORI number and, to resell, registration as a food business with the national food authority.',
+      PL: 'Green coffee enters the EU at 0% duty; roasted coffee pays 7.5% unless the EU–Colombia origin declaration applies, which we issue. Import VAT is charged at the Polish rate and paid by the importer. To import commercially you need an EORI number and, to resell, registration as a food business with the sanitary authority.',
+      SE: 'Green coffee enters the EU at 0% duty; roasted coffee pays 7.5% unless the EU–Colombia origin declaration applies, which we issue. Import VAT is charged at the Swedish rate and paid by the importer. To import commercially you need an EORI number and, to resell, registration as a food business with the local authority.',
+      AE: 'In the UAE the importer normally needs a food-trade licence and has to register each product and label with the local food authority (in Abu Dhabi, ADAFSA), with Arabic labelling. Check this before you order.',
+    },
+    ctaTitle: 'Ready to order, or need an exact quote?',
+    ctaText:
+      'Send this estimate to David on WhatsApp or by email and we will reply with a written proforma within 24 hours on business days.',
+    whatsappQuote: 'Hi, I would like a quote for {kg} kg of {product} delivered to {country}. Website estimate: {total} (DAP).',
+    whatsappNoPrice: 'Hi, I would like a quote for {kg} kg of {product} delivered to {country}.',
+    whatsappOther: 'Hi, I would like a shipping quote for {kg} kg of {product} to my country: ',
+    whatsappGeneric: 'Hi, I would like a shipping quote for Colombian coffee.',
+    emailSubject: 'Shipping quote — {kg} kg of {product}',
+  },
+
   faq: {
     eyebrow: 'Buyer questions',
     title: 'Frequently asked questions',
@@ -438,7 +647,7 @@ const en: SiteContent = {
       },
       {
         q: 'What is the minimum order?',
-        a: 'There is no minimum for samples (250 g – 1 kg). Courier lots run from around 10 kg up to 60 kg of green coffee. For sea freight we work from a half container (10 t, 143 bags of 70 kg) up to a full 20\' (275 bags, about 19.25 t) and multi-container contracts.',
+        a: 'There is no minimum for samples (250 g – 1 kg). Courier lots run from 10 kg up to 60 kg of green or 50 kg of roasted coffee. For sea freight we work from a half container (10 t, 143 bags of 70 kg) up to a full 20\' (275 bags, about 19.25 t) and multi-container contracts.',
       },
       {
         q: 'Do you send samples, and what do they cost?',
@@ -446,11 +655,11 @@ const en: SiteContent = {
       },
       {
         q: 'How do you set your prices?',
-        a: 'Containers are priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port. Courier lots are priced per kilogram. We do not publish a list price because the market moves daily; you get a dated offer sheet with its own validity.',
+        a: 'Containers are priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port. Our online estimator shows an indicative FOB Cartagena price for a 20\' container; because the market moves daily, the firm price goes in a dated offer sheet with its own validity. Courier lots (10–60 kg of green or 10–50 kg of roasted coffee) are priced per kilogram, and you can see an instant delivered (DAP) estimate at https://www.entrecafescolombianos.coffee/shipping-estimate.',
       },
       {
         q: 'Which Incoterms do you work with?',
-        a: 'EXW and FCA Bogotá for courier and air, FOB Cartagena or Santa Marta for sea, and CFR or CIF to your port when you want us to carry freight and insurance.',
+        a: 'DAP your address for courier lots (DHL Express, door to door), EXW and FCA Bogotá for courier and air on request, FOB Cartagena or Santa Marta for sea, and CFR or CIF to your port when you want us to carry freight and insurance.',
       },
       {
         q: 'Which ports do you ship from and to?',
@@ -537,7 +746,7 @@ const en: SiteContent = {
   },
 
   common: {
-    pricingNote: 'Wholesale — pricing on request by origin lot, volume and Incoterm.',
+    pricingNote: 'Courier lots: instant online shipping estimate · containers: pricing on request.',
     sampleSize: 'Sizes',
     altitude: 'Altitude',
     process: 'Process',
@@ -573,6 +782,11 @@ const es: SiteContent = {
       title: 'Exportación y logística — Muestras, pallets, contenedores, Incoterms, EUDR | Entre Cafés Colombianos',
       description:
         'Cómo despachamos café colombiano: DHL Express para muestras y lotes hasta 60 kg, pallets por carga aérea, contenedores de 20\' (275 × 70 kg) FOB Cartagena o CIF. Documentos, control de calidad FNC/Almacafé, aranceles UE y trazabilidad EUDR.',
+    },
+    shipping: {
+      title: 'Cotizador de envío — Café colombiano entregado por DHL Express | Entre Cafés Colombianos',
+      description:
+        'Calcule el precio puesto en destino de café colombiano verde (10–60 kg) o tostado (10–50 kg) por DHL Express a Estados Unidos, España, Alemania, Francia, Países Bajos, Bélgica, Suecia, Polonia o Emiratos: café, empaque y flete en un solo total en USD. También contenedores de 20\' de café verde, FOB Cartagena.',
     },
     faq: {
       title: 'Preguntas frecuentes — Comprar café verde de Colombia | Entre Cafés Colombianos',
@@ -719,14 +933,14 @@ const es: SiteContent = {
     ],
     pricingTitle: 'Cómo fijamos el precio',
     pricingText:
-      'El negocio de contenedores se cotiza sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto — como se comercia el café colombiano. Las muestras y los lotes aéreos pequeños se cotizan por kilogramo, con el flete como línea aparte. No mantenemos una lista de precios abierta para un mercado que se mueve a diario; pregunte y recibe una hoja de oferta con fecha.',
+      'El negocio de contenedores se cotiza sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto — como se comercia el café colombiano. Los lotes courier de 10 a 60 kg se cotizan por kilogramo, con el flete como línea aparte, y puede ver al instante un estimado puesto en destino en nuestro cotizador de envío. Para un contenedor de 20\' el cotizador da un precio indicativo FOB Cartagena; como el mercado se mueve a diario, el precio en firme va en una hoja de oferta con fecha.',
   },
 
   products: {
     eyebrow: 'Catálogo mayorista',
     title: 'Productos',
     lead:
-      'El café verde es nuestro negocio principal; el tostado y el molido los suministramos a distribuidores, marca propia y el mercado colombiano. Precio bajo solicitud según lote de origen, volumen e Incoterm.',
+      'El café verde es nuestro negocio principal; el tostado y el molido los suministramos a distribuidores, marca propia y el mercado colombiano. Los lotes courier tienen un estimado instantáneo puesto en destino; los contenedores se cotizan bajo solicitud según lote de origen, volumen e Incoterm.',
     items: [
       {
         id: 'green-specialty',
@@ -749,14 +963,14 @@ const es: SiteContent = {
         id: 'green-commercial',
         name: 'Café verde comercial — Excelso / UGQ, SCA 80–83',
         description:
-          'Café verde colombiano limpio y sano para mezclas, marca propia y tostión en volumen. Preparación Excelso o UGQ, malla 14+, lavado, humedad 10–12 %. Cotizado sobre el diferencial de mercado, FOB Cartagena o CIF. Desde medio contenedor (10 t, 143 sacos) hasta contenedores de 20\' completos (275 sacos × 70 kg).',
+          'Café verde colombiano limpio y sano para mezclas, marca propia y tostión en volumen. Preparación Excelso o UGQ, malla 14+, lavado, humedad 10–12 %. Los contenedores se cotizan sobre el diferencial de mercado, FOB Cartagena o CIF; los lotes courier de 10 a 60 kg tienen precio por kilogramo en nuestro cotizador de envío. Por mar, desde medio contenedor (10 t, 143 sacos) hasta contenedores de 20\' completos (275 sacos × 70 kg).',
         origin: 'Mezcla departamental — Huila, Cauca, Valle del Cauca, Quindío',
         roastLevel: 'green',
         price: 0,
         wholesaleDiscount: 0,
         image: IMG_GREEN,
         stock: 10000,
-        weight: 'Desde 10 t (medio 20\') · 19,25 t por contenedor de 20\' completo',
+        weight: 'Lotes courier de 10–60 kg · por mar desde 10 t (medio 20\') · 19,25 t por contenedor de 20\' completo',
         active: true,
         flavorNotes: ['Caramelo', 'Chocolate', 'Cítrico suave'],
         altitude: '1.300–1.900 msnm',
@@ -820,13 +1034,13 @@ const es: SiteContent = {
       {
         title: 'Términos y rutas',
         rows: [
-          { label: 'Incoterms 2020', value: 'EXW Bogotá · FCA Bogotá (courier y aéreo) · FOB Cartagena o Santa Marta · CFR / CIF puerto de destino.' },
+          { label: 'Incoterms 2020', value: 'DAP en su dirección (lotes courier, DHL Express) · EXW / FCA Bogotá (courier y aéreo) · FOB Cartagena o Santa Marta · CFR / CIF puerto de destino.' },
           { label: 'Puertos de cargue', value: 'Cartagena (Contecar) o Santa Marta, en el Caribe — servicios directos al norte de Europa y al Mediterráneo.' },
           { label: 'Destinos cotizados', value: 'Gotemburgo, Hamburgo, Amberes, Róterdam, Valencia, Ciudad del Cabo, Walvis Bay, Ashdod, Jebel Ali y costa este de EE. UU., entre otros.' },
           { label: 'Tránsito', value: 'Courier 5–8 días hábiles. Marítimo 18–35 días según ruta y transbordo.' },
           { label: 'Plazo de entrega', value: 'Lotes courier: 1–2 semanas desde el pago. Contenedores: normalmente 4–6 semanas de contrato a cargue (trilla, inspección de Almacafé y reserva).' },
           { label: 'Pago', value: 'Muestras y lotes courier: anticipado por transferencia bancaria. Contenedores: depósito al contrato y saldo contra documentos, o carta de crédito confirmada. Facturado en USD.' },
-          { label: 'Precio', value: 'Contenedores: "C" de Nueva York más diferencial acordado, fijado al contrato. Lotes courier: por kilogramo, flete como línea aparte. Cada oferta trae su propia vigencia.' },
+          { label: 'Precio', value: 'Contenedores: "C" de Nueva York más diferencial acordado, fijado al contrato, con un precio indicativo FOB Cartagena para un contenedor de 20\' en el cotizador. Lotes courier: por kilogramo, flete como línea aparte, con un estimado instantáneo puesto en destino en nuestro cotizador de envío. Cada oferta trae su propia vigencia.' },
         ],
       },
     ],
@@ -865,6 +1079,141 @@ const es: SiteContent = {
     ],
   },
 
+  shipping: {
+    eyebrow: 'Cotizador de envío',
+    title: '¿Cuánto cuesta llevar café colombiano hasta su puerta?',
+    lead:
+      'Elija su país, el café y la cantidad. Al instante ve el precio puesto en destino — café, empaque y flete DHL Express — en dólares. Para lotes courier de 10 a 60 kg de verde o de 10 a 50 kg de tostado, y para contenedores de 20\' de café verde FOB Cartagena.',
+    formTitle: 'Su envío',
+    modeLabel: 'Tipo de envío',
+    modes: {
+      courier: { title: 'Lote courier', detail: '10–60 kg de verde o 10–50 kg de tostado · DHL Express a su puerta (DAP)' },
+      container: { title: 'Contenedor de 20\'', detail: '100–275 sacos de 70 kg · café verde · FOB Cartagena' },
+    },
+    container: {
+      coffeeLabel: 'Café verde',
+      groups: { standard: 'Lavados y descafeinado', process: 'Honey, naturales y fermentados', variety: 'Variedades especiales' },
+      products: {
+        'washed-79': 'Comercial lavado · SCA 79',
+        'washed-81-antioquia': 'Lavado · SCA 81 · Antioquia',
+        'washed-82': 'Lavado · SCA 82',
+        'washed-84-antioquia': 'Lavado · SCA 84 · Antioquia',
+        'decaf-84': 'Descafeinado (lavado) · SCA 84',
+        'honey-yellow-85': 'Honey amarillo · SCA 85,5',
+        'fermented-85': 'Fermentación extendida · SCA 85,5',
+        'honey-red-86': 'Honey rojo · SCA 86',
+        'fermented-86': 'Fermentación extendida · SCA 86+',
+        'honey-black-86': 'Honey negro · SCA 86,5',
+        'natural-86': 'Natural · SCA 86,5',
+        'natural-87': 'Natural · SCA 87',
+        'chiroso-87': 'Variedad Chiroso, lavado · SCA 87',
+        'pink-bourbon-87': 'Bourbon rosado, lavado · SCA 87,5',
+        'geisha-88': 'Geisha, honey · SCA 88,5',
+        'wush-wush-89': 'Wush Wush, natural · SCA 89',
+      },
+      bagsLabel: 'Cantidad (sacos de 70 kg)',
+      bagsHint: 'De {min} sacos ({minKg} kg) a {full} sacos ({fullKg} kg), un contenedor de 20\' lleno. Entre más lleno el contenedor, menor el precio por kilo.',
+      idle: 'Elija un café y el número de sacos para ver el precio FOB.',
+      belowMin: 'El precio de contenedor arranca en {min} sacos ({minKg} kg). Para lotes más pequeños use la opción courier o escríbanos.',
+      overLimit: 'Por encima de {full} sacos necesita más de un contenedor de 20\' — escríbanos para una cotización de varios contenedores.',
+      perKgLine: 'Precio por kilogramo, FOB Cartagena',
+      perLbLine: 'Precio por libra',
+      totalLine: 'Total FOB Cartagena · {bags} sacos ({kg} kg)',
+      fullNote: 'Contenedor de 20\' lleno: el mejor precio por kilo.',
+      partialNote: 'Contenedor parcial. Complételo hasta {full} sacos para el mejor precio por kilo; puede mezclar cafés para llenarlo.',
+      disclaimer:
+        'Estimado indicativo en dólares, no es una oferta en firme. El precio del café verde se mueve con el mercado todos los días; el precio y su vigencia los confirmamos en una hoja de oferta con fecha.',
+      included: [
+        'Café verde en sacos de exportación de 70 kg (bolsa hermética interna bajo solicitud)',
+        'Trámite de exportación en Colombia: contribución cafetera FNC, certificado de calidad de Almacafé, declaración de exportación y certificado de origen',
+        'Transporte terrestre a Cartagena, llenado del contenedor, manejo portuario y emisión del BL',
+        'FOB Cartagena (Incoterms 2020): el café se entrega a bordo en Cartagena',
+      ],
+      notIncluded: [
+        'Flete marítimo y seguro — cotizamos CFR / CIF a su puerto si lo pide',
+        'Gastos portuarios en destino, aranceles e impuestos',
+        'Los registros que su país exija al importador — vea las notas de importación más abajo',
+      ],
+      paymentNote:
+        'Anticipo al firmar y saldo contra documentos, o carta de crédito confirmada. Normalmente de 4 a 6 semanas desde el contrato hasta el embarque. Para lotes con destino a la UE, la geolocalización de fincas que exige el EUDR se confirma lote por lote en la oferta.',
+      whatsappQuote: 'Hola, quiero cotizar {bags} sacos ({kg} kg) de café verde, {product}, FOB Cartagena. Estimado de la web: {total} ({perKg}/kg).',
+      whatsappNoPrice: 'Hola, quiero cotizar {bags} sacos de café verde, {product}, FOB Cartagena.',
+      emailSubject: 'Cotización de contenedor — {bags} sacos, {product}',
+    },
+    countryLabel: 'País de destino',
+    countryPlaceholder: 'Elija un país…',
+    otherCountry: 'Otro país',
+    productLabel: 'Café',
+    groups: { green: 'Café verde', roasted: 'Café tostado' },
+    products: {
+      'green-basic': { name: 'Café verde básico', detail: 'Excelso UGQ · malla 14+ · SCA 80–83 · para mezclas', inText: 'café verde básico' },
+      'green-excelso': { name: 'Café verde Excelso', detail: 'Excelso EP · malla 14+ · SCA 84+ · lavado', inText: 'café verde Excelso' },
+      'green-supremo': { name: 'Café verde Supremo', detail: 'Supremo · malla 17/18 · lavado', inText: 'café verde Supremo' },
+      'roasted-castillo': { name: 'Café tostado Castillo', detail: 'En grano · tostión media · bolsas de 1 kg con válvula, sin marca', inText: 'café tostado Castillo' },
+      'roasted-bourbon': { name: 'Café tostado Bourbon', detail: 'Variedades Bourbon · en grano · bolsas de 1 kg con válvula, sin marca', inText: 'café tostado Bourbon' },
+      'roasted-fermented': { name: 'Café tostado de fermentación especial', detail: 'Coco, fresa, tabaco y otras fermentaciones · en grano · bolsas de 1 kg con válvula', inText: 'café tostado de fermentación especial' },
+    },
+    kgLabel: 'Cantidad (kg, netos)',
+    kgHint: 'De {min} a {max} kg para este café. Para muestras de 250 g – 1 kg, escríbanos.',
+    resultTitle: 'Su estimado',
+    idle: 'Elija un destino y una cantidad para ver el precio puesto en destino.',
+    loading: 'Calculando…',
+    error: 'No pudimos calcular el estimado en este momento. Escríbanos y se lo cotizamos a mano.',
+    belowMin: 'El mínimo por envío es de {min} kg. Para muestras de 250 g – 1 kg, escríbanos por WhatsApp.',
+    overLimit:
+      'Por encima de {max} kg este café ya no viaja como lote courier. Los pallets por carga aérea y los contenedores marítimos se cotizan caso por caso — escríbanos.',
+    otherCountryText:
+      'Despachamos a todo el mundo con DHL Express. Cuéntenos su país y la cantidad y le enviamos una cotización exacta.',
+    coffeeLine: 'Café · {kg} kg × {price}/kg',
+    prepLine: 'Empaque y preparación de exportación',
+    freightLine: 'Flete DHL Express, puerta a puerta',
+    totalLine: 'Total puesto en destino (DAP)',
+    perKgLine: 'Por kilogramo, puesto en destino',
+    boxesLine: 'Viaja en {n} caja(s), unos {kg} kg brutos.',
+    disclaimer:
+      'Estimado indicativo en dólares, no es una oferta en firme. Nuestros precios están en pesos colombianos y se convierten con la TRM oficial del día, y el recargo de combustible de DHL cambia cada semana; el precio final lo confirmamos en una proforma escrita.',
+    includedTitle: 'Qué incluye el precio',
+    packing: {
+      green: 'El café empacado para exportación: bolsas herméticas tipo GrainPro dentro de cajas de hasta 24 kg',
+      roasted: 'El café empacado para exportación: bolsas de 1 kg con válvula desgasificadora dentro de cajas de hasta 24 kg',
+    },
+    included: [
+      'Trámite de exportación en Colombia bajo el régimen de pequeñas cantidades de la FNC, factura comercial y lista de empaque',
+      'Flete DHL Express Worldwide puerta a puerta y con seguimiento — 5 a 8 días hábiles',
+      'Entregado en el lugar (DAP): el café llega a su dirección',
+    ],
+    notIncludedTitle: 'Qué no incluye',
+    notIncluded: [
+      'Aranceles, IVA y gastos de despacho aduanero en destino — los paga el importador',
+      'El recargo de DHL por zona remota, si su código postal lo tiene — lo revisamos antes de la proforma',
+      'Los registros que su país exija al importador — vea las notas de importación más abajo',
+      'Comisiones bancarias de su transferencia',
+    ],
+    paymentNote:
+      'Pago anticipado por transferencia bancaria, facturado en USD. Plazo de 1 a 2 semanas desde el pago (para Estados Unidos, una vez confirmado el registro FDA).',
+    notesTitle: 'Notas de importación por país',
+    notesLead: 'Lo que necesita el importador al llegar el café. Al elegir un país arriba se abre su nota.',
+    countryNotes: {
+      US: 'El café para Estados Unidos debe tostarse y empacarse — o, si es verde, trillarse y almacenarse — en una instalación registrada ante la FDA. Despachamos a EE. UU. solo cuando ese registro está confirmado para su lote, y le damos la fecha en la proforma. Cada envío necesita el Prior Notice de la FDA, que coordinamos con usted o con su agente de aduanas. Como importador, usted debe cumplir el Programa de Verificación de Proveedores Extranjeros (FSVP) y tener número DUNS. El tostado en bolsas para venta al público necesita etiqueta en inglés con el peso neto en onzas y gramos. El arancel de EE. UU. para el café verde y tostado es 0 %.',
+      DE: 'El café verde entra a la UE con arancel 0 %; el tostado paga 7,5 % salvo que aplique la declaración de origen UE–Colombia, que nosotros emitimos. El IVA de importación se cobra a la tarifa alemana y lo paga el importador. Para importar con fines comerciales necesita número EORI y, para revender, registrarse como empresa alimentaria ante la autoridad local.',
+      BE: 'El café verde entra a la UE con arancel 0 %; el tostado paga 7,5 % salvo que aplique la declaración de origen UE–Colombia, que nosotros emitimos. El IVA de importación se cobra a la tarifa belga y lo paga el importador. Para importar con fines comerciales necesita número EORI y, para revender, registrarse como empresa alimentaria ante la autoridad nacional de alimentos.',
+      ES: 'El café verde entra a la UE con arancel 0 %; el tostado paga 7,5 % salvo que aplique la declaración de origen UE–Colombia, que nosotros emitimos. España cobra IVA de importación de cerca del 10 % al café y aplica un control oficial de importación de alimentos (AGRIM) que gestiona DHL. Para revender necesita número EORI y registro de empresa alimentaria (RGSEAA).',
+      FR: 'El café verde entra a la UE con arancel 0 %; el tostado paga 7,5 % salvo que aplique la declaración de origen UE–Colombia, que nosotros emitimos. El IVA de importación se cobra a la tarifa francesa y lo paga el importador. Para importar con fines comerciales necesita número EORI y, para revender, registrarse como empresa alimentaria ante la autoridad local.',
+      NL: 'El café verde entra a la UE con arancel 0 %; el tostado paga 7,5 % salvo que aplique la declaración de origen UE–Colombia, que nosotros emitimos. El IVA de importación se cobra a la tarifa neerlandesa y lo paga el importador. Para importar con fines comerciales necesita número EORI y, para revender, registrarse como empresa alimentaria ante la autoridad nacional de alimentos.',
+      PL: 'El café verde entra a la UE con arancel 0 %; el tostado paga 7,5 % salvo que aplique la declaración de origen UE–Colombia, que nosotros emitimos. El IVA de importación se cobra a la tarifa polaca y lo paga el importador. Para importar con fines comerciales necesita número EORI y, para revender, registrarse como empresa alimentaria ante la autoridad sanitaria.',
+      SE: 'El café verde entra a la UE con arancel 0 %; el tostado paga 7,5 % salvo que aplique la declaración de origen UE–Colombia, que nosotros emitimos. El IVA de importación se cobra a la tarifa sueca y lo paga el importador. Para importar con fines comerciales necesita número EORI y, para revender, registrarse como empresa alimentaria ante la autoridad local.',
+      AE: 'En Emiratos el importador normalmente necesita una licencia de comercio de alimentos y debe registrar cada producto y etiqueta ante la autoridad local (en Abu Dabi, ADAFSA), con etiquetado en árabe. Verifíquelo antes de pedir.',
+    },
+    ctaTitle: '¿Listo para pedir o necesita una cotización exacta?',
+    ctaText:
+      'Envíele este estimado a David por WhatsApp o por correo y le respondemos con una proforma escrita en 24 horas hábiles.',
+    whatsappQuote: 'Hola, quiero cotizar {kg} kg de {product} puestos en {country}. Estimado de la web: {total} (DAP).',
+    whatsappNoPrice: 'Hola, quiero cotizar {kg} kg de {product} puestos en {country}.',
+    whatsappOther: 'Hola, quiero cotizar el envío de {kg} kg de {product} a mi país: ',
+    whatsappGeneric: 'Hola, quiero cotizar el envío de café colombiano.',
+    emailSubject: 'Cotización de envío — {kg} kg de {product}',
+  },
+
   faq: {
     eyebrow: 'Preguntas de compradores',
     title: 'Preguntas frecuentes',
@@ -876,7 +1225,7 @@ const es: SiteContent = {
       },
       {
         q: '¿Cuál es el pedido mínimo?',
-        a: 'No hay mínimo para muestras (250 g – 1 kg). Los lotes por courier van desde unos 10 kg hasta 60 kg de café verde. Para marítimo trabajamos desde medio contenedor (10 t, 143 sacos de 70 kg) hasta un 20\' completo (275 sacos, unas 19,25 t) y contratos multicontenedor.',
+        a: 'No hay mínimo para muestras (250 g – 1 kg). Los lotes por courier van desde 10 kg hasta 60 kg de café verde o 50 kg de tostado. Para marítimo trabajamos desde medio contenedor (10 t, 143 sacos de 70 kg) hasta un 20\' completo (275 sacos, unas 19,25 t) y contratos multicontenedor.',
       },
       {
         q: '¿Envían muestras y cuánto cuestan?',
@@ -884,11 +1233,11 @@ const es: SiteContent = {
       },
       {
         q: '¿Cómo fijan los precios?',
-        a: 'Los contenedores se cotizan sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto. Los lotes courier se cotizan por kilogramo. No publicamos lista de precios porque el mercado se mueve a diario; usted recibe una hoja de oferta con fecha y vigencia propia.',
+        a: 'Los contenedores se cotizan sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto. Nuestro cotizador en línea muestra un precio indicativo FOB Cartagena para un contenedor de 20\'; como el mercado se mueve a diario, el precio en firme va en una hoja de oferta con fecha y vigencia propia. Los lotes courier (10 a 60 kg de verde o 10 a 50 kg de tostado) se cotizan por kilogramo, y puede ver al instante un estimado puesto en destino (DAP) en https://www.entrecafescolombianos.coffee/es/cotizador-de-envio.',
       },
       {
         q: '¿Con qué Incoterms trabajan?',
-        a: 'EXW y FCA Bogotá para courier y aéreo, FOB Cartagena o Santa Marta para marítimo, y CFR o CIF hasta su puerto cuando quiere que nosotros llevemos flete y seguro.',
+        a: 'DAP en su dirección para lotes courier (DHL Express, puerta a puerta), EXW y FCA Bogotá para courier y aéreo si lo pide, FOB Cartagena o Santa Marta para marítimo, y CFR o CIF hasta su puerto cuando quiere que nosotros llevemos flete y seguro.',
       },
       {
         q: '¿Desde y hacia qué puertos despachan?',
@@ -975,7 +1324,7 @@ const es: SiteContent = {
   },
 
   common: {
-    pricingNote: 'Mayorista — precio bajo solicitud según lote de origen, volumen e Incoterm.',
+    pricingNote: 'Lotes courier: estimado al instante en el cotizador de envío · contenedores: precio bajo solicitud.',
     sampleSize: 'Presentaciones',
     altitude: 'Altura',
     process: 'Proceso',

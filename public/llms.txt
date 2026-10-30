@@ -26,12 +26,13 @@ Main harvest September–December, secondary (mitaca) April–June; Cauca peaks 
 
 ## Shipment sizes and logistics
 - Samples: 250 g – 1 kg per profile by DHL Express.
-- Courier lots: up to 60 kg green or 50 kg roasted per shipment (FNC small-quantity
-  regime), DHL Express door to door, 5–8 business days worldwide.
+- Courier lots: 10–60 kg green or 10–50 kg roasted per shipment (FNC small-quantity
+  regime), DHL Express door to door (DAP your address), 5–8 business days worldwide.
 - Pallets: 100–1,000 kg by consolidated air cargo or LCL sea freight.
 - Containers: 20' FCL = 275 bags × 70 kg ≈ 19.25 t; half container = 10 t (143 bags).
   Mixed green/roasted loads possible.
-- Incoterms 2020: EXW / FCA Bogotá, FOB Cartagena or Santa Marta, CFR / CIF destination.
+- Incoterms 2020: DAP your address (courier lots), EXW / FCA Bogotá, FOB Cartagena or
+  Santa Marta, CFR / CIF destination.
 - Ports of loading: Cartagena (Contecar) or Santa Marta. Sea transit 18–35 days.
 - Lead time: courier lots 1–2 weeks from payment; containers typically 4–6 weeks.
 - Packaging: 70 kg fique/jute bags with GrainPro-type hermetic liner; 35 kg bags and
@@ -39,8 +40,12 @@ Main harvest September–December, secondary (mitaca) April–June; Cauca peaks 
 
 ## Pricing and payment
 - Containers: New York "C" contract plus an agreed differential, fixed at contract date,
-  FOB Cartagena or CIF. No open price list — dated offer sheet on request.
-- Courier lots: per kilogram, freight as its own line.
+  FOB Cartagena or CIF. Indicative FOB Cartagena price for a 20' container (100–275 bags of
+  70 kg) in the online estimator; firm price in a dated offer sheet.
+- Courier lots: per kilogram, freight as its own line. Instant indicative estimate (coffee +
+  packing + DHL Express freight, DAP, in USD) for the United States, Spain, Germany, France,
+  the Netherlands, Belgium, Sweden, Poland and the UAE at
+  https://www.entrecafescolombianos.coffee/shipping-estimate — other countries on request.
 - Payment: samples and courier lots in advance by bank transfer; containers with a deposit
   on contract and balance against documents, or confirmed letter of credit. Invoiced in USD.
 
@@ -73,6 +78,7 @@ Saudi Arabia.
 - Green coffee specification: https://www.entrecafescolombianos.coffee/green-coffee
 - Products: https://www.entrecafescolombianos.coffee/products
 - Export & logistics: https://www.entrecafescolombianos.coffee/export
+- Shipping estimate: https://www.entrecafescolombianos.coffee/shipping-estimate
 - FAQ: https://www.entrecafescolombianos.coffee/faq
 - About: https://www.entrecafescolombianos.coffee/about
 - Contact: https://www.entrecafescolombianos.coffee/contact

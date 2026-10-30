@@ -1,4 +1,4 @@
-import { FileText, CheckCircle2 } from 'lucide-react';
+import { FileText, CheckCircle2, Calculator } from 'lucide-react';
 import { Language, Tab } from '../types';
 import { content } from '../content';
 import { PageHeader, SectionTitle, SpecTable, ContactButtons } from '../components/ui';
@@ -24,6 +24,24 @@ export default function Export({ lang, navigate }: Props) {
             <SpecTable rows={s.rows} />
           </div>
         ))}
+
+        <div className="mb-16 bg-white border border-gold-500/50 rounded-2xl shadow-md p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="flex gap-4">
+            <Calculator className="w-8 h-8 text-gold-500 shrink-0" aria-hidden="true" />
+            <div>
+              <h2 className="font-display text-xl md:text-2xl font-bold text-coffee-900 mb-1">{c.shipping.title}</h2>
+              <p className="text-sm text-coffee-600 leading-relaxed max-w-2xl">{c.shipping.lead}</p>
+            </div>
+          </div>
+          <Link
+            tab="shipping"
+            lang={lang}
+            navigate={navigate}
+            className="shrink-0 inline-flex items-center justify-center bg-coffee-800 hover:bg-coffee-700 text-white px-6 py-3 rounded-full text-sm font-semibold transition-colors"
+          >
+            {c.shipping.eyebrow} →
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 mb-16">
           <div className="bg-coffee-800 text-white rounded-2xl p-6 md:p-8">

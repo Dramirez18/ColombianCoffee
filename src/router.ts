@@ -20,6 +20,7 @@ export const ROUTES: { tab: PublicTab; en: string; es: string }[] = [
   { tab: 'green', en: 'green-coffee', es: 'cafe-verde' },
   { tab: 'products', en: 'products', es: 'productos' },
   { tab: 'export', en: 'export', es: 'exportacion' },
+  { tab: 'shipping', en: 'shipping-estimate', es: 'cotizador-de-envio' },
   { tab: 'faq', en: 'faq', es: 'preguntas-frecuentes' },
   { tab: 'about', en: 'about', es: 'nosotros' },
   { tab: 'contact', en: 'contact', es: 'contacto' },

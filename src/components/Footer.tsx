@@ -15,6 +15,7 @@ export default function Footer({ lang, navigate }: FooterProps) {
     { key: 'green', label: t(lang, 'nav_green') },
     { key: 'products', label: t(lang, 'nav_products') },
     { key: 'export', label: t(lang, 'nav_export') },
+    { key: 'shipping', label: t(lang, 'nav_shipping') },
     { key: 'faq', label: t(lang, 'nav_faq') },
     { key: 'about', label: t(lang, 'nav_about') },
     { key: 'contact', label: t(lang, 'nav_contact') },

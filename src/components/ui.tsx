@@ -46,26 +46,30 @@ export function SpecTable({ rows }: { rows: SpecRow[] }) {
   );
 }
 
-/** WhatsApp + email buttons with an optional prefilled message. */
+/** WhatsApp + email buttons with an optional prefilled message, email subject and body. */
 export function ContactButtons({
   whatsappLabel,
   emailLabel,
   message,
   subject,
+  body,
   dark = false,
 }: {
   whatsappLabel: string;
   emailLabel: string;
   message?: string;
   subject?: string;
+  body?: string;
   dark?: boolean;
 }) {
   const wa = message
     ? `${COMPANY.contact.whatsappLink}?text=${encodeURIComponent(message)}`
     : COMPANY.contact.whatsappLink;
-  const mail = subject
-    ? `mailto:${COMPANY.contact.email}?subject=${encodeURIComponent(subject)}`
-    : `mailto:${COMPANY.contact.email}`;
+  const mailParams = [
+    subject && `subject=${encodeURIComponent(subject)}`,
+    body && `body=${encodeURIComponent(body)}`,
+  ].filter(Boolean);
+  const mail = `mailto:${COMPANY.contact.email}${mailParams.length ? `?${mailParams.join('&')}` : ''}`;
   return (
     <div className="flex flex-col sm:flex-row gap-3 justify-center">
       <a

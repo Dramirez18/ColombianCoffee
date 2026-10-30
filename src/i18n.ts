@@ -14,6 +14,7 @@ type TranslationKeys = {
   nav_green: string;
   nav_products: string;
   nav_export: string;
+  nav_shipping: string;
   nav_faq: string;
   nav_about: string;
   nav_contact: string;
@@ -139,6 +140,7 @@ const translations: Translations = {
     nav_green: 'Green Coffee',
     nav_products: 'Products',
     nav_export: 'Export & Logistics',
+    nav_shipping: 'Shipping Estimate',
     nav_faq: 'FAQ',
     nav_about: 'About',
     nav_contact: 'Contact',
@@ -249,6 +251,7 @@ const translations: Translations = {
     nav_green: 'Café verde',
     nav_products: 'Productos',
     nav_export: 'Exportación y logística',
+    nav_shipping: 'Cotizar envío',
     nav_faq: 'Preguntas frecuentes',
     nav_about: 'Nosotros',
     nav_contact: 'Contacto',
@@ -359,6 +362,7 @@ const translations: Translations = {
     nav_green: 'Groene koffie',
     nav_products: 'Producten',
     nav_export: 'Export & logistiek',
+    nav_shipping: 'Verzendkosten',
     nav_faq: 'FAQ',
     nav_about: 'Over Ons',
     nav_contact: 'Contact',
@@ -468,6 +472,7 @@ const translations: Translations = {
     nav_green: 'Rohkaffee',
     nav_products: 'Produkte',
     nav_export: 'Export & Logistik',
+    nav_shipping: 'Versandkosten',
     nav_faq: 'FAQ',
     nav_about: 'Über Uns',
     nav_contact: 'Kontakt',
@@ -577,6 +582,7 @@ const translations: Translations = {
     nav_green: 'Café vert',
     nav_products: 'Produits',
     nav_export: 'Export & logistique',
+    nav_shipping: 'Frais d’envoi',
     nav_faq: 'FAQ',
     nav_about: 'À Propos',
     nav_contact: 'Contact',
@@ -686,6 +692,7 @@ const translations: Translations = {
     nav_green: 'Råkaffe',
     nav_products: 'Produkter',
     nav_export: 'Export & logistik',
+    nav_shipping: 'Fraktkostnad',
     nav_faq: 'FAQ',
     nav_about: 'Om Oss',
     nav_contact: 'Kontakt',

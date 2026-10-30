@@ -1,7 +1,8 @@
 /**
  * Serves dist/ the way Vercel does: static files first, `/route` →
  * `dist/route/index.html`, trailing slash redirected away, and index.html as
- * the SPA fallback for anything else. Only for local verification of the
+ * the SPA fallback for anything else, plus /api/estimate like the Vercel
+ * function. Only for local verification of the
  * pre-rendered build (`vite preview` ignores the per-route index.html files).
  *
  *   node scripts/serve-dist.mjs [port]
@@ -10,6 +11,7 @@ import { createServer } from 'node:http';
 import { existsSync, statSync, createReadStream } from 'node:fs';
 import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import estimate from '../api/estimate.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -39,6 +41,14 @@ function send(res, file, status = 200) {
 createServer((req, res) => {
   const url = new URL(req.url, `http://localhost:${port}`);
   let pathname = decodeURIComponent(url.pathname);
+
+  if (pathname === '/api/estimate') {
+    return estimate(req, res).catch((e) => {
+      console.error(e);
+      if (!res.headersSent) res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: false, error: 'internal' }));
+    });
+  }
 
   if (pathname.length > 1 && pathname.endsWith('/')) {
     res.writeHead(308, { Location: pathname.slice(0, -1) + url.search });

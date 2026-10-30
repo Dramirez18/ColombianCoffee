@@ -1,0 +1,2 @@
+# Nunca subir la configuración confidencial del cotizador
+config/*.local.json
