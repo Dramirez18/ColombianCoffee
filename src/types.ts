@@ -73,4 +73,4 @@ export interface OrderItem {
 
 // Public pages get their own URL and are pre-rendered (see router.ts).
 // 'profile' and 'admin' are client-only legacy views.
-export type Tab = 'home' | 'green' | 'products' | 'export' | 'shipping' | 'faq' | 'about' | 'contact' | 'profile' | 'admin';
+export type Tab = 'home' | 'green' | 'profiles' | 'products' | 'export' | 'shipping' | 'faq' | 'about' | 'contact' | 'profile' | 'admin';

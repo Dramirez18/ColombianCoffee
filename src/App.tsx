@@ -11,6 +11,7 @@ import AdminPanel from './components/AdminPanel';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import GreenCoffee from './pages/GreenCoffee';
+import Profiles from './pages/Profiles';
 import Products from './pages/Products';
 import Export from './pages/Export';
 import Shipping from './pages/Shipping';
@@ -160,6 +161,7 @@ function App({ initialPath, initialLang }: AppProps) {
           <Home {...pageProps} products={activeProducts} onZoom={setLightboxProduct} />
         )}
         {activeTab === 'green' && <GreenCoffee {...pageProps} />}
+        {activeTab === 'profiles' && <Profiles {...pageProps} />}
         {activeTab === 'products' && (
           <Products {...pageProps} products={activeProducts} onZoom={setLightboxProduct} />
         )}

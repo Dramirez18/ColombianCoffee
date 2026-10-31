@@ -23,6 +23,25 @@ export interface Region {
 }
 export interface Faq { q: string; a: string }
 export interface TitledText { title: string; text: string }
+export interface CupProfile {
+  id: 'huila' | 'selecto' | 'tolima' | 'basico';
+  name: string;
+  grade: string;
+  subtitle: string;
+  score: string;
+  notes: string[];
+  summary: string;
+  facts: string[];
+  origin: string;
+  acidity: string;
+  process: string;
+  specsTitle: string;
+  specs: SpecRow[];
+  /** Nombre del mismo café en el cotizador de envío (si está ahí). */
+  estimator?: string;
+  /** Hoja de cata por atributo, cuando existe. */
+  attributes?: { label: string; score: string; note: string }[];
+}
 
 export interface SiteContent {
   meta: Record<PublicTab, PageMeta>;
@@ -142,6 +161,35 @@ export interface SiteContent {
     whatsappGeneric: string;
     emailSubject: string; // {kg} {product}
   };
+  profiles: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    updated: string;
+    compareTitle: string;
+    compareLabels: { origin: string; score: string; acidity: string; process: string; presentation: string; estimator: string };
+    presentation: string;
+    scoreLabel: string;
+    viewProfile: string;
+    radarTitle: string;
+    radarShapeNote: string;
+    axes: string[];
+    attributesTitle: string;
+    attributeCols: [string, string, string];
+    totalLabel: string;
+    totalNote: string;
+    inEstimator: string; // {name}
+    onRequest: string;
+    estimatorCta: string;
+    quoteCta: string;
+    ctaTitle: string;
+    ctaText: string;
+    whatsappMessage: string;
+    whatsappProfile: string; // {name}
+    emailSubject: string;
+    greenCallout: { title: string; text: string; cta: string };
+    items: CupProfile[];
+  };
   faq: { eyebrow: string; title: string; lead: string; items: Faq[] };
   about: {
     title: string;
@@ -209,6 +257,11 @@ const en: SiteContent = {
       title: 'Shipping Estimate — Colombian Coffee Delivered by DHL Express | Entre Cafés Colombianos',
       description:
         'Estimate the delivered price of Colombian green coffee (10–60 kg) or roasted coffee (10–50 kg) by DHL Express to the US, Spain, Germany, France, the Netherlands, Belgium, Sweden, Poland or the UAE: coffee, packing and freight in one USD total. Also 20\' containers of green coffee, FOB Cartagena.',
+    },
+    profiles: {
+      title: 'Cup Profiles — Colombian Green Coffee: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
+      description:
+        'Cup profiles of the Colombian green coffees we offer: Huila (Acevedo) 86+, Selecto 84+ from Huila, Cauca, Valle del Cauca and Quindío, Tolima Castillo 81.82 and a Nariño lot at 77.0. Flavour notes, cupping scores, origin and process.',
     },
     faq: {
       title: 'FAQ — Buying Green Coffee from Colombia | Entre Cafés Colombianos',
@@ -385,14 +438,14 @@ const en: SiteContent = {
         id: 'green-commercial',
         name: 'Commercial green coffee — Excelso / UGQ, SCA 80–83',
         description:
-          'Clean, sound Colombian green coffee for blends, private label and volume roasting. Excelso or UGQ preparation, screen 14+, fully washed, moisture 10–12%. Containers are priced against the market differential, FOB Cartagena or CIF; courier lots of 10–60 kg have a per-kilogram price in our online shipping estimator. By sea, from a half container (10 t, 143 bags) to full 20\' containers (275 bags × 70 kg).',
+          'Clean, sound Colombian green coffee for blends, private label and volume roasting. Excelso or UGQ preparation, screen 14+, fully washed, moisture 10–12%. Containers are priced against the market differential, FOB Cartagena or CIF; courier lots on request. By sea, from a half container (10 t, 143 bags) to full 20\' containers (275 bags × 70 kg).',
         origin: 'Departmental blend — Huila, Cauca, Valle del Cauca, Quindío',
         roastLevel: 'green',
         price: 0,
         wholesaleDiscount: 0,
         image: IMG_GREEN,
         stock: 10000,
-        weight: 'Courier lots 10–60 kg · by sea from 10 t (half 20\') · 19.25 t per full 20\' container',
+        weight: 'Courier lots on request · by sea from 10 t (half 20\') · 19.25 t per full 20\' container',
         active: true,
         flavorNotes: ['Caramel', 'Chocolate', 'Mild citrus'],
         altitude: '1,300–1,900 masl',
@@ -568,9 +621,9 @@ const en: SiteContent = {
     productLabel: 'Coffee',
     groups: { green: 'Green coffee', roasted: 'Roasted coffee' },
     products: {
-      'green-basic': { name: 'Basic green coffee', detail: 'Excelso UGQ · screen 14+ · SCA 80–83 · for blends', inText: 'basic green coffee' },
-      'green-excelso': { name: 'Excelso green coffee', detail: 'Excelso EP · screen 14+ · SCA 84+ · fully washed', inText: 'Excelso green coffee' },
-      'green-supremo': { name: 'Supremo green coffee', detail: 'Supremo · screen 17/18 · fully washed', inText: 'Supremo green coffee' },
+      'green-basic': { name: 'Basic green coffee', detail: 'Nariño · washed · cup score 77.0 · see its cup profile', inText: 'basic green coffee' },
+      'green-excelso': { name: 'Excelso green coffee', detail: 'Selecto: Huila, Cauca, Valle, Quindío · Excelso EP · SCA 84+', inText: 'Excelso green coffee' },
+      'green-supremo': { name: 'Supremo green coffee', detail: 'Huila · Acevedo, 1,580 masl · washed · SCA 86+', inText: 'Supremo green coffee' },
       'roasted-castillo': { name: 'Castillo roasted coffee', detail: 'Whole bean · medium roast · 1 kg valve bags, unbranded', inText: 'Castillo roasted coffee' },
       'roasted-bourbon': { name: 'Bourbon roasted coffee', detail: 'Bourbon varieties · whole bean · 1 kg valve bags, unbranded', inText: 'Bourbon roasted coffee' },
       'roasted-fermented': { name: 'Special-fermentation roasted coffee', detail: 'Coconut, strawberry, tobacco and other fermentations · whole bean · 1 kg valve bags', inText: 'special-fermentation roasted coffee' },
@@ -634,6 +687,152 @@ const en: SiteContent = {
     whatsappOther: 'Hi, I would like a shipping quote for {kg} kg of {product} to my country: ',
     whatsappGeneric: 'Hi, I would like a shipping quote for Colombian coffee.',
     emailSubject: 'Shipping quote — {kg} kg of {product}',
+  },
+
+  profiles: {
+    eyebrow: 'Green coffee · cup profiles',
+    title: 'Cup profiles of the coffees we offer',
+    lead:
+      'Four Colombian green coffees, each with its cup profile, cupping score, origin and process. All of them are green coffee — unroasted beans, ready for your roaster.',
+    updated: 'Updated 31 October 2026',
+    compareTitle: 'At a glance',
+    compareLabels: { origin: 'Origin', score: 'Cup score', acidity: 'Acidity', process: 'Process', presentation: 'Presentation', estimator: 'In the shipping estimate' },
+    presentation: 'Green coffee (unroasted)',
+    scoreLabel: 'cup score',
+    viewProfile: 'See the full profile',
+    radarTitle: 'Cupping attributes',
+    radarShapeNote: 'Profile shape from the lot’s technical sheet; attribute scores are not published.',
+    axes: ['Fragrance & aroma', 'Flavour', 'Aftertaste', 'Acidity', 'Body', 'Uniformity', 'Balance', 'Clean cup', 'Sweetness', 'Overall'],
+    attributesTitle: 'Cupping sheet',
+    attributeCols: ['Attribute', 'Score', 'Cupper’s notes'],
+    totalLabel: 'Cupping score',
+    totalNote: 'Sum of the ten attributes',
+    inEstimator: 'In the shipping estimate as “{name}”',
+    onRequest: 'Quoted on request',
+    estimatorCta: 'Estimate a shipment',
+    quoteCta: 'Ask for a quote',
+    ctaTitle: 'Cup them yourself',
+    ctaText:
+      'We send offer samples of 250–500 g per profile by DHL Express. Tell us which coffees you would like to cup and where to send them.',
+    whatsappMessage: 'Hi, I would like samples of your green coffees. These profiles interest me: ',
+    whatsappProfile: 'Hi, I would like a quote for your {name} green coffee.',
+    emailSubject: 'Green coffee samples — cup profiles',
+    greenCallout: {
+      title: 'Cup profiles of our current coffees',
+      text: 'Huila 86+, Selecto 84+, Tolima and a Nariño lot: flavour notes, cupping scores, origin and process, side by side.',
+      cta: 'See the cup profiles',
+    },
+    items: [
+      {
+        id: 'huila',
+        name: 'Huila',
+        grade: 'Supremo',
+        subtitle: 'Acevedo, Huila · 1,580 masl',
+        score: '86+',
+        notes: ['Citrus', 'Panela', 'Floral', 'Aromatic'],
+        summary:
+          'A citrus, aromatic cup with panela sweetness and floral notes. Clean, uniform, balanced and sweet — those four attributes reach the top of the scale.',
+        facts: ['Green coffee · washed', '48 h fermentation in the cherry and 48 h after pulping', 'Dried for 10 to 12 days'],
+        origin: 'Acevedo, Huila',
+        acidity: 'Citrus',
+        process: 'Washed',
+        specsTitle: 'Origin and process',
+        specs: [
+          { label: 'Department', value: 'Huila' },
+          { label: 'Municipality', value: 'Acevedo' },
+          { label: 'Altitude', value: '1,580 masl' },
+          { label: 'Presentation', value: 'Green coffee (unroasted)' },
+          { label: 'Process', value: 'Washed' },
+          { label: 'Fermentation in the cherry', value: '48 hours' },
+          { label: 'Fermentation after pulping', value: '48 hours' },
+          { label: 'Drying', value: '10 to 12 days' },
+        ],
+        estimator: 'Supremo green coffee',
+      },
+      {
+        id: 'selecto',
+        name: 'Selecto',
+        grade: 'Excelso EP',
+        subtitle: 'Huila · Cauca · Valle del Cauca · Quindío',
+        score: '84+',
+        notes: ['Sugarcane', 'Panela', 'Mandarin', 'Orange', 'Creamy body', 'Aromatic', 'Floral'],
+        summary:
+          'A sweet, aromatic cup: sugarcane and panela, citrus acidity with mandarin or orange notes, creamy body and floral notes. Clean, balanced and long-lasting. Scored by a Q-Grader cupper.',
+        facts: ['Green coffee · mainly Castillo', 'Beans above screen 14', 'Electronic defect sorting'],
+        origin: 'Huila, Cauca, Valle del Cauca and Quindío',
+        acidity: 'Citrus, with mandarin or orange notes',
+        process: 'Washed',
+        specsTitle: 'Origin and specification',
+        specs: [
+          { label: 'Origin', value: 'Huila, Cauca, Valle del Cauca and Quindío, blended according to the harvest' },
+          { label: 'Variety', value: 'Mainly Castillo' },
+          { label: 'Presentation', value: 'Green coffee (unroasted), 100% Arabica' },
+          { label: 'Bean size', value: 'Above screen 14' },
+          { label: 'Sorting', value: 'Mechanical screening and electronic defect sorting' },
+          { label: 'Moisture', value: 'Checked before every lot' },
+          { label: 'Evaluation', value: 'Above 84 SCA points, scored by a Q-Grader cupper' },
+        ],
+        estimator: 'Excelso green coffee',
+      },
+      {
+        id: 'tolima',
+        name: 'Tolima',
+        grade: 'UGQ export grade',
+        subtitle: 'Tolima · washed Castillo',
+        score: '81.82',
+        notes: ['Cocoa', 'Panela', 'Sugarcane', 'Chocolate', 'Caramel', 'Medium citrus acidity'],
+        summary:
+          'A straightforward, sweet cup: cocoa, panela, sugarcane, chocolate and caramel, with medium citrus acidity. Simple rather than complex — made for blends or an everyday espresso.',
+        facts: ['Green coffee · UGQ export grade', 'Moisture 10 to 12%'],
+        origin: 'Tolima',
+        acidity: 'Medium citrus',
+        process: 'Washed',
+        specsTitle: 'Origin and process',
+        specs: [
+          { label: 'Department', value: 'Tolima' },
+          { label: 'Variety', value: 'Castillo' },
+          { label: 'Process', value: 'Washed' },
+          { label: 'Presentation', value: 'Green coffee (unroasted), dry-milled and ready for export' },
+          { label: 'Grade', value: 'UGQ export grade' },
+          { label: 'Moisture', value: '10 to 12%' },
+        ],
+      },
+      {
+        id: 'basico',
+        name: 'Basic',
+        grade: 'Nariño lot',
+        subtitle: 'Nariño · 1,650–1,800 masl',
+        score: '77.0',
+        notes: ['Mandarin', 'Rose honey', 'Jasmine', 'Sugarcane', 'Red fruits', 'Figs', 'Lemongrass', 'Green grape', 'Caramel'],
+        summary:
+          'Mandarin, rose honey and jasmine in the aroma; sugarcane, subtle red fruits, figs and lemongrass in the cup. Juicy acidity like green grape; a round, light body with a honey-like texture and a caramel finish.',
+        facts: ['Green coffee · Castillo, Colombia and Caturra · washed', 'Cupped on 10 September 2026'],
+        origin: 'Nariño',
+        acidity: 'Juicy, like green grape',
+        process: 'Washed',
+        specsTitle: 'Origin and process',
+        specs: [
+          { label: 'Altitude', value: '1,650 to 1,800 masl' },
+          { label: 'Varieties', value: 'Castillo, Colombia and Caturra' },
+          { label: 'Presentation', value: 'Green coffee (unroasted)' },
+          { label: 'Process', value: 'Washed' },
+          { label: 'Cupping date', value: '10 September 2026' },
+        ],
+        attributes: [
+          { label: 'Fragrance & aroma', score: '6.5', note: 'mandarin, low-intensity rose honey, subtle jasmine floral, sugarcane' },
+          { label: 'Flavour', score: '7.0', note: 'sugarcane, pleasant and subtle red fruits, figs, lemongrass' },
+          { label: 'Aftertaste', score: '7.0', note: 'pleasant, caramel' },
+          { label: 'Acidity', score: '6.5', note: 'juicy, like green grape' },
+          { label: 'Body', score: '7.0', note: 'round and light, with a slight honey-like feel' },
+          { label: 'Uniformity', score: '10', note: 'OK' },
+          { label: 'Balance', score: '10', note: 'OK' },
+          { label: 'Clean cup', score: '10', note: 'OK' },
+          { label: 'Sweetness', score: '6.0', note: 'sugarcane' },
+          { label: 'Overall', score: '7.0', note: 'balanced coffee with very good body, sweet and a very stable acidity' },
+        ],
+        estimator: 'Basic green coffee',
+      },
+    ],
   },
 
   faq: {
@@ -787,6 +986,11 @@ const es: SiteContent = {
       title: 'Cotizador de envío — Café colombiano entregado por DHL Express | Entre Cafés Colombianos',
       description:
         'Calcule el precio puesto en destino de café colombiano verde (10–60 kg) o tostado (10–50 kg) por DHL Express a Estados Unidos, España, Alemania, Francia, Países Bajos, Bélgica, Suecia, Polonia o Emiratos: café, empaque y flete en un solo total en USD. También contenedores de 20\' de café verde, FOB Cartagena.',
+    },
+    profiles: {
+      title: 'Perfiles de taza — Café verde colombiano: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
+      description:
+        'Perfiles de taza de los cafés verdes colombianos que ofrecemos: Huila (Acevedo) 86+, Selecto 84+ de Huila, Cauca, Valle del Cauca y Quindío, Tolima Castillo 81,82 y un lote de Nariño de 77,0. Notas en taza, puntaje de cata, origen y proceso.',
     },
     faq: {
       title: 'Preguntas frecuentes — Comprar café verde de Colombia | Entre Cafés Colombianos',
@@ -963,14 +1167,14 @@ const es: SiteContent = {
         id: 'green-commercial',
         name: 'Café verde comercial — Excelso / UGQ, SCA 80–83',
         description:
-          'Café verde colombiano limpio y sano para mezclas, marca propia y tostión en volumen. Preparación Excelso o UGQ, malla 14+, lavado, humedad 10–12 %. Los contenedores se cotizan sobre el diferencial de mercado, FOB Cartagena o CIF; los lotes courier de 10 a 60 kg tienen precio por kilogramo en nuestro cotizador de envío. Por mar, desde medio contenedor (10 t, 143 sacos) hasta contenedores de 20\' completos (275 sacos × 70 kg).',
+          'Café verde colombiano limpio y sano para mezclas, marca propia y tostión en volumen. Preparación Excelso o UGQ, malla 14+, lavado, humedad 10–12 %. Los contenedores se cotizan sobre el diferencial de mercado, FOB Cartagena o CIF; lotes courier bajo solicitud. Por mar, desde medio contenedor (10 t, 143 sacos) hasta contenedores de 20\' completos (275 sacos × 70 kg).',
         origin: 'Mezcla departamental — Huila, Cauca, Valle del Cauca, Quindío',
         roastLevel: 'green',
         price: 0,
         wholesaleDiscount: 0,
         image: IMG_GREEN,
         stock: 10000,
-        weight: 'Lotes courier de 10–60 kg · por mar desde 10 t (medio 20\') · 19,25 t por contenedor de 20\' completo',
+        weight: 'Lotes courier bajo solicitud · por mar desde 10 t (medio 20\') · 19,25 t por contenedor de 20\' completo',
         active: true,
         flavorNotes: ['Caramelo', 'Chocolate', 'Cítrico suave'],
         altitude: '1.300–1.900 msnm',
@@ -1146,9 +1350,9 @@ const es: SiteContent = {
     productLabel: 'Café',
     groups: { green: 'Café verde', roasted: 'Café tostado' },
     products: {
-      'green-basic': { name: 'Café verde básico', detail: 'Excelso UGQ · malla 14+ · SCA 80–83 · para mezclas', inText: 'café verde básico' },
-      'green-excelso': { name: 'Café verde Excelso', detail: 'Excelso EP · malla 14+ · SCA 84+ · lavado', inText: 'café verde Excelso' },
-      'green-supremo': { name: 'Café verde Supremo', detail: 'Supremo · malla 17/18 · lavado', inText: 'café verde Supremo' },
+      'green-basic': { name: 'Café verde básico', detail: 'Nariño · lavado · taza 77,0 · vea su perfil de taza', inText: 'café verde básico' },
+      'green-excelso': { name: 'Café verde Excelso', detail: 'Selecto: Huila, Cauca, Valle, Quindío · Excelso EP · SCA 84+', inText: 'café verde Excelso' },
+      'green-supremo': { name: 'Café verde Supremo', detail: 'Huila · Acevedo, 1.580 msnm · lavado · SCA 86+', inText: 'café verde Supremo' },
       'roasted-castillo': { name: 'Café tostado Castillo', detail: 'En grano · tostión media · bolsas de 1 kg con válvula, sin marca', inText: 'café tostado Castillo' },
       'roasted-bourbon': { name: 'Café tostado Bourbon', detail: 'Variedades Bourbon · en grano · bolsas de 1 kg con válvula, sin marca', inText: 'café tostado Bourbon' },
       'roasted-fermented': { name: 'Café tostado de fermentación especial', detail: 'Coco, fresa, tabaco y otras fermentaciones · en grano · bolsas de 1 kg con válvula', inText: 'café tostado de fermentación especial' },
@@ -1212,6 +1416,152 @@ const es: SiteContent = {
     whatsappOther: 'Hola, quiero cotizar el envío de {kg} kg de {product} a mi país: ',
     whatsappGeneric: 'Hola, quiero cotizar el envío de café colombiano.',
     emailSubject: 'Cotización de envío — {kg} kg de {product}',
+  },
+
+  profiles: {
+    eyebrow: 'Café verde · perfiles de taza',
+    title: 'Perfiles de taza de los cafés que ofrecemos',
+    lead:
+      'Cuatro cafés verdes colombianos, cada uno con su perfil en taza, su puntaje de cata, su origen y su proceso. Todos son café verde en almendra, sin tostar, listos para su tostadora.',
+    updated: 'Actualizado el 31 de octubre de 2026',
+    compareTitle: 'A simple vista',
+    compareLabels: { origin: 'Origen', score: 'Puntaje de taza', acidity: 'Acidez', process: 'Proceso', presentation: 'Presentación', estimator: 'En el cotizador de envío' },
+    presentation: 'Café verde en almendra',
+    scoreLabel: 'puntaje de taza',
+    viewProfile: 'Ver el perfil completo',
+    radarTitle: 'Atributos de la cata',
+    radarShapeNote: 'Forma del perfil según la ficha técnica del lote; los puntajes por atributo no se publican.',
+    axes: ['Fragancia y aroma', 'Sabor', 'Sabor residual', 'Acidez', 'Cuerpo', 'Uniformidad', 'Balance', 'Taza limpia', 'Dulzor', 'Impresión global'],
+    attributesTitle: 'Hoja de cata',
+    attributeCols: ['Atributo', 'Nota', 'Lo que anotó el catador'],
+    totalLabel: 'Puntaje de la cata',
+    totalNote: 'Suma de los diez atributos',
+    inEstimator: 'En el cotizador de envío como «{name}»',
+    onRequest: 'Se cotiza bajo solicitud',
+    estimatorCta: 'Cotizar un envío',
+    quoteCta: 'Pedir cotización',
+    ctaTitle: 'Cátelos usted mismo',
+    ctaText:
+      'Enviamos muestras de oferta de 250–500 g por perfil por DHL Express. Cuéntenos qué cafés quiere catar y a dónde se los enviamos.',
+    whatsappMessage: 'Hola, quiero muestras de sus cafés verdes. Me interesan estos perfiles: ',
+    whatsappProfile: 'Hola, quiero cotizar su café verde {name}.',
+    emailSubject: 'Muestras de café verde — perfiles de taza',
+    greenCallout: {
+      title: 'Perfiles de taza de nuestros cafés actuales',
+      text: 'Huila 86+, Selecto 84+, Tolima y un lote de Nariño: notas en taza, puntaje de cata, origen y proceso, lado a lado.',
+      cta: 'Ver los perfiles de taza',
+    },
+    items: [
+      {
+        id: 'huila',
+        name: 'Huila',
+        grade: 'Supremo',
+        subtitle: 'Acevedo, Huila · 1.580 msnm',
+        score: '86+',
+        notes: ['Cítrico', 'Panela', 'Floral', 'Aromático'],
+        summary:
+          'Una taza cítrica y aromática, con dulzor de panela y notas florales. Limpia, uniforme, balanceada y dulce: esos cuatro atributos llegan al máximo de la escala.',
+        facts: ['Café verde · lavado', 'Fermentación de 48 h en cereza y 48 h despulpado', 'Secado de 10 a 12 días'],
+        origin: 'Acevedo, Huila',
+        acidity: 'Cítrica',
+        process: 'Lavado',
+        specsTitle: 'Origen y proceso',
+        specs: [
+          { label: 'Departamento', value: 'Huila' },
+          { label: 'Municipio', value: 'Acevedo' },
+          { label: 'Altitud', value: '1.580 msnm' },
+          { label: 'Presentación', value: 'Café verde en almendra' },
+          { label: 'Proceso', value: 'Lavado' },
+          { label: 'Fermentación en cereza', value: '48 horas' },
+          { label: 'Fermentación despulpado', value: '48 horas' },
+          { label: 'Días de secado', value: '10 a 12 días' },
+        ],
+        estimator: 'Café verde Supremo',
+      },
+      {
+        id: 'selecto',
+        name: 'Selecto',
+        grade: 'Excelso EP',
+        subtitle: 'Huila · Cauca · Valle del Cauca · Quindío',
+        score: '84+',
+        notes: ['Caña de azúcar', 'Panela', 'Mandarina', 'Naranja', 'Cuerpo cremoso', 'Aromático', 'Floral'],
+        summary:
+          'Una taza dulce y aromática: caña de azúcar y panela, acidez cítrica con matices de mandarina o naranja, cuerpo cremoso y notas florales. Limpia, balanceada y de alta persistencia. Evaluada por catador Q-Grader.',
+        facts: ['Café verde · principalmente Castillo', 'Grano superior a malla 14', 'Selección electrónica de defectos'],
+        origin: 'Huila, Cauca, Valle del Cauca y Quindío',
+        acidity: 'Cítrica, con matices de mandarina o naranja',
+        process: 'Lavado',
+        specsTitle: 'Origen y especificación',
+        specs: [
+          { label: 'Origen', value: 'Huila, Cauca, Valle del Cauca y Quindío, en blends según la cosecha' },
+          { label: 'Variedad', value: 'Principalmente Castillo' },
+          { label: 'Presentación', value: 'Café verde en almendra, 100 % arábica' },
+          { label: 'Tamaño de grano', value: 'Superior a malla 14' },
+          { label: 'Selección', value: 'Tamizado mecánico y selección electrónica de defectos' },
+          { label: 'Humedad', value: 'Verificada antes de cada lote' },
+          { label: 'Evaluación', value: 'Puntaje superior a 84 SCA, evaluado por catador Q-Grader' },
+        ],
+        estimator: 'Café verde Excelso',
+      },
+      {
+        id: 'tolima',
+        name: 'Tolima',
+        grade: 'Grado de exportación UGQ',
+        subtitle: 'Tolima · Castillo lavado',
+        score: '81,82',
+        notes: ['Cacao', 'Panela', 'Caña de azúcar', 'Chocolate', 'Caramelo', 'Acidez cítrica media'],
+        summary:
+          'Una taza directa y dulce: cacao, panela, caña de azúcar, chocolate y caramelo, con acidez cítrica media. Sencilla más que compleja; pensada para mezcla o para un espresso de todos los días.',
+        facts: ['Café verde · grado de exportación UGQ', 'Humedad de 10 a 12 %'],
+        origin: 'Tolima',
+        acidity: 'Cítrica media',
+        process: 'Lavado',
+        specsTitle: 'Origen y proceso',
+        specs: [
+          { label: 'Departamento', value: 'Tolima' },
+          { label: 'Variedad', value: 'Castillo' },
+          { label: 'Proceso', value: 'Lavado' },
+          { label: 'Presentación', value: 'Café verde en almendra, trillado en seco, listo para exportar' },
+          { label: 'Grado', value: 'UGQ, grado de exportación' },
+          { label: 'Humedad', value: '10 a 12 %' },
+        ],
+      },
+      {
+        id: 'basico',
+        name: 'Básico',
+        grade: 'Lote de Nariño',
+        subtitle: 'Nariño · 1.650–1.800 msnm',
+        score: '77,0',
+        notes: ['Mandarina', 'Miel de rosas', 'Jazmín', 'Caña de azúcar', 'Frutos rojos', 'Brevas', 'Limoncillo', 'Uva verde', 'Caramelo'],
+        summary:
+          'Mandarina, miel de rosas y jazmín en el aroma; caña de azúcar, frutos rojos sutiles, brevas y limoncillo en taza. Acidez jugosa, como la uva verde; cuerpo redondo y ligero con textura de miel y un final a caramelo.',
+        facts: ['Café verde · Castillo, Colombia y Caturra · lavado', 'Cata del 10 de septiembre de 2026'],
+        origin: 'Nariño',
+        acidity: 'Jugosa, como la uva verde',
+        process: 'Lavado',
+        specsTitle: 'Origen y proceso',
+        specs: [
+          { label: 'Altitud', value: '1.650 a 1.800 msnm' },
+          { label: 'Variedades', value: 'Castillo, Colombia y Caturra' },
+          { label: 'Presentación', value: 'Café verde en almendra' },
+          { label: 'Proceso', value: 'Lavado' },
+          { label: 'Fecha de cata', value: '10 de septiembre de 2026' },
+        ],
+        attributes: [
+          { label: 'Fragancia y aroma', score: '6,5', note: 'mandarina, miel de rosas de baja intensidad, sutil floral a jazmín, caña de azúcar' },
+          { label: 'Sabor', score: '7,0', note: 'caña de azúcar, agradable y sutil frutos rojos, brevas, limoncillo' },
+          { label: 'Sabor residual', score: '7,0', note: 'agradable a caramelo' },
+          { label: 'Acidez', score: '6,5', note: 'jugosa, como la uva verde' },
+          { label: 'Cuerpo', score: '7,0', note: 'redondo y ligero, con leve sensación a miel' },
+          { label: 'Uniformidad', score: '10', note: 'ok' },
+          { label: 'Balance', score: '10', note: 'ok' },
+          { label: 'Taza limpia', score: '10', note: 'ok' },
+          { label: 'Dulzor', score: '6,0', note: 'caña de azúcar' },
+          { label: 'Impresión global', score: '7,0', note: 'café balanceado con muy buen cuerpo, dulce y una acidez muy estable' },
+        ],
+        estimator: 'Café verde básico',
+      },
+    ],
   },
 
   faq: {

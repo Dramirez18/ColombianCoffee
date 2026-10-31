@@ -1,4 +1,4 @@
-import { Mountain, Calendar, Leaf, Coffee, Target } from 'lucide-react';
+import { Mountain, Calendar, Leaf, Coffee, Target, ArrowRight } from 'lucide-react';
 import { Language, Tab } from '../types';
 import { content } from '../content';
 import { PageHeader, SectionTitle, SpecTable, ContactButtons } from '../components/ui';
@@ -36,6 +36,23 @@ export default function GreenCoffee({ lang, navigate }: Props) {
             <SectionTitle>{g.specsTitle}</SectionTitle>
             <SpecTable rows={g.specs} />
           </div>
+        </div>
+
+        {/* Cup profiles of the current coffees */}
+        <div className="mb-20 bg-coffee-800 text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-gold-400 mb-2">{c.profiles.greenCallout.title}</h2>
+            <p className="text-coffee-100 leading-relaxed max-w-2xl">{c.profiles.greenCallout.text}</p>
+          </div>
+          <Link
+            tab="profiles"
+            lang={lang}
+            navigate={navigate}
+            className="shrink-0 inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-coffee-900 px-6 py-3 rounded-full text-sm font-semibold transition-colors"
+          >
+            {c.profiles.greenCallout.cta}
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
         </div>
 
         {/* Regions */}

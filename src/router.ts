@@ -18,6 +18,7 @@ export const PRERENDER_LANGS: Language[] = ['en', 'es'];
 export const ROUTES: { tab: PublicTab; en: string; es: string }[] = [
   { tab: 'home', en: '', es: '' },
   { tab: 'green', en: 'green-coffee', es: 'cafe-verde' },
+  { tab: 'profiles', en: 'cup-profiles', es: 'perfiles-de-taza' },
   { tab: 'products', en: 'products', es: 'productos' },
   { tab: 'export', en: 'export', es: 'exportacion' },
   { tab: 'shipping', en: 'shipping-estimate', es: 'cotizador-de-envio' },

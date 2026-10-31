@@ -12,6 +12,7 @@ type TranslationKeys = {
   // Navigation
   nav_home: string;
   nav_green: string;
+  nav_profiles: string;
   nav_products: string;
   nav_export: string;
   nav_shipping: string;
@@ -138,6 +139,7 @@ const translations: Translations = {
   en: {
     nav_home: 'Home',
     nav_green: 'Green Coffee',
+    nav_profiles: 'Cup Profiles',
     nav_products: 'Products',
     nav_export: 'Export & Logistics',
     nav_shipping: 'Shipping Estimate',
@@ -249,6 +251,7 @@ const translations: Translations = {
   es: {
     nav_home: 'Inicio',
     nav_green: 'Café verde',
+    nav_profiles: 'Perfiles de taza',
     nav_products: 'Productos',
     nav_export: 'Exportación y logística',
     nav_shipping: 'Cotizar envío',
@@ -360,6 +363,7 @@ const translations: Translations = {
   nl: {
     nav_home: 'Home',
     nav_green: 'Groene koffie',
+    nav_profiles: 'Smaakprofielen',
     nav_products: 'Producten',
     nav_export: 'Export & logistiek',
     nav_shipping: 'Verzendkosten',
@@ -470,6 +474,7 @@ const translations: Translations = {
   de: {
     nav_home: 'Startseite',
     nav_green: 'Rohkaffee',
+    nav_profiles: 'Geschmacksprofile',
     nav_products: 'Produkte',
     nav_export: 'Export & Logistik',
     nav_shipping: 'Versandkosten',
@@ -580,6 +585,7 @@ const translations: Translations = {
   fr: {
     nav_home: 'Accueil',
     nav_green: 'Café vert',
+    nav_profiles: 'Profils de tasse',
     nav_products: 'Produits',
     nav_export: 'Export & logistique',
     nav_shipping: 'Frais d’envoi',
@@ -690,6 +696,7 @@ const translations: Translations = {
   sv: {
     nav_home: 'Hem',
     nav_green: 'Råkaffe',
+    nav_profiles: 'Koppprofiler',
     nav_products: 'Produkter',
     nav_export: 'Export & logistik',
     nav_shipping: 'Fraktkostnad',

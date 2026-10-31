@@ -13,6 +13,7 @@ export default function Footer({ lang, navigate }: FooterProps) {
   const links: { key: Tab; label: string }[] = [
     { key: 'home', label: t(lang, 'nav_home') },
     { key: 'green', label: t(lang, 'nav_green') },
+    { key: 'profiles', label: t(lang, 'nav_profiles') },
     { key: 'products', label: t(lang, 'nav_products') },
     { key: 'export', label: t(lang, 'nav_export') },
     { key: 'shipping', label: t(lang, 'nav_shipping') },

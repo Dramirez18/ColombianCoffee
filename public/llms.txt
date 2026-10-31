@@ -19,6 +19,17 @@
   private label available. Shipped 1–5 days after roasting.
 - Sales inside Colombia: roasted and ground coffee for cafés, offices and companies.
 
+## Current cup profiles (31 October 2026, green coffee)
+- Huila (Acevedo, 1,580 masl), Supremo, SCA 86+: citrus, panela, floral, aromatic; washed,
+  48 h fermentation in the cherry and 48 h after pulping, dried 10–12 days.
+- Selecto (Huila, Cauca, Valle del Cauca, Quindío blend), Excelso EP, SCA 84+ by Q-Grader:
+  sugarcane, panela, mandarin, orange, creamy body, floral; mainly Castillo, screen 14+.
+- Tolima, washed Castillo, UGQ export grade, 81.82: cocoa, panela, sugarcane, chocolate,
+  caramel, medium citrus acidity; moisture 10–12%.
+- Basic (Nariño, 1,650–1,800 masl), cup score 77.0 (cupping sheet of 10 Sep 2026): mandarin,
+  rose honey, jasmine, red fruits, figs, lemongrass, green-grape acidity, caramel finish.
+- Full profiles: https://www.entrecafescolombianos.coffee/cup-profiles
+
 ## Where the coffee comes from
 Huila (reference profile), Cauca, Valle del Cauca, Nariño, Quindío; also Tolima, Risaralda
 (Pereira) and the Sierra Nevada de Santa Marta (seasonal). Altitude 1,500–1,900+ masl.
@@ -76,6 +87,7 @@ Saudi Arabia.
 ## Key pages
 - Home: https://www.entrecafescolombianos.coffee/
 - Green coffee specification: https://www.entrecafescolombianos.coffee/green-coffee
+- Cup profiles: https://www.entrecafescolombianos.coffee/cup-profiles
 - Products: https://www.entrecafescolombianos.coffee/products
 - Export & logistics: https://www.entrecafescolombianos.coffee/export
 - Shipping estimate: https://www.entrecafescolombianos.coffee/shipping-estimate

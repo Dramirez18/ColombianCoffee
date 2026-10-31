@@ -93,6 +93,36 @@ function productList(lang: Language) {
   };
 }
 
+/** The cup-profile page: each coffee as a Product with its cup score, origin, process and notes. */
+function cupProfiles(lang: Language) {
+  const c = content(lang);
+  return {
+    '@type': 'ItemList',
+    name: c.profiles.title,
+    itemListElement: c.profiles.items.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: `${p.name} — ${p.grade}`,
+        description: p.summary,
+        brand: { '@type': 'Brand', name: COMPANY.name },
+        manufacturer: { '@id': `${SITE_URL}/#organization` },
+        category: 'Green coffee beans',
+        countryOfOrigin: 'CO',
+        url: `${absoluteUrl('profiles', lang)}#${p.id}`,
+        additionalProperty: [
+          { '@type': 'PropertyValue', name: c.profiles.compareLabels.score, value: p.score },
+          { '@type': 'PropertyValue', name: c.profiles.compareLabels.origin, value: p.origin },
+          { '@type': 'PropertyValue', name: c.profiles.compareLabels.process, value: p.process },
+          { '@type': 'PropertyValue', name: c.profiles.compareLabels.acidity, value: p.acidity },
+          { '@type': 'PropertyValue', name: 'Cup notes', value: p.notes.join(', ') },
+        ],
+      },
+    })),
+  };
+}
+
 function faqPage(lang: Language) {
   const c = content(lang);
   return {
@@ -132,6 +162,7 @@ export function head(tab: PublicTab, lang: Language): string {
   ];
   if (tab === 'green' || tab === 'products' || tab === 'home') graph.push(productList(lang));
   if (tab === 'faq') graph.push(faqPage(lang));
+  if (tab === 'profiles') graph.push(cupProfiles(lang));
 
   const alternates = PRERENDER_LANGS.map(
     (l) => `<link rel="alternate" hreflang="${l}" href="${absoluteUrl(tab, l)}" />`,

@@ -3,6 +3,7 @@ import { Calculator, CheckCircle2, MinusCircle, Package, Info, Loader2, Ship, Pl
 import { Language, Tab } from '../types';
 import { content } from '../content';
 import { PageHeader, ContactButtons } from '../components/ui';
+import Link from '../components/Link';
 import {
   CONTAINER,
   CONTAINER_PRODUCTS,
@@ -50,7 +51,7 @@ function fill(template: string, values: Record<string, string | number>): string
  * products, limits); prices, supplier costs and the DHL tariff stay on the
  * server behind /api/estimate, which returns the totals.
  */
-export default function Shipping({ lang }: Props) {
+export default function Shipping({ lang, navigate }: Props) {
   const c = content(lang);
   const s = c.shipping;
   const sc = s.container;
@@ -224,7 +225,14 @@ export default function Shipping({ lang }: Props) {
                   <div className="space-y-5">
                     {GROUPS.map((group) => (
                       <div key={group} role="group" aria-labelledby={`ship-group-${group}`}>
-                        <p id={`ship-group-${group}`} className="text-sm font-semibold text-coffee-700 mb-2">{s.groups[group]}</p>
+                        <div className="flex items-baseline justify-between gap-3 mb-2">
+                          <p id={`ship-group-${group}`} className="text-sm font-semibold text-coffee-700 m-0">{s.groups[group]}</p>
+                          {group === 'green' && (
+                            <Link tab="profiles" lang={lang} navigate={navigate} className="text-xs font-semibold text-coffee-600 underline hover:text-coffee-900">
+                              {c.profiles.greenCallout.cta} →
+                            </Link>
+                          )}
+                        </div>
                         <div className="space-y-2">
                           {SHIPPING_PRODUCTS.filter((p) => p.group === group).map((p) => {
                             const selected = p.id === product;
