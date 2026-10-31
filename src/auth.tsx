@@ -11,9 +11,13 @@ import { Language, Tab } from './types';
  * Every decision about what a user may see is taken by the server (/api/*).
  */
 
+type ClerkUIConstructor = Exclude<NonNullable<NonNullable<Parameters<Clerk['load']>[0]>['ui']>['ClerkUI'], Promise<unknown> | undefined>;
+
 declare global {
   interface Window {
     Clerk?: Clerk;
+    /** Set by Clerk's UI script (@clerk/ui): since clerk-js v6 the sign-in modal lives in that separate bundle. */
+    __internal_ClerkUICtor?: ClerkUIConstructor;
   }
 }
 
@@ -37,7 +41,10 @@ interface AuthState {
 }
 
 interface AuthApi extends AuthState {
+  /** A Clerk session cookie exists and is still being checked: show a spinner, not the sign-up invitation. */
+  restoring: boolean;
   openSignIn: () => void;
+  openSignUp: () => void;
   signOut: () => Promise<void>;
   authFetch: (input: string, init?: RequestInit) => Promise<Response>;
   refresh: () => Promise<void>;
@@ -48,7 +55,9 @@ const SIGNED_OUT: AuthState = { status: 'signedOut', email: null, isAdmin: false
 const AuthContext = createContext<AuthApi>({
   ...SIGNED_OUT,
   status: 'loading',
+  restoring: false,
   openSignIn: () => {},
+  openSignUp: () => {},
   signOut: async () => {},
   authFetch: (input, init) => fetch(input, init),
   refresh: async () => {},
@@ -76,29 +85,92 @@ function hasSessionHint(): boolean {
   });
 }
 
-let scriptPromise: Promise<Clerk> | null = null;
-function loadClerkScript(publishableKey: string): Promise<Clerk> {
-  if (window.Clerk) return Promise.resolve(window.Clerk);
+type Tree = { [key: string]: string | Tree };
+
+/** Clerk's Spanish mixes "tú" and "usted"; the site speaks "usted". Only the screens a customer sees. */
+const ES_OVERRIDES: Tree = {
+  signIn: {
+    start: {
+      title: 'Ingrese',
+      titleCombined: 'Ingrese o cree su cuenta',
+      subtitle: 'para continuar en {{applicationName}}',
+      subtitleCombined: 'para continuar en {{applicationName}}',
+      actionText: '¿No tiene cuenta?',
+      actionLink: 'Regístrese',
+    },
+    emailCode: { subtitle: 'para continuar en {{applicationName}}' },
+  },
+  signUp: {
+    start: {
+      title: 'Cree su cuenta',
+      titleCombined: 'Cree su cuenta',
+      actionText: '¿Ya tiene una cuenta?',
+      actionLink: 'Ingrese',
+    },
+    emailCode: {
+      subtitle: 'para continuar en {{applicationName}}',
+      formSubtitle: 'Escriba el código que le enviamos a su correo electrónico',
+      resendButton: 'Reenviar código',
+    },
+  },
+};
+
+function merge(base: Tree, extra: Tree): Tree {
+  const out: Tree = { ...base };
+  for (const [k, v] of Object.entries(extra)) {
+    const b = out[k];
+    out[k] = typeof v === 'object' && b && typeof b === 'object' ? merge(b, v) : v;
+  }
+  return out;
+}
+
+/**
+ * Clerk navigates after signing in or out; by default to the page the visitor is on. Staying on
+ * the same URL needs no reload: the auth listener already updates the page.
+ */
+function clerkNavigate(to: string) {
+  const url = new URL(to, window.location.href);
+  if (url.href !== window.location.href) window.location.assign(url.href);
+}
+
+const scripts = new Map<string, Promise<void>>();
+function loadScript(src: string, publishableKey: string): Promise<void> {
+  let promise = scripts.get(src);
+  if (!promise) {
+    promise = new Promise<void>((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.dataset.clerkPublishableKey = publishableKey;
+      script.onload = () => resolve();
+      script.onerror = () => {
+        scripts.delete(src);
+        script.remove();
+        reject(new Error(`clerk_script ${src}`));
+      };
+      document.head.appendChild(script);
+    });
+    scripts.set(src, promise);
+  }
+  return promise;
+}
+
+/** Loads clerk-js (session logic) and @clerk/ui (the sign-in modal) side by side from the instance's CDN. */
+async function loadClerkScripts(publishableKey: string): Promise<{ clerk: Clerk; ClerkUI: ClerkUIConstructor }> {
   const host = frontendApi(publishableKey);
-  if (!host) return Promise.reject(new Error('invalid_publishable_key'));
-  scriptPromise ??= new Promise<Clerk>((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://${host}/npm/@clerk/clerk-js@6/dist/clerk.browser.js`;
-    script.async = true;
-    script.crossOrigin = 'anonymous';
-    script.dataset.clerkPublishableKey = publishableKey;
-    script.onload = () => (window.Clerk ? resolve(window.Clerk) : reject(new Error('clerk_missing')));
-    script.onerror = () => {
-      scriptPromise = null;
-      reject(new Error('clerk_script'));
-    };
-    document.head.appendChild(script);
-  });
-  return scriptPromise;
+  if (!host) throw new Error('invalid_publishable_key');
+  await Promise.all([
+    window.Clerk ? null : loadScript(`https://${host}/npm/@clerk/clerk-js@6/dist/clerk.browser.js`, publishableKey),
+    window.__internal_ClerkUICtor ? null : loadScript(`https://${host}/npm/@clerk/ui@1/dist/ui.browser.js`, publishableKey),
+  ]);
+  if (!window.Clerk || !window.__internal_ClerkUICtor) throw new Error('clerk_missing');
+  return { clerk: window.Clerk, ClerkUI: window.__internal_ClerkUICtor };
 }
 
 export function AuthProvider({ lang, activeTab, children }: { lang: Language; activeTab: Tab; children: ReactNode }) {
   const [state, setState] = useState<AuthState>({ ...SIGNED_OUT, status: 'loading' });
+  const [sessionHint, setSessionHint] = useState(false);
   const keyRef = useRef<string | null>(null);
   const clerkRef = useRef<Clerk | null>(null);
   const loading = useRef<Promise<Clerk | null> | null>(null);
@@ -129,11 +201,14 @@ export function AuthProvider({ lang, activeTab, children }: { lang: Language; ac
     if (!keyRef.current) return Promise.resolve(null);
     loading.current ??= (async () => {
       try {
-        const [clerk, localization] = await Promise.all([
-          loadClerkScript(keyRef.current!),
-          lang === 'es' ? import('clerk-localization-es').then((m) => m.esES) : Promise.resolve(undefined),
+        const [{ clerk, ClerkUI }, localization] = await Promise.all([
+          loadClerkScripts(keyRef.current!),
+          lang === 'es' ? import('clerk-localization-es').then((m) => merge(m.esES as unknown as Tree, ES_OVERRIDES)) : Promise.resolve(undefined),
         ]);
         await clerk.load({
+          ui: { ClerkUI },
+          routerPush: clerkNavigate,
+          routerReplace: clerkNavigate,
           localization: localization as never,
           appearance: { variables: { colorPrimary: '#3E2415', fontFamily: 'Inter, sans-serif', borderRadius: '0.75rem' } },
         });
@@ -164,6 +239,7 @@ export function AuthProvider({ lang, activeTab, children }: { lang: Language; ac
     // The old fake login kept visitors' details in this browser; erase them.
     localStorage.removeItem('huila-user');
     localStorage.removeItem('huila-clients');
+    setSessionHint(hasSessionHint());
     let cancelled = false;
     fetch('/api/auth-config')
       .then((r) => r.json())
@@ -186,20 +262,28 @@ export function AuthProvider({ lang, activeTab, children }: { lang: Language; ac
     if ((activeTab === 'account' || activeTab === 'admin') && keyRef.current && !clerkRef.current) void ensureClerk();
   }, [activeTab, ensureClerk]);
 
+  // withSignUp: an email without an account continues straight into sign-up instead of failing.
   const openSignIn = useCallback(() => {
     void ensureClerk().then((clerk) => {
-      if (clerk && !clerk.user) clerk.openSignIn({});
+      if (clerk && !clerk.user) clerk.openSignIn({ withSignUp: true });
+    });
+  }, [ensureClerk]);
+
+  const openSignUp = useCallback(() => {
+    void ensureClerk().then((clerk) => {
+      if (clerk && !clerk.user) clerk.openSignUp({});
     });
   }, [ensureClerk]);
 
   const signOut = useCallback(async () => {
-    await clerkRef.current?.signOut();
+    await clerkRef.current?.signOut({ redirectUrl: window.location.href });
     setState(SIGNED_OUT);
   }, []);
 
+  const restoring = state.status === 'loading' && sessionHint;
   const value = useMemo<AuthApi>(
-    () => ({ ...state, openSignIn, signOut, authFetch, refresh: loadMe }),
-    [state, openSignIn, signOut, authFetch, loadMe],
+    () => ({ ...state, restoring, openSignIn, openSignUp, signOut, authFetch, refresh: loadMe }),
+    [state, restoring, openSignIn, openSignUp, signOut, authFetch, loadMe],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -19,6 +19,23 @@ export function sql() {
   return sqlClient;
 }
 
+const profileSeen = new Map();
+const PROFILE_TTL_MS = 5 * 60 * 1000;
+
+/**
+ * ¿El usuario completó su perfil y aceptó la política vigente? Es la condición para cotizar.
+ * Los "sí" quedan 5 minutos en memoria para no consultar la base en cada cálculo.
+ */
+export async function hasCurrentProfile(userId) {
+  const seen = profileSeen.get(userId);
+  if (seen && Date.now() - seen < PROFILE_TTL_MS) return true;
+  await ensureSchema();
+  const [row] = await sql()`SELECT 1 FROM customers WHERE user_id = ${userId} AND consent_version = ${POLICY_VERSION}`;
+  if (row) profileSeen.set(userId, Date.now());
+  else profileSeen.delete(userId);
+  return Boolean(row);
+}
+
 export function ensureSchema() {
   schemaReady ??= (async () => {
     const db = sql();

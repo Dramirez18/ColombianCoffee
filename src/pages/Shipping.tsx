@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../auth';
-import { Calculator, CheckCircle2, MinusCircle, Package, Info, Loader2, Ship, Plane, BookmarkPlus, LogIn } from 'lucide-react';
+import { Calculator, CheckCircle2, MinusCircle, Package, Info, Loader2, Ship, Plane, BookmarkPlus, LogIn, UserPlus, UserCheck } from 'lucide-react';
 import { Language, Tab } from '../types';
 import { content } from '../content';
 import { PageHeader, ContactButtons } from '../components/ui';
@@ -28,6 +28,9 @@ interface Props {
 
 type Mode = 'courier' | 'container';
 
+/** open: may quote · invite: no account · profile: account without details/consent · checking: session being restored */
+type Access = 'open' | 'invite' | 'profile' | 'checking';
+
 type State =
   | { status: 'idle' }
   | { status: 'loading' }
@@ -51,6 +54,10 @@ function fill(template: string, values: Record<string, string | number>): string
  * green coffee (FOB Cartagena). The page only knows public data (countries,
  * products, limits); prices, supplier costs and the DHL tariff stay on the
  * server behind /api/estimate, which returns the totals.
+ *
+ * Quoting needs a free account with the customer's details and data consent;
+ * /api/estimate enforces it, this page only decides what to show. When login
+ * is not configured (auth status "disabled") the estimator stays open.
  */
 export default function Shipping({ lang, navigate }: Props) {
   const c = content(lang);
@@ -66,6 +73,18 @@ export default function Shipping({ lang, navigate }: Props) {
   const [cProduct, setCProduct] = useState<ContainerProductId>('washed-84-antioquia');
   const [bagsText, setBagsText] = useState(String(CONTAINER.fullBags));
   const [state, setState] = useState<State>({ status: 'idle' });
+  const auth = useAuth();
+  const { authFetch, refresh } = auth;
+  const access: Access =
+    auth.status === 'disabled'
+      ? 'open'
+      : auth.status === 'signedIn'
+        ? auth.customer?.policyCurrent
+          ? 'open'
+          : 'profile'
+        : auth.restoring
+          ? 'checking'
+          : 'invite';
 
   const prod = SHIPPING_PRODUCTS.find((p) => p.id === product)!;
   const maxKg = prod.maxKg;
@@ -83,6 +102,7 @@ export default function Shipping({ lang, navigate }: Props) {
   }, []);
 
   useEffect(() => {
+    if (access !== 'open') return setState({ status: 'idle' });
     let query: URLSearchParams;
     if (mode === 'container') {
       if (!bagsValid) return setState({ status: 'idle' });
@@ -105,7 +125,12 @@ export default function Shipping({ lang, navigate }: Props) {
     }, REQUEST_TIMEOUT_MS + 300);
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/estimate?${query}`, { signal: ctrl.signal });
+        const res = await authFetch(`/api/estimate?${query}`, { signal: ctrl.signal });
+        // Session expired or details missing: re-read the account and the page shows the right card.
+        if (res.status === 401 || res.status === 409) {
+          setState({ status: 'idle' });
+          return void refresh();
+        }
         const data = await res.json();
         if (data.ok) setState(data.quote.mode === 'container' ? { status: 'okContainer', quote: data.quote } : { status: 'ok', quote: data.quote });
         else if (data.error === 'above_max') setState({ status: 'over' });
@@ -122,7 +147,7 @@ export default function Shipping({ lang, navigate }: Props) {
       clearTimeout(timeout);
       ctrl.abort();
     };
-  }, [mode, country, product, kg, kgValid, maxKg, cProduct, bags, bagsValid]);
+  }, [access, authFetch, refresh, mode, country, product, kg, kgValid, maxKg, cProduct, bags, bagsValid]);
 
   const money = (n: number) =>
     new Intl.NumberFormat(locale, { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
@@ -173,258 +198,262 @@ export default function Shipping({ lang, navigate }: Props) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <PageHeader eyebrow={s.eyebrow} title={s.title} lead={s.lead} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-8 mb-16 items-start">
-          {/* Form */}
-          <form className="bg-white rounded-2xl shadow-md p-6 md:p-8 space-y-7" noValidate onSubmit={(e) => e.preventDefault()}>
-            <h2 className="font-display text-2xl font-bold text-coffee-900 flex items-center gap-3">
-              <Calculator className="w-6 h-6 text-gold-500" aria-hidden="true" />
-              {s.formTitle}
-            </h2>
+        {access !== 'open' ? (
+          <QuoteGate lang={lang} navigate={navigate} access={access} />
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-8 mb-16 items-start">
+            {/* Form */}
+            <form className="bg-white rounded-2xl shadow-md p-6 md:p-8 space-y-7" noValidate onSubmit={(e) => e.preventDefault()}>
+              <h2 className="font-display text-2xl font-bold text-coffee-900 flex items-center gap-3">
+                <Calculator className="w-6 h-6 text-gold-500" aria-hidden="true" />
+                {s.formTitle}
+              </h2>
 
-            <fieldset>
-              <legend className={labelClass}>{s.modeLabel}</legend>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {(['courier', 'container'] as Mode[]).map((m) => {
-                  const selected = m === mode;
-                  const Icon = m === 'courier' ? Plane : Ship;
-                  return (
-                    <label
-                      key={m}
-                      className={`flex items-start gap-3 rounded-xl border p-3.5 cursor-pointer transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-coffee-700 ${
-                        selected ? 'border-gold-500 bg-coffee-50' : 'border-coffee-100 hover:border-coffee-300'
-                      }`}
-                    >
-                      <input type="radio" name="ship-mode" value={m} checked={selected} onChange={() => setMode(m)} className="mt-1 accent-[#7A4F2B]" />
-                      <span>
-                        <span className="flex items-center gap-1.5 font-semibold text-coffee-900">
-                          <Icon className="w-4 h-4 text-gold-500" aria-hidden="true" />
-                          {s.modes[m].title}
+              <fieldset>
+                <legend className={labelClass}>{s.modeLabel}</legend>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {(['courier', 'container'] as Mode[]).map((m) => {
+                    const selected = m === mode;
+                    const Icon = m === 'courier' ? Plane : Ship;
+                    return (
+                      <label
+                        key={m}
+                        className={`flex items-start gap-3 rounded-xl border p-3.5 cursor-pointer transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-coffee-700 ${
+                          selected ? 'border-gold-500 bg-coffee-50' : 'border-coffee-100 hover:border-coffee-300'
+                        }`}
+                      >
+                        <input type="radio" name="ship-mode" value={m} checked={selected} onChange={() => setMode(m)} className="mt-1 accent-[#7A4F2B]" />
+                        <span>
+                          <span className="flex items-center gap-1.5 font-semibold text-coffee-900">
+                            <Icon className="w-4 h-4 text-gold-500" aria-hidden="true" />
+                            {s.modes[m].title}
+                          </span>
+                          <span className="block text-sm text-coffee-600">{s.modes[m].detail}</span>
                         </span>
-                        <span className="block text-sm text-coffee-600">{s.modes[m].detail}</span>
-                      </span>
-                    </label>
-                  );
-                })}
-              </div>
-            </fieldset>
-
-            {mode === 'courier' ? (
-              <>
-                <div>
-                  <label htmlFor="ship-country" className={labelClass}>{s.countryLabel}</label>
-                  <select id="ship-country" value={country} onChange={(e) => setCountry(e.target.value)} className={inputClass}>
-                    <option value="" disabled>{s.countryPlaceholder}</option>
-                    {destinations.map((d) => (
-                      <option key={d.code} value={d.code}>{destName(d)}</option>
-                    ))}
-                    <option value={OTHER_COUNTRY}>{s.otherCountry}</option>
-                  </select>
+                      </label>
+                    );
+                  })}
                 </div>
+              </fieldset>
 
-                <fieldset>
-                  <legend className={labelClass}>{s.productLabel}</legend>
-                  <div className="space-y-5">
-                    {GROUPS.map((group) => (
-                      <div key={group} role="group" aria-labelledby={`ship-group-${group}`}>
-                        <div className="flex items-baseline justify-between gap-3 mb-2">
-                          <p id={`ship-group-${group}`} className="text-sm font-semibold text-coffee-700 m-0">{s.groups[group]}</p>
-                          {group === 'green' && (
-                            <Link tab="profiles" lang={lang} navigate={navigate} className="text-xs font-semibold text-coffee-600 underline hover:text-coffee-900">
-                              {c.profiles.greenCallout.cta} →
-                            </Link>
-                          )}
-                        </div>
-                        <div className="space-y-2">
-                          {SHIPPING_PRODUCTS.filter((p) => p.group === group).map((p) => {
-                            const selected = p.id === product;
-                            return (
-                              <label
-                                key={p.id}
-                                className={`flex items-start gap-3 rounded-xl border p-3.5 cursor-pointer transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-coffee-700 ${
-                                  selected ? 'border-gold-500 bg-coffee-50' : 'border-coffee-100 hover:border-coffee-300'
-                                }`}
-                              >
-                                <input
-                                  type="radio"
-                                  name="ship-product"
-                                  value={p.id}
-                                  checked={selected}
-                                  onChange={() => setProduct(p.id)}
-                                  className="mt-1 accent-[#7A4F2B]"
-                                />
-                                <span>
-                                  <span className="block font-semibold text-coffee-900">{s.products[p.id].name}</span>
-                                  <span className="block text-sm text-coffee-600">{s.products[p.id].detail}</span>
-                                </span>
-                              </label>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    ))}
+              {mode === 'courier' ? (
+                <>
+                  <div>
+                    <label htmlFor="ship-country" className={labelClass}>{s.countryLabel}</label>
+                    <select id="ship-country" value={country} onChange={(e) => setCountry(e.target.value)} className={inputClass}>
+                      <option value="" disabled>{s.countryPlaceholder}</option>
+                      {destinations.map((d) => (
+                        <option key={d.code} value={d.code}>{destName(d)}</option>
+                      ))}
+                      <option value={OTHER_COUNTRY}>{s.otherCountry}</option>
+                    </select>
                   </div>
-                </fieldset>
 
-                <div>
-                  <label htmlFor="ship-kg" className={labelClass}>{s.kgLabel}</label>
-                  <input
-                    id="ship-kg"
-                    type="number"
-                    inputMode="decimal"
-                    min={SHIPPING_MIN_KG}
-                    max={maxKg}
-                    step={SHIPPING_KG_STEP}
-                    value={kgText}
-                    onChange={(e) => setKgText(e.target.value)}
-                    aria-describedby="ship-kg-hint"
-                    className={inputClass}
-                  />
-                  <p id="ship-kg-hint" className="text-xs text-coffee-600 mt-2">{fill(s.kgHint, { min: SHIPPING_MIN_KG, max: maxKg })}</p>
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <label htmlFor="ship-container-coffee" className={labelClass}>{sc.coffeeLabel}</label>
-                  <select
-                    id="ship-container-coffee"
-                    value={cProduct}
-                    onChange={(e) => setCProduct(e.target.value as ContainerProductId)}
-                    className={inputClass}
-                  >
-                    {CONTAINER_GROUPS.map((group) => (
-                      <optgroup key={group} label={sc.groups[group]}>
-                        {CONTAINER_PRODUCTS.filter((p) => p.group === group).map((p) => (
-                          <option key={p.id} value={p.id}>{sc.products[p.id]}</option>
-                        ))}
-                      </optgroup>
-                    ))}
-                  </select>
-                </div>
+                  <fieldset>
+                    <legend className={labelClass}>{s.productLabel}</legend>
+                    <div className="space-y-5">
+                      {GROUPS.map((group) => (
+                        <div key={group} role="group" aria-labelledby={`ship-group-${group}`}>
+                          <div className="flex items-baseline justify-between gap-3 mb-2">
+                            <p id={`ship-group-${group}`} className="text-sm font-semibold text-coffee-700 m-0">{s.groups[group]}</p>
+                            {group === 'green' && (
+                              <Link tab="profiles" lang={lang} navigate={navigate} className="text-xs font-semibold text-coffee-600 underline hover:text-coffee-900">
+                                {c.profiles.greenCallout.cta} →
+                              </Link>
+                            )}
+                          </div>
+                          <div className="space-y-2">
+                            {SHIPPING_PRODUCTS.filter((p) => p.group === group).map((p) => {
+                              const selected = p.id === product;
+                              return (
+                                <label
+                                  key={p.id}
+                                  className={`flex items-start gap-3 rounded-xl border p-3.5 cursor-pointer transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-coffee-700 ${
+                                    selected ? 'border-gold-500 bg-coffee-50' : 'border-coffee-100 hover:border-coffee-300'
+                                  }`}
+                                >
+                                  <input
+                                    type="radio"
+                                    name="ship-product"
+                                    value={p.id}
+                                    checked={selected}
+                                    onChange={() => setProduct(p.id)}
+                                    className="mt-1 accent-[#7A4F2B]"
+                                  />
+                                  <span>
+                                    <span className="block font-semibold text-coffee-900">{s.products[p.id].name}</span>
+                                    <span className="block text-sm text-coffee-600">{s.products[p.id].detail}</span>
+                                  </span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </fieldset>
 
+                  <div>
+                    <label htmlFor="ship-kg" className={labelClass}>{s.kgLabel}</label>
+                    <input
+                      id="ship-kg"
+                      type="number"
+                      inputMode="decimal"
+                      min={SHIPPING_MIN_KG}
+                      max={maxKg}
+                      step={SHIPPING_KG_STEP}
+                      value={kgText}
+                      onChange={(e) => setKgText(e.target.value)}
+                      aria-describedby="ship-kg-hint"
+                      className={inputClass}
+                    />
+                    <p id="ship-kg-hint" className="text-xs text-coffee-600 mt-2">{fill(s.kgHint, { min: SHIPPING_MIN_KG, max: maxKg })}</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <label htmlFor="ship-container-coffee" className={labelClass}>{sc.coffeeLabel}</label>
+                    <select
+                      id="ship-container-coffee"
+                      value={cProduct}
+                      onChange={(e) => setCProduct(e.target.value as ContainerProductId)}
+                      className={inputClass}
+                    >
+                      {CONTAINER_GROUPS.map((group) => (
+                        <optgroup key={group} label={sc.groups[group]}>
+                          {CONTAINER_PRODUCTS.filter((p) => p.group === group).map((p) => (
+                            <option key={p.id} value={p.id}>{sc.products[p.id]}</option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="ship-bags" className={labelClass}>{sc.bagsLabel}</label>
+                    <input
+                      id="ship-bags"
+                      type="number"
+                      inputMode="numeric"
+                      min={CONTAINER.minBags}
+                      max={CONTAINER.fullBags}
+                      step={1}
+                      value={bagsText}
+                      onChange={(e) => setBagsText(e.target.value)}
+                      aria-describedby="ship-bags-hint"
+                      className={inputClass}
+                    />
+                    <p id="ship-bags-hint" className="text-xs text-coffee-600 mt-2">
+                      {fill(sc.bagsHint, { min: CONTAINER.minBags, minKg: num(minKgC), full: CONTAINER.fullBags, fullKg: num(fullKgC) })}
+                    </p>
+                  </div>
+                </>
+              )}
+            </form>
+
+            {/* Result */}
+            <div className="bg-coffee-800 text-white rounded-2xl p-6 md:p-8 lg:sticky lg:top-24" aria-live="polite">
+              <h2 className="font-display text-2xl font-bold text-gold-400 mb-6 flex items-center gap-3">
+                <Package className="w-6 h-6" aria-hidden="true" />
+                {s.resultTitle}
+              </h2>
+
+              {mode === 'courier' && country === OTHER_COUNTRY && <p className="text-coffee-100 leading-relaxed">{s.otherCountryText}</p>}
+              {state.status === 'idle' && !(mode === 'courier' && country === OTHER_COUNTRY) && (
+                <p className="text-coffee-200 leading-relaxed">{mode === 'container' ? sc.idle : s.idle}</p>
+              )}
+              {state.status === 'loading' && (
+                <p className="text-coffee-200 flex items-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> {s.loading}
+                </p>
+              )}
+              {state.status === 'below' && (
+                <p className="text-coffee-100 leading-relaxed">
+                  {mode === 'container'
+                    ? fill(sc.belowMin, { min: CONTAINER.minBags, minKg: num(minKgC) })
+                    : fill(s.belowMin, { min: SHIPPING_MIN_KG })}
+                </p>
+              )}
+              {state.status === 'over' && (
+                <p className="text-coffee-100 leading-relaxed">
+                  {mode === 'container' ? fill(sc.overLimit, { full: CONTAINER.fullBags }) : fill(s.overLimit, { max: maxKg })}
+                </p>
+              )}
+              {state.status === 'error' && <p className="text-coffee-100 leading-relaxed">{s.error}</p>}
+
+              {state.status === 'ok' && (
                 <div>
-                  <label htmlFor="ship-bags" className={labelClass}>{sc.bagsLabel}</label>
-                  <input
-                    id="ship-bags"
-                    type="number"
-                    inputMode="numeric"
-                    min={CONTAINER.minBags}
-                    max={CONTAINER.fullBags}
-                    step={1}
-                    value={bagsText}
-                    onChange={(e) => setBagsText(e.target.value)}
-                    aria-describedby="ship-bags-hint"
-                    className={inputClass}
-                  />
-                  <p id="ship-bags-hint" className="text-xs text-coffee-600 mt-2">
-                    {fill(sc.bagsHint, { min: CONTAINER.minBags, minKg: num(minKgC), full: CONTAINER.fullBags, fullKg: num(fullKgC) })}
+                  <dl className="divide-y divide-coffee-700 text-sm">
+                    <div className="flex justify-between gap-4 py-3">
+                      <dt className="text-coffee-200">
+                        {fill(s.coffeeLine, { kg: num(state.quote.netKg), price: money(state.quote.usdPerKg) })}
+                      </dt>
+                      <dd className="m-0 font-semibold tabular-nums">{money(state.quote.coffee)}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4 py-3">
+                      <dt className="text-coffee-200">{s.prepLine}</dt>
+                      <dd className="m-0 font-semibold tabular-nums">{money(state.quote.prep)}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4 py-3">
+                      <dt className="text-coffee-200">{s.freightLine}</dt>
+                      <dd className="m-0 font-semibold tabular-nums">{money(state.quote.freight)}</dd>
+                    </div>
+                    <div className="flex justify-between items-baseline gap-4 pt-5 pb-2">
+                      <dt className="font-semibold text-white">{s.totalLine}</dt>
+                      <dd className="m-0 font-display text-3xl font-bold text-gold-400 tabular-nums">{money(state.quote.total)}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4 py-2">
+                      <dt className="text-coffee-300">{s.perKgLine}</dt>
+                      <dd className="m-0 text-coffee-100 tabular-nums">{money(state.quote.landedPerKg)}</dd>
+                    </div>
+                  </dl>
+                  <p className="text-xs text-coffee-300 mt-4">{fill(s.boxesLine, { n: state.quote.boxes, kg: num(state.quote.grossKg) })}</p>
+                </div>
+              )}
+
+              {state.status === 'okContainer' && (
+                <div>
+                  <dl className="divide-y divide-coffee-700 text-sm">
+                    <div className="flex justify-between gap-4 py-3">
+                      <dt className="text-coffee-200">{sc.perKgLine}</dt>
+                      <dd className="m-0 font-semibold tabular-nums">{money(state.quote.usdPerKg)}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4 py-3">
+                      <dt className="text-coffee-200">{sc.perLbLine}</dt>
+                      <dd className="m-0 font-semibold tabular-nums">{money(state.quote.usdPerLb)}</dd>
+                    </div>
+                    <div className="flex justify-between items-baseline gap-4 pt-5 pb-2">
+                      <dt className="font-semibold text-white">{fill(sc.totalLine, { bags: num(state.quote.bags), kg: num(state.quote.kg) })}</dt>
+                      <dd className="m-0 font-display text-3xl font-bold text-gold-400 tabular-nums">{money(state.quote.total)}</dd>
+                    </div>
+                  </dl>
+                  <p className="text-xs text-coffee-300 mt-4">
+                    {state.quote.full ? sc.fullNote : fill(sc.partialNote, { full: CONTAINER.fullBags })}
                   </p>
                 </div>
-              </>
-            )}
-          </form>
+              )}
 
-          {/* Result */}
-          <div className="bg-coffee-800 text-white rounded-2xl p-6 md:p-8 lg:sticky lg:top-24" aria-live="polite">
-            <h2 className="font-display text-2xl font-bold text-gold-400 mb-6 flex items-center gap-3">
-              <Package className="w-6 h-6" aria-hidden="true" />
-              {s.resultTitle}
-            </h2>
+              {(state.status === 'ok' || state.status === 'okContainer') && (
+                <SaveQuote
+                  key={JSON.stringify(state.quote)}
+                  lang={lang}
+                  navigate={navigate}
+                  body={
+                    state.status === 'okContainer'
+                      ? { mode: 'container', product: state.quote.product, bags: state.quote.bags }
+                      : { mode: 'courier', country: state.quote.country, product: state.quote.product, kg: state.quote.netKg }
+                  }
+                />
+              )}
 
-            {mode === 'courier' && country === OTHER_COUNTRY && <p className="text-coffee-100 leading-relaxed">{s.otherCountryText}</p>}
-            {state.status === 'idle' && !(mode === 'courier' && country === OTHER_COUNTRY) && (
-              <p className="text-coffee-200 leading-relaxed">{mode === 'container' ? sc.idle : s.idle}</p>
-            )}
-            {state.status === 'loading' && (
-              <p className="text-coffee-200 flex items-center gap-2">
-                <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> {s.loading}
+              <p className="text-xs text-coffee-300 leading-relaxed mt-6 pt-5 border-t border-coffee-700 flex gap-2">
+                <Info className="w-4 h-4 shrink-0 text-gold-400" aria-hidden="true" />
+                <span>{mode === 'container' ? sc.disclaimer : s.disclaimer}</span>
               </p>
-            )}
-            {state.status === 'below' && (
-              <p className="text-coffee-100 leading-relaxed">
-                {mode === 'container'
-                  ? fill(sc.belowMin, { min: CONTAINER.minBags, minKg: num(minKgC) })
-                  : fill(s.belowMin, { min: SHIPPING_MIN_KG })}
-              </p>
-            )}
-            {state.status === 'over' && (
-              <p className="text-coffee-100 leading-relaxed">
-                {mode === 'container' ? fill(sc.overLimit, { full: CONTAINER.fullBags }) : fill(s.overLimit, { max: maxKg })}
-              </p>
-            )}
-            {state.status === 'error' && <p className="text-coffee-100 leading-relaxed">{s.error}</p>}
-
-            {state.status === 'ok' && (
-              <div>
-                <dl className="divide-y divide-coffee-700 text-sm">
-                  <div className="flex justify-between gap-4 py-3">
-                    <dt className="text-coffee-200">
-                      {fill(s.coffeeLine, { kg: num(state.quote.netKg), price: money(state.quote.usdPerKg) })}
-                    </dt>
-                    <dd className="m-0 font-semibold tabular-nums">{money(state.quote.coffee)}</dd>
-                  </div>
-                  <div className="flex justify-between gap-4 py-3">
-                    <dt className="text-coffee-200">{s.prepLine}</dt>
-                    <dd className="m-0 font-semibold tabular-nums">{money(state.quote.prep)}</dd>
-                  </div>
-                  <div className="flex justify-between gap-4 py-3">
-                    <dt className="text-coffee-200">{s.freightLine}</dt>
-                    <dd className="m-0 font-semibold tabular-nums">{money(state.quote.freight)}</dd>
-                  </div>
-                  <div className="flex justify-between items-baseline gap-4 pt-5 pb-2">
-                    <dt className="font-semibold text-white">{s.totalLine}</dt>
-                    <dd className="m-0 font-display text-3xl font-bold text-gold-400 tabular-nums">{money(state.quote.total)}</dd>
-                  </div>
-                  <div className="flex justify-between gap-4 py-2">
-                    <dt className="text-coffee-300">{s.perKgLine}</dt>
-                    <dd className="m-0 text-coffee-100 tabular-nums">{money(state.quote.landedPerKg)}</dd>
-                  </div>
-                </dl>
-                <p className="text-xs text-coffee-300 mt-4">{fill(s.boxesLine, { n: state.quote.boxes, kg: num(state.quote.grossKg) })}</p>
-              </div>
-            )}
-
-            {state.status === 'okContainer' && (
-              <div>
-                <dl className="divide-y divide-coffee-700 text-sm">
-                  <div className="flex justify-between gap-4 py-3">
-                    <dt className="text-coffee-200">{sc.perKgLine}</dt>
-                    <dd className="m-0 font-semibold tabular-nums">{money(state.quote.usdPerKg)}</dd>
-                  </div>
-                  <div className="flex justify-between gap-4 py-3">
-                    <dt className="text-coffee-200">{sc.perLbLine}</dt>
-                    <dd className="m-0 font-semibold tabular-nums">{money(state.quote.usdPerLb)}</dd>
-                  </div>
-                  <div className="flex justify-between items-baseline gap-4 pt-5 pb-2">
-                    <dt className="font-semibold text-white">{fill(sc.totalLine, { bags: num(state.quote.bags), kg: num(state.quote.kg) })}</dt>
-                    <dd className="m-0 font-display text-3xl font-bold text-gold-400 tabular-nums">{money(state.quote.total)}</dd>
-                  </div>
-                </dl>
-                <p className="text-xs text-coffee-300 mt-4">
-                  {state.quote.full ? sc.fullNote : fill(sc.partialNote, { full: CONTAINER.fullBags })}
-                </p>
-              </div>
-            )}
-
-            {(state.status === 'ok' || state.status === 'okContainer') && (
-              <SaveQuote
-                key={JSON.stringify(state.quote)}
-                lang={lang}
-                navigate={navigate}
-                body={
-                  state.status === 'okContainer'
-                    ? { mode: 'container', product: state.quote.product, bags: state.quote.bags }
-                    : { mode: 'courier', country: state.quote.country, product: state.quote.product, kg: state.quote.netKg }
-                }
-              />
-            )}
-
-            <p className="text-xs text-coffee-300 leading-relaxed mt-6 pt-5 border-t border-coffee-700 flex gap-2">
-              <Info className="w-4 h-4 shrink-0 text-gold-400" aria-hidden="true" />
-              <span>{mode === 'container' ? sc.disclaimer : s.disclaimer}</span>
-            </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Included / not included */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
@@ -492,23 +521,10 @@ function SaveQuote({ lang, navigate, body }: { lang: Language; navigate: (tab: T
   const t = content(lang).saveQuote;
   const auth = useAuth();
   const [st, setSt] = useState<'idle' | 'saving' | 'saved' | 'error' | 'tooMany'>('idle');
-  if (auth.status !== 'signedIn' && auth.status !== 'signedOut') return null;
+  // Without login (status "disabled") there is no account to save to.
+  if (auth.status !== 'signedIn' || !auth.customer?.policyCurrent) return null;
 
   const btn = 'mt-5 w-full inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors';
-  if (auth.status === 'signedOut') {
-    return (
-      <button onClick={auth.openSignIn} className={`${btn} border border-gold-400 text-gold-400 hover:bg-gold-400/10`}>
-        <LogIn className="w-4 h-4" aria-hidden="true" /> {t.signIn}
-      </button>
-    );
-  }
-  if (!auth.customer || !auth.customer.policyCurrent) {
-    return (
-      <button onClick={() => navigate('account')} className={`${btn} border border-gold-400 text-gold-400 hover:bg-gold-400/10`}>
-        {t.completeProfile}
-      </button>
-    );
-  }
   if (st === 'saved') {
     return (
       <p className="mt-5 rounded-xl bg-green-600/20 px-4 py-3 text-sm text-green-100 flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -534,6 +550,77 @@ function SaveQuote({ lang, navigate, body }: { lang: Language; navigate: (tab: T
       {(st === 'error' || st === 'tooMany') && (
         <p role="alert" className="mt-2 text-xs text-red-200">{st === 'tooMany' ? t.tooMany : t.error}</p>
       )}
+    </div>
+  );
+}
+
+/** Shown instead of the estimator: invitation to sign up, missing details, or a session being checked. */
+function QuoteGate({ lang, navigate, access }: { lang: Language; navigate: (tab: Tab) => void; access: Exclude<Access, 'open'> }) {
+  const g = content(lang).shipping.gate;
+  const auth = useAuth();
+
+  if (access === 'checking') {
+    return (
+      <div className="mb-16 bg-white rounded-3xl shadow-md p-10 flex items-center justify-center gap-3 text-coffee-600" role="status">
+        <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> {g.checking}
+      </div>
+    );
+  }
+
+  const profile = access === 'profile';
+  const Icon = profile ? UserCheck : UserPlus;
+  return (
+    <div className="mb-16 bg-white rounded-3xl shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-[1.15fr_1fr]">
+      <div className="p-8 md:p-10">
+        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-coffee-50 text-gold-500 mb-5">
+          <Icon className="w-6 h-6" aria-hidden="true" />
+        </span>
+        <h2 className="font-display text-2xl md:text-3xl font-bold text-coffee-900 mb-3">{profile ? g.profileTitle : g.title}</h2>
+        <p className="text-coffee-700 leading-relaxed mb-7">{profile ? g.profileText : g.text}</p>
+        {profile ? (
+          <button
+            onClick={() => navigate('account')}
+            className="inline-flex items-center gap-2 bg-coffee-800 hover:bg-coffee-700 text-white px-6 py-3 rounded-full font-semibold transition-colors"
+          >
+            <UserCheck className="w-4 h-4" aria-hidden="true" /> {g.profileCta}
+          </button>
+        ) : (
+          <>
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={auth.openSignUp}
+                className="inline-flex items-center gap-2 bg-coffee-800 hover:bg-coffee-700 text-white px-6 py-3 rounded-full font-semibold transition-colors"
+              >
+                <UserPlus className="w-4 h-4" aria-hidden="true" /> {g.signUp}
+              </button>
+              <button
+                onClick={auth.openSignIn}
+                className="inline-flex items-center gap-2 border border-coffee-300 text-coffee-800 hover:bg-coffee-50 px-6 py-3 rounded-full font-semibold transition-colors"
+              >
+                <LogIn className="w-4 h-4" aria-hidden="true" /> {g.signIn}
+              </button>
+            </div>
+            <p className="text-xs text-coffee-600 mt-4">
+              {g.consent}{' '}
+              <Link tab="privacy" lang={lang} navigate={navigate} className="underline font-semibold text-coffee-800">{g.consentLink}</Link>.
+            </p>
+            <p className="text-sm text-coffee-600 mt-6 pt-5 border-t border-coffee-100">{g.noAccount}</p>
+          </>
+        )}
+      </div>
+      <div className="bg-coffee-800 text-white p-8 md:p-10">
+        <h3 className="font-display text-xl font-bold text-gold-400 mb-5 flex items-center gap-2">
+          <Calculator className="w-5 h-5" aria-hidden="true" /> {g.perksTitle}
+        </h3>
+        <ul className="space-y-4">
+          {g.perks.map((perk) => (
+            <li key={perk} className="flex gap-3 text-coffee-100 leading-relaxed">
+              <CheckCircle2 className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" aria-hidden="true" />
+              <span>{perk}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

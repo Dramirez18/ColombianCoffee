@@ -22,6 +22,16 @@ export function authConfigured() {
   return Boolean(process.env.CLERK_SECRET_KEY);
 }
 
+/** Clave PÚBLICA de Clerk; la integración de Vercel la carga con prefijo NEXT_PUBLIC_. */
+export function publishableKey() {
+  return process.env.CLERK_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || process.env.VITE_CLERK_PUBLISHABLE_KEY || '';
+}
+
+/** El login está activo solo con las dos claves de Clerk y la base de datos. */
+export function loginEnabled() {
+  return Boolean(publishableKey() && authConfigured() && (process.env.DATABASE_URL || process.env.POSTGRES_URL));
+}
+
 /** Correos de administrador (variable ADMIN_EMAILS, separados por coma). */
 function adminEmails() {
   return String(process.env.ADMIN_EMAILS ?? '')
@@ -31,10 +41,11 @@ function adminEmails() {
 }
 
 /**
- * @returns {Promise<{ userId: string, email: string | null, emailVerified: boolean, isAdmin: boolean } | null>}
- *   null si no hay sesión válida.
+ * Solo valida la firma del token de sesión (sin llamar a la API de Clerk: las llaves públicas
+ * quedan en caché). Sirve para las peticiones frecuentes, como cada cálculo del cotizador.
+ * @returns {Promise<string | null>} el id del usuario, o null si no hay sesión válida.
  */
-export async function authenticate(req) {
+export async function verifySession(req) {
   if (!authConfigured()) return null;
   const header = String(req.headers?.authorization ?? '');
   const token = header.startsWith('Bearer ') ? header.slice(7).trim() : '';
@@ -46,11 +57,26 @@ export async function authenticate(req) {
     });
     const payload = result && 'data' in result ? result.data : result;
     if (!payload?.sub || (result && result.errors)) return null;
-    const user = await clerk().users.getUser(payload.sub);
+    return payload.sub;
+  } catch (e) {
+    console.error('[auth]', e instanceof Error ? e.message : e);
+    return null;
+  }
+}
+
+/**
+ * @returns {Promise<{ userId: string, email: string | null, emailVerified: boolean, isAdmin: boolean } | null>}
+ *   null si no hay sesión válida.
+ */
+export async function authenticate(req) {
+  const userId = await verifySession(req);
+  if (!userId) return null;
+  try {
+    const user = await clerk().users.getUser(userId);
     const primary = user.primaryEmailAddress ?? user.emailAddresses?.[0] ?? null;
     const email = primary?.emailAddress?.toLowerCase() ?? null;
     const emailVerified = primary?.verification?.status === 'verified';
-    return { userId: payload.sub, email, emailVerified, isAdmin: Boolean(email && emailVerified && adminEmails().includes(email)) };
+    return { userId, email, emailVerified, isAdmin: Boolean(email && emailVerified && adminEmails().includes(email)) };
   } catch (e) {
     console.error('[auth]', e instanceof Error ? e.message : e);
     return null;

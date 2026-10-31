@@ -3,6 +3,10 @@
 // GET /api/estimate?warm                                             solo precarga la TRM
 // Función de Vercel (Node). El mismo handler lo montan `vite dev`, `vite preview` y scripts/serve-dist.mjs.
 // Devuelve solo totales: el tarifario y los parámetros de cálculo se quedan en el servidor.
+// Cotizar exige cuenta: sesión de Clerk + perfil con la autorización de datos vigente. Sin login
+// configurado (por ejemplo, en local sin claves) el cotizador queda abierto como antes.
+import { loginEnabled, verifySession } from './_auth.js';
+import { hasCurrentProfile } from './_db.js';
 import { loadConfig } from './_config.js';
 import { estimate, estimateContainer } from './_pricing.js';
 import { bogotaToday, getTrm } from './_trm.js';
@@ -30,6 +34,11 @@ export default async function handler(req, res) {
     if (!config) return send(res, 503, { ok: false, error: 'unavailable' });
 
     const params = new URL(req.url ?? '/', 'http://localhost').searchParams;
+    if (!params.has('warm') && loginEnabled()) {
+      const userId = await verifySession(req);
+      if (!userId) return send(res, 401, { ok: false, error: 'unauthenticated' });
+      if (!(await hasCurrentProfile(userId))) return send(res, 409, { ok: false, error: 'profile_required' });
+    }
     const kgText = String(params.get('kg') ?? '').trim();
     const today = bogotaToday();
 

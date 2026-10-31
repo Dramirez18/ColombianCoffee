@@ -52,11 +52,12 @@ Main harvest September–December, secondary (mitaca) April–June; Cauca peaks 
 ## Pricing and payment
 - Containers: New York "C" contract plus an agreed differential, fixed at contract date,
   FOB Cartagena or CIF. Indicative FOB Cartagena price for a 20' container (100–275 bags of
-  70 kg) in the online estimator; firm price in a dated offer sheet.
+  70 kg) in the online estimator (free account); firm price in a dated offer sheet.
 - Courier lots: per kilogram, freight as its own line. Instant indicative estimate (coffee +
   packing + DHL Express freight, DAP, in USD) for the United States, Spain, Germany, France,
   the Netherlands, Belgium, Sweden, Poland and the UAE at
-  https://www.entrecafescolombianos.coffee/shipping-estimate — other countries on request.
+  https://www.entrecafescolombianos.coffee/shipping-estimate — free account with email code,
+  no password; other countries and buyers without an account: quote on request.
 - Payment: samples and courier lots in advance by bank transfer; containers with a deposit
   on contract and balance against documents, or confirmed letter of credit. Invoiced in USD.
 
