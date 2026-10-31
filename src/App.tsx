@@ -1,13 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Language, Tab, Product, User, Order } from './types';
+import { Language, Tab, Product } from './types';
 import { content } from './content';
 import { parsePath, pathFor, PublicTab } from './router';
 import { LANGUAGE_NAMES } from './i18n';
 import Navbar from './components/Navbar';
 import ImageLightbox from './components/ImageLightbox';
-import AuthModal from './components/AuthModal';
-import UserProfile from './components/UserProfile';
-import AdminPanel from './components/AdminPanel';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import GreenCoffee from './pages/GreenCoffee';
@@ -18,6 +15,10 @@ import Shipping from './pages/Shipping';
 import Faq from './pages/Faq';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Account from './pages/Account';
+import Admin from './pages/Admin';
+import { AuthProvider } from './auth';
 
 const isBrowser = typeof window !== 'undefined';
 const CLIENT_ONLY_LANGS: Language[] = ['nl', 'de', 'fr', 'sv'];
@@ -37,24 +38,12 @@ function App({ initialPath, initialLang }: AppProps) {
   const [activeTab, setActiveTab] = useState<Tab>(() => parsePath(initialPath).tab);
   const [lang, setLangState] = useState<Language>(initialLang);
 
-  // Catalogue shown on the pages (and editable in the legacy admin panel)
-  const [products, setProducts] = useState<Product[]>(() => content(initialLang).products.items);
-  useEffect(() => { setProducts(content(lang).products.items); }, [lang]);
-
-  // Legacy client area — loaded after mount so server and client markup match
-  const [user, setUser] = useState<User | null>(null);
-  const [authOpen, setAuthOpen] = useState(false);
-  const [clients, setClients] = useState<User[]>([]);
-  const [orders] = useState<Order[]>([]);
-  const [hydrated, setHydrated] = useState(false);
+  // Catalogue shown on the pages
+  const products = content(lang).products.items;
 
   useEffect(() => {
     localStorage.removeItem('huila-products');
     localStorage.removeItem('huila-cart');
-    const savedUser = localStorage.getItem('huila-user');
-    if (savedUser) setUser(JSON.parse(savedUser));
-    const savedClients = localStorage.getItem('huila-clients');
-    if (savedClients) setClients(JSON.parse(savedClients));
 
     // A language chosen earlier wins over the English default, unless the URL
     // explicitly asks for Spanish.
@@ -66,11 +55,7 @@ function App({ initialPath, initialLang }: AppProps) {
         window.history.replaceState({}, '', pathFor(parsePath(window.location.pathname).tab, 'es'));
       }
     }
-    setHydrated(true);
   }, [initialLang]);
-
-  useEffect(() => { if (hydrated) localStorage.setItem('huila-user', JSON.stringify(user)); }, [user, hydrated]);
-  useEffect(() => { if (hydrated) localStorage.setItem('huila-clients', JSON.stringify(clients)); }, [clients, hydrated]);
 
   // Image lightbox for product photos
   const [lightboxProduct, setLightboxProduct] = useState<Product | null>(null);
@@ -115,27 +100,6 @@ function App({ initialPath, initialLang }: AppProps) {
     document.documentElement.lang = lang;
   }, [activeTab, lang]);
 
-  // --- Legacy auth / admin -------------------------------------------------
-  const handleLogin = useCallback((loginUser: User) => {
-    setUser(loginUser);
-    setClients((prev) => (prev.find((c) => c.email === loginUser.email) ? prev : [...prev, loginUser]));
-  }, []);
-
-  const handleLogout = useCallback(() => {
-    setUser(null);
-    navigate('home');
-  }, [navigate]);
-
-  const handleUpdateProduct = useCallback((updated: Product) => {
-    setProducts((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
-  }, []);
-  const handleDeleteProduct = useCallback((id: string) => {
-    setProducts((prev) => prev.filter((p) => p.id !== id));
-  }, []);
-  const handleAddProduct = useCallback((product: Product) => {
-    setProducts((prev) => [...prev, product]);
-  }, []);
-
   const activeProducts = products.filter((p) => p.active);
 
   const lightboxCaption = lightboxProduct
@@ -145,16 +109,9 @@ function App({ initialPath, initialLang }: AppProps) {
   const pageProps = { lang, navigate };
 
   return (
+    <AuthProvider lang={lang} activeTab={activeTab}>
     <div className="min-h-screen bg-cream flex flex-col">
-      <Navbar
-        lang={lang}
-        setLang={setLang}
-        activeTab={activeTab}
-        navigate={navigate}
-        user={user}
-        onAuthClick={() => setAuthOpen(true)}
-        onLogout={handleLogout}
-      />
+      <Navbar lang={lang} setLang={setLang} activeTab={activeTab} navigate={navigate} />
 
       <main className="flex-1">
         {activeTab === 'home' && (
@@ -171,30 +128,12 @@ function App({ initialPath, initialLang }: AppProps) {
         {activeTab === 'about' && <About {...pageProps} />}
         {activeTab === 'contact' && <Contact {...pageProps} />}
 
-        {activeTab === 'profile' && user && (
-          <UserProfile lang={lang} user={user} orders={orders} />
-        )}
-        {activeTab === 'admin' && user?.role === 'admin' && (
-          <AdminPanel
-            lang={lang}
-            products={products}
-            orders={orders}
-            clients={clients}
-            onUpdateProduct={handleUpdateProduct}
-            onDeleteProduct={handleDeleteProduct}
-            onAddProduct={handleAddProduct}
-          />
-        )}
+        {activeTab === 'privacy' && <Privacy {...pageProps} />}
+        {activeTab === 'account' && <Account {...pageProps} />}
+        {activeTab === 'admin' && <Admin {...pageProps} />}
       </main>
 
       <Footer lang={lang} navigate={navigate} />
-
-      <AuthModal
-        lang={lang}
-        isOpen={authOpen}
-        onClose={() => setAuthOpen(false)}
-        onLogin={handleLogin}
-      />
 
       <ImageLightbox
         src={lightboxProduct?.image || null}
@@ -203,6 +142,7 @@ function App({ initialPath, initialLang }: AppProps) {
         onClose={() => setLightboxProduct(null)}
       />
     </div>
+    </AuthProvider>
   );
 }
 

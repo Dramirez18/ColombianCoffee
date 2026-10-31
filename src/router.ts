@@ -9,7 +9,7 @@ import { Language, Tab } from './types';
  * full page. nl/de/fr/sv are client-side only and share the English URLs.
  */
 
-export type PublicTab = Exclude<Tab, 'profile' | 'admin'>;
+export type PublicTab = Exclude<Tab, 'account' | 'admin'>;
 
 export const SITE_URL = 'https://www.entrecafescolombianos.coffee';
 
@@ -25,14 +25,16 @@ export const ROUTES: { tab: PublicTab; en: string; es: string }[] = [
   { tab: 'faq', en: 'faq', es: 'preguntas-frecuentes' },
   { tab: 'about', en: 'about', es: 'nosotros' },
   { tab: 'contact', en: 'contact', es: 'contacto' },
+  { tab: 'privacy', en: 'privacy', es: 'privacidad' },
 ];
 
-const LEGACY_TABS: Record<string, Tab> = { profile: 'profile', admin: 'admin' };
+// Client-only views. /profile was the old (fake) account page: it now opens the real one.
+const LEGACY_TABS: Record<string, Tab> = { account: 'account', admin: 'admin', profile: 'account' };
 
 export function pathFor(tab: Tab, lang: Language): string {
   const prefix = lang === 'es' ? '/es' : '';
   const route = ROUTES.find((r) => r.tab === tab);
-  if (!route) return `${prefix}/${tab}`; // profile / admin
+  if (!route) return `${prefix}/${tab}`; // account / admin
   const slug = lang === 'es' ? route.es : route.en;
   return slug ? `${prefix}/${slug}` : prefix || '/';
 }

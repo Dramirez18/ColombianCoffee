@@ -20,6 +20,7 @@ export default function Footer({ lang, navigate }: FooterProps) {
     { key: 'faq', label: t(lang, 'nav_faq') },
     { key: 'about', label: t(lang, 'nav_about') },
     { key: 'contact', label: t(lang, 'nav_contact') },
+    { key: 'privacy', label: t(lang, 'nav_privacy') },
   ];
 
   return (

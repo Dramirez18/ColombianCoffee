@@ -11,6 +11,10 @@
     "build:client": "tsc -b && vite build"
   },
   "dependencies": {
+    "@clerk/backend": "^3.26.5",
+    "@clerk/clerk-js": "^6.42.1",
+    "@clerk/localizations": "^4.24.4",
+    "@neondatabase/serverless": "^1.2.0",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "lucide-react": "^0.546.0",

@@ -1,8 +1,6 @@
 import { Product } from './types';
 import { CONTENT } from './content';
 
-export const WHOLESALE_DISCOUNT = 0.18; // legacy — kept for the admin panel
-
 // Company facts shared by every page. Keep these consistent with content.ts,
 // llms.txt and the JSON-LD in entry-server.tsx: crawlers compare them.
 export const COMPANY = {
@@ -51,26 +49,3 @@ export const EXPORT_MARKETS = [
   { code: 'IL', name: 'Israel' },
   { code: 'SA', name: 'Saudi Arabia' },
 ];
-
-// Kept for legacy AuthModal compatibility (Dutch retail clients).
-export const DUTCH_PROVINCES = [
-  'Drenthe',
-  'Flevoland',
-  'Friesland',
-  'Gelderland',
-  'Groningen',
-  'Limburg',
-  'Noord-Brabant',
-  'Noord-Holland',
-  'Overijssel',
-  'Utrecht',
-  'Zeeland',
-  'Zuid-Holland',
-];
-
-export const ROAST_LABELS: Record<string, string> = {
-  green: 'Green (Unroasted)',
-  medium: 'Medium Roast',
-  'medium-high': 'Medium-High Roast',
-  decaf: 'Decaffeinated',
-};

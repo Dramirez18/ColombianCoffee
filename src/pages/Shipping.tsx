@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Calculator, CheckCircle2, MinusCircle, Package, Info, Loader2, Ship, Plane } from 'lucide-react';
+import { useAuth } from '../auth';
+import { Calculator, CheckCircle2, MinusCircle, Package, Info, Loader2, Ship, Plane, BookmarkPlus, LogIn } from 'lucide-react';
 import { Language, Tab } from '../types';
 import { content } from '../content';
 import { PageHeader, ContactButtons } from '../components/ui';
@@ -405,6 +406,19 @@ export default function Shipping({ lang, navigate }: Props) {
               </div>
             )}
 
+            {(state.status === 'ok' || state.status === 'okContainer') && (
+              <SaveQuote
+                key={JSON.stringify(state.quote)}
+                lang={lang}
+                navigate={navigate}
+                body={
+                  state.status === 'okContainer'
+                    ? { mode: 'container', product: state.quote.product, bags: state.quote.bags }
+                    : { mode: 'courier', country: state.quote.country, product: state.quote.product, kg: state.quote.netKg }
+                }
+              />
+            )}
+
             <p className="text-xs text-coffee-300 leading-relaxed mt-6 pt-5 border-t border-coffee-700 flex gap-2">
               <Info className="w-4 h-4 shrink-0 text-gold-400" aria-hidden="true" />
               <span>{mode === 'container' ? sc.disclaimer : s.disclaimer}</span>
@@ -467,5 +481,59 @@ export default function Shipping({ lang, navigate }: Props) {
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * "Save and request a proforma". The server recalculates the quote from these inputs
+ * (it never trusts a total sent by the browser) and stores it in the customer's account.
+ */
+function SaveQuote({ lang, navigate, body }: { lang: Language; navigate: (tab: Tab) => void; body: Record<string, string | number> }) {
+  const t = content(lang).saveQuote;
+  const auth = useAuth();
+  const [st, setSt] = useState<'idle' | 'saving' | 'saved' | 'error' | 'tooMany'>('idle');
+  if (auth.status !== 'signedIn' && auth.status !== 'signedOut') return null;
+
+  const btn = 'mt-5 w-full inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors';
+  if (auth.status === 'signedOut') {
+    return (
+      <button onClick={auth.openSignIn} className={`${btn} border border-gold-400 text-gold-400 hover:bg-gold-400/10`}>
+        <LogIn className="w-4 h-4" aria-hidden="true" /> {t.signIn}
+      </button>
+    );
+  }
+  if (!auth.customer || !auth.customer.policyCurrent) {
+    return (
+      <button onClick={() => navigate('account')} className={`${btn} border border-gold-400 text-gold-400 hover:bg-gold-400/10`}>
+        {t.completeProfile}
+      </button>
+    );
+  }
+  if (st === 'saved') {
+    return (
+      <p className="mt-5 rounded-xl bg-green-600/20 px-4 py-3 text-sm text-green-100 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <CheckCircle2 className="w-4 h-4 shrink-0" aria-hidden="true" /> {t.saved}
+        <button onClick={() => navigate('account')} className="underline font-semibold">{t.viewInAccount}</button>
+      </p>
+    );
+  }
+  const save = async () => {
+    setSt('saving');
+    try {
+      const res = await auth.authFetch('/api/quotes', { method: 'POST', body: JSON.stringify(body) });
+      setSt(res.ok ? 'saved' : res.status === 429 ? 'tooMany' : 'error');
+    } catch {
+      setSt('error');
+    }
+  };
+  return (
+    <div>
+      <button onClick={() => void save()} disabled={st === 'saving'} className={`${btn} bg-gold-500 hover:bg-gold-400 text-coffee-900 disabled:opacity-60`}>
+        <BookmarkPlus className="w-4 h-4" aria-hidden="true" /> {st === 'saving' ? t.saving : t.save}
+      </button>
+      {(st === 'error' || st === 'tooMany') && (
+        <p role="alert" className="mt-2 text-xs text-red-200">{st === 'tooMany' ? t.tooMany : t.error}</p>
+      )}
+    </div>
   );
 }

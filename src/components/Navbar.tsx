@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { User, Menu, X, Globe, Shield, Mail, MessageCircle, LogIn, LogOut } from 'lucide-react';
-import { Language, Tab, User as UserType } from '../types';
+import { Language, Tab } from '../types';
+import { useAuth } from '../auth';
 import { t, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '../i18n';
 import { COMPANY } from '../constants';
 import Link from './Link';
@@ -10,15 +11,15 @@ interface NavbarProps {
   setLang: (lang: Language) => void;
   activeTab: Tab;
   navigate: (tab: Tab) => void;
-  user: UserType | null;
-  onAuthClick: () => void;
-  onLogout: () => void;
 }
 
-export default function Navbar({
-  lang, setLang, activeTab, navigate, user,
-  onAuthClick, onLogout,
-}: NavbarProps) {
+export default function Navbar({ lang, setLang, activeTab, navigate }: NavbarProps) {
+  const auth = useAuth();
+  const signedIn = auth.status === 'signedIn';
+  const signOut = () => {
+    void auth.signOut();
+    navigate('home');
+  };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
 
@@ -33,10 +34,10 @@ export default function Navbar({
     { key: 'contact', label: t(lang, 'nav_contact') },
   ];
 
-  // Con sesión iniciada (área heredada) hay hasta tres íconos más a la derecha: el menú completo
-  // necesita más ancho, así que el hamburguesa se mantiene hasta 2xl.
-  const desktopNav = user ? 'hidden 2xl:flex' : 'hidden xl:flex';
-  const mobileOnly = user ? '2xl:hidden' : 'xl:hidden';
+  // Con sesión iniciada hay hasta tres íconos más a la derecha (cuenta, admin, salir): el menú
+  // completo necesita más ancho, así que el hamburguesa se mantiene hasta 2xl.
+  const desktopNav = signedIn ? 'hidden 2xl:flex' : 'hidden xl:flex';
+  const mobileOnly = signedIn ? '2xl:hidden' : 'xl:hidden';
 
   const go = (tab: Tab) => {
     navigate(tab);
@@ -125,27 +126,29 @@ export default function Navbar({
               )}
             </div>
 
-            {/* User (legacy client area) */}
-            {user ? (
-              <div className="flex items-center gap-2">
+            {/* Customer account (Clerk). Hidden while loading or when accounts are not configured. */}
+            {signedIn ? (
+              <div className="flex items-center gap-1">
                 <button
-                  onClick={() => navigate('profile')}
-                  aria-label="Profile"
-                  className="text-coffee-200 hover:text-gold-400 transition-colors p-2"
+                  onClick={() => navigate('account')}
+                  aria-label={t(lang, 'nav_account')}
+                  title={t(lang, 'nav_account')}
+                  className={`hover:text-gold-400 transition-colors p-2 ${activeTab === 'account' ? 'text-gold-400' : 'text-coffee-200'}`}
                 >
                   <User className="w-5 h-5" />
                 </button>
-                {user.role === 'admin' && (
+                {auth.isAdmin && (
                   <button
                     onClick={() => navigate('admin')}
-                    aria-label="Admin"
-                    className="text-coffee-200 hover:text-gold-400 transition-colors p-2"
+                    aria-label={t(lang, 'nav_admin')}
+                    title={t(lang, 'nav_admin')}
+                    className={`hover:text-gold-400 transition-colors p-2 ${activeTab === 'admin' ? 'text-gold-400' : 'text-coffee-200'}`}
                   >
                     <Shield className="w-5 h-5" />
                   </button>
                 )}
                 <button
-                  onClick={onLogout}
+                  onClick={signOut}
                   aria-label={t(lang, 'nav_logout')}
                   title={t(lang, 'nav_logout')}
                   className="hidden sm:block text-coffee-300 hover:text-red-400 transition-colors p-2"
@@ -153,9 +156,9 @@ export default function Navbar({
                   <LogOut className="w-5 h-5" />
                 </button>
               </div>
-            ) : (
+            ) : auth.status === 'signedOut' ? (
               <button
-                onClick={onAuthClick}
+                onClick={auth.openSignIn}
                 aria-label={t(lang, 'nav_login')}
                 title={t(lang, 'nav_login')}
                 className="hidden xl:flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-coffee-900 p-2 2xl:px-4 rounded-full text-sm font-semibold transition-colors"
@@ -163,7 +166,7 @@ export default function Navbar({
                 <LogIn className="w-4 h-4" />
                 <span className="hidden 2xl:inline">{t(lang, 'nav_login')}</span>
               </button>
-            )}
+            ) : null}
 
             {/* Mobile Menu Toggle */}
             <button
@@ -195,17 +198,31 @@ export default function Navbar({
                 {item.label}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (user) onLogout();
-                else onAuthClick();
-              }}
-              className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg text-coffee-200 hover:bg-coffee-800 transition-colors"
-            >
-              {user ? <LogOut className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
-              {t(lang, user ? 'nav_logout' : 'nav_login')}
-            </button>
+            {signedIn && (
+              <>
+                <Link tab="account" lang={lang} navigate={go} className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg text-coffee-200 hover:bg-coffee-800 transition-colors">
+                  <User className="w-4 h-4" /> {t(lang, 'nav_account')}
+                </Link>
+                {auth.isAdmin && (
+                  <Link tab="admin" lang={lang} navigate={go} className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg text-coffee-200 hover:bg-coffee-800 transition-colors">
+                    <Shield className="w-4 h-4" /> {t(lang, 'nav_admin')}
+                  </Link>
+                )}
+              </>
+            )}
+            {(signedIn || auth.status === 'signedOut') && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (signedIn) signOut();
+                  else auth.openSignIn();
+                }}
+                className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg text-coffee-200 hover:bg-coffee-800 transition-colors"
+              >
+                {signedIn ? <LogOut className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
+                {t(lang, signedIn ? 'nav_logout' : 'nav_login')}
+              </button>
+            )}
             <div className="grid grid-cols-2 gap-2 pt-3 mt-3 border-t border-coffee-800">
               <a
                 href={COMPANY.contact.whatsappLink}

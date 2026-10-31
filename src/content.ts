@@ -190,6 +190,71 @@ export interface SiteContent {
     greenCallout: { title: string; text: string; cta: string };
     items: CupProfile[];
   };
+  account: {
+    title: string;
+    lead: string;
+    loading: string;
+    unavailable: string;
+    signedOutTitle: string;
+    signedOutText: string;
+    signInCta: string;
+    profileTitle: string;
+    profileLead: string;
+    fields: { name: string; company: string; country: string; phone: string };
+    optional: string;
+    consentLabel: string; // {policy} = enlace
+    consentLink: string;
+    policyUpdated: string;
+    save: string;
+    saving: string;
+    saveError: string;
+    nameRequired: string;
+    consentRequired: string;
+    hello: string; // {name}
+    editProfile: string;
+    cancel: string;
+    quotesTitle: string;
+    quotesEmpty: string;
+    newQuote: string;
+    cols: { date: string; coffee: string; quantity: string; destination: string; total: string; status: string };
+    statuses: Record<'new' | 'proforma_sent' | 'won' | 'lost', string>;
+    bags: string; // {n}
+    fob: string;
+    signOut: string;
+    deleteTitle: string;
+    deleteText: string;
+    deleteCta: string;
+    deleteConfirm: string;
+    deleted: string;
+  };
+  admin: {
+    title: string;
+    forbidden: string;
+    refresh: string;
+    exportCsv: string;
+    filterAll: string;
+    empty: string;
+    count: string; // {n}
+    customer: string;
+    note: string;
+  };
+  saveQuote: {
+    signIn: string;
+    completeProfile: string;
+    save: string;
+    saving: string;
+    saved: string;
+    viewInAccount: string;
+    error: string;
+    tooMany: string;
+  };
+  privacy: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    updated: string;
+    sections: { title: string; paragraphs: string[]; items?: string[] }[];
+  };
   faq: { eyebrow: string; title: string; lead: string; items: Faq[] };
   about: {
     title: string;
@@ -262,6 +327,11 @@ const en: SiteContent = {
       title: 'Cup Profiles — Colombian Green Coffee: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
       description:
         'Cup profiles of the Colombian green coffees we offer: Huila (Acevedo) 86+, Selecto 84+ from Huila, Cauca, Valle del Cauca and Quindío, Tolima Castillo 81.82 and a Nariño lot at 77.0. Flavour notes, cupping scores, origin and process.',
+    },
+    privacy: {
+      title: 'Personal Data Protection Policy | Entre Cafés Colombianos',
+      description:
+        'How Entre Cafés Colombianos collects, uses and protects personal data under Colombian Law 1581 of 2012: purposes, service providers, your rights and how to exercise them.',
     },
     faq: {
       title: 'FAQ — Buying Green Coffee from Colombia | Entre Cafés Colombianos',
@@ -835,6 +905,149 @@ const en: SiteContent = {
     ],
   },
 
+  account: {
+    title: 'My account',
+    lead: 'Your saved quotes and your details. Sign in with your email: we send you a one-time code, no password needed.',
+    loading: 'Loading your account…',
+    unavailable: 'Customer accounts are not available right now. Write to us on WhatsApp or by email and we will help you.',
+    signedOutTitle: 'Sign in to see your quotes',
+    signedOutText: 'Save the estimates you make in the shipping estimate and request your proforma in one click. Anyone can create an account with their email.',
+    signInCta: 'Sign in with your email',
+    profileTitle: 'Your details',
+    profileLead: 'We use them to prepare your proforma and contact you about your quotes.',
+    fields: { name: 'Full name', company: 'Company', country: 'Country', phone: 'WhatsApp / phone' },
+    optional: 'optional',
+    consentLabel: 'I authorise Entre Cafés Colombianos to process my personal data for the purposes described in the {policy}.',
+    consentLink: 'data protection policy',
+    policyUpdated: 'Our data protection policy was updated. Please review it and confirm your authorisation to continue.',
+    save: 'Save my details',
+    saving: 'Saving…',
+    saveError: 'We could not save your details. Please try again.',
+    nameRequired: 'Please write your full name.',
+    consentRequired: 'Your authorisation is required to create your account.',
+    hello: 'Hello, {name}',
+    editProfile: 'Edit my details',
+    cancel: 'Cancel',
+    quotesTitle: 'My quotes',
+    quotesEmpty: 'You have not saved any quotes yet.',
+    newQuote: 'Make a new estimate',
+    cols: { date: 'Date', coffee: 'Coffee', quantity: 'Quantity', destination: 'Destination', total: 'Total', status: 'Status' },
+    statuses: { new: 'Received', proforma_sent: 'Proforma sent', won: 'Confirmed', lost: 'Closed' },
+    bags: '{n} bags',
+    fob: 'FOB Cartagena',
+    signOut: 'Sign out',
+    deleteTitle: 'Delete my account',
+    deleteText: 'Deletes your account, your details and your saved quotes. Proformas and invoices already issued are kept as required by law.',
+    deleteCta: 'Delete my account and my data',
+    deleteConfirm: 'This deletes your account and all your saved quotes. Do you want to continue?',
+    deleted: 'Your account and your data were deleted.',
+  },
+  admin: {
+    title: 'Quote requests',
+    forbidden: 'This page is only for the administrator.',
+    refresh: 'Refresh',
+    exportCsv: 'Download CSV',
+    filterAll: 'All',
+    empty: 'No quote requests yet.',
+    count: '{n} requests',
+    customer: 'Customer',
+    note: 'Note',
+  },
+  saveQuote: {
+    signIn: 'Sign in to save this quote',
+    completeProfile: 'Complete your details to save it',
+    save: 'Save and request a proforma',
+    saving: 'Saving…',
+    saved: 'Saved. We will send you the proforma.',
+    viewInAccount: 'See it in My account',
+    error: 'We could not save it. Please try again.',
+    tooMany: 'You reached the daily limit of saved quotes. Write to us and we will help you.',
+  },
+  privacy: {
+    eyebrow: 'Legal',
+    title: 'Personal data protection policy',
+    lead: 'How Entre Cafés Colombianos collects, uses and protects your personal data, under Colombian Law 1581 of 2012 and its regulations.',
+    updated: 'In force since 31 October 2026',
+    sections: [
+      {
+        title: '1. Data controller',
+        paragraphs: [
+          'Entre Cafés Colombianos, a coffee export business run by David Leonardo Ramírez Contreras, domiciled in Bogotá D.C., Colombia.',
+          'Contact for anything related to your data: cafecolombiano889@proton.me · WhatsApp +57 315 067 0591.',
+        ],
+      },
+      {
+        title: '2. Data we process',
+        paragraphs: ['Only what we need to quote and sell coffee to you:'],
+        items: [
+          'Email address, used to sign in with a one-time code.',
+          'Full name, company, country and, if you give it, your WhatsApp or phone number.',
+          'The quotes you save: coffee, quantity, destination and estimated price.',
+          'What you send us by WhatsApp or email when you ask for a quote or samples.',
+        ],
+      },
+      {
+        title: '3. Purposes',
+        paragraphs: ['We use your data to:'],
+        items: [
+          'Create and manage your customer account.',
+          'Answer your quote requests and prepare proformas, invoices and shipping documents.',
+          'Contact you about your quotes, orders and samples.',
+          'Meet our legal, tax and customs obligations as an exporter.',
+        ],
+      },
+      {
+        title: '4. Authorisation',
+        paragraphs: [
+          'When you create your account we ask for your prior, express and informed authorisation to process your data for these purposes, and we keep a record of when you gave it. You can withdraw it at any time.',
+        ],
+      },
+      {
+        title: '5. Service providers and international transfer',
+        paragraphs: [
+          'To run the website and the customer accounts we use providers that process data on our behalf, with servers in the United States: Clerk (sign-in), Neon (database) and Vercel (website hosting). They only process the data needed to provide their service. By authorising this policy you accept this transfer.',
+        ],
+      },
+      {
+        title: '6. Your rights',
+        paragraphs: ['As the data subject you can:'],
+        items: [
+          'Know, update and correct your personal data.',
+          'Request proof of the authorisation you gave.',
+          'Be informed of how your data has been used.',
+          'Withdraw your authorisation and request the deletion of your data, when there is no legal duty to keep it.',
+          'Access your data free of charge.',
+          'File complaints with the Superintendence of Industry and Commerce (SIC) after contacting us first.',
+        ],
+      },
+      {
+        title: '7. How to exercise your rights',
+        paragraphs: [
+          'Write to cafecolombiano889@proton.me with your name, the email of your account and your request. We answer enquiries within 10 business days (extendable by 5) and claims within 15 business days (extendable by 8), as set out in articles 14 and 15 of Law 1581 of 2012.',
+          'You can also delete your account and your saved quotes yourself from My account.',
+        ],
+      },
+      {
+        title: '8. Security and retention',
+        paragraphs: [
+          'Sign-in uses one-time codes sent to your email; we never ask for or store passwords. We keep your data while your account is active. If you delete it, we erase your details and saved quotes; proformas and invoices already issued are kept for the time required by commercial and tax law.',
+        ],
+      },
+      {
+        title: '9. Cookies',
+        paragraphs: [
+          'The website uses only the cookies needed to keep your session open when you sign in. We do not use advertising cookies.',
+        ],
+      },
+      {
+        title: '10. Changes to this policy',
+        paragraphs: [
+          'If this policy changes in a way that affects how we use your data, we will publish the new version here and ask for your authorisation again the next time you sign in.',
+        ],
+      },
+    ],
+  },
+
   faq: {
     eyebrow: 'Buyer questions',
     title: 'Frequently asked questions',
@@ -991,6 +1204,11 @@ const es: SiteContent = {
       title: 'Perfiles de taza — Café verde colombiano: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
       description:
         'Perfiles de taza de los cafés verdes colombianos que ofrecemos: Huila (Acevedo) 86+, Selecto 84+ de Huila, Cauca, Valle del Cauca y Quindío, Tolima Castillo 81,82 y un lote de Nariño de 77,0. Notas en taza, puntaje de cata, origen y proceso.',
+    },
+    privacy: {
+      title: 'Política de tratamiento de datos personales | Entre Cafés Colombianos',
+      description:
+        'Cómo Entre Cafés Colombianos recoge, usa y protege los datos personales conforme a la Ley 1581 de 2012: finalidades, encargados, sus derechos y cómo ejercerlos.',
     },
     faq: {
       title: 'Preguntas frecuentes — Comprar café verde de Colombia | Entre Cafés Colombianos',
@@ -1560,6 +1778,149 @@ const es: SiteContent = {
           { label: 'Impresión global', score: '7,0', note: 'café balanceado con muy buen cuerpo, dulce y una acidez muy estable' },
         ],
         estimator: 'Café verde básico',
+      },
+    ],
+  },
+
+  account: {
+    title: 'Mi cuenta',
+    lead: 'Sus cotizaciones guardadas y sus datos. Ingrese con su correo: le enviamos un código de un solo uso, sin contraseña.',
+    loading: 'Cargando su cuenta…',
+    unavailable: 'Las cuentas de cliente no están disponibles en este momento. Escríbanos por WhatsApp o por correo y le ayudamos.',
+    signedOutTitle: 'Ingrese para ver sus cotizaciones',
+    signedOutText: 'Guarde los estimados que haga en el cotizador de envío y pida su proforma con un clic. Cualquier persona puede crear su cuenta con su correo.',
+    signInCta: 'Ingresar con mi correo',
+    profileTitle: 'Sus datos',
+    profileLead: 'Los usamos para preparar su proforma y contactarle sobre sus cotizaciones.',
+    fields: { name: 'Nombre completo', company: 'Empresa', country: 'País', phone: 'WhatsApp / teléfono' },
+    optional: 'opcional',
+    consentLabel: 'Autorizo a Entre Cafés Colombianos a tratar mis datos personales para las finalidades descritas en la {policy}.',
+    consentLink: 'política de tratamiento de datos',
+    policyUpdated: 'Actualizamos nuestra política de tratamiento de datos. Revísela y confirme su autorización para continuar.',
+    save: 'Guardar mis datos',
+    saving: 'Guardando…',
+    saveError: 'No pudimos guardar sus datos. Intente de nuevo.',
+    nameRequired: 'Escriba su nombre completo.',
+    consentRequired: 'Su autorización es necesaria para crear la cuenta.',
+    hello: 'Hola, {name}',
+    editProfile: 'Editar mis datos',
+    cancel: 'Cancelar',
+    quotesTitle: 'Mis cotizaciones',
+    quotesEmpty: 'Todavía no ha guardado cotizaciones.',
+    newQuote: 'Hacer un nuevo estimado',
+    cols: { date: 'Fecha', coffee: 'Café', quantity: 'Cantidad', destination: 'Destino', total: 'Total', status: 'Estado' },
+    statuses: { new: 'Recibida', proforma_sent: 'Proforma enviada', won: 'Confirmada', lost: 'Cerrada' },
+    bags: '{n} sacos',
+    fob: 'FOB Cartagena',
+    signOut: 'Cerrar sesión',
+    deleteTitle: 'Eliminar mi cuenta',
+    deleteText: 'Borra su cuenta, sus datos y sus cotizaciones guardadas. Las proformas y facturas ya emitidas se conservan como exige la ley.',
+    deleteCta: 'Eliminar mi cuenta y mis datos',
+    deleteConfirm: 'Esto borra su cuenta y todas sus cotizaciones guardadas. ¿Desea continuar?',
+    deleted: 'Su cuenta y sus datos fueron eliminados.',
+  },
+  admin: {
+    title: 'Solicitudes de cotización',
+    forbidden: 'Esta página es solo para el administrador.',
+    refresh: 'Actualizar',
+    exportCsv: 'Descargar CSV',
+    filterAll: 'Todas',
+    empty: 'Todavía no hay solicitudes de cotización.',
+    count: '{n} solicitudes',
+    customer: 'Cliente',
+    note: 'Nota',
+  },
+  saveQuote: {
+    signIn: 'Ingrese para guardar esta cotización',
+    completeProfile: 'Complete sus datos para guardarla',
+    save: 'Guardar y solicitar proforma',
+    saving: 'Guardando…',
+    saved: 'Guardada. Le enviaremos la proforma.',
+    viewInAccount: 'Verla en Mi cuenta',
+    error: 'No pudimos guardarla. Intente de nuevo.',
+    tooMany: 'Llegó al límite diario de cotizaciones guardadas. Escríbanos y le ayudamos.',
+  },
+  privacy: {
+    eyebrow: 'Legal',
+    title: 'Política de tratamiento de datos personales',
+    lead: 'Cómo Entre Cafés Colombianos recoge, usa y protege sus datos personales, conforme a la Ley 1581 de 2012 y sus decretos reglamentarios.',
+    updated: 'Vigente desde el 31 de octubre de 2026',
+    sections: [
+      {
+        title: '1. Responsable del tratamiento',
+        paragraphs: [
+          'Entre Cafés Colombianos, negocio de exportación de café de David Leonardo Ramírez Contreras, con domicilio en Bogotá D.C., Colombia.',
+          'Contacto para todo lo relacionado con sus datos: cafecolombiano889@proton.me · WhatsApp +57 315 067 0591.',
+        ],
+      },
+      {
+        title: '2. Datos que tratamos',
+        paragraphs: ['Solo los necesarios para cotizarle y venderle café:'],
+        items: [
+          'Correo electrónico, con el que ingresa mediante un código de un solo uso.',
+          'Nombre completo, empresa, país y, si nos lo da, su WhatsApp o teléfono.',
+          'Las cotizaciones que guarda: café, cantidad, destino y precio estimado.',
+          'Lo que nos envíe por WhatsApp o correo al pedir una cotización o muestras.',
+        ],
+      },
+      {
+        title: '3. Finalidades',
+        paragraphs: ['Usamos sus datos para:'],
+        items: [
+          'Crear y administrar su cuenta de cliente.',
+          'Atender sus solicitudes de cotización y preparar proformas, facturas y documentos de envío.',
+          'Contactarle sobre sus cotizaciones, pedidos y muestras.',
+          'Cumplir nuestras obligaciones legales, tributarias y aduaneras como exportador.',
+        ],
+      },
+      {
+        title: '4. Autorización',
+        paragraphs: [
+          'Al crear su cuenta le pedimos su autorización previa, expresa e informada para tratar sus datos con estas finalidades, y guardamos registro de cuándo la dio. Puede revocarla en cualquier momento.',
+        ],
+      },
+      {
+        title: '5. Encargados y transferencia internacional',
+        paragraphs: [
+          'Para operar la página y las cuentas de cliente usamos proveedores que tratan datos por cuenta nuestra, con servidores en Estados Unidos: Clerk (ingreso a la cuenta), Neon (base de datos) y Vercel (alojamiento de la página). Solo tratan los datos necesarios para prestar su servicio. Al autorizar esta política usted acepta esta transferencia.',
+        ],
+      },
+      {
+        title: '6. Sus derechos',
+        paragraphs: ['Como titular de los datos usted puede:'],
+        items: [
+          'Conocer, actualizar y rectificar sus datos personales.',
+          'Solicitar prueba de la autorización que nos dio.',
+          'Ser informado sobre el uso que les hemos dado.',
+          'Revocar la autorización y pedir la supresión de sus datos, cuando no exista un deber legal de conservarlos.',
+          'Acceder gratuitamente a sus datos.',
+          'Presentar quejas ante la Superintendencia de Industria y Comercio (SIC), después de haberse dirigido a nosotros.',
+        ],
+      },
+      {
+        title: '7. Cómo ejercer sus derechos',
+        paragraphs: [
+          'Escriba a cafecolombiano889@proton.me con su nombre, el correo de su cuenta y su solicitud. Respondemos las consultas en máximo 10 días hábiles (prorrogables 5) y los reclamos en máximo 15 días hábiles (prorrogables 8), según los artículos 14 y 15 de la Ley 1581 de 2012.',
+          'También puede eliminar usted mismo su cuenta y sus cotizaciones guardadas desde Mi cuenta.',
+        ],
+      },
+      {
+        title: '8. Seguridad y conservación',
+        paragraphs: [
+          'El ingreso usa códigos de un solo uso enviados a su correo; nunca pedimos ni guardamos contraseñas. Conservamos sus datos mientras su cuenta esté activa. Si la elimina, borramos sus datos y cotizaciones guardadas; las proformas y facturas ya emitidas se conservan por el tiempo que exigen las normas comerciales y tributarias.',
+        ],
+      },
+      {
+        title: '9. Cookies',
+        paragraphs: [
+          'La página usa solo las cookies necesarias para mantener su sesión abierta cuando ingresa. No usamos cookies publicitarias.',
+        ],
+      },
+      {
+        title: '10. Cambios en esta política',
+        paragraphs: [
+          'Si esta política cambia de una forma que afecte el uso de sus datos, publicaremos la nueva versión aquí y le pediremos de nuevo su autorización la próxima vez que ingrese.',
+        ],
       },
     ],
   },
