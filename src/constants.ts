@@ -23,7 +23,7 @@ export const COMPANY = {
   contact: {
     name: 'David Leonardo Ramírez Contreras',
     role: 'Export Manager · Founder',
-    email: 'cafecolombiano888@proton.com',
+    email: 'cafecolombiano889@proton.me',
     whatsapp: '+57 315 067 0591',
     whatsappE164: '+573150670591',
     whatsappLink: 'https://wa.me/573150670591',

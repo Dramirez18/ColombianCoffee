@@ -223,7 +223,7 @@ const en: SiteContent = {
     contact: {
       title: 'Contact — Request Samples or a Quote | Entre Cafés Colombianos',
       description:
-        'Talk to David Ramírez, export manager at Entre Cafés Colombianos, Bogotá. WhatsApp +57 315 067 0591 · cafecolombiano888@proton.com. English and Spanish. Replies within 24 hours on business days.',
+        'Talk to David Ramírez, export manager at Entre Cafés Colombianos, Bogotá. WhatsApp +57 315 067 0591 · cafecolombiano889@proton.me. English and Spanish. Replies within 24 hours on business days.',
     },
   },
 
@@ -801,7 +801,7 @@ const es: SiteContent = {
     contact: {
       title: 'Contacto — Solicite muestras o cotización | Entre Cafés Colombianos',
       description:
-        'Hable con David Ramírez, gerente de exportaciones de Entre Cafés Colombianos, Bogotá. WhatsApp +57 315 067 0591 · cafecolombiano888@proton.com. Español e inglés. Respuesta en 24 horas hábiles.',
+        'Hable con David Ramírez, gerente de exportaciones de Entre Cafés Colombianos, Bogotá. WhatsApp +57 315 067 0591 · cafecolombiano889@proton.me. Español e inglés. Respuesta en 24 horas hábiles.',
     },
   },
 
