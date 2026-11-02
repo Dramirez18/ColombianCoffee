@@ -1,10 +1,13 @@
 import { Coffee } from 'lucide-react';
+import { Language } from '../types';
+import { content } from '../content';
 
 /**
  * Vertical "reel" video section (9:16, shot on phone).
  * Muted + looped so it autoplays everywhere; the source has no audio track.
  */
-export default function RoastVideo() {
+export default function RoastVideo({ lang }: { lang: Language }) {
+  const v = content(lang).home.roastVideo;
   return (
     <section className="bg-coffee-900 text-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,24 +31,17 @@ export default function RoastVideo() {
           {/* Text */}
           <div className="max-w-xl">
             <span className="inline-flex items-center gap-2 bg-gold-500/15 text-gold-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
-              <Coffee className="w-4 h-4" />
-              From the roastery
+              <Coffee className="w-4 h-4" aria-hidden="true" />
+              {v.eyebrow}
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 leading-tight">
-              See our roast come to life
-            </h2>
-            <p className="text-coffee-200 leading-relaxed mb-6">
-              A real batch of our specialty Colombian beans, roasted to a balanced medium
-              profile — caramel, chocolate and red-fruit sweetness. From the highlands of
-              Huila to your roastery, this is the coffee we export to the world.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 leading-tight">{v.title}</h2>
+            <p className="text-coffee-200 leading-relaxed mb-6">{v.text}</p>
             <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center bg-white/10 rounded-full px-4 py-2 text-sm">
-                84+ SCA specialty
-              </span>
-              <span className="inline-flex items-center bg-white/10 rounded-full px-4 py-2 text-sm">
-                Fully washed · 1,500+ MASL
-              </span>
+              {v.chips.map((chip) => (
+                <span key={chip} className="inline-flex items-center bg-white/10 rounded-full px-4 py-2 text-sm">
+                  {chip}
+                </span>
+              ))}
             </div>
           </div>
         </div>

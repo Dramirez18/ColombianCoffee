@@ -23,7 +23,7 @@ export default function GreenCoffee({ lang, navigate }: Props) {
           <figure className="bg-white rounded-2xl shadow-md overflow-hidden lg:sticky lg:top-24">
             <img
               src="/products/grano-verde.jpg"
-              alt="Colombian green coffee beans, Excelso EP screen 14+, sample lot 84"
+              alt={g.imageAlt}
               loading="lazy"
               decoding="async"
               className="w-full h-64 lg:h-72 object-cover"
@@ -114,8 +114,8 @@ export default function GreenCoffee({ lang, navigate }: Props) {
             whatsappLabel={c.common.whatsapp}
             emailLabel={c.common.email}
             dark
-            message={lang === 'es' ? 'Hola, quiero una oferta de café verde Excelso EP.' : 'Hi, I would like an offer sheet for Excelso EP green coffee.'}
-            subject={lang === 'es' ? 'Cotización café verde — Entre Cafés Colombianos' : 'Green coffee quote — Entre Cafés Colombianos'}
+            message={g.offerMessage}
+            subject={g.offerSubject}
           />
           <p className="text-center text-xs text-coffee-300 mt-6">
             <Link tab="export" lang={lang} navigate={navigate} className="underline hover:text-gold-300">

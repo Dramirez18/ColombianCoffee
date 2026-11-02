@@ -1,3 +1,5 @@
+import { LOCALES } from './locale';
+import { destinationName } from './shipping';
 import { Language } from './types';
 import { content } from './content';
 import { SHIPPING_DESTINATIONS } from './shipping';
@@ -31,18 +33,18 @@ export function destinationLabel(lang: Language, q: Pick<SavedQuote, 'mode' | 'c
   const s = content(lang).account;
   if (q.mode === 'container') return s.fob;
   const d = SHIPPING_DESTINATIONS.find((x) => x.code === q.country);
-  return d ? (lang === 'es' ? d.es : d.en) : (q.country ?? '');
+  return d ? destinationName(d, lang) : (q.country ?? '');
 }
 
 export function quantityLabel(lang: Language, q: Pick<SavedQuote, 'unit' | 'quantity'>): string {
-  const n = new Intl.NumberFormat(lang === 'es' ? 'es-CO' : 'en-US').format(q.quantity);
+  const n = new Intl.NumberFormat(LOCALES[lang]).format(q.quantity);
   return q.unit === 'bags' ? content(lang).account.bags.replace('{n}', n) : `${n} kg`;
 }
 
 export function moneyLabel(lang: Language, n: number): string {
-  return new Intl.NumberFormat(lang === 'es' ? 'es-CO' : 'en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(n);
+  return new Intl.NumberFormat(LOCALES[lang], { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(n);
 }
 
 export function dateLabel(lang: Language, iso: string): string {
-  return new Intl.DateTimeFormat(lang === 'es' ? 'es-CO' : 'en-US', { dateStyle: 'medium', timeZone: 'America/Bogota' }).format(new Date(iso));
+  return new Intl.DateTimeFormat(LOCALES[lang], { dateStyle: 'medium', timeZone: 'America/Bogota' }).format(new Date(iso));
 }

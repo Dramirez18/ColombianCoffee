@@ -12,9 +12,7 @@ interface Props {
 export default function Contact({ lang }: Props) {
   const c = content(lang);
   const k = c.contact;
-  const message = lang === 'es'
-    ? 'Hola, quiero cotizar café colombiano.'
-    : 'Hi, I would like a quote for Colombian coffee.';
+  const message = k.whatsappMessage;
 
   return (
     <section className="py-20 lg:py-24">

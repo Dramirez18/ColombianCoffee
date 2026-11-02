@@ -23,15 +23,15 @@ export const PRODUCTS = [
 
 /** Destinos con zona DHL conocida. `enIn` es la forma en inglés dentro de una frase. */
 export const DESTINATIONS = [
-  { code: 'DE', en: 'Germany', enIn: 'Germany', es: 'Alemania' },
-  { code: 'BE', en: 'Belgium', enIn: 'Belgium', es: 'Bélgica' },
-  { code: 'ES', en: 'Spain', enIn: 'Spain', es: 'España' },
-  { code: 'US', en: 'United States', enIn: 'the United States', es: 'Estados Unidos' },
-  { code: 'FR', en: 'France', enIn: 'France', es: 'Francia' },
-  { code: 'NL', en: 'Netherlands', enIn: 'the Netherlands', es: 'Países Bajos' },
-  { code: 'PL', en: 'Poland', enIn: 'Poland', es: 'Polonia' },
-  { code: 'SE', en: 'Sweden', enIn: 'Sweden', es: 'Suecia' },
-  { code: 'AE', en: 'United Arab Emirates', enIn: 'the United Arab Emirates', es: 'Emiratos Árabes Unidos' },
+  { code: 'DE', en: 'Germany', enIn: 'Germany', es: 'Alemania', nl: 'Duitsland', de: 'Deutschland', fr: 'Allemagne', sv: 'Tyskland' },
+  { code: 'BE', en: 'Belgium', enIn: 'Belgium', es: 'Bélgica', nl: 'België', de: 'Belgien', fr: 'Belgique', sv: 'Belgien' },
+  { code: 'ES', en: 'Spain', enIn: 'Spain', es: 'España', nl: 'Spanje', de: 'Spanien', fr: 'Espagne', sv: 'Spanien' },
+  { code: 'US', en: 'United States', enIn: 'the United States', es: 'Estados Unidos', nl: 'Verenigde Staten', de: 'USA', fr: 'États-Unis', sv: 'USA' },
+  { code: 'FR', en: 'France', enIn: 'France', es: 'Francia', nl: 'Frankrijk', de: 'Frankreich', fr: 'France', sv: 'Frankrike' },
+  { code: 'NL', en: 'Netherlands', enIn: 'the Netherlands', es: 'Países Bajos', nl: 'Nederland', de: 'Niederlande', fr: 'Pays-Bas', sv: 'Nederländerna' },
+  { code: 'PL', en: 'Poland', enIn: 'Poland', es: 'Polonia', nl: 'Polen', de: 'Polen', fr: 'Pologne', sv: 'Polen' },
+  { code: 'SE', en: 'Sweden', enIn: 'Sweden', es: 'Suecia', nl: 'Zweden', de: 'Schweden', fr: 'Suède', sv: 'Sverige' },
+  { code: 'AE', en: 'United Arab Emirates', enIn: 'the United Arab Emirates', es: 'Emiratos Árabes Unidos', nl: 'Verenigde Arabische Emiraten', de: 'Vereinigte Arabische Emirate', fr: 'Émirats arabes unis', sv: 'Förenade Arabemiraten' },
 ];
 
 export const OTHER_COUNTRY = 'OTHER';

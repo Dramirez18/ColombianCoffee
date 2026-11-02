@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Language, Tab, Product } from './types';
 import { content } from './content';
+import { isLanguage } from './locale';
 import { parsePath, pathFor, PublicTab } from './router';
-import { LANGUAGE_NAMES } from './i18n';
 import Navbar from './components/Navbar';
 import ImageLightbox from './components/ImageLightbox';
 import Footer from './components/Footer';
@@ -21,7 +21,6 @@ import Admin from './pages/Admin';
 import { AuthProvider } from './auth';
 
 const isBrowser = typeof window !== 'undefined';
-const CLIENT_ONLY_LANGS: Language[] = ['nl', 'de', 'fr', 'sv'];
 
 interface AppProps {
   /** Path the page was requested at — drives the initial tab and language. */
@@ -46,14 +45,12 @@ function App({ initialPath, initialLang }: AppProps) {
     localStorage.removeItem('huila-cart');
 
     // A language chosen earlier wins over the English default, unless the URL
-    // explicitly asks for Spanish.
-    const saved = localStorage.getItem('huila-lang') as Language | null;
+    // explicitly names a language.
+    const saved = localStorage.getItem('huila-lang');
     const urlLang = parsePath(window.location.pathname).lang;
-    if (saved && saved in LANGUAGE_NAMES && !urlLang && saved !== initialLang) {
+    if (isLanguage(saved) && !urlLang && saved !== initialLang) {
       setLangState(saved);
-      if (saved === 'es') {
-        window.history.replaceState({}, '', pathFor(parsePath(window.location.pathname).tab, 'es'));
-      }
+      window.history.replaceState({}, '', pathFor(parsePath(window.location.pathname).tab, saved));
     }
   }, [initialLang]);
 
@@ -82,8 +79,7 @@ function App({ initialPath, initialLang }: AppProps) {
     const onPop = () => {
       const parsed = parsePath(window.location.pathname);
       setActiveTab(parsed.tab);
-      if (parsed.lang) setLangState(parsed.lang);
-      else setLangState((current) => (CLIENT_ONLY_LANGS.includes(current) ? current : 'en'));
+      setLangState(parsed.lang ?? 'en');
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -140,6 +136,8 @@ function App({ initialPath, initialLang }: AppProps) {
         alt={lightboxProduct?.name}
         caption={lightboxCaption}
         onClose={() => setLightboxProduct(null)}
+        previewLabel={content(lang).common.imagePreview}
+        closeLabel={content(lang).common.close}
       />
     </div>
     </AuthProvider>

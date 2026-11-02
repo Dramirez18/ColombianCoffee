@@ -6,9 +6,11 @@ interface ImageLightboxProps {
   alt?: string;
   caption?: string;
   onClose: () => void;
+  previewLabel: string;
+  closeLabel: string;
 }
 
-export default function ImageLightbox({ src, alt, caption, onClose }: ImageLightboxProps) {
+export default function ImageLightbox({ src, alt, caption, onClose, previewLabel, closeLabel }: ImageLightboxProps) {
   const [zoomed, setZoomed] = useState(false);
 
   useEffect(() => {
@@ -36,13 +38,13 @@ export default function ImageLightbox({ src, alt, caption, onClose }: ImageLight
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label="Image preview"
+      aria-label={previewLabel}
     >
       {/* Close */}
       <button
         type="button"
         onClick={onClose}
-        aria-label="Close"
+        aria-label={closeLabel}
         className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2.5 rounded-full transition-colors z-10"
       >
         <X className="w-6 h-6" />

@@ -70,7 +70,7 @@ export default function Home({ lang, navigate, products, onZoom }: HomeProps) {
         </div>
       </section>
 
-      <RoastVideo />
+      <RoastVideo lang={lang} />
 
       {/* Quality control at origin */}
       <section className="bg-coffee-50 py-16">
@@ -79,7 +79,7 @@ export default function Home({ lang, navigate, products, onZoom }: HomeProps) {
             <div>
               <img
                 src="/products/calidad-humedad-densidad.jpg"
-                alt="Quality control at origin — CoffMeter reading 10.9% moisture and 797 g/L density on a green coffee lot"
+                alt={c.home.qcImageAlt}
                 loading="lazy"
                 decoding="async"
                 className="w-full max-w-md mx-auto drop-shadow-xl rounded-2xl cursor-zoom-in hover:scale-[1.02] transition-transform"

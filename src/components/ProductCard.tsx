@@ -26,19 +26,13 @@ const ROAST_KEY: Record<string, string> = {
 
 export default function ProductCard({ product, lang, onZoom }: ProductCardProps) {
   const c = content(lang).common;
-  const es = lang === 'es';
+  const withName = (template: string) => template.replaceAll('{name}', product.name);
 
-  const inquirySubject = encodeURIComponent(
-    es ? `Consulta — ${product.name} (Entre Cafés Colombianos)` : `Inquiry — ${product.name} (Entre Cafés Colombianos)`,
-  );
-  const inquiryBody = encodeURIComponent(
-    es
-      ? `Hola,\n\nMe interesa "${product.name}".\n\nCantidad / tamaño de muestra: \nPaís de destino: \nIncoterm preferido (FOB / CIF): \nFecha: \n\nGracias.`
-      : `Hello,\n\nI'm interested in your "${product.name}".\n\nQuantity / sample size: \nDestination country: \nPreferred Incoterm (FOB / CIF): \nTimeline: \n\nThanks.`,
-  );
+  const inquirySubject = encodeURIComponent(withName(c.inquirySubject));
+  const inquiryBody = encodeURIComponent(withName(c.inquiryBody));
   const mailtoLink = `mailto:${COMPANY.contact.email}?subject=${inquirySubject}&body=${inquiryBody}`;
   const whatsappLink = `${COMPANY.contact.whatsappLink}?text=${encodeURIComponent(
-    es ? `Hola, quiero información sobre: ${product.name}` : `Hi! I'd like info about: ${product.name}`,
+    withName(c.inquiryWhatsapp),
   )}`;
 
   return (
@@ -47,7 +41,7 @@ export default function ProductCard({ product, lang, onZoom }: ProductCardProps)
       <button
         type="button"
         onClick={() => onZoom(product)}
-        aria-label={`Zoom photo of ${product.name}`}
+        aria-label={withName(c.zoomPhoto)}
         className="relative h-56 overflow-hidden cursor-zoom-in"
       >
         <img

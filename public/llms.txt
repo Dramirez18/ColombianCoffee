@@ -96,4 +96,6 @@ Saudi Arabia.
 - About: https://www.entrecafescolombianos.coffee/about
 - Contact: https://www.entrecafescolombianos.coffee/contact
 - Personal data protection policy (Law 1581 of 2012): https://www.entrecafescolombianos.coffee/privacy
-- Spanish version: https://www.entrecafescolombianos.coffee/es
+- Site translations (same pages): Spanish https://www.entrecafescolombianos.coffee/es · Dutch
+  https://www.entrecafescolombianos.coffee/nl · German https://www.entrecafescolombianos.coffee/de ·
+  French https://www.entrecafescolombianos.coffee/fr · Swedish https://www.entrecafescolombianos.coffee/sv

@@ -1,3 +1,4 @@
+import { content } from '../content';
 import { useState } from 'react';
 import { User, Menu, X, Globe, Shield, Mail, MessageCircle, LogIn, LogOut } from 'lucide-react';
 import { Language, Tab } from '../types';
@@ -30,7 +31,7 @@ export default function Navbar({ lang, setLang, activeTab, navigate }: NavbarPro
     { key: 'export', label: t(lang, 'nav_export') },
     { key: 'shipping', label: t(lang, 'nav_shipping') },
     { key: 'faq', label: t(lang, 'nav_faq') },
-    { key: 'about', label: t(lang, 'nav_about') },
+    { key: 'profiles', label: t(lang, 'nav_profiles') },
     { key: 'contact', label: t(lang, 'nav_contact') },
   ];
 
@@ -101,7 +102,7 @@ export default function Navbar({ lang, setLang, activeTab, navigate }: NavbarPro
             <div className="relative">
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                aria-label="Language selector"
+                aria-label={content(lang).common.languageSelector}
                 aria-expanded={langMenuOpen}
                 className="flex items-center gap-1 text-coffee-200 hover:text-gold-400 transition-colors p-2"
               >
@@ -171,7 +172,7 @@ export default function Navbar({ lang, setLang, activeTab, navigate }: NavbarPro
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Menu"
+              aria-label={content(lang).common.menu}
               aria-expanded={mobileMenuOpen}
               className={`${mobileOnly} text-coffee-200 p-2`}
             >

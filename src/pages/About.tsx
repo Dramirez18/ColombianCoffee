@@ -22,7 +22,7 @@ export default function About({ lang, navigate }: Props) {
         <div className="bg-white rounded-2xl shadow-md overflow-hidden mb-10">
           <img
             src="/hero/plantacion-cordillera.webp"
-            alt="Coffee plantation at sunrise in the Colombian cordillera"
+            alt={a.imageAlt}
             loading="lazy"
             decoding="async"
             className="w-full h-64 md:h-80 object-cover"

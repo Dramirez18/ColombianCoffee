@@ -1,3 +1,4 @@
+import { content } from '../content';
 import { MapPin, Mail, MessageCircle, ShieldCheck } from 'lucide-react';
 import { Language, Tab } from '../types';
 import { t } from '../i18n';
@@ -106,7 +107,7 @@ export default function Footer({ lang, navigate }: FooterProps) {
             &copy; {new Date().getFullYear()} {COMPANY.legalName}. {t(lang, 'footer_rights')}
           </p>
           <div className="flex items-center gap-2">
-            <img src="https://flagcdn.com/w40/co.png" alt="Colombia" className="w-6 h-4 rounded-sm object-cover" />
+            <img src="https://flagcdn.com/w40/co.png" alt={content(lang).common.colombia} className="w-6 h-4 rounded-sm object-cover" />
             <span className="text-xs text-coffee-400">{COMPANY.slogan}</span>
           </div>
         </div>

@@ -1,0 +1,920 @@
+import type { SiteContent } from '../content';
+import { IMG_GREEN, IMG_ROASTED } from './assets';
+
+// French — full translation of the English content in src/content.ts (same shape, same order).
+export const fr: SiteContent = {
+  meta: {
+    home: {
+      title: 'Entre Cafés Colombianos | Exportateur de café vert colombien — Excelso EP, SCA 84+',
+      description:
+        'Exportateur de café vert et torréfié colombien basé à Bogotá. Excelso EP crible 14+, SCA 84+ évalué par un Q-Grader, entièrement lavé, du Huila, du Cauca, du Valle del Cauca, du Nariño et du Quindío. Échantillons par DHL, palettes et conteneurs 20\' FOB Cartagena / CIF. Service en anglais et en espagnol.',
+    },
+    green: {
+      title: 'Café vert colombien — Excelso EP, crible 14+, SCA 84+ | Entre Cafés Colombianos',
+      description:
+        'Spécifications de notre café vert colombien : Excelso préparation européenne, crible 14+, Castillo/Colombia/Caturra, entièrement lavé, humidité 10–12 %, 750–800 g/L, sacs de 70 kg avec sac intérieur GrainPro. Régions : Huila, Cauca, Valle del Cauca, Nariño, Quindío.',
+    },
+    products: {
+      title: 'Produits — café colombien vert, torréfié et moulu | Entre Cafés Colombianos',
+      description:
+        'Café vert de spécialité (SCA 84+), café vert de qualité commerciale pour assemblages, café torréfié moyen en grains et moulu, marque blanche. Échantillons dès 250 g, lots aériens jusqu’à 60 kg, conteneurs dès 10 t.',
+    },
+    export: {
+      title: 'Export et logistique — échantillons, palettes, conteneurs, Incoterms, EUDR | Entre Cafés Colombianos',
+      description:
+        'Comment nous expédions le café colombien : DHL Express pour les échantillons et les lots jusqu’à 60 kg, palettes en fret aérien, conteneurs 20\' (275 × 70 kg) FOB Cartagena ou CIF. Documents, contrôle qualité FNC/Almacafé, droits de douane de l’UE et traçabilité EUDR expliqués.',
+    },
+    shipping: {
+      title: 'Devis d’expédition — café colombien livré par DHL Express | Entre Cafés Colombianos',
+      description:
+        'Estimez le prix livré du café vert colombien (10–60 kg) ou du café torréfié (10–50 kg) par DHL Express vers les États-Unis, l’Espagne, l’Allemagne, la France, les Pays-Bas, la Belgique, la Suède, la Pologne ou les Émirats arabes unis : café, emballage et fret en un seul total en USD. Également des conteneurs 20\' de café vert, FOB Cartagena. Compte gratuit.',
+    },
+    profiles: {
+      title: 'Profils en tasse — café vert colombien : Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
+      description:
+        'Profils en tasse des cafés verts colombiens que nous proposons : Huila (Acevedo) 86+, Selecto 84+ du Huila, du Cauca, du Valle del Cauca et du Quindío, Tolima Castillo 81,82 et un lot du Nariño à 77,0. Notes aromatiques, scores de dégustation, origine et procédé.',
+    },
+    privacy: {
+      title: 'Politique de protection des données personnelles | Entre Cafés Colombianos',
+      description:
+        'Comment Entre Cafés Colombianos collecte, utilise et protège les données personnelles conformément à la loi colombienne 1581 de 2012 : finalités, prestataires de services, vos droits et comment les exercer.',
+    },
+    faq: {
+      title: 'FAQ — acheter du café vert de Colombie | Entre Cafés Colombianos',
+      description:
+        'Commande minimum, politique d’échantillons, prix fixé sur le contrat « C » de New York plus un différentiel, Incoterms, délais de transit, documents, exigences phytosanitaires et EUDR, torréfaction et marque blanche. Les réponses d’un exportateur de café colombien.',
+    },
+    about: {
+      title: 'À propos — exportateur de café colombien à Bogotá | Entre Cafés Colombianos',
+      description:
+        'Entre Cafés Colombianos est un exportateur de café colombien enregistré, basé à Bogotá et fondé en 2026. Nous nous approvisionnons auprès de familles de caféiculteurs et de fournisseurs axés sur la qualité dans le Huila, le Cauca, le Valle del Cauca, le Nariño et le Quindío, et exportons vers l’Europe, le Moyen-Orient, l’Afrique et les Amériques.',
+    },
+    contact: {
+      title: 'Contact — demander des échantillons ou un devis | Entre Cafés Colombianos',
+      description:
+        'Échangez avec David Ramírez, responsable export d’Entre Cafés Colombianos, Bogotá. WhatsApp +57 315 067 0591 · cafecolombiano889@proton.me. Anglais et espagnol. Réponse sous 24 heures les jours ouvrés.',
+    },
+  },
+
+  hero: {
+    badge: 'En direct de Colombie · Exportateur enregistré',
+    title: 'Café vert colombien, exporté directement depuis l’origine',
+    subtitle:
+      'Excelso EP, crible 14+, SCA 84+ évalué par un Q-Grader. Castillo, Colombia et Caturra entièrement lavés, du Huila, du Cauca, du Valle del Cauca, du Nariño et du Quindío. Échantillons par messagerie express, lots aériens jusqu’à 60 kg et conteneurs 20\' FOB Cartagena ou CIF votre port.',
+    cta: 'Voir les spécifications du café vert',
+  },
+
+  home: {
+    roastVideo: {
+      eyebrow: 'Depuis l’atelier de torréfaction',
+      title: 'Découvrez notre torréfaction en images',
+      text: 'Un véritable lot de nos grains colombiens de spécialité, torréfié selon un profil moyen équilibré — caramel, chocolat et douceur de fruits rouges. Des hauteurs du Huila jusqu’à votre atelier de torréfaction, voici le café que nous exportons dans le monde entier.',
+      chips: ['Spécialité SCA 84+', 'Entièrement lavé · 1 500+ m d’altitude'],
+    },
+    qcImageAlt: 'Contrôle qualité à l’origine — le CoffMeter indique 10,9 % d’humidité et une densité de 797 g/L sur un lot de café vert',
+    productsEyebrow: 'Vert · Torréfié · Moulu',
+    productsTitle: 'Ce que nous proposons',
+    productsLead:
+      'Café vert de spécialité pour torréfacteurs et importateurs, café vert de qualité commerciale pour assemblages, et café torréfié pour distributeurs et marque blanche. Cliquez sur une photo pour examiner les grains.',
+    allProducts: 'Catalogue complet',
+    quality: {
+      badge: 'Contrôle qualité à l’origine',
+      title: 'Chaque lot mesuré. Chaque expédition documentée.',
+      text:
+        'L’humidité, la densité et le crible sont contrôlés sur chaque échantillon avant son départ de Colombie, et chaque conteneur est recontrôlé avant chargement par Almacafé, le bras qualité de la Fédération nationale des caféiculteurs de Colombie (FNC). Sur la photo : une mesure réelle sur un lot de café vert récent — 10,9 % d’humidité et 797 g/L de densité, dans la spécification Excelso. Une fiche de dégustation signée par un Q-Grader accompagne chaque lot de spécialité.',
+      certLabel: 'Enregistrement sanitaire',
+    },
+    why: {
+      title: 'Pourquoi acheter chez Entre Cafés Colombianos',
+      items: [
+        {
+          title: 'Exportateur enregistré, pas un courtier',
+          text:
+            'Nous sommes enregistrés auprès de la Fédération nationale des caféiculteurs de Colombie (FNC) et de l’administration fiscale (DIAN) et gérons nous-mêmes l’intégralité du dossier d’exportation : annonce de vente, guide de transit, inspection Almacafé, contribution caféière et dédouanement.',
+        },
+        {
+          title: 'Qualité spécialité, vérifiée',
+          text:
+            'Notre standard d’exportation est l’Excelso EP, crible 14+, 84+ points SCA, évalué par un Q-Grader certifié. La qualité commerciale (SCA 80–83) est disponible pour les assemblages lorsque le prix compte davantage que le score.',
+        },
+        {
+          title: 'Une logistique à la bonne échelle',
+          text:
+            'D’un échantillon de 250 g par DHL à un conteneur 20\' de 275 sacs. Demi-conteneurs (10 t) et chargements mixtes vert/torréfié possibles — des volumes dont les grandes maisons de négoce ne s’occupent pas.',
+        },
+        {
+          title: 'Des réponses claires sur la conformité UE',
+          text:
+            'Le café vert entre dans l’UE avec 0 % de droits de douane et sans certificat phytosanitaire. Pour l’EUDR, nous vous disons clairement quels lots disposent aujourd’hui de la géolocalisation des fermes et lesquels n’en disposent pas.',
+        },
+      ],
+    },
+    contact: {
+      eyebrow: 'B2B · Vente en gros uniquement',
+      title: 'Indiquez-nous votre destination, votre volume et votre calendrier',
+      text:
+        'Nous travaillons avec des torréfacteurs, des importateurs, des distributeurs et des négociants. Envoyez-nous le port, la quantité et la date souhaitée, et nous revenons vers vous avec une fiche d’offre et des échantillons — en anglais ou en espagnol, sous 24 heures les jours ouvrés.',
+    },
+  },
+
+  green: {
+    imageAlt: 'Grains de café vert colombien, Excelso EP crible 14+, lot d’échantillon 84',
+    offerMessage: 'Bonjour, je souhaiterais une fiche d’offre pour du café vert Excelso EP.',
+    offerSubject: 'Devis café vert — Entre Cafés Colombianos',
+    eyebrow: 'Café vert · Spécification export',
+    title: 'Café vert colombien — Excelso EP, crible 14+, SCA 84+',
+    lead:
+      'Voici notre spécification d’exportation standard. Chaque lot est expédié avec sa propre fiche technique (variété, procédé, altitude, score en tasse, humidité, crible) et une fiche de dégustation signée. Tout ce qui suit est confirmé lot par lot avant votre engagement.',
+    specsTitle: 'Spécification standard',
+    specs: [
+      { label: 'Produit', value: 'Grains de café vert arabica, non torréfiés, non décaféinés. SH 0901.11 (Colombie 0901.11.10.00 · NC UE 0901 11 00).' },
+      { label: 'Grade / préparation', value: 'Excelso, préparation européenne (EP). Décortiqué, parche retirée. Préparation UGQ disponible pour les lots commerciaux.' },
+      { label: 'Crible', value: 'Crible 14+ (5,5 mm), calibré mécaniquement et trié électroniquement par couleur pour éliminer les défauts. Crible 15+ ou Supremo 17+ sur demande, selon disponibilité.' },
+      { label: 'Espèce / variété', value: '100 % arabica. Majoritairement Castillo ; Colombia, Caturra, Bourbon et Tabi selon le lot et la région.' },
+      { label: 'Procédé', value: 'Entièrement lavé (dépulpé, fermenté 12–24 h, lavé, séché au soleil ou mécaniquement). Microlots honey et nature sur demande, en précommande.' },
+      { label: 'Score en tasse', value: '84+ points SCA, vérifié par un Q-Grader certifié. La fiche de dégustation signée accompagne le lot.' },
+      { label: 'Profil en tasse', value: 'Douceur de canne à sucre et de panela, acidité citrique (mandarine / orange), corps crémeux, arômes floraux ; caramel, chocolat au lait et fruits rouges à la torréfaction. Tasse propre et équilibrée.' },
+      { label: 'Humidité', value: '10–12 %. Déclarée par lot et recontrôlée par Almacafé avant l’expédition.' },
+      { label: 'Activité de l’eau', value: 'Mesurée par lot sur demande ; objectif inférieur à 0,70 aw, contrôle pratique contre l’ochratoxine.' },
+      { label: 'Densité', value: '750–800 g/L.' },
+      { label: 'Défauts', value: 'Préparation spécialité : 5 défauts complets maximum pour 350 g (classement SCA du café vert). Échantillon de pré-expédition et approbation du type avant chargement.' },
+      { label: 'Altitude', value: '1 500–1 900+ mètres d’altitude (selon le lot).' },
+      { label: 'Récolte', value: 'Récolte en cours. Récolte principale septembre–décembre ; secondaire (mitaca) avril–juin. Le Cauca culmine d’avril à juillet.' },
+      { label: 'Emballage', value: 'Sacs de 70 kg en fique / jute avec sac intérieur hermétique de type GrainPro. Sacs de 35 kg et big bags de 1 000 kg sur demande. Échantillons de 250 g – 1 kg sous vide.' },
+      { label: 'Marquage des sacs', value: 'Numéro de lot, origine, poids net, année de récolte et marques ICO peints au pochoir sur chaque sac.' },
+      { label: 'Durée de conservation', value: '12 mois à compter de l’expédition en sac hermétique, stocké au sec et au frais.' },
+    ],
+    regionsTitle: 'D’où vient le café',
+    regionsLead:
+      'Nous nous approvisionnons auprès de familles de caféiculteurs et de fournisseurs axés sur la qualité dans le sud et l’ouest de la Colombie. Trois régions constituent le cœur de l’offre ; les autres s’ajoutent selon la fenêtre de récolte et la disponibilité.',
+    regions: [
+      {
+        name: 'Huila',
+        altitude: '1 200–1 900 m d’altitude (nos lots 1 500+)',
+        harvest: 'Principale sept.–déc. · mitaca avr.–juin',
+        varieties: 'Castillo, Colombia, Caturra',
+        cup: 'Douceur de panela et de canne à sucre, acidité mandarine / orange, corps crémeux, finale florale.',
+        use: 'Le profil de référence de l’offre — la valeur sûre pour une torréfaction filtre.',
+      },
+      {
+        name: 'Cauca',
+        altitude: '1 500–2 100 m d’altitude',
+        harvest: 'Principale avr.–juil. · mitaca oct.–déc.',
+        varieties: 'Castillo, Colombia, Caturra, Typica',
+        cup: 'Vif et aux notes hautes : citrique et floral, limpidité rappelant le thé, corps plus léger, longue persistance sucrée.',
+        use: 'Un lot filtre plus léger et plus aromatique, où l’acidité est l’argument de vente.',
+      },
+      {
+        name: 'Valle del Cauca',
+        altitude: '1 300–1 900 m d’altitude',
+        harvest: 'Principale sept.–déc. · mitaca avr.–juin',
+        varieties: 'Castillo, Colombia, Caturra, Bourbon',
+        cup: 'Plus rond et plus sucré : caramel et cacao, acidité douce, corps moyen à élevé, finale de fruits à coque.',
+        use: 'Base pour espresso et assemblages, lorsque le corps et la douceur comptent plus que l’acidité.',
+      },
+    ],
+    regionLabels: { altitude: 'Altitude', harvest: 'Récolte', varieties: 'Variétés', cup: 'Tasse', use: 'Idéal pour' },
+    alsoTitle: 'Autres origines',
+    alsoText:
+      'Nariño (1 650–1 800 m d’altitude, lots limités), Quindío, Tolima, Risaralda (Pereira) et la Sierra Nevada de Santa Marta (saisonnier). Nous proposons des lots mono-région lorsque la récolte le permet ; sinon, nous proposons un assemblage départemental et l’indiquons sur la fiche d’offre.',
+    gradesTitle: 'Qualités proposées',
+    grades: [
+      {
+        title: 'Spécialité — SCA 84+',
+        text: 'Excelso EP, crible 14+, évalué par un Q-Grader. Pour les torréfacteurs et importateurs de spécialité qui ont besoin d’un score documenté et d’un profil régulier.',
+      },
+      {
+        title: 'Commercial — SCA 80–83',
+        text: 'Préparation Excelso / UGQ, crible 14+, tasse propre sans revendication de spécialité. Pour les assemblages, la marque blanche et les torréfacteurs qui achètent au prix, coté sur le différentiel du marché.',
+      },
+      {
+        title: 'Microlots — sur demande',
+        text: 'Lots d’une seule ferme, Bourbon, procédé honey ou nature, en petites quantités et en précommande. La disponibilité dépend de la récolte.',
+      },
+    ],
+    pricingTitle: 'Comment nous fixons nos prix',
+    pricingText:
+      'Les affaires en conteneur sont cotées sur le contrat « C » de New York plus un différentiel convenu à la date du contrat, FOB Cartagena ou CIF votre port — comme se négocie le café colombien. Les lots express de 10 à 60 kg sont facturés au kilogramme, avec le fret sur une ligne distincte, et notre simulateur de devis d’expédition en ligne (compte gratuit) vous donne instantanément le prix livré. Pour un conteneur 20\', le simulateur donne un prix indicatif FOB Cartagena ; le marché évoluant chaque jour, le prix ferme figure dans une fiche d’offre datée.',
+  },
+
+  products: {
+    eyebrow: 'Catalogue de gros',
+    title: 'Produits',
+    lead:
+      'Le café vert est notre cœur de métier ; le café torréfié et moulu est fourni aux distributeurs, pour la marque blanche et pour le marché colombien. Les lots express disposent d’une estimation instantanée du prix livré ; les conteneurs sont cotés sur demande selon le lot d’origine, le volume et l’Incoterm.',
+    items: [
+      {
+        id: 'green-specialty',
+        name: 'Café vert de spécialité — Excelso EP, SCA 84+',
+        description:
+          'Arabica colombien non torréfié, Excelso préparation européenne, crible 14+, entièrement lavé, 84+ points SCA évalué par un Q-Grader. Castillo, Colombia et Caturra du Huila, du Cauca, du Valle del Cauca, du Nariño et du Quindío. Humidité 10–12 %, densité 750–800 g/L. Sacs de 70 kg avec sac intérieur GrainPro. Échantillons de 250 g – 1 kg ; lots aériens jusqu’à 60 kg ; conteneurs dès 10 t.',
+        origin: 'Huila · Cauca · Valle del Cauca · Nariño · Quindío',
+        roastLevel: 'green',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_GREEN,
+        stock: 10000,
+        weight: 'Échantillons 250 g – 1 kg · lots dès 10 kg · conteneurs 10–19,25 t',
+        active: true,
+        flavorNotes: ['Panela', 'Mandarine', 'Caramel', 'Chocolat au lait', 'Fruits rouges'],
+        altitude: '1 500–1 900+ m d’altitude',
+        process: 'Entièrement lavé',
+      },
+      {
+        id: 'green-commercial',
+        name: 'Café vert commercial — Excelso / UGQ, SCA 80–83',
+        description:
+          'Café vert colombien propre et sain pour les assemblages, la marque blanche et la torréfaction en volume. Préparation Excelso ou UGQ, crible 14+, entièrement lavé, humidité 10–12 %. Les conteneurs sont cotés sur le différentiel du marché, FOB Cartagena ou CIF ; lots express sur demande. Par voie maritime, d’un demi-conteneur (10 t, 143 sacs) à des conteneurs 20\' complets (275 sacs × 70 kg).',
+        origin: 'Assemblage départemental — Huila, Cauca, Valle del Cauca, Quindío',
+        roastLevel: 'green',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_GREEN,
+        stock: 10000,
+        weight: 'Lots express sur demande · par mer dès 10 t (demi 20\') · 19,25 t par conteneur 20\' complet',
+        active: true,
+        flavorNotes: ['Caramel', 'Chocolat', 'Agrumes doux'],
+        altitude: '1 300–1 900 m d’altitude',
+        process: 'Entièrement lavé',
+      },
+      {
+        id: 'roasted-medium',
+        name: 'Café torréfié — en grains ou moulu, torréfaction moyenne',
+        description:
+          'Café colombien de spécialité torréfié à la commande à Bogotá par notre torréfacteur partenaire. Profil moyen (Agtron 55–65) ou moyen-foncé (45–55) ; caramel et chocolat au lait avec une douce acidité de fruits rouges. En grains ou moulu pour filtre / espresso. Sachets sous vide avec valve unidirectionnelle, 250 g, 500 g et 1 kg ; en gros 5–25 kg. Expédié 1 à 5 jours après la torréfaction. Marque blanche disponible.',
+        origin: 'Huila · Cauca · Valle del Cauca',
+        roastLevel: 'medium',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_ROASTED,
+        stock: 500,
+        weight: '250 g · 500 g · 1 kg · en gros 5–25 kg',
+        active: true,
+        flavorNotes: ['Caramel', 'Chocolat au lait', 'Fruits rouges'],
+        altitude: '1 500+ m d’altitude',
+        process: 'Lavé · torréfié à la commande',
+      },
+    ],
+    roastedTitle: 'Café torréfié — spécification',
+    roastedLead: 'Torréfié à Bogotá à la demande, il quitte donc la Colombie frais. Les profils peuvent être adaptés à votre cahier des charges.',
+    roasted: [
+      { label: 'Degré de torréfaction', value: 'Moyen (Agtron 55–65) en standard · moyen-foncé (Agtron 45–55) ou plus clair sur demande.' },
+      { label: 'Format', value: 'En grains ou moulu (filtre, espresso, cafetière à piston).' },
+      { label: 'Emballage', value: 'Sachets multicouches sous vide avec valve unidirectionnelle : 250 g, 500 g, 1 kg. En gros 5–25 kg. Sachets neutres pour votre propre marque.' },
+      { label: 'Fraîcheur', value: 'Torréfié à chaque commande, expédié 1 à 5 jours après la torréfaction. À consommer de préférence dans les 60 jours suivant la torréfaction ; conservation de 12 mois sous emballage scellé.' },
+      { label: 'Volume à l’export', value: 'Jusqu’à 50 kg de café torréfié par envoi express dans le cadre du régime des petites quantités de la FNC ; au-delà, exportation ordinaire par avion ou par mer.' },
+      { label: 'Droits de douane UE', value: 'Le café torréfié paie 7,5 % (taux NPF) dans l’UE ; 0 % avec la déclaration d’origine UE–Colombie, que nous fournissons.' },
+    ],
+    privateLabel: {
+      title: 'Marque blanche et profils sur mesure',
+      text:
+        'Nous torréfions et conditionnons selon votre cahier des charges — profil, mouture, taille de sachet, imprimé ou non — et expédions sous votre marque. Les minimums dépendent du format de sachet ; demandez la grille en vigueur.',
+    },
+    domestic: {
+      title: 'Ventes en Colombie',
+      text:
+        'Nous fournissons aussi du café torréfié et moulu aux cafés, bureaux et entreprises en Colombie (250 g, 500 g, 1 kg et vrac), facturé électroniquement en pesos. Contactez-nous depuis Bogotá par WhatsApp.',
+    },
+  },
+
+  export: {
+    eyebrow: 'Export et logistique',
+    title: 'De l’échantillon au conteneur — comment nous expédions',
+    lead:
+      'Nous prenons en charge toute la partie colombienne : achat, usinage et contrôle qualité, dossier d’exportation du café auprès de la FNC, douane et réservation du fret. Vous nous indiquez le port et l’Incoterm.',
+    sections: [
+      {
+        title: 'Tailles d’expédition',
+        rows: [
+          { label: 'Échantillons d’offre', value: '250 g – 1 kg par profil, sous vide, par DHL Express. Pour les acheteurs qualifiés, l’échantillon d’offre est offert ; vous prenez en charge le transport express.' },
+          { label: 'Petits lots par messagerie express', value: 'Jusqu’à 60 kg de café vert ou 50 kg de café torréfié par envoi dans le cadre du régime des petites quantités de la FNC. DHL Express de porte à porte, 5–8 jours ouvrés dans le monde entier, avec suivi.' },
+          { label: 'Palettes', value: '100–1 000 kg en fret aérien groupé (DHL Global Forwarding) ou en groupage maritime (LCL). Dossier d’exportation, guide de transit et contribution caféière pris en charge par nos soins.' },
+          { label: 'Conteneurs', value: '20\' FCL : 275 sacs × 70 kg ≈ 19,25 t. Demi-conteneur : 10 t = 143 sacs. Chargements mixtes vert / torréfié possibles. Plusieurs conteneurs sous contrat à terme.' },
+        ],
+      },
+      {
+        title: 'Conditions et acheminement',
+        rows: [
+          { label: 'Incoterms 2020', value: 'DAP votre adresse (lots express, DHL Express) · EXW / FCA Bogotá (express et aérien) · FOB Cartagena ou Santa Marta · CFR / CIF port de destination.' },
+          { label: 'Ports de chargement', value: 'Cartagena (Contecar) ou Santa Marta, sur la côte caraïbe — services directs vers l’Europe du Nord et la Méditerranée.' },
+          { label: 'Destinations déjà cotées', value: 'Göteborg, Hambourg, Anvers, Rotterdam, Valence (Espagne), Le Cap, Walvis Bay, Ashdod, Jebel Ali et la côte Est des États-Unis, entre autres.' },
+          { label: 'Transit', value: 'Express : 5–8 jours ouvrés. Fret maritime : 18–35 jours selon la route et les transbordements.' },
+          { label: 'Délai', value: 'Lots express : 1–2 semaines après paiement. Conteneurs : généralement 4–6 semaines entre le contrat et le chargement (usinage, inspection Almacafé et réservation).' },
+          { label: 'Paiement', value: 'Échantillons et lots express : à l’avance par virement bancaire. Conteneurs : acompte à la signature du contrat et solde contre documents, ou lettre de crédit confirmée. Facturation en USD.' },
+          { label: 'Prix', value: 'Conteneurs : « C » de New York plus un différentiel convenu, fixé au contrat, avec un prix indicatif FOB Cartagena pour un conteneur 20\' dans le simulateur en ligne. Lots express : au kilogramme, fret sur une ligne distincte ; le simulateur de devis d’expédition en ligne donne instantanément le prix livré. Chaque offre a sa propre durée de validité.' },
+        ],
+      },
+    ],
+    docsTitle: 'Documents joints à chaque expédition',
+    docs: [
+      'Facture commerciale (électronique, autorisée par la DIAN) et liste de colisage / de poids',
+      'Connaissement ou lettre de transport aérien',
+      'Certificat d’origine ICO ; déclaration d’origine UE–Colombie pour le café torréfié (0 % de droits)',
+      'Fiche technique du lot et fiche de dégustation signée par un Q-Grader (lots de spécialité)',
+      'Certificat de qualité Almacafé et guide de transit FNC (expéditions en conteneur)',
+      'Certificat phytosanitaire (ICA) lorsque la destination l’exige — ce n’est pas le cas de l’UE pour le café vert',
+      'Certificat d’assurance en CIF',
+    ],
+    complianceTitle: 'La conformité, en clair',
+    compliance: [
+      {
+        title: 'Dossier d’exportation colombien',
+        text:
+          'Exportateur de café enregistré auprès de la Fédération nationale des caféiculteurs de Colombie (FNC) et de la DIAN. Chaque exportation comporte une annonce de vente sur le Portal Cafetero, un guide de transit FNC, l’inspection du poids et de la qualité par Almacafé, le paiement de la contribution caféière et la déclaration d’exportation en douane (SAE). Nous nous chargeons de tout ; aucun transitaire ne peut le faire.',
+      },
+      {
+        title: 'Importation dans l’UE : droits de douane et santé des végétaux',
+        text:
+          'Le café vert entre dans l’Union européenne avec 0 % de droits pour toutes les origines, sans certificat d’origine requis. Le café torréfié paie 7,5 %, sauf s’il bénéficie de l’accord commercial UE–Colombie ; nous émettons donc la déclaration d’origine. Aucun certificat phytosanitaire n’est exigé pour le café vert (il ne relève pas de l’annexe XI du règlement (UE) 2019/2072) ; nous en faisons établir un par l’ICA lorsqu’une autre destination le demande.',
+      },
+      {
+        title: 'Règlement EUDR sur la déforestation',
+        text:
+          'Le règlement européen sur la déforestation exige la géolocalisation de chaque parcelle (polygones au-delà de 4 ha), les dates de production et une déclaration d’absence de déforestation après le 31 décembre 2020, l’importateur déposant la déclaration de diligence raisonnée dans TRACES. Nous constituons avec nos fournisseurs des données à l’échelle de la parcelle pour les lots destinés à l’UE et indiquons sur chaque fiche d’offre si un lot dispose aujourd’hui de la géolocalisation de la ferme. Nous ne vous vendrons pas un lot comme conforme à l’EUDR si ces données n’existent pas.',
+      },
+      {
+        title: 'Sécurité alimentaire',
+        text:
+          'Enregistrement sanitaire INVIMA NSA-0006451-2019 pour les produits torréfiés. Humidité maîtrisée à 10–12 % et activité de l’eau mesurée sur demande pour limiter le risque d’ochratoxine. Le café n’est jamais fumigé.',
+      },
+    ],
+  },
+
+  shipping: {
+    eyebrow: 'Devis d’expédition',
+    title: 'Combien coûte l’acheminement du café colombien jusqu’à votre porte ?',
+    lead:
+      'Choisissez votre pays, le café et la quantité. Vous obtenez instantanément le prix livré — café, emballage et fret DHL Express — en dollars américains. Pour les lots express de 10 à 60 kg de café vert ou de 10 à 50 kg de café torréfié, et pour les conteneurs 20\' de café vert FOB Cartagena. Gratuit pour les acheteurs inscrits.',
+    formTitle: 'Votre envoi',
+    gate: {
+      title: 'Créez votre compte gratuit pour obtenir un devis',
+      text: 'Le simulateur est réservé aux acheteurs inscrits. Inscrivez-vous avec votre adresse e-mail — nous vous envoyons un code à usage unique, sans mot de passe — et faites autant de devis que vous le souhaitez.',
+      signUp: 'Créer mon compte gratuit',
+      signIn: 'J’ai déjà un compte',
+      consent: 'En créant votre compte, vous acceptez notre',
+      consentLink: 'politique de protection des données personnelles',
+      perksTitle: 'Avec votre compte',
+      perks: [
+        'Prix livré instantané en dollars américains : café, emballage et fret',
+        'Lots express de 10–60 kg et conteneurs 20\' FOB Cartagena',
+        'Enregistrez vos devis et demandez la proforma en un clic',
+        'L’historique de vos devis dans Mon compte',
+      ],
+      noAccount: 'Vous préférez ne pas vous inscrire ? Écrivez-nous sur WhatsApp ou par e-mail (ci-dessous) et nous vous ferons un devis.',
+      profileTitle: 'Une dernière étape : vos coordonnées',
+      profileText: 'Votre compte est prêt. Pour activer le simulateur, nous avons besoin de votre nom et de votre consentement à notre politique de protection des données personnelles (loi colombienne 1581). Cela prend moins d’une minute.',
+      profileCta: 'Compléter mes coordonnées',
+      checking: 'Vérification de votre session…',
+    },
+    modeLabel: 'Type d’envoi',
+    modes: {
+      courier: { title: 'Lot express', detail: '10–60 kg de vert ou 10–50 kg de torréfié · DHL Express jusqu’à votre porte (DAP)' },
+      container: { title: 'Conteneur 20\'', detail: '100–275 sacs de 70 kg · café vert · FOB Cartagena' },
+    },
+    container: {
+      coffeeLabel: 'Café vert',
+      groups: { standard: 'Lavés et décaféiné', process: 'Honey, nature et fermentés', variety: 'Variétés rares' },
+      products: {
+        'washed-79': 'Lavé commercial · SCA 79',
+        'washed-81-antioquia': 'Lavé · SCA 81 · Antioquia',
+        'washed-82': 'Lavé · SCA 82',
+        'washed-84-antioquia': 'Lavé · SCA 84 · Antioquia',
+        'decaf-84': 'Décaféiné (lavé) · SCA 84',
+        'honey-yellow-85': 'Honey jaune · SCA 85,5',
+        'fermented-85': 'Fermentation prolongée · SCA 85,5',
+        'honey-red-86': 'Honey rouge · SCA 86',
+        'fermented-86': 'Fermentation prolongée · SCA 86+',
+        'honey-black-86': 'Honey noir · SCA 86,5',
+        'natural-86': 'Nature · SCA 86,5',
+        'natural-87': 'Nature · SCA 87',
+        'chiroso-87': 'Variété Chiroso, lavé · SCA 87',
+        'pink-bourbon-87': 'Pink Bourbon, lavé · SCA 87,5',
+        'geisha-88': 'Geisha, honey · SCA 88,5',
+        'wush-wush-89': 'Wush Wush, nature · SCA 89',
+      },
+      bagsLabel: 'Quantité (sacs de 70 kg)',
+      bagsHint: 'De {min} sacs ({minKg} kg) à {full} sacs ({fullKg} kg), soit un conteneur 20\' complet. Plus le conteneur est rempli, plus le prix au kilogramme est bas.',
+      idle: 'Choisissez un café et le nombre de sacs pour voir le prix FOB.',
+      belowMin: 'Les prix conteneur commencent à {min} sacs ({minKg} kg). Pour des lots plus petits, utilisez l’option express ou écrivez-nous.',
+      overLimit: 'Au-delà de {full} sacs, il vous faut plus d’un conteneur 20\' — écrivez-nous pour un devis multi-conteneurs.',
+      perKgLine: 'Prix au kilogramme, FOB Cartagena',
+      perLbLine: 'Prix à la livre',
+      totalLine: 'Total FOB Cartagena · {bags} sacs ({kg} kg)',
+      fullNote: 'Conteneur 20\' complet : le meilleur prix au kilogramme.',
+      partialNote: 'Conteneur partiel. Complétez-le jusqu’à {full} sacs pour obtenir le meilleur prix au kilogramme — vous pouvez combiner plusieurs cafés pour le remplir.',
+      disclaimer:
+        'Estimation indicative en dollars américains, sans valeur d’offre ferme. Le prix du café vert évolue chaque jour avec le marché ; nous confirmons le prix et sa validité dans une fiche d’offre datée.',
+      included: [
+        'Café vert en sacs d’exportation de 70 kg (sac intérieur hermétique sur demande)',
+        'Dossier d’exportation colombien : contribution caféière FNC, certificat de qualité Almacafé, déclaration d’exportation en douane et certificat d’origine',
+        'Transport terrestre jusqu’à Cartagena, empotage du conteneur, manutention portuaire et connaissement',
+        'FOB Cartagena (Incoterms 2020) : le café est livré à bord à Cartagena',
+      ],
+      notIncluded: [
+        'Fret maritime et assurance — nous cotons en CFR / CIF jusqu’à votre port sur demande',
+        'Frais portuaires à destination, droits de douane et taxes à l’importation',
+        'Tout enregistrement que votre pays exige de l’importateur — voir les notes d’importation ci-dessous',
+      ],
+      paymentNote:
+        'Acompte à la signature du contrat et solde contre documents, ou lettre de crédit confirmée. Généralement 4 à 6 semaines entre le contrat et le chargement. Pour les lots destinés à l’UE, la géolocalisation des fermes exigée par l’EUDR est confirmée lot par lot dans l’offre.',
+      whatsappQuote: 'Bonjour, je souhaiterais un devis pour {bags} sacs ({kg} kg) de café vert, {product}, FOB Cartagena. Estimation du site : {total} ({perKg}/kg).',
+      whatsappNoPrice: 'Bonjour, je souhaiterais un devis pour {bags} sacs de café vert, {product}, FOB Cartagena.',
+      emailSubject: 'Devis conteneur — {bags} sacs, {product}',
+    },
+    countryLabel: 'Pays de destination',
+    countryPlaceholder: 'Sélectionnez un pays…',
+    otherCountry: 'Autre pays',
+    productLabel: 'Café',
+    groups: { green: 'Café vert', roasted: 'Café torréfié' },
+    products: {
+      'green-basic': { name: 'Café vert basique', detail: 'Nariño · lavé · score en tasse 77,0 · voir son profil en tasse', inText: 'café vert basique' },
+      'green-excelso': { name: 'Café vert Excelso', detail: 'Selecto : Huila, Cauca, Valle, Quindío · Excelso EP · SCA 84+', inText: 'café vert Excelso' },
+      'green-supremo': { name: 'Café vert Supremo', detail: 'Huila · Acevedo, 1 580 m d’altitude · lavé · SCA 86+', inText: 'café vert Supremo' },
+      'roasted-castillo': { name: 'Café torréfié Castillo', detail: 'En grains · torréfaction moyenne · sachets de 1 kg avec valve, sans marque', inText: 'café torréfié Castillo' },
+      'roasted-bourbon': { name: 'Café torréfié Bourbon', detail: 'Variétés Bourbon · en grains · sachets de 1 kg avec valve, sans marque', inText: 'café torréfié Bourbon' },
+      'roasted-fermented': { name: 'Café torréfié à fermentation spéciale', detail: 'Noix de coco, fraise, tabac et autres fermentations · en grains · sachets de 1 kg avec valve', inText: 'café torréfié à fermentation spéciale' },
+    },
+    kgLabel: 'Quantité (kg nets)',
+    kgHint: 'De {min} à {max} kg pour ce café. Pour des échantillons de 250 g – 1 kg, écrivez-nous.',
+    resultTitle: 'Votre estimation',
+    idle: 'Sélectionnez une destination et une quantité pour voir le prix livré.',
+    loading: 'Calcul en cours…',
+    error: 'Nous ne pouvons pas calculer l’estimation pour le moment. Écrivez-nous et nous établirons le devis manuellement.',
+    belowMin: 'Le minimum par envoi est de {min} kg. Pour des échantillons de 250 g – 1 kg, écrivez-nous sur WhatsApp.',
+    overLimit:
+      'Au-delà de {max} kg, ce café ne peut plus être expédié en lot express. Les palettes en fret aérien et les conteneurs maritimes sont cotés au cas par cas — écrivez-nous.',
+    otherCountryText:
+      'Nous expédions dans le monde entier avec DHL Express. Indiquez-nous votre pays et la quantité, et nous vous enverrons un devis précis.',
+    coffeeLine: 'Café · {kg} kg × {price}/kg',
+    prepLine: 'Emballage et préparation à l’export',
+    freightLine: 'Fret DHL Express, de porte à porte',
+    totalLine: 'Total livré (DAP)',
+    perKgLine: 'Par kilogramme, livré',
+    boxesLine: 'Expédié en {n} carton(s), environ {kg} kg bruts.',
+    disclaimer:
+      'Estimation indicative en dollars américains, sans valeur d’offre ferme. Nos prix sont fixés en pesos colombiens et convertis au taux de change officiel du jour, et la surcharge carburant de DHL change chaque semaine ; nous confirmons le prix final dans une proforma écrite.',
+    includedTitle: 'Ce que comprend le prix',
+    packing: {
+      green: 'Le café conditionné pour l’export : sacs hermétiques de type GrainPro dans des cartons de 24 kg maximum',
+      roasted: 'Le café conditionné pour l’export : sachets de 1 kg avec valve de dégazage unidirectionnelle dans des cartons de 24 kg maximum',
+    },
+    included: [
+      'Formalités d’exportation colombiennes dans le cadre du régime des petites quantités de la FNC, facture commerciale et liste de colisage',
+      'Fret DHL Express Worldwide, de porte à porte et avec suivi — 5 à 8 jours ouvrés',
+      'Rendu au lieu de destination (DAP) : le café arrive à votre adresse',
+    ],
+    notIncludedTitle: 'Ce que le prix ne comprend pas',
+    notIncluded: [
+      'Droits de douane, TVA et frais de dédouanement à destination — à la charge de l’importateur',
+      'La surcharge DHL pour zone éloignée, si votre code postal y est soumis — nous la vérifions avant la proforma',
+      'Tout enregistrement que votre pays exige de l’importateur — voir les notes d’importation ci-dessous',
+      'Les frais bancaires de votre virement',
+    ],
+    paymentNote:
+      'Paiement à l’avance par virement bancaire, facturé en USD. Délai de 1 à 2 semaines après paiement (pour les États-Unis, une fois l’enregistrement FDA confirmé).',
+    notesTitle: 'Notes d’importation par pays',
+    notesLead: 'Ce dont l’importateur a besoin à l’arrivée. Sélectionnez un pays ci-dessus pour ouvrir sa note.',
+    countryNotes: {
+      US: 'Le café destiné aux États-Unis doit être torréfié et conditionné — ou, pour le café vert, usiné et stocké — dans un établissement enregistré auprès de la FDA. Nous n’expédions vers les États-Unis qu’une fois cet enregistrement confirmé pour votre lot, et nous vous en indiquons la date dans la proforma. Chaque envoi nécessite un Prior Notice de la FDA, que nous organisons avec vous ou avec votre commissionnaire en douane. En tant qu’importateur, vous devez respecter le Foreign Supplier Verification Program (FSVP) et disposer d’un numéro DUNS. Le café torréfié en sachets destinés à la vente au détail doit porter un étiquetage en anglais indiquant le poids net en onces et en grammes. Les droits d’importation américains sur le café vert et torréfié sont de 0 %.',
+      DE: 'Le café vert entre dans l’UE avec 0 % de droits ; le café torréfié paie 7,5 %, sauf si la déclaration d’origine UE–Colombie s’applique, que nous émettons. La TVA à l’importation est perçue au taux allemand et payée par l’importateur. Pour importer à titre commercial, il vous faut un numéro EORI et, pour revendre, un enregistrement en tant qu’exploitant du secteur alimentaire auprès de l’autorité locale.',
+      BE: 'Le café vert entre dans l’UE avec 0 % de droits ; le café torréfié paie 7,5 %, sauf si la déclaration d’origine UE–Colombie s’applique, que nous émettons. La TVA à l’importation est perçue au taux belge et payée par l’importateur. Pour importer à titre commercial, il vous faut un numéro EORI et, pour revendre, un enregistrement en tant qu’exploitant du secteur alimentaire auprès de l’autorité alimentaire nationale.',
+      ES: 'Le café vert entre dans l’UE avec 0 % de droits ; le café torréfié paie 7,5 %, sauf si la déclaration d’origine UE–Colombie s’applique, que nous émettons. L’Espagne applique au café une TVA à l’importation d’environ 10 % ainsi qu’un contrôle officiel des importations alimentaires (AGRIM), pris en charge par DHL. Pour revendre, il vous faut un numéro EORI et un enregistrement d’entreprise alimentaire (RGSEAA).',
+      FR: 'Le café vert entre dans l’UE avec 0 % de droits ; le café torréfié paie 7,5 %, sauf si la déclaration d’origine UE–Colombie s’applique, que nous émettons. La TVA à l’importation est perçue au taux français et payée par l’importateur. Pour importer à titre commercial, il vous faut un numéro EORI et, pour revendre, un enregistrement en tant qu’exploitant du secteur alimentaire auprès de l’autorité locale.',
+      NL: 'Le café vert entre dans l’UE avec 0 % de droits ; le café torréfié paie 7,5 %, sauf si la déclaration d’origine UE–Colombie s’applique, que nous émettons. La TVA à l’importation est perçue au taux néerlandais et payée par l’importateur. Pour importer à titre commercial, il vous faut un numéro EORI et, pour revendre, un enregistrement en tant qu’exploitant du secteur alimentaire auprès de l’autorité alimentaire nationale.',
+      PL: 'Le café vert entre dans l’UE avec 0 % de droits ; le café torréfié paie 7,5 %, sauf si la déclaration d’origine UE–Colombie s’applique, que nous émettons. La TVA à l’importation est perçue au taux polonais et payée par l’importateur. Pour importer à titre commercial, il vous faut un numéro EORI et, pour revendre, un enregistrement en tant qu’exploitant du secteur alimentaire auprès de l’autorité sanitaire.',
+      SE: 'Le café vert entre dans l’UE avec 0 % de droits ; le café torréfié paie 7,5 %, sauf si la déclaration d’origine UE–Colombie s’applique, que nous émettons. La TVA à l’importation est perçue au taux suédois et payée par l’importateur. Pour importer à titre commercial, il vous faut un numéro EORI et, pour revendre, un enregistrement en tant qu’exploitant du secteur alimentaire auprès de l’autorité locale.',
+      AE: 'Aux Émirats arabes unis, l’importateur a normalement besoin d’une licence de commerce de denrées alimentaires et doit enregistrer chaque produit et chaque étiquette auprès de l’autorité alimentaire locale (à Abou Dabi, l’ADAFSA), avec un étiquetage en arabe. Vérifiez ce point avant de commander.',
+    },
+    ctaTitle: 'Prêt à commander, ou besoin d’un devis précis ?',
+    ctaText:
+      'Envoyez cette estimation à David sur WhatsApp ou par e-mail et nous vous répondrons avec une proforma écrite sous 24 heures les jours ouvrés.',
+    whatsappQuote: 'Bonjour, je souhaiterais un devis pour {kg} kg de {product}, livrés (destination : {country}). Estimation du site : {total} (DAP).',
+    whatsappNoPrice: 'Bonjour, je souhaiterais un devis pour {kg} kg de {product}, livrés (destination : {country}).',
+    whatsappOther: 'Bonjour, je souhaiterais un devis d’expédition pour {kg} kg de {product} vers mon pays : ',
+    whatsappGeneric: 'Bonjour, je souhaiterais un devis d’expédition pour du café colombien.',
+    emailSubject: 'Devis d’expédition — {kg} kg de {product}',
+  },
+
+  profiles: {
+    eyebrow: 'Café vert · profils en tasse',
+    title: 'Profils en tasse des cafés que nous proposons',
+    lead:
+      'Quatre cafés verts colombiens, chacun avec son profil en tasse, son score de dégustation, son origine et son procédé. Tous sont du café vert — des grains non torréfiés, prêts pour votre torréfacteur.',
+    updated: 'Mis à jour le 31 octobre 2026',
+    compareTitle: 'En un coup d’œil',
+    compareLabels: { origin: 'Origine', score: 'Score en tasse', acidity: 'Acidité', process: 'Procédé', presentation: 'Présentation', estimator: 'Dans le devis d’expédition' },
+    presentation: 'Café vert (non torréfié)',
+    scoreLabel: 'score en tasse',
+    viewProfile: 'Voir le profil complet',
+    radarTitle: 'Attributs de dégustation',
+    radarShapeNote: 'Forme du profil d’après la fiche technique du lot ; les scores par attribut ne sont pas publiés.',
+    axes: ['Fragrance et arôme', 'Saveur', 'Arrière-goût', 'Acidité', 'Corps', 'Uniformité', 'Équilibre', 'Tasse propre', 'Douceur', 'Impression globale'],
+    attributesTitle: 'Fiche de dégustation',
+    attributeCols: ['Attribut', 'Note', 'Commentaires du dégustateur'],
+    totalLabel: 'Score de dégustation',
+    totalNote: 'Somme des dix attributs',
+    inEstimator: 'Dans le devis d’expédition sous le nom « {name} »',
+    onRequest: 'Sur devis',
+    estimatorCta: 'Estimer un envoi',
+    quoteCta: 'Demander un devis',
+    ctaTitle: 'Dégustez-les vous-même',
+    ctaText:
+      'Nous envoyons des échantillons d’offre de 250–500 g par profil par DHL Express. Dites-nous quels cafés vous souhaitez déguster et où les envoyer.',
+    whatsappMessage: 'Bonjour, je souhaiterais des échantillons de vos cafés verts. Ces profils m’intéressent : ',
+    whatsappProfile: 'Bonjour, je souhaiterais un devis pour votre café vert {name}.',
+    emailSubject: 'Échantillons de café vert — profils en tasse',
+    greenCallout: {
+      title: 'Profils en tasse de nos cafés actuels',
+      text: 'Huila 86+, Selecto 84+, Tolima et un lot du Nariño : notes aromatiques, scores de dégustation, origine et procédé, côte à côte.',
+      cta: 'Voir les profils en tasse',
+    },
+    items: [
+      {
+        id: 'huila',
+        name: 'Huila',
+        grade: 'Supremo',
+        subtitle: 'Acevedo, Huila · 1 580 m d’altitude',
+        score: '86+',
+        notes: ['Agrumes', 'Panela', 'Floral', 'Aromatique'],
+        summary:
+          'Une tasse citrique et aromatique, avec une douceur de panela et des notes florales. Propre, uniforme, équilibrée et sucrée — ces quatre attributs atteignent le haut de l’échelle.',
+        facts: ['Café vert · lavé', 'Fermentation de 48 h en cerise et de 48 h après dépulpage', 'Séchage de 10 à 12 jours'],
+        origin: 'Acevedo, Huila',
+        acidity: 'Citrique',
+        process: 'Lavé',
+        specsTitle: 'Origine et procédé',
+        specs: [
+          { label: 'Département', value: 'Huila' },
+          { label: 'Municipalité', value: 'Acevedo' },
+          { label: 'Altitude', value: '1 580 m d’altitude' },
+          { label: 'Présentation', value: 'Café vert (non torréfié)' },
+          { label: 'Procédé', value: 'Lavé' },
+          { label: 'Fermentation en cerise', value: '48 heures' },
+          { label: 'Fermentation après dépulpage', value: '48 heures' },
+          { label: 'Séchage', value: '10 à 12 jours' },
+        ],
+        estimator: 'Café vert Supremo',
+      },
+      {
+        id: 'selecto',
+        name: 'Selecto',
+        grade: 'Excelso EP',
+        subtitle: 'Huila · Cauca · Valle del Cauca · Quindío',
+        score: '84+',
+        notes: ['Canne à sucre', 'Panela', 'Mandarine', 'Orange', 'Corps crémeux', 'Aromatique', 'Floral'],
+        summary:
+          'Une tasse sucrée et aromatique : canne à sucre et panela, acidité citrique aux notes de mandarine ou d’orange, corps crémeux et notes florales. Propre, équilibrée et persistante. Évaluée par un dégustateur Q-Grader.',
+        facts: ['Café vert · principalement Castillo', 'Grains au-dessus du crible 14', 'Tri électronique des défauts'],
+        origin: 'Huila, Cauca, Valle del Cauca et Quindío',
+        acidity: 'Citrique, aux notes de mandarine ou d’orange',
+        process: 'Lavé',
+        specsTitle: 'Origine et spécification',
+        specs: [
+          { label: 'Origine', value: 'Huila, Cauca, Valle del Cauca et Quindío, assemblés selon la récolte' },
+          { label: 'Variété', value: 'Principalement Castillo' },
+          { label: 'Présentation', value: 'Café vert (non torréfié), 100 % arabica' },
+          { label: 'Taille des grains', value: 'Au-dessus du crible 14' },
+          { label: 'Tri', value: 'Calibrage mécanique et tri électronique des défauts' },
+          { label: 'Humidité', value: 'Contrôlée avant chaque lot' },
+          { label: 'Évaluation', value: 'Plus de 84 points SCA, évalué par un dégustateur Q-Grader' },
+        ],
+        estimator: 'Café vert Excelso',
+      },
+      {
+        id: 'tolima',
+        name: 'Tolima',
+        grade: 'Grade export UGQ',
+        subtitle: 'Tolima · Castillo lavé',
+        score: '81,82',
+        notes: ['Cacao', 'Panela', 'Canne à sucre', 'Chocolat', 'Caramel', 'Acidité citrique moyenne'],
+        summary:
+          'Une tasse franche et sucrée : cacao, panela, canne à sucre, chocolat et caramel, avec une acidité citrique moyenne. Simple plutôt que complexe — conçue pour les assemblages ou un espresso du quotidien.',
+        facts: ['Café vert · grade export UGQ', 'Humidité de 10 à 12 %'],
+        origin: 'Tolima',
+        acidity: 'Citrique moyenne',
+        process: 'Lavé',
+        specsTitle: 'Origine et procédé',
+        specs: [
+          { label: 'Département', value: 'Tolima' },
+          { label: 'Variété', value: 'Castillo' },
+          { label: 'Procédé', value: 'Lavé' },
+          { label: 'Présentation', value: 'Café vert (non torréfié), usiné à sec et prêt pour l’export' },
+          { label: 'Grade', value: 'Grade export UGQ' },
+          { label: 'Humidité', value: '10 à 12 %' },
+        ],
+      },
+      {
+        id: 'basico',
+        name: 'Basique',
+        grade: 'Lot du Nariño',
+        subtitle: 'Nariño · 1 650–1 800 m d’altitude',
+        score: '77,0',
+        notes: ['Mandarine', 'Miel de rose', 'Jasmin', 'Canne à sucre', 'Fruits rouges', 'Figues', 'Citronnelle', 'Raisin vert', 'Caramel'],
+        summary:
+          'Mandarine, miel de rose et jasmin à l’arôme ; canne à sucre, fruits rouges subtils, figues et citronnelle en bouche. Acidité juteuse, comme le raisin vert ; corps rond et léger à la texture mielleuse, finale caramel.',
+        facts: ['Café vert · Castillo, Colombia et Caturra · lavé', 'Dégusté le 10 septembre 2026'],
+        origin: 'Nariño',
+        acidity: 'Juteuse, comme le raisin vert',
+        process: 'Lavé',
+        specsTitle: 'Origine et procédé',
+        specs: [
+          { label: 'Altitude', value: '1 650 à 1 800 m d’altitude' },
+          { label: 'Variétés', value: 'Castillo, Colombia et Caturra' },
+          { label: 'Présentation', value: 'Café vert (non torréfié)' },
+          { label: 'Procédé', value: 'Lavé' },
+          { label: 'Date de dégustation', value: '10 septembre 2026' },
+        ],
+        attributes: [
+          { label: 'Fragrance et arôme', score: '6,5', note: 'mandarine, miel de rose de faible intensité, note florale subtile de jasmin, canne à sucre' },
+          { label: 'Saveur', score: '7,0', note: 'canne à sucre, fruits rouges agréables et subtils, figues, citronnelle' },
+          { label: 'Arrière-goût', score: '7,0', note: 'agréable, caramel' },
+          { label: 'Acidité', score: '6,5', note: 'juteuse, comme le raisin vert' },
+          { label: 'Corps', score: '7,0', note: 'rond et léger, avec une légère sensation mielleuse' },
+          { label: 'Uniformité', score: '10', note: 'OK' },
+          { label: 'Équilibre', score: '10', note: 'OK' },
+          { label: 'Tasse propre', score: '10', note: 'OK' },
+          { label: 'Douceur', score: '6,0', note: 'canne à sucre' },
+          { label: 'Impression globale', score: '7,0', note: 'café équilibré avec un très bon corps, sucré et une acidité très stable' },
+        ],
+        estimator: 'Café vert basique',
+      },
+    ],
+  },
+
+  account: {
+    title: 'Mon compte',
+    lead: 'Vos devis enregistrés et vos coordonnées. Connectez-vous avec votre adresse e-mail : nous vous envoyons un code à usage unique, sans mot de passe.',
+    loading: 'Chargement de votre compte…',
+    unavailable: 'Les comptes clients ne sont pas disponibles pour le moment. Écrivez-nous sur WhatsApp ou par e-mail et nous vous aiderons.',
+    signedOutTitle: 'Connectez-vous pour voir vos devis',
+    signedOutText: 'Avec votre compte, vous utilisez le simulateur de devis d’expédition, enregistrez vos devis et demandez la proforma en un clic. Tout le monde peut créer un compte avec son adresse e-mail.',
+    signInCta: 'Se connecter par e-mail',
+    profileTitle: 'Vos coordonnées',
+    profileLead: 'Nous les utilisons pour préparer votre proforma et vous contacter au sujet de vos devis.',
+    fields: { name: 'Nom complet', company: 'Entreprise', country: 'Pays', phone: 'WhatsApp / téléphone' },
+    optional: 'facultatif',
+    consentLabel: 'J’autorise Entre Cafés Colombianos à traiter mes données personnelles aux fins décrites dans la {policy}.',
+    consentLink: 'politique de protection des données',
+    policyUpdated: 'Notre politique de protection des données a été mise à jour. Veuillez la consulter et confirmer votre autorisation pour continuer.',
+    save: 'Enregistrer mes coordonnées',
+    saving: 'Enregistrement…',
+    saveError: 'Nous n’avons pas pu enregistrer vos coordonnées. Veuillez réessayer.',
+    nameRequired: 'Veuillez indiquer votre nom complet.',
+    consentRequired: 'Votre autorisation est nécessaire pour créer votre compte.',
+    hello: 'Bonjour, {name}',
+    editProfile: 'Modifier mes coordonnées',
+    cancel: 'Annuler',
+    quotesTitle: 'Mes devis',
+    quotesEmpty: 'Vous n’avez encore enregistré aucun devis.',
+    newQuote: 'Faire une nouvelle estimation',
+    cols: { date: 'Date', coffee: 'Café', quantity: 'Quantité', destination: 'Destination', total: 'Total', status: 'Statut' },
+    statuses: { new: 'Reçu', proforma_sent: 'Proforma envoyée', won: 'Confirmé', lost: 'Clôturé' },
+    bags: '{n} sacs',
+    fob: 'FOB Cartagena',
+    signOut: 'Se déconnecter',
+    deleteTitle: 'Supprimer mon compte',
+    deleteText: 'Supprime votre compte, vos coordonnées et vos devis enregistrés. Les proformas et factures déjà émises sont conservées conformément à la loi.',
+    deleteCta: 'Supprimer mon compte et mes données',
+    deleteConfirm: 'Cette action supprime votre compte et tous vos devis enregistrés. Voulez-vous continuer ?',
+    deleted: 'Votre compte et vos données ont été supprimés.',
+  },
+  admin: {
+    title: 'Demandes de devis',
+    forbidden: 'Cette page est réservée à l’administrateur.',
+    refresh: 'Actualiser',
+    exportCsv: 'Télécharger le CSV',
+    filterAll: 'Toutes',
+    empty: 'Aucune demande de devis pour le moment.',
+    count: '{n} demandes',
+    customer: 'Client',
+    note: 'Note',
+  },
+  saveQuote: {
+    save: 'Enregistrer et demander une proforma',
+    saving: 'Enregistrement…',
+    saved: 'Enregistré. Nous vous enverrons la proforma.',
+    viewInAccount: 'Voir dans Mon compte',
+    error: 'Nous n’avons pas pu l’enregistrer. Veuillez réessayer.',
+    tooMany: 'Vous avez atteint la limite quotidienne de devis enregistrés. Écrivez-nous et nous vous aiderons.',
+  },
+  privacy: {
+    translationNote: 'Ce texte en français est une traduction fournie pour plus de commodité ; en cas de divergence, la version espagnole de la présente politique prévaut.',
+    eyebrow: 'Juridique',
+    title: 'Politique de protection des données personnelles',
+    lead: 'Comment Entre Cafés Colombianos collecte, utilise et protège vos données personnelles, conformément à la loi colombienne 1581 de 2012 et à ses décrets d’application.',
+    updated: 'En vigueur depuis le 31 octobre 2026',
+    sections: [
+      {
+        title: '1. Responsable du traitement',
+        paragraphs: [
+          'Entre Cafés Colombianos, entreprise d’exportation de café exploitée par David Leonardo Ramírez Contreras, domiciliée à Bogotá D.C., Colombie.',
+          'Contact pour toute question relative à vos données : cafecolombiano889@proton.me · WhatsApp +57 315 067 0591.',
+        ],
+      },
+      {
+        title: '2. Données traitées',
+        paragraphs: ['Uniquement les données nécessaires pour vous établir des devis et vous vendre du café :'],
+        items: [
+          'Adresse e-mail, utilisée pour vous connecter au moyen d’un code à usage unique.',
+          'Nom complet, entreprise, pays et, si vous le communiquez, votre numéro WhatsApp ou de téléphone.',
+          'Les devis que vous enregistrez : café, quantité, destination et prix estimé.',
+          'Ce que vous nous envoyez par WhatsApp ou par e-mail lorsque vous demandez un devis ou des échantillons.',
+        ],
+      },
+      {
+        title: '3. Finalités',
+        paragraphs: ['Nous utilisons vos données pour :'],
+        items: [
+          'Créer et gérer votre compte client.',
+          'Répondre à vos demandes de devis et préparer les proformas, factures et documents d’expédition.',
+          'Vous contacter au sujet de vos devis, commandes et échantillons.',
+          'Respecter nos obligations légales, fiscales et douanières en tant qu’exportateur.',
+        ],
+      },
+      {
+        title: '4. Autorisation',
+        paragraphs: [
+          'Lors de la création de votre compte, nous vous demandons votre autorisation préalable, expresse et éclairée pour traiter vos données à ces fins, et nous conservons une trace du moment où vous l’avez donnée. Vous pouvez la révoquer à tout moment.',
+        ],
+      },
+      {
+        title: '5. Prestataires de services et transfert international',
+        paragraphs: [
+          'Pour faire fonctionner le site et les comptes clients, nous faisons appel à des prestataires qui traitent des données pour notre compte, avec des serveurs aux États-Unis : Clerk (connexion), Neon (base de données) et Vercel (hébergement du site). Ils ne traitent que les données nécessaires à la fourniture de leur service. En autorisant la présente politique, vous acceptez ce transfert.',
+        ],
+      },
+      {
+        title: '6. Vos droits',
+        paragraphs: ['En tant que titulaire des données, vous pouvez :'],
+        items: [
+          'Connaître, mettre à jour et rectifier vos données personnelles.',
+          'Demander la preuve de l’autorisation que vous avez donnée.',
+          'Être informé de l’usage qui a été fait de vos données.',
+          'Révoquer votre autorisation et demander la suppression de vos données, lorsqu’aucune obligation légale n’impose leur conservation.',
+          'Accéder gratuitement à vos données.',
+          'Déposer une plainte auprès de la Surintendance de l’industrie et du commerce (SIC), après vous être d’abord adressé à nous.',
+        ],
+      },
+      {
+        title: '7. Comment exercer vos droits',
+        paragraphs: [
+          'Écrivez à cafecolombiano889@proton.me en indiquant votre nom, l’adresse e-mail de votre compte et votre demande. Nous répondons aux demandes de consultation dans un délai de 10 jours ouvrés (prorogeable de 5 jours ouvrés) et aux réclamations dans un délai de 15 jours ouvrés (prorogeable de 8 jours ouvrés), conformément aux articles 14 et 15 de la loi 1581 de 2012.',
+          'Vous pouvez également supprimer vous-même votre compte et vos devis enregistrés depuis Mon compte.',
+        ],
+      },
+      {
+        title: '8. Sécurité et conservation',
+        paragraphs: [
+          'La connexion utilise des codes à usage unique envoyés à votre adresse e-mail ; nous ne demandons ni ne conservons jamais de mots de passe. Nous conservons vos données tant que votre compte est actif. Si vous le supprimez, nous effaçons vos coordonnées et vos devis enregistrés ; les proformas et factures déjà émises sont conservées pendant la durée exigée par la législation commerciale et fiscale.',
+        ],
+      },
+      {
+        title: '9. Cookies',
+        paragraphs: [
+          'Le site utilise uniquement les cookies nécessaires pour maintenir votre session ouverte lorsque vous vous connectez. Nous n’utilisons pas de cookies publicitaires.',
+        ],
+      },
+      {
+        title: '10. Modifications de la présente politique',
+        paragraphs: [
+          'Si la présente politique est modifiée d’une manière qui affecte l’usage que nous faisons de vos données, nous publierons la nouvelle version ici et vous demanderons à nouveau votre autorisation lors de votre prochaine connexion.',
+        ],
+      },
+    ],
+  },
+
+  faq: {
+    eyebrow: 'Questions des acheteurs',
+    title: 'Questions fréquentes',
+    lead: 'Des réponses courtes et factuelles. Si la vôtre n’y figure pas, écrivez-nous — nous répondons en anglais ou en espagnol sous 24 heures les jours ouvrés.',
+    items: [
+      {
+        q: 'Quel café exportez-vous ?',
+        a: 'Du café vert arabica colombien : qualité spécialité (Excelso EP, crible 14+, 84+ points SCA évalué par un Q-Grader) et qualité commerciale (SCA 80–83) pour les assemblages. Nous fournissons aussi du café torréfié en grains et moulu, y compris en marque blanche, torréfié à la commande à Bogotá.',
+      },
+      {
+        q: 'Quelle est la commande minimum ?',
+        a: 'Il n’y a pas de minimum pour les échantillons (250 g – 1 kg). Les lots express vont de 10 kg jusqu’à 60 kg de café vert ou 50 kg de café torréfié. Par voie maritime, nous travaillons d’un demi-conteneur (10 t, 143 sacs de 70 kg) jusqu’à un 20\' complet (275 sacs, environ 19,25 t) et des contrats multi-conteneurs.',
+      },
+      {
+        q: 'Envoyez-vous des échantillons, et combien coûtent-ils ?',
+        a: 'Oui. Les échantillons d’offre de 250–500 g par profil partent par DHL Express. Pour les acheteurs qualifiés, le café est offert et vous prenez en charge le transport express ; les lots d’échantillons plus importants sont facturés au kilogramme, avec le fret sur une ligne distincte. Un échantillon de pré-expédition issu du lot réel est envoyé avant le chargement de tout conteneur.',
+      },
+      {
+        q: 'Comment fixez-vous vos prix ?',
+        a: 'Les conteneurs sont cotés sur le contrat « C » de New York plus un différentiel convenu à la date du contrat, FOB Cartagena ou CIF votre port. Notre simulateur en ligne affiche un prix indicatif FOB Cartagena pour un conteneur 20\' ; le marché évoluant chaque jour, le prix ferme figure dans une fiche d’offre datée, avec sa propre durée de validité. Les lots express (10–60 kg de café vert ou 10–50 kg de café torréfié) sont facturés au kilogramme et, avec un compte gratuit, vous obtenez une estimation instantanée du prix livré (DAP) sur https://www.entrecafescolombianos.coffee/fr/devis-expedition.',
+      },
+      {
+        q: 'Avec quels Incoterms travaillez-vous ?',
+        a: 'DAP votre adresse pour les lots express (DHL Express, de porte à porte), EXW et FCA Bogotá pour l’express et l’aérien sur demande, FOB Cartagena ou Santa Marta pour le maritime, et CFR ou CIF jusqu’à votre port si vous souhaitez que nous prenions en charge le fret et l’assurance.',
+      },
+      {
+        q: 'Depuis quels ports et vers quels ports expédiez-vous ?',
+        a: 'Nous chargeons à Cartagena ou à Santa Marta, sur la côte caraïbe. Nous avons déjà coté Göteborg, Hambourg, Anvers, Rotterdam, Valence (Espagne), Le Cap, Walvis Bay, Ashdod, Jebel Ali et la côte Est des États-Unis ; tout port desservi depuis Cartagena peut être coté.',
+      },
+      {
+        q: 'Quel est le délai de livraison ?',
+        a: 'Les envois express arrivent en 5 à 8 jours ouvrés dans le monde entier. Le fret maritime prend 18 à 35 jours selon la route. Comptez 4 à 6 semaines entre le contrat et le chargement d’un conteneur : usinage, inspection Almacafé et réservation du navire.',
+      },
+      {
+        q: 'Quels documents accompagnent l’expédition ?',
+        a: 'Facture commerciale, liste de colisage, connaissement ou lettre de transport aérien, certificat d’origine ICO, fiche technique du lot et fiche de dégustation Q-Grader, certificat de qualité Almacafé pour les conteneurs, certificat d’assurance en CIF, et certificat phytosanitaire lorsque la destination l’exige.',
+      },
+      {
+        q: 'Ai-je besoin d’un certificat phytosanitaire pour importer du café vert dans l’UE ?',
+        a: 'Non. Les grains de café vert ne relèvent pas de l’annexe XI du règlement (UE) 2019/2072 ; l’UE n’exige donc ni certificat phytosanitaire ni enregistrement dans TRACES. D’autres destinations peuvent en demander un, et nous l’obtenons alors auprès de l’ICA.',
+      },
+      {
+        q: 'Votre café est-il conforme à l’EUDR ?',
+        a: 'L’EUDR exige la géolocalisation des parcelles, les dates de production et une déclaration d’absence de déforestation, déposées par l’importateur dans TRACES. Nous constituons avec nos fournisseurs des données à l’échelle de la parcelle et indiquons sur chaque fiche d’offre si un lot dispose de la géolocalisation de la ferme. Nous ne présentons pas un lot comme conforme à l’EUDR si ces données n’existent pas.',
+      },
+      {
+        q: 'Quels droits de douane le café colombien paie-t-il dans l’UE ?',
+        a: 'Café vert : 0 %, quelle que soit l’origine, sans preuve d’origine. Café torréfié : 7,5 % (taux NPF), ou 0 % avec la déclaration d’origine UE–Colombie, que nous émettons.',
+      },
+      {
+        q: 'Pouvez-vous torréfier et conditionner sous ma marque ?',
+        a: 'Oui. Notre torréfacteur partenaire à Bogotá torréfie selon votre profil et conditionne en sachets de 250 g, 500 g, 1 kg ou en formats de gros, imprimés ou non. Le café torréfié est expédié 1 à 5 jours après la torréfaction.',
+      },
+      {
+        q: 'Vendez-vous en Colombie ?',
+        a: 'Oui. Du café torréfié et moulu pour les cafés, bureaux et entreprises, en 250 g, 500 g, 1 kg et en vrac, facturé électroniquement en pesos colombiens. Nous sommes à Bogotá.',
+      },
+      {
+        q: 'Quelles sont les conditions de paiement ?',
+        a: 'Les échantillons et les lots express sont payés à l’avance par virement bancaire. Pour les conteneurs, nous convenons d’un acompte à la signature du contrat et du solde contre documents, ou d’une lettre de crédit confirmée. Les factures sont émises en dollars américains.',
+      },
+      {
+        q: 'Qui êtes-vous, juridiquement ?',
+        a: 'Entre Cafés Colombianos est une entreprise d’exportation de café immatriculée à la Chambre de commerce de Bogotá en 2026, exportateur enregistré auprès de la Fédération nationale des caféiculteurs de Colombie et émetteur de factures électroniques autorisé par la DIAN. Elle est dirigée par son fondateur, David Leonardo Ramírez Contreras.',
+      },
+    ],
+  },
+
+  about: {
+    imageAlt: 'Plantation de café au lever du soleil dans la cordillère colombienne',
+    title: 'À propos d’Entre Cafés Colombianos',
+    story: [
+      'Entre Cafés Colombianos est un exportateur de café colombien basé à Bogotá, fondé en 2026 par David Leonardo Ramírez Contreras. Nous achetons auprès de familles de caféiculteurs et de fournisseurs axés sur la qualité dans le sud et l’ouest du pays — Huila, Cauca, Valle del Cauca, Nariño et Quindío — et exportons du café vert et torréfié directement aux torréfacteurs, importateurs et distributeurs.',
+      'Nous avons commencé petit, et délibérément : les premières expéditions étaient du café torréfié envoyé en Suède par messagerie express, ce qui nous a appris l’ensemble du dossier d’exportation colombien — annonce de vente FNC, guide de transit, contribution caféière, inspection Almacafé, douane — pour notre propre compte plutôt que sous la licence d’un tiers. C’est ce dossier que nous gérons aujourd’hui pour chaque lot, d’un carton express de 45 kg à un conteneur.',
+      'Ce que nous offrons au marché, ce sont des volumes à la juste taille et des documents fiables : des demi-conteneurs et des chargements mixtes dont les grandes maisons de négoce ne s’occupent pas, un score en tasse documenté et une réponse claire sur les règles de l’UE — droits de douane, santé des végétaux et EUDR — avant votre engagement.',
+    ],
+    factsTitle: 'L’entreprise en bref',
+    facts: [
+      { label: 'Forme juridique', value: 'Entreprise individuelle (persona natural) immatriculée à la Chambre de commerce de Bogotá, juin 2026. Activité : commerce de gros de produits alimentaires (CIIU 4631).' },
+      { label: 'Enregistrement exportateur', value: 'Fédération nationale des caféiculteurs de Colombie (FNC). Facturation électronique autorisée par la DIAN.' },
+      { label: 'Enregistrement sanitaire', value: 'INVIMA NSA-0006451-2019 (produits torréfiés).' },
+      { label: 'Localisation', value: 'Bogotá D.C., Colombie · GMT-5.' },
+      { label: 'Langues', value: 'Anglais et espagnol.' },
+      { label: 'Fondateur', value: 'David Leonardo Ramírez Contreras — responsable export.' },
+    ],
+    marketsTitle: 'Où nous expédions et faisons des offres',
+    marketsText:
+      'Notre premier marché d’exportation a été la Suède. Depuis, nous avons coté du café vert et torréfié pour des acheteurs en Europe, au Moyen-Orient, en Afrique et sur le continent américain, des lots express aux conteneurs.',
+    shippedLabel: 'Expédié',
+    shipped: ['Suède', 'Colombie (marché intérieur)'],
+    quotingLabel: 'Offres / demandes en cours',
+    quoting: ['Belgique', 'Espagne', 'Pays-Bas', 'Allemagne', 'États-Unis', 'Afrique du Sud', 'Namibie', 'Émirats arabes unis', 'Israël', 'Arabie saoudite'],
+  },
+
+  contact: {
+    whatsappMessage: 'Bonjour, je souhaiterais un devis pour du café colombien.',
+    title: 'Contact',
+    lead: 'Une seule personne vous répond : David Ramírez, responsable export et fondateur. Écrivez en anglais ou en espagnol.',
+    whatsapp: 'WhatsApp',
+    email: 'E-mail',
+    responseNote: 'Nous répondons sous 24 heures les jours ouvrés (Bogotá, GMT-5).',
+    askTitle: 'Pour obtenir rapidement un devis, indiquez-nous',
+    askItems: [
+      'Le pays et le port de destination (ou l’aéroport pour les lots express)',
+      'La quantité — kilogrammes, sacs ou conteneurs',
+      'La qualité : spécialité 84+, commerciale, ou torréfié / marque blanche',
+      'L’Incoterm souhaité (FOB, CIF, FCA…)',
+      'La date à laquelle vous en avez besoin',
+    ],
+  },
+
+  common: {
+    inquirySubject: 'Demande — {name} (Entre Cafés Colombianos)',
+    inquiryBody: 'Bonjour,\n\nVotre produit « {name} » m’intéresse.\n\nQuantité / taille d’échantillon : \nPays de destination : \nIncoterm souhaité (FOB / CIF) : \nCalendrier : \n\nMerci.',
+    inquiryWhatsapp: 'Bonjour ! Je souhaiterais des informations sur : {name}',
+    zoomPhoto: 'Agrandir la photo : {name}',
+    heroImageAlt: 'Café colombien',
+    prevSlide: 'Diapositive précédente',
+    nextSlide: 'Diapositive suivante',
+    imagePreview: 'Aperçu de l’image',
+    close: 'Fermer',
+    languageSelector: 'Sélecteur de langue',
+    menu: 'Menu',
+    colombia: 'Colombie',
+    pricingNote: 'Lots express : devis d’expédition instantané en ligne avec un compte gratuit · conteneurs : prix sur demande.',
+    sampleSize: 'Formats',
+    altitude: 'Altitude',
+    process: 'Procédé',
+    requestQuote: 'Demander un devis',
+    requestSamples: 'Demander des échantillons',
+    whatsapp: 'WhatsApp',
+    email: 'E-mail',
+    readMore: 'En savoir plus',
+  },
+};

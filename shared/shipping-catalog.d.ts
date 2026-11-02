@@ -11,7 +11,7 @@ export type ShippingProductGroup = 'green' | 'roasted';
 export declare const MIN_KG: number;
 export declare const KG_STEP: number;
 export declare const PRODUCTS: { id: ShippingProductId; group: ShippingProductGroup; maxKg: number }[];
-export declare const DESTINATIONS: { code: string; en: string; enIn: string; es: string }[];
+export declare const DESTINATIONS: { code: string; en: string; enIn: string; es: string; nl: string; de: string; fr: string; sv: string }[];
 export declare const OTHER_COUNTRY: 'OTHER';
 
 export type ContainerProductId =

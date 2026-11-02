@@ -1,0 +1,920 @@
+import type { SiteContent } from '../content';
+import { IMG_GREEN, IMG_ROASTED } from './assets';
+
+// Swedish — full translation of the English content in src/content.ts (same shape, same order).
+export const sv: SiteContent = {
+  meta: {
+    home: {
+      title: 'Entre Cafés Colombianos | Colombiansk exportör av råkaffe — Excelso EP, SCA 84+',
+      description:
+        'Exportör av colombianskt råkaffe och rostat kaffe i Bogotá. Excelso EP screen 14+, SCA 84+ cuppat av Q-Grader, helt tvättat, från Huila, Cauca, Valle del Cauca, Nariño och Quindío. Prover med DHL, pallar och 20\'-containrar FOB Cartagena / CIF. Engelska och spanska.',
+    },
+    green: {
+      title: 'Colombianskt råkaffe — Excelso EP, screen 14+, SCA 84+ | Entre Cafés Colombianos',
+      description:
+        'Specifikationer för vårt colombianska råkaffe: Excelso European Preparation, screen 14+, Castillo/Colombia/Caturra, helt tvättat, 10–12 % fukthalt, 750–800 g/L, 70 kg-säckar med GrainPro-innerpåse. Regioner: Huila, Cauca, Valle del Cauca, Nariño, Quindío.',
+    },
+    products: {
+      title: 'Produkter — colombianskt råkaffe, rostat och malet kaffe | Entre Cafés Colombianos',
+      description:
+        'Råkaffe av specialkvalitet (SCA 84+), råkaffe av kommersiell kvalitet för blandningar, mellanrostade hela bönor och malet kaffe, private label. Prover från 250 g, flygpartier upp till 60 kg, containrar från 10 t.',
+    },
+    export: {
+      title: 'Export och logistik — prover, pallar, containrar, Incoterms, EUDR | Entre Cafés Colombianos',
+      description:
+        'Så skickar vi colombianskt kaffe: DHL Express för prover och partier upp till 60 kg, pallar med flygfrakt, 20\'-containrar (275 × 70 kg) FOB Cartagena eller CIF. Dokument, kvalitetskontroll av FNC/Almacafé, EU-tullar och EUDR-spårbarhet förklarade.',
+    },
+    shipping: {
+      title: 'Fraktkalkylator — colombianskt kaffe levererat med DHL Express | Entre Cafés Colombianos',
+      description:
+        'Beräkna det levererade priset för colombianskt råkaffe (10–60 kg) eller rostat kaffe (10–50 kg) med DHL Express till USA, Spanien, Tyskland, Frankrike, Nederländerna, Belgien, Sverige, Polen eller Förenade Arabemiraten: kaffe, förpackning och frakt i en totalsumma i USD. Även 20\'-containrar med råkaffe, FOB Cartagena. Kostnadsfritt konto.',
+    },
+    profiles: {
+      title: 'Smakprofiler — colombianskt råkaffe: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
+      description:
+        'Smakprofiler för det colombianska råkaffe vi erbjuder: Huila (Acevedo) 86+, Selecto 84+ från Huila, Cauca, Valle del Cauca och Quindío, Tolima Castillo 81,82 och ett parti från Nariño på 77,0. Smaknoter, cuppingpoäng, ursprung och process.',
+    },
+    privacy: {
+      title: 'Policy för skydd av personuppgifter | Entre Cafés Colombianos',
+      description:
+        'Hur Entre Cafés Colombianos samlar in, använder och skyddar personuppgifter enligt colombiansk lag 1581 från 2012: ändamål, tjänsteleverantörer, dina rättigheter och hur du utövar dem.',
+    },
+    faq: {
+      title: 'Vanliga frågor — köpa råkaffe från Colombia | Entre Cafés Colombianos',
+      description:
+        'Minsta order, provpolicy, prissättning mot NY ”C” plus differential, Incoterms, transittider, dokument, krav på sundhetscertifikat och EUDR, rostning och private label. Svar från en colombiansk kaffeexportör.',
+    },
+    about: {
+      title: 'Om oss — colombiansk kaffeexportör i Bogotá | Entre Cafés Colombianos',
+      description:
+        'Entre Cafés Colombianos är en registrerad colombiansk kaffeexportör med bas i Bogotá, grundad 2026. Vi köper från odlarfamiljer och kvalitetsinriktade leverantörer i Huila, Cauca, Valle del Cauca, Nariño och Quindío och exporterar till Europa, Mellanöstern, Afrika och Amerika.',
+    },
+    contact: {
+      title: 'Kontakt — beställ prover eller en offert | Entre Cafés Colombianos',
+      description:
+        'Prata med David Ramírez, exportchef på Entre Cafés Colombianos, Bogotá. WhatsApp +57 315 067 0591 · cafecolombiano889@proton.me. Engelska och spanska. Svar inom 24 timmar på arbetsdagar.',
+    },
+  },
+
+  hero: {
+    badge: 'Direkt från Colombia · Registrerad exportör',
+    title: 'Colombianskt råkaffe, exporterat direkt från ursprunget',
+    subtitle:
+      'Excelso EP, screen 14+, SCA 84+ cuppat av Q-Grader. Helt tvättad Castillo, Colombia och Caturra från Huila, Cauca, Valle del Cauca, Nariño och Quindío. Prover med kurir, flygpartier upp till 60 kg och 20\'-containrar FOB Cartagena eller CIF till din hamn.',
+    cta: 'Se specifikationerna för råkaffe',
+  },
+
+  home: {
+    roastVideo: {
+      eyebrow: 'Från rosteriet',
+      title: 'Se hur vår rostning tar form',
+      text: 'Ett verkligt rostparti av våra colombianska specialkaffebönor, rostat till en balanserad medelrostning — sötma av karamell, choklad och röda frukter. Från höglandet i Huila till ditt rosteri: det här är kaffet vi exporterar till hela världen.',
+      chips: ['84+ SCA specialkaffe', 'Helt tvättat · 1 500+ m ö.h.'],
+    },
+    qcImageAlt: 'Kvalitetskontroll vid ursprunget — CoffMeter visar 10,9 % fukthalt och 797 g/L densitet på ett parti råkaffe',
+    productsEyebrow: 'Råkaffe · Rostat · Malet',
+    productsTitle: 'Vad vi levererar',
+    productsLead:
+      'Råkaffe av specialkvalitet för rosterier och importörer, råkaffe av kommersiell kvalitet för blandningar och rostat kaffe för distributörer och private label. Klicka på ett foto för att granska bönorna.',
+    allProducts: 'Hela katalogen',
+    quality: {
+      badge: 'Kvalitetskontroll vid ursprunget',
+      title: 'Varje parti mäts. Varje leverans dokumenteras.',
+      text:
+        'Fukthalt, densitet och sållstorlek kontrolleras på varje prov innan det lämnar Colombia, och varje container kontrolleras igen av Almacafé, kvalitetsorganet inom Colombias kaffeodlarförbund (FNC), före lastning. På bilden: en verklig mätning från ett aktuellt parti råkaffe — 10,9 % fukthalt och 797 g/L densitet, inom specifikationen för Excelso. Ett signerat cuppingprotokoll från en Q-Grader följer med varje parti specialkaffe.',
+      certLabel: 'Sanitär registrering',
+    },
+    why: {
+      title: 'Därför ska du köpa från Entre Cafés Colombianos',
+      items: [
+        {
+          title: 'Registrerad exportör, inte mäklare',
+          text:
+            'Vi är registrerade hos Colombias kaffeodlarförbund (FNC) och skattemyndigheten (DIAN) och sköter hela exportärendet själva: försäljningsanmälan, transitdokument, inspektion av Almacafé, kaffeavgift och tullklarering.',
+        },
+        {
+          title: 'Verifierad specialkaffekvalitet',
+          text:
+            'Vår exportstandard är Excelso EP, screen 14+, 84+ SCA-poäng cuppat av en certifierad Q-Grader. Kommersiell kvalitet (SCA 80–83) finns för blandningar när priset betyder mer än poängen.',
+        },
+        {
+          title: 'Logistik i rätt storlek',
+          text:
+            'Från ett prov på 250 g med DHL till en 20\'-container med 275 säckar. Halva containrar (10 t) och blandade laster av råkaffe och rostat kaffe är möjliga — storlekar som de stora handelshusen inte bryr sig om.',
+        },
+        {
+          title: 'Raka svar om EU-krav',
+          text:
+            'Råkaffe förs in i EU med 0 % tull och kräver inget sundhetscertifikat. När det gäller EUDR säger vi rakt ut vilka partier som har geolokalisering av gården i dag och vilka som inte har det.',
+        },
+      ],
+    },
+    contact: {
+      eyebrow: 'B2B · Endast grossist',
+      title: 'Berätta om destination, volym och tidsplan',
+      text:
+        'Vi arbetar med rosterier, importörer, distributörer och handlare. Skicka hamn, kvantitet och när du behöver kaffet, så återkommer vi med ett offertblad och prover — på engelska eller spanska, inom 24 timmar på arbetsdagar.',
+    },
+  },
+
+  green: {
+    imageAlt: 'Colombianska råkaffebönor, Excelso EP screen 14+, provparti 84',
+    offerMessage: 'Hej! Jag vill gärna ha ett offertblad för råkaffe Excelso EP.',
+    offerSubject: 'Offert på råkaffe — Entre Cafés Colombianos',
+    eyebrow: 'Råkaffe · Exportspecifikation',
+    title: 'Colombianskt råkaffe — Excelso EP, screen 14+, SCA 84+',
+    lead:
+      'Det här är vår standardspecifikation för export. Varje parti skickas med ett eget datablad (varietet, process, höjd, cuppingpoäng, fukthalt, screen) och ett signerat cuppingprotokoll. Allt nedan bekräftas per parti innan du binder dig.',
+    specsTitle: 'Standardspecifikation',
+    specs: [
+      { label: 'Produkt', value: 'Råkaffebönor av arabica, orostade, ej koffeinfria. HS 0901.11 (Colombia 0901.11.10.00 · EU:s KN 0901 11 00).' },
+      { label: 'Kvalitet / beredning', value: 'Excelso, European Preparation (EP). Torrskalat, pergamentet borttaget. UGQ-beredning finns för kommersiella partier.' },
+      { label: 'Sållstorlek', value: 'Screen 14+ (5,5 mm), mekaniskt storlekssorterat och elektroniskt färgsorterat mot defekter. Screen 15+ eller Supremo 17+ offereras på begäran, i mån av tillgång.' },
+      { label: 'Art / varietet', value: '100 % arabica. Huvudsakligen Castillo; Colombia, Caturra, Bourbon och Tabi förekommer beroende på parti och region.' },
+      { label: 'Process', value: 'Helt tvättad (fruktköttet avlägsnas, fermentering 12–24 h, tvättning, sol- eller maskintorkning). Honey- och naturellt processade mikropartier på begäran, mot förbeställning.' },
+      { label: 'Cuppingpoäng', value: '84+ SCA-poäng, verifierat av en certifierad Q-Grader. Signerat cuppingprotokoll följer med partiet.' },
+      { label: 'Smakprofil', value: 'Sötma av sockerrör och panela, citrussyrlighet (mandarin/apelsin), krämig kropp, blommig arom; karamell, mjölkchoklad och röda frukter i rostningen. Ren, balanserad kopp.' },
+      { label: 'Fukthalt', value: '10–12 %. Anges per parti och kontrolleras igen av Almacafé före avskeppning.' },
+      { label: 'Vattenaktivitet', value: 'Mäts per parti på begäran; målet är under 0,70 aw som praktisk kontroll mot okratoxin.' },
+      { label: 'Densitet', value: '750–800 g/L.' },
+      { label: 'Defekter', value: 'Specialkaffeberedning: högst 5 fulla defekter per 350 g (SCA:s gradering av råkaffe). Förskeppningsprov och typgodkännande före lastning.' },
+      { label: 'Höjd', value: '1 500–1 900+ meter över havet (beroende på parti).' },
+      { label: 'Skörd', value: 'Aktuell skörd. Huvudskörd september–december; sekundär skörd (mitaca) april–juni. Cauca har sin topp april–juli.' },
+      { label: 'Förpackning', value: '70 kg-säckar av fique/jute med hermetisk innerpåse av GrainPro-typ. 35 kg-säckar och storsäckar (big bags) på 1 000 kg på begäran. Prover på 250 g – 1 kg vakuumförpackade.' },
+      { label: 'Säckmärkning', value: 'Partinummer, ursprung, nettovikt, skördeår och ICO-märkningen schablonmålade på varje säck.' },
+      { label: 'Hållbarhet', value: '12 månader från avskeppning i hermetisk innerpåse, vid torr och sval förvaring.' },
+    ],
+    regionsTitle: 'Var kaffet kommer ifrån',
+    regionsLead:
+      'Vi köper via odlarfamiljer och kvalitetsinriktade leverantörer i södra och västra Colombia. Tre regioner utgör grunden i utbudet; de övriga tillkommer efter skördefönster och tillgång.',
+    regions: [
+      {
+        name: 'Huila',
+        altitude: '1 200–1 900 m ö.h. (våra partier 1 500+)',
+        harvest: 'Huvudskörd sep–dec · mitaca apr–jun',
+        varieties: 'Castillo, Colombia, Caturra',
+        cup: 'Sötma av panela och sockerrör, syrlighet av mandarin/apelsin, krämig kropp, blommig finish.',
+        use: 'Utbudets referensprofil — det säkra basvalet för en filterrostning.',
+      },
+      {
+        name: 'Cauca',
+        altitude: '1 500–2 100 m ö.h.',
+        harvest: 'Huvudskörd apr–jul · mitaca okt–dec',
+        varieties: 'Castillo, Colombia, Caturra, Typica',
+        cup: 'Livlig och ljus i tonen: citrus och blommigt, teliknande klarhet, lättare kropp, lång söt eftersmak.',
+        use: 'Ett lättare, mer aromatiskt filterparti där syrligheten är försäljningsargumentet.',
+      },
+      {
+        name: 'Valle del Cauca',
+        altitude: '1 300–1 900 m ö.h.',
+        harvest: 'Huvudskörd sep–dec · mitaca apr–jun',
+        varieties: 'Castillo, Colombia, Caturra, Bourbon',
+        cup: 'Rundare och sötare: karamell och kakao, mjuk syrlighet, medelhög kropp, nötig finish.',
+        use: 'Bas för espresso och blandningar, där kropp och sötma betyder mer än syrlighet.',
+      },
+    ],
+    regionLabels: { altitude: 'Höjd', harvest: 'Skörd', varieties: 'Varieteter', cup: 'Kopp', use: 'Passar bäst för' },
+    alsoTitle: 'Vi köper även från',
+    alsoText:
+      'Nariño (1 650–1 800 m ö.h., begränsade partier), Quindío, Tolima, Risaralda (Pereira) och Sierra Nevada de Santa Marta (säsongsvis). Partier från en enda region erbjuds när skörden tillåter; annars erbjuder vi en blandning från departementet och anger det på offertbladet.',
+    gradesTitle: 'Kvaliteter vi offererar',
+    grades: [
+      {
+        title: 'Specialkaffe — SCA 84+',
+        text: 'Excelso EP, screen 14+, cuppat av Q-Grader. För specialkafferosterier och importörer som behöver en dokumenterad poäng och en jämn profil.',
+      },
+      {
+        title: 'Kommersiellt — SCA 80–83',
+        text: 'Excelso-/UGQ-beredning, screen 14+, ren kopp utan anspråk på specialkaffe. För blandningar, private label och rosterier som köper på pris; prissatt mot marknadens differential.',
+      },
+      {
+        title: 'Mikropartier — på begäran',
+        text: 'Partier från en enda gård, Bourbon, honey- eller naturell process, i små kvantiteter och mot förbeställning. Tillgången beror på skörden.',
+      },
+    ],
+    pricingTitle: 'Så prissätter vi',
+    pricingText:
+      'Containeraffärer prissätts mot ”C”-kontraktet i New York plus en differential som avtalas på kontraktsdagen, FOB Cartagena eller CIF till din hamn — så som colombianskt kaffe handlas. Kurirpartier på 10–60 kg prissätts per kilo, med frakten som en egen rad, och vår fraktkalkylator online (kostnadsfritt konto) ger dig det levererade priset direkt. För en 20\'-container ger kalkylatorn ett indikativt pris FOB Cartagena; eftersom marknaden rör sig dagligen anges det fasta priset i ett daterat offertblad.',
+  },
+
+  products: {
+    eyebrow: 'Grossistkatalog',
+    title: 'Produkter',
+    lead:
+      'Råkaffe är vår kärnverksamhet; rostat och malet kaffe levereras till distributörer, för private label och till den colombianska marknaden. Kurirpartier har en direkt uppskattning av levererat pris; containrar prissätts på begäran efter ursprungsparti, volym och Incoterm.',
+    items: [
+      {
+        id: 'green-specialty',
+        name: 'Råkaffe av specialkvalitet — Excelso EP, SCA 84+',
+        description:
+          'Orostad colombiansk arabica, Excelso European Preparation, screen 14+, helt tvättad, 84+ SCA-poäng cuppat av Q-Grader. Castillo, Colombia och Caturra från Huila, Cauca, Valle del Cauca, Nariño och Quindío. Fukthalt 10–12 %, densitet 750–800 g/L. 70 kg-säckar med GrainPro-innerpåse. Prover 250 g – 1 kg; flygpartier upp till 60 kg; containrar från 10 t.',
+        origin: 'Huila · Cauca · Valle del Cauca · Nariño · Quindío',
+        roastLevel: 'green',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_GREEN,
+        stock: 10000,
+        weight: 'Prover 250 g – 1 kg · partier från 10 kg · containrar 10–19,25 t',
+        active: true,
+        flavorNotes: ['Panela', 'Mandarin', 'Karamell', 'Mjölkchoklad', 'Röda frukter'],
+        altitude: '1 500–1 900+ m ö.h.',
+        process: 'Helt tvättad',
+      },
+      {
+        id: 'green-commercial',
+        name: 'Råkaffe av kommersiell kvalitet — Excelso / UGQ, SCA 80–83',
+        description:
+          'Rent och sunt colombianskt råkaffe för blandningar, private label och volymrostning. Excelso- eller UGQ-beredning, screen 14+, helt tvättat, fukthalt 10–12 %. Containrar prissätts mot marknadens differential, FOB Cartagena eller CIF; kurirpartier på begäran. Sjöledes från en halv container (10 t, 143 säckar) till hela 20\'-containrar (275 säckar × 70 kg).',
+        origin: 'Departementsblandning — Huila, Cauca, Valle del Cauca, Quindío',
+        roastLevel: 'green',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_GREEN,
+        stock: 10000,
+        weight: 'Kurirpartier på begäran · sjöledes från 10 t (halv 20\') · 19,25 t per hel 20\'-container',
+        active: true,
+        flavorNotes: ['Karamell', 'Choklad', 'Mild citrus'],
+        altitude: '1 300–1 900 m ö.h.',
+        process: 'Helt tvättad',
+      },
+      {
+        id: 'roasted-medium',
+        name: 'Rostat kaffe — hela bönor eller malet, medelrostat',
+        description:
+          'Colombianskt specialkaffe som rostas på beställning i Bogotá av vårt partnerrosteri. Medelrostad (Agtron 55–65) eller medelmörk (45–55) profil; karamell och mjölkchoklad med mjuk syrlighet av röda frukter. Hela bönor eller malet för filter/espresso. Vakuumpåsar med envägsventil, 250 g, 500 g och 1 kg; grossist 5–25 kg. Skickas 1–5 dagar efter rostning. Private label finns.',
+        origin: 'Huila · Cauca · Valle del Cauca',
+        roastLevel: 'medium',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_ROASTED,
+        stock: 500,
+        weight: '250 g · 500 g · 1 kg · grossist 5–25 kg',
+        active: true,
+        flavorNotes: ['Karamell', 'Mjölkchoklad', 'Röda frukter'],
+        altitude: '1 500+ m ö.h.',
+        process: 'Tvättad · rostad på beställning',
+      },
+    ],
+    roastedTitle: 'Rostat kaffe — specifikation',
+    roastedLead: 'Rostas i Bogotá på beställning, så att det lämnar Colombia färskt. Profilerna kan anpassas efter dina önskemål.',
+    roasted: [
+      { label: 'Rostningsgrad', value: 'Medelrostat (Agtron 55–65) som standard · medelmörkt (Agtron 45–55) eller ljusare på begäran.' },
+      { label: 'Format', value: 'Hela bönor eller malet (filter, espresso, presskanna).' },
+      { label: 'Förpackning', value: 'Vakuumförseglade flerskiktspåsar med envägsventil: 250 g, 500 g, 1 kg. Grossist 5–25 kg. Omärkta påsar för ditt eget varumärke.' },
+      { label: 'Färskhet', value: 'Rostas per order, skickas 1–5 dagar efter rostning. Bäst inom 60 dagar från rostning; 12 månaders hållbarhet i obruten förpackning.' },
+      { label: 'Exportstorlek', value: 'Upp till 50 kg rostat kaffe per kurirförsändelse inom FNC:s regelverk för små kvantiteter; större volymer som ordinarie export med flyg eller båt.' },
+      { label: 'EU-tull', value: 'Rostat kaffe har 7,5 % tredjelandstull (MFN) i EU; 0 % med ursprungsförsäkran EU–Colombia, som vi tillhandahåller.' },
+    ],
+    privateLabel: {
+      title: 'Private label och egna profiler',
+      text:
+        'Vi rostar och packar enligt dina önskemål — profil, malningsgrad, påsstorlek, med eller utan tryck — och skickar under ditt varumärke. Minimikvantiteterna beror på påsformatet; be om den aktuella sammanställningen.',
+    },
+    domestic: {
+      title: 'Försäljning inom Colombia',
+      text:
+        'Vi levererar också rostat och malet kaffe till kaféer, kontor och företag i Colombia (250 g, 500 g, 1 kg och i bulk), med elektronisk faktura i pesos. Kontakta oss i Bogotá via WhatsApp.',
+    },
+  },
+
+  export: {
+    eyebrow: 'Export och logistik',
+    title: 'Från prov till container — så skickar vi',
+    lead:
+      'Vi sköter hela den colombianska sidan: inköp, torrbearbetning och kvalitetskontroll, kaffets exportärende hos FNC, tull och fraktbokning. Du anger hamn och Incoterm.',
+    sections: [
+      {
+        title: 'Leveransstorlekar',
+        rows: [
+          { label: 'Offertprover', value: '250 g – 1 kg per profil, vakuumförpackade, med DHL Express. För kvalificerade köpare bjuder vi på offertprovet; du står för kurirfrakten.' },
+          { label: 'Små partier med kurir', value: 'Upp till 60 kg råkaffe eller 50 kg rostat kaffe per försändelse inom FNC:s regelverk för små kvantiteter. DHL Express dörr till dörr, 5–8 arbetsdagar över hela världen, med spårning.' },
+          { label: 'Pallar', value: '100–1 000 kg med samlastad flygfrakt (DHL Global Forwarding) eller LCL-sjöfrakt. Exportärende, transitdokument och kaffeavgift sköts av oss.' },
+          { label: 'Containrar', value: '20\' FCL: 275 säckar × 70 kg ≈ 19,25 t. Halv container: 10 t = 143 säckar. Blandade laster av råkaffe/rostat kaffe möjliga. Flera containrar på terminskontrakt.' },
+        ],
+      },
+      {
+        title: 'Villkor och rutter',
+        rows: [
+          { label: 'Incoterms 2020', value: 'DAP din adress (kurirpartier, DHL Express) · EXW / FCA Bogotá (kurir och flyg) · FOB Cartagena eller Santa Marta · CFR / CIF destinationshamn.' },
+          { label: 'Lastningshamnar', value: 'Cartagena (Contecar) eller Santa Marta vid Karibiska havet — direkta linjer till norra Europa och Medelhavet.' },
+          { label: 'Offererade destinationer', value: 'Göteborg, Hamburg, Antwerpen, Rotterdam, Valencia, Kapstaden, Walvis Bay, Ashdod, Jebel Ali och USA:s östkust, med flera.' },
+          { label: 'Transittid', value: 'Kurir 5–8 arbetsdagar. Sjöfrakt 18–35 dagar beroende på rutt och omlastning.' },
+          { label: 'Ledtid', value: 'Kurirpartier: 1–2 veckor från betalning. Containrar: normalt 4–6 veckor från kontrakt till lastning (torrbearbetning, inspektion av Almacafé och bokning).' },
+          { label: 'Betalning', value: 'Prover och kurirpartier: i förskott via banköverföring. Containrar: handpenning vid kontrakt och resten mot dokument, eller en bekräftad remburs. Fakturering i USD.' },
+          { label: 'Prissättning', value: 'Containrar: NY ”C” plus en avtalad differential, fastställd vid kontrakt, med ett indikativt pris FOB Cartagena för en 20\'-container i fraktkalkylatorn online. Kurirpartier: per kilo, frakten som en egen rad; fraktkalkylatorn online ger det levererade priset direkt. Varje offert har sin egen giltighetstid.' },
+        ],
+      },
+    ],
+    docsTitle: 'Dokument med varje leverans',
+    docs: [
+      'Handelsfaktura (elektronisk, godkänd av DIAN) och pack-/viktlista',
+      'Konossement eller flygfraktsedel',
+      'ICO-ursprungscertifikat; ursprungsförsäkran EU–Colombia för rostat kaffe (0 % tull)',
+      'Datablad för partiet och signerat cuppingprotokoll från Q-Grader (partier av specialkaffe)',
+      'Kvalitetscertifikat från Almacafé och FNC:s transitdokument (containerleveranser)',
+      'Sundhetscertifikat (ICA) när destinationen kräver det — EU kräver det inte för råkaffe',
+      'Försäkringsbevis vid CIF',
+    ],
+    complianceTitle: 'Regelefterlevnad, rakt på sak',
+    compliance: [
+      {
+        title: 'Colombianskt exportärende',
+        text:
+          'Registrerad kaffeexportör hos Colombias kaffeodlarförbund (FNC) och DIAN. Varje export kräver en försäljningsanmälan på Portal Cafetero, ett transitdokument från FNC, vägning och kvalitetsinspektion av Almacafé, betalning av kaffeavgiften och tullens exportdeklaration (SAE). Vi gör allt detta själva; det kan ingen speditör göra.',
+      },
+      {
+        title: 'Import till EU: tullar och växtskydd',
+        text:
+          'Råkaffe förs in i Europeiska unionen med 0 % tull oavsett ursprung, utan krav på ursprungscertifikat. Rostat kaffe har 7,5 % tull om det inte omfattas av handelsavtalet mellan EU och Colombia, så vi utfärdar ursprungsförsäkran. Inget sundhetscertifikat krävs för råkaffe (det faller utanför bilaga XI till förordning (EU) 2019/2072); vi utfärdar ett via ICA när en annan destination kräver det.',
+      },
+      {
+        title: 'EUDR, avskogningsförordningen',
+        text:
+          'EU:s avskogningsförordning kräver geolokalisering av varje markområde (polygoner för områden över 4 ha), produktionsdatum och en försäkran om att ingen avskogning skett efter den 31 december 2020, och importören lämnar in förklaringen om tillbörlig aktsamhet i TRACES. Vi bygger upp data på markområdesnivå med våra leverantörer för partier till EU och anger på varje offertblad om ett parti har geolokalisering av gården i dag. Vi säljer inte ett parti som EUDR-klart om inte uppgifterna finns.',
+      },
+      {
+        title: 'Livsmedelssäkerhet',
+        text:
+          'Sanitär registrering hos INVIMA NSA-0006451-2019 för rostade produkter. Fukthalten hålls på 10–12 % och vattenaktiviteten mäts på begäran för att hålla nere risken för okratoxin. Kaffet fumigeras aldrig.',
+      },
+    ],
+  },
+
+  shipping: {
+    eyebrow: 'Fraktkalkylator',
+    title: 'Vad kostar det att få colombianskt kaffe levererat till din dörr?',
+    lead:
+      'Välj land, kaffe och kvantitet. Du får det levererade priset — kaffe, förpackning och frakt med DHL Express — i amerikanska dollar, direkt. För kurirpartier på 10 till 60 kg råkaffe eller 10 till 50 kg rostat kaffe, och för 20\'-containrar med råkaffe FOB Cartagena. Kostnadsfritt för registrerade köpare.',
+    formTitle: 'Din försändelse',
+    gate: {
+      title: 'Skapa ditt kostnadsfria konto för att få en offert',
+      text: 'Kalkylatorn är till för registrerade köpare. Registrera dig med din e-postadress — vi skickar en engångskod, inget lösenord — och räkna så ofta du vill.',
+      signUp: 'Skapa mitt kostnadsfria konto',
+      signIn: 'Jag har redan ett konto',
+      consent: 'Genom att skapa ett konto godkänner du vår',
+      consentLink: 'personuppgiftspolicy',
+      perksTitle: 'Med ditt konto',
+      perks: [
+        'Direkt levererat pris i amerikanska dollar: kaffe, förpackning och frakt',
+        'Kurirpartier på 10–60 kg och 20\'-containrar FOB Cartagena',
+        'Spara dina offerter och begär proformafaktura med ett klick',
+        'Din offerthistorik under Mitt konto',
+      ],
+      noAccount: 'Vill du hellre inte registrera dig? Skriv till oss på WhatsApp eller via e-post (nedan) så lämnar vi en offert.',
+      profileTitle: 'Ett sista steg: dina uppgifter',
+      profileText: 'Ditt konto är klart. För att aktivera kalkylatorn behöver vi ditt namn och ditt samtycke till vår personuppgiftspolicy (colombiansk lag 1581). Det tar mindre än en minut.',
+      profileCta: 'Fyll i mina uppgifter',
+      checking: 'Kontrollerar din session…',
+    },
+    modeLabel: 'Typ av försändelse',
+    modes: {
+      courier: { title: 'Kurirparti', detail: '10–60 kg råkaffe eller 10–50 kg rostat · DHL Express till din dörr (DAP)' },
+      container: { title: '20\'-container', detail: '100–275 säckar à 70 kg · råkaffe · FOB Cartagena' },
+    },
+    container: {
+      coffeeLabel: 'Råkaffe',
+      groups: { standard: 'Tvättat och koffeinfritt', process: 'Honey, naturellt och fermenterat', variety: 'Sällsynta varieteter' },
+      products: {
+        'washed-79': 'Kommersiellt tvättat · SCA 79',
+        'washed-81-antioquia': 'Tvättat · SCA 81 · Antioquia',
+        'washed-82': 'Tvättat · SCA 82',
+        'washed-84-antioquia': 'Tvättat · SCA 84 · Antioquia',
+        'decaf-84': 'Koffeinfritt (tvättat) · SCA 84',
+        'honey-yellow-85': 'Yellow honey · SCA 85,5',
+        'fermented-85': 'Förlängd fermentering · SCA 85,5',
+        'honey-red-86': 'Red honey · SCA 86',
+        'fermented-86': 'Förlängd fermentering · SCA 86+',
+        'honey-black-86': 'Black honey · SCA 86,5',
+        'natural-86': 'Naturellt · SCA 86,5',
+        'natural-87': 'Naturellt · SCA 87',
+        'chiroso-87': 'Varieteten Chiroso, tvättat · SCA 87',
+        'pink-bourbon-87': 'Pink Bourbon, tvättat · SCA 87,5',
+        'geisha-88': 'Geisha, honey · SCA 88,5',
+        'wush-wush-89': 'Wush Wush, naturellt · SCA 89',
+      },
+      bagsLabel: 'Kvantitet (säckar à 70 kg)',
+      bagsHint: 'Från {min} säckar ({minKg} kg) till {full} säckar ({fullKg} kg), en hel 20\'-container. Ju fullare container, desto lägre pris per kilo.',
+      idle: 'Välj ett kaffe och antal säckar för att se FOB-priset.',
+      belowMin: 'Containerpriserna börjar vid {min} säckar ({minKg} kg). För mindre partier, använd kuriralternativet eller skriv till oss.',
+      overLimit: 'Över {full} säckar behöver du mer än en 20\'-container — skriv till oss för en offert på flera containrar.',
+      perKgLine: 'Pris per kilo, FOB Cartagena',
+      perLbLine: 'Pris per pund (lb)',
+      totalLine: 'Totalt FOB Cartagena · {bags} säckar ({kg} kg)',
+      fullNote: 'Hel 20\'-container: bästa pris per kilo.',
+      partialNote: 'Delvis fylld container. Fyll den till {full} säckar för bästa pris per kilo — du kan blanda kaffesorter för att fylla upp den.',
+      disclaimer:
+        'Indikativ uppskattning i amerikanska dollar, inte ett bindande erbjudande. Priset på råkaffe följer marknaden varje dag; vi bekräftar priset och dess giltighet i ett daterat offertblad.',
+      included: [
+        'Råkaffe i 70 kg-exportsäckar (hermetisk innerpåse på begäran)',
+        'Colombianskt exportärende: FNC:s kaffeavgift, kvalitetscertifikat från Almacafé, exportdeklaration och ursprungscertifikat',
+        'Inrikes transport till Cartagena, stuffning av containern, hamnhantering och konossement',
+        'FOB Cartagena (Incoterms 2020): kaffet levereras ombord i Cartagena',
+      ],
+      notIncluded: [
+        'Sjöfrakt och försäkring — vi offererar CFR / CIF till din hamn på begäran',
+        'Hamnavgifter, importtullar och skatter i destinationslandet',
+        'Eventuell registrering som ditt land kräver av importören — se importanvisningarna nedan',
+      ],
+      paymentNote:
+        'Handpenning vid kontrakt och resten mot dokument, eller en bekräftad remburs. Normalt 4–6 veckor från kontrakt till lastning. För partier till EU bekräftas EUDR-geolokaliseringen av gården parti för parti i offerten.',
+      whatsappQuote: 'Hej! Jag vill ha en offert på {bags} säckar ({kg} kg) råkaffe, {product}, FOB Cartagena. Uppskattning från webbplatsen: {total} ({perKg}/kg).',
+      whatsappNoPrice: 'Hej! Jag vill ha en offert på {bags} säckar råkaffe, {product}, FOB Cartagena.',
+      emailSubject: 'Containeroffert — {bags} säckar, {product}',
+    },
+    countryLabel: 'Destinationsland',
+    countryPlaceholder: 'Välj ett land…',
+    otherCountry: 'Annat land',
+    productLabel: 'Kaffe',
+    groups: { green: 'Råkaffe', roasted: 'Rostat kaffe' },
+    products: {
+      'green-basic': { name: 'Råkaffe Bas', detail: 'Nariño · tvättat · cuppingpoäng 77,0 · se smakprofilen', inText: 'råkaffe Bas' },
+      'green-excelso': { name: 'Råkaffe Excelso', detail: 'Selecto: Huila, Cauca, Valle, Quindío · Excelso EP · SCA 84+', inText: 'råkaffe Excelso' },
+      'green-supremo': { name: 'Råkaffe Supremo', detail: 'Huila · Acevedo, 1 580 m ö.h. · tvättat · SCA 86+', inText: 'råkaffe Supremo' },
+      'roasted-castillo': { name: 'Rostat kaffe Castillo', detail: 'Hela bönor · medelrostat · 1 kg-påsar med ventil, omärkta', inText: 'rostat kaffe Castillo' },
+      'roasted-bourbon': { name: 'Rostat kaffe Bourbon', detail: 'Bourbon-varieteter · hela bönor · 1 kg-påsar med ventil, omärkta', inText: 'rostat kaffe Bourbon' },
+      'roasted-fermented': { name: 'Rostat kaffe med specialfermentering', detail: 'Kokos, jordgubbe, tobak och andra fermenteringar · hela bönor · 1 kg-påsar med ventil', inText: 'rostat kaffe med specialfermentering' },
+    },
+    kgLabel: 'Kvantitet (kg, netto)',
+    kgHint: 'Från {min} till {max} kg för det här kaffet. För prover på 250 g – 1 kg, skriv till oss.',
+    resultTitle: 'Din uppskattning',
+    idle: 'Välj destination och kvantitet för att se det levererade priset.',
+    loading: 'Beräknar…',
+    error: 'Vi kunde inte beräkna uppskattningen just nu. Skriv till oss så räknar vi fram den manuellt.',
+    belowMin: 'Minsta kvantitet per försändelse är {min} kg. För prover på 250 g – 1 kg, skriv till oss på WhatsApp.',
+    overLimit:
+      'Över {max} kg skickas det här kaffet inte längre som kurirparti. Pallar med flygfrakt och containrar med båt offereras från fall till fall — skriv till oss.',
+    otherCountryText:
+      'Vi skickar över hela världen med DHL Express. Berätta vilket land och vilken kvantitet det gäller så skickar vi en exakt offert.',
+    coffeeLine: 'Kaffe · {kg} kg × {price}/kg',
+    prepLine: 'Förpackning och exportförberedelse',
+    freightLine: 'Frakt med DHL Express, dörr till dörr',
+    totalLine: 'Totalt levererat (DAP)',
+    perKgLine: 'Per kilo, levererat',
+    boxesLine: 'Skickas i {n} kartong(er), cirka {kg} kg brutto.',
+    disclaimer:
+      'Indikativ uppskattning i amerikanska dollar, inte ett bindande erbjudande. Våra priser sätts i colombianska pesos och räknas om till dagens officiella växelkurs, och DHL:s bränsletillägg ändras varje vecka; vi bekräftar slutpriset i en skriftlig proformafaktura.',
+    includedTitle: 'Vad priset omfattar',
+    packing: {
+      green: 'Kaffet förpackat för export: hermetiska innerpåsar av GrainPro-typ i kartonger på upp till 24 kg',
+      roasted: 'Kaffet förpackat för export: 1 kg-påsar med envägsventil för avgasning i kartonger på upp till 24 kg',
+    },
+    included: [
+      'Colombiansk exportdokumentation inom FNC:s regelverk för små kvantiteter, handelsfaktura och packlista',
+      'Frakt med DHL Express Worldwide, dörr till dörr och med spårning — 5–8 arbetsdagar',
+      'Levererat till plats (DAP): kaffet kommer fram till din adress',
+    ],
+    notIncludedTitle: 'Vad priset inte omfattar',
+    notIncluded: [
+      'Importtullar, moms och avgifter för tullklarering i destinationslandet — betalas av importören',
+      'DHL:s tillägg för avlägsna områden, om ditt postnummer har ett sådant — vi kontrollerar det före proformafakturan',
+      'Eventuell registrering som ditt land kräver av importören — se importanvisningarna nedan',
+      'Bankavgifter för din överföring',
+    ],
+    paymentNote:
+      'Betalning i förskott via banköverföring, fakturering i USD. Ledtid 1–2 veckor från betalning (för USA, när FDA-registreringen är bekräftad).',
+    notesTitle: 'Importanvisningar per land',
+    notesLead: 'Vad importören behöver vid ankomst. När du väljer ett land ovan öppnas anvisningen för det landet.',
+    countryNotes: {
+      US: 'Kaffe till USA måste rostas och packas — eller, för råkaffe, torrbearbetas och lagras — i en anläggning som är registrerad hos FDA. Vi skickar till USA först när den registreringen är bekräftad för ditt parti, och vi anger datumet i proformafakturan. Varje försändelse kräver FDA Prior Notice, som vi ordnar tillsammans med dig eller ditt tullombud. Som importör måste du följa Foreign Supplier Verification Program (FSVP) och ha ett DUNS-nummer. Rostat kaffe i konsumentpåsar kräver etiketter på engelska med nettovikten i uns och gram. Den amerikanska importtullen på råkaffe och rostat kaffe är 0 %.',
+      DE: 'Råkaffe förs in i EU med 0 % tull; rostat kaffe har 7,5 % tull om inte ursprungsförsäkran EU–Colombia gäller, vilken vi utfärdar. Importmoms tas ut enligt tysk momssats och betalas av importören. För kommersiell import behöver du ett EORI-nummer och, för vidareförsäljning, registrering som livsmedelsföretag hos den lokala myndigheten.',
+      BE: 'Råkaffe förs in i EU med 0 % tull; rostat kaffe har 7,5 % tull om inte ursprungsförsäkran EU–Colombia gäller, vilken vi utfärdar. Importmoms tas ut enligt belgisk momssats och betalas av importören. För kommersiell import behöver du ett EORI-nummer och, för vidareförsäljning, registrering som livsmedelsföretag hos den nationella livsmedelsmyndigheten.',
+      ES: 'Råkaffe förs in i EU med 0 % tull; rostat kaffe har 7,5 % tull om inte ursprungsförsäkran EU–Colombia gäller, vilken vi utfärdar. Spanien tar ut cirka 10 % importmoms på kaffe och tillämpar en officiell kontroll av livsmedelsimport (AGRIM) som DHL hanterar. För vidareförsäljning behöver du ett EORI-nummer och en registrering som livsmedelsföretag (RGSEAA).',
+      FR: 'Råkaffe förs in i EU med 0 % tull; rostat kaffe har 7,5 % tull om inte ursprungsförsäkran EU–Colombia gäller, vilken vi utfärdar. Importmoms tas ut enligt fransk momssats och betalas av importören. För kommersiell import behöver du ett EORI-nummer och, för vidareförsäljning, registrering som livsmedelsföretag hos den lokala myndigheten.',
+      NL: 'Råkaffe förs in i EU med 0 % tull; rostat kaffe har 7,5 % tull om inte ursprungsförsäkran EU–Colombia gäller, vilken vi utfärdar. Importmoms tas ut enligt nederländsk momssats och betalas av importören. För kommersiell import behöver du ett EORI-nummer och, för vidareförsäljning, registrering som livsmedelsföretag hos den nationella livsmedelsmyndigheten.',
+      PL: 'Råkaffe förs in i EU med 0 % tull; rostat kaffe har 7,5 % tull om inte ursprungsförsäkran EU–Colombia gäller, vilken vi utfärdar. Importmoms tas ut enligt polsk momssats och betalas av importören. För kommersiell import behöver du ett EORI-nummer och, för vidareförsäljning, registrering som livsmedelsföretag hos sanitetsmyndigheten.',
+      SE: 'Råkaffe förs in i EU med 0 % tull; rostat kaffe har 7,5 % tull om inte ursprungsförsäkran EU–Colombia gäller, vilken vi utfärdar. Importmoms tas ut enligt svensk momssats och betalas av importören. För kommersiell import behöver du ett EORI-nummer och, för vidareförsäljning, registrering som livsmedelsföretag hos den lokala myndigheten (kommunen).',
+      AE: 'I Förenade Arabemiraten behöver importören normalt en licens för livsmedelshandel och måste registrera varje produkt och etikett hos den lokala livsmedelsmyndigheten (i Abu Dhabi, ADAFSA), med märkning på arabiska. Kontrollera detta innan du beställer.',
+    },
+    ctaTitle: 'Redo att beställa, eller behöver du en exakt offert?',
+    ctaText:
+      'Skicka den här uppskattningen till David på WhatsApp eller via e-post så svarar vi med en skriftlig proformafaktura inom 24 timmar på arbetsdagar.',
+    whatsappQuote: 'Hej! Jag vill ha en offert på {kg} kg {product} levererat till {country}. Uppskattning från webbplatsen: {total} (DAP).',
+    whatsappNoPrice: 'Hej! Jag vill ha en offert på {kg} kg {product} levererat till {country}.',
+    whatsappOther: 'Hej! Jag vill ha en fraktoffert på {kg} kg {product} till mitt land: ',
+    whatsappGeneric: 'Hej! Jag vill ha en fraktoffert på colombianskt kaffe.',
+    emailSubject: 'Fraktoffert — {kg} kg {product}',
+  },
+
+  profiles: {
+    eyebrow: 'Råkaffe · smakprofiler',
+    title: 'Smakprofiler för kaffet vi erbjuder',
+    lead:
+      'Fyra colombianska råkaffesorter, var och en med smakprofil, cuppingpoäng, ursprung och process. Alla är råkaffe — orostade bönor, redo för din rostning.',
+    updated: 'Uppdaterad 31 oktober 2026',
+    compareTitle: 'Översikt',
+    compareLabels: { origin: 'Ursprung', score: 'Cuppingpoäng', acidity: 'Syrlighet', process: 'Process', presentation: 'Leveransform', estimator: 'I fraktkalkylatorn' },
+    presentation: 'Råkaffe (orostat)',
+    scoreLabel: 'cuppingpoäng',
+    viewProfile: 'Se hela profilen',
+    radarTitle: 'Cuppingattribut',
+    radarShapeNote: 'Profilens form enligt partiets tekniska datablad; poängen per attribut publiceras inte.',
+    axes: ['Doft och arom', 'Smak', 'Eftersmak', 'Syrlighet', 'Kropp', 'Enhetlighet', 'Balans', 'Ren kopp', 'Sötma', 'Helhetsintryck'],
+    attributesTitle: 'Cuppingprotokoll',
+    attributeCols: ['Attribut', 'Poäng', 'Cupparens kommentarer'],
+    totalLabel: 'Cuppingpoäng',
+    totalNote: 'Summan av de tio attributen',
+    inEstimator: 'I fraktkalkylatorn som ”{name}”',
+    onRequest: 'Offereras på begäran',
+    estimatorCta: 'Beräkna en försändelse',
+    quoteCta: 'Be om en offert',
+    ctaTitle: 'Cuppa dem själv',
+    ctaText:
+      'Vi skickar offertprover på 250–500 g per profil med DHL Express. Berätta vilka kaffesorter du vill cuppa och vart vi ska skicka dem.',
+    whatsappMessage: 'Hej! Jag vill gärna ha prover på ert råkaffe. De här profilerna intresserar mig: ',
+    whatsappProfile: 'Hej! Jag vill ha en offert på ert råkaffe {name}.',
+    emailSubject: 'Prover på råkaffe — smakprofiler',
+    greenCallout: {
+      title: 'Smakprofiler för vårt aktuella kaffe',
+      text: 'Huila 86+, Selecto 84+, Tolima och ett parti från Nariño: smaknoter, cuppingpoäng, ursprung och process, sida vid sida.',
+      cta: 'Se smakprofilerna',
+    },
+    items: [
+      {
+        id: 'huila',
+        name: 'Huila',
+        grade: 'Supremo',
+        subtitle: 'Acevedo, Huila · 1 580 m ö.h.',
+        score: '86+',
+        notes: ['Citrus', 'Panela', 'Blommig', 'Aromatisk'],
+        summary:
+          'En citrusbetonad, aromatisk kopp med sötma av panela och blommiga toner. Ren, enhetlig, balanserad och söt — de fyra attributen når skalans topp.',
+        facts: ['Råkaffe · tvättat', '48 h fermentering i bäret och 48 h efter avpulpning', 'Torkat i 10 till 12 dagar'],
+        origin: 'Acevedo, Huila',
+        acidity: 'Citrus',
+        process: 'Tvättad',
+        specsTitle: 'Ursprung och process',
+        specs: [
+          { label: 'Departement', value: 'Huila' },
+          { label: 'Kommun', value: 'Acevedo' },
+          { label: 'Höjd', value: '1 580 m ö.h.' },
+          { label: 'Leveransform', value: 'Råkaffe (orostat)' },
+          { label: 'Process', value: 'Tvättad' },
+          { label: 'Fermentering i bäret', value: '48 timmar' },
+          { label: 'Fermentering efter avpulpning', value: '48 timmar' },
+          { label: 'Torkning', value: '10 till 12 dagar' },
+        ],
+        estimator: 'Råkaffe Supremo',
+      },
+      {
+        id: 'selecto',
+        name: 'Selecto',
+        grade: 'Excelso EP',
+        subtitle: 'Huila · Cauca · Valle del Cauca · Quindío',
+        score: '84+',
+        notes: ['Sockerrör', 'Panela', 'Mandarin', 'Apelsin', 'Krämig kropp', 'Aromatisk', 'Blommig'],
+        summary:
+          'En söt, aromatisk kopp: sockerrör och panela, citrussyrlighet med toner av mandarin eller apelsin, krämig kropp och blommiga toner. Ren, balanserad och med lång eftersmak. Bedömd av en Q-Grader.',
+        facts: ['Råkaffe · huvudsakligen Castillo', 'Bönor över screen 14', 'Elektronisk sortering av defekter'],
+        origin: 'Huila, Cauca, Valle del Cauca och Quindío',
+        acidity: 'Citrus, med toner av mandarin eller apelsin',
+        process: 'Tvättad',
+        specsTitle: 'Ursprung och specifikation',
+        specs: [
+          { label: 'Ursprung', value: 'Huila, Cauca, Valle del Cauca och Quindío, blandat efter skörd' },
+          { label: 'Varietet', value: 'Huvudsakligen Castillo' },
+          { label: 'Leveransform', value: 'Råkaffe (orostat), 100 % arabica' },
+          { label: 'Bönstorlek', value: 'Över screen 14' },
+          { label: 'Sortering', value: 'Mekanisk siktning och elektronisk sortering av defekter' },
+          { label: 'Fukthalt', value: 'Kontrolleras före varje parti' },
+          { label: 'Bedömning', value: 'Över 84 SCA-poäng, bedömt av en Q-Grader' },
+        ],
+        estimator: 'Råkaffe Excelso',
+      },
+      {
+        id: 'tolima',
+        name: 'Tolima',
+        grade: 'Exportkvalitet UGQ',
+        subtitle: 'Tolima · tvättad Castillo',
+        score: '81,82',
+        notes: ['Kakao', 'Panela', 'Sockerrör', 'Choklad', 'Karamell', 'Medelstark citrussyrlighet'],
+        summary:
+          'En okomplicerad, söt kopp: kakao, panela, sockerrör, choklad och karamell, med medelstark citrussyrlighet. Enkel snarare än komplex — gjord för blandningar eller en vardagsespresso.',
+        facts: ['Råkaffe · exportkvalitet UGQ', 'Fukthalt 10 till 12 %'],
+        origin: 'Tolima',
+        acidity: 'Citrus, medelstark',
+        process: 'Tvättad',
+        specsTitle: 'Ursprung och process',
+        specs: [
+          { label: 'Departement', value: 'Tolima' },
+          { label: 'Varietet', value: 'Castillo' },
+          { label: 'Process', value: 'Tvättad' },
+          { label: 'Leveransform', value: 'Råkaffe (orostat), torrbearbetat och klart för export' },
+          { label: 'Kvalitet', value: 'Exportkvalitet UGQ' },
+          { label: 'Fukthalt', value: '10 till 12 %' },
+        ],
+      },
+      {
+        id: 'basico',
+        name: 'Bas',
+        grade: 'Parti från Nariño',
+        subtitle: 'Nariño · 1 650–1 800 m ö.h.',
+        score: '77,0',
+        notes: ['Mandarin', 'Rosenhonung', 'Jasmin', 'Sockerrör', 'Röda frukter', 'Fikon', 'Citrongräs', 'Grön druva', 'Karamell'],
+        summary:
+          'Mandarin, rosenhonung och jasmin i aromen; sockerrör, subtila röda frukter, fikon och citrongräs i koppen. Saftig syrlighet som av grön druva; rund, lätt kropp med honungsliknande textur och en finish av karamell.',
+        facts: ['Råkaffe · Castillo, Colombia och Caturra · tvättat', 'Cuppat den 10 september 2026'],
+        origin: 'Nariño',
+        acidity: 'Saftig, som grön druva',
+        process: 'Tvättad',
+        specsTitle: 'Ursprung och process',
+        specs: [
+          { label: 'Höjd', value: '1 650 till 1 800 m ö.h.' },
+          { label: 'Varieteter', value: 'Castillo, Colombia och Caturra' },
+          { label: 'Leveransform', value: 'Råkaffe (orostat)' },
+          { label: 'Process', value: 'Tvättad' },
+          { label: 'Cuppingdatum', value: '10 september 2026' },
+        ],
+        attributes: [
+          { label: 'Doft och arom', score: '6,5', note: 'mandarin, rosenhonung med låg intensitet, subtil blommig jasmin, sockerrör' },
+          { label: 'Smak', score: '7,0', note: 'sockerrör, behagliga och subtila röda frukter, fikon, citrongräs' },
+          { label: 'Eftersmak', score: '7,0', note: 'behaglig, karamell' },
+          { label: 'Syrlighet', score: '6,5', note: 'saftig, som grön druva' },
+          { label: 'Kropp', score: '7,0', note: 'rund och lätt, med en lätt honungsliknande känsla' },
+          { label: 'Enhetlighet', score: '10', note: 'OK' },
+          { label: 'Balans', score: '10', note: 'OK' },
+          { label: 'Ren kopp', score: '10', note: 'OK' },
+          { label: 'Sötma', score: '6,0', note: 'sockerrör' },
+          { label: 'Helhetsintryck', score: '7,0', note: 'balanserat kaffe med mycket god kropp, sött och med mycket stabil syrlighet' },
+        ],
+        estimator: 'Råkaffe Bas',
+      },
+    ],
+  },
+
+  account: {
+    title: 'Mitt konto',
+    lead: 'Dina sparade offerter och dina uppgifter. Logga in med din e-postadress: vi skickar en engångskod, inget lösenord behövs.',
+    loading: 'Laddar ditt konto…',
+    unavailable: 'Kundkonton är inte tillgängliga just nu. Skriv till oss på WhatsApp eller via e-post så hjälper vi dig.',
+    signedOutTitle: 'Logga in för att se dina offerter',
+    signedOutText: 'Med ditt konto använder du fraktkalkylatorn, sparar dina offerter och begär proformafaktura med ett klick. Vem som helst kan skapa ett konto med sin e-postadress.',
+    signInCta: 'Logga in med din e-postadress',
+    profileTitle: 'Dina uppgifter',
+    profileLead: 'Vi använder dem för att ta fram din proformafaktura och kontakta dig om dina offerter.',
+    fields: { name: 'Fullständigt namn', company: 'Företag', country: 'Land', phone: 'WhatsApp/telefon' },
+    optional: 'valfritt',
+    consentLabel: 'Jag samtycker till att Entre Cafés Colombianos behandlar mina personuppgifter för de ändamål som beskrivs i {policy}.',
+    consentLink: 'dataskyddspolicyn',
+    policyUpdated: 'Vår dataskyddspolicy har uppdaterats. Läs igenom den och bekräfta ditt samtycke för att fortsätta.',
+    save: 'Spara mina uppgifter',
+    saving: 'Sparar…',
+    saveError: 'Vi kunde inte spara dina uppgifter. Försök igen.',
+    nameRequired: 'Skriv ditt fullständiga namn.',
+    consentRequired: 'Ditt samtycke krävs för att skapa ditt konto.',
+    hello: 'Hej, {name}',
+    editProfile: 'Redigera mina uppgifter',
+    cancel: 'Avbryt',
+    quotesTitle: 'Mina offerter',
+    quotesEmpty: 'Du har inte sparat några offerter än.',
+    newQuote: 'Gör en ny beräkning',
+    cols: { date: 'Datum', coffee: 'Kaffe', quantity: 'Kvantitet', destination: 'Destination', total: 'Totalt', status: 'Status' },
+    statuses: { new: 'Mottagen', proforma_sent: 'Proformafaktura skickad', won: 'Bekräftad', lost: 'Avslutad' },
+    bags: '{n} säckar',
+    fob: 'FOB Cartagena',
+    signOut: 'Logga ut',
+    deleteTitle: 'Radera mitt konto',
+    deleteText: 'Raderar ditt konto, dina uppgifter och dina sparade offerter. Redan utfärdade proformafakturor och fakturor sparas enligt lag.',
+    deleteCta: 'Radera mitt konto och mina uppgifter',
+    deleteConfirm: 'Detta raderar ditt konto och alla dina sparade offerter. Vill du fortsätta?',
+    deleted: 'Ditt konto och dina uppgifter har raderats.',
+  },
+  admin: {
+    title: 'Offertförfrågningar',
+    forbidden: 'Den här sidan är endast för administratören.',
+    refresh: 'Uppdatera',
+    exportCsv: 'Ladda ner CSV',
+    filterAll: 'Alla',
+    empty: 'Inga offertförfrågningar än.',
+    count: '{n} förfrågningar',
+    customer: 'Kund',
+    note: 'Anteckning',
+  },
+  saveQuote: {
+    save: 'Spara och begär proformafaktura',
+    saving: 'Sparar…',
+    saved: 'Sparat. Vi skickar proformafakturan till dig.',
+    viewInAccount: 'Se den under Mitt konto',
+    error: 'Vi kunde inte spara. Försök igen.',
+    tooMany: 'Du har nått dagsgränsen för sparade offerter. Skriv till oss så hjälper vi dig.',
+  },
+  privacy: {
+    translationNote: 'Den här svenska texten är en översättning för din bekvämlighet; vid eventuella skillnader gäller den spanska versionen av denna policy.',
+    eyebrow: 'Juridiskt',
+    title: 'Policy för skydd av personuppgifter',
+    lead: 'Hur Entre Cafés Colombianos samlar in, använder och skyddar dina personuppgifter enligt colombiansk lag 1581 från 2012 och dess tillämpningsföreskrifter.',
+    updated: 'Gäller från och med den 31 oktober 2026',
+    sections: [
+      {
+        title: '1. Personuppgiftsansvarig',
+        paragraphs: [
+          'Entre Cafés Colombianos, en kaffeexportverksamhet som drivs av David Leonardo Ramírez Contreras, med hemvist i Bogotá D.C., Colombia.',
+          'Kontakt för allt som rör dina uppgifter: cafecolombiano889@proton.me · WhatsApp +57 315 067 0591.',
+        ],
+      },
+      {
+        title: '2. Uppgifter vi behandlar',
+        paragraphs: ['Endast det vi behöver för att lämna offerter och sälja kaffe till dig:'],
+        items: [
+          'E-postadress, som används för att logga in med en engångskod.',
+          'Fullständigt namn, företag, land och, om du anger det, ditt WhatsApp- eller telefonnummer.',
+          'De offerter du sparar: kaffe, kvantitet, destination och uppskattat pris.',
+          'Det du skickar till oss via WhatsApp eller e-post när du ber om en offert eller prover.',
+        ],
+      },
+      {
+        title: '3. Ändamål',
+        paragraphs: ['Vi använder dina uppgifter för att:'],
+        items: [
+          'Skapa och administrera ditt kundkonto.',
+          'Besvara dina offertförfrågningar och ta fram proformafakturor, fakturor och fraktdokument.',
+          'Kontakta dig om dina offerter, beställningar och prover.',
+          'Uppfylla våra rättsliga, skattemässiga och tullmässiga skyldigheter som exportör.',
+        ],
+      },
+      {
+        title: '4. Samtycke',
+        paragraphs: [
+          'När du skapar ditt konto ber vi om ditt förhandsgivna, uttryckliga och informerade samtycke till att behandla dina uppgifter för dessa ändamål, och vi registrerar när du gav det. Du kan när som helst återkalla det.',
+        ],
+      },
+      {
+        title: '5. Tjänsteleverantörer och internationell överföring',
+        paragraphs: [
+          'För att driva webbplatsen och kundkontona använder vi leverantörer som behandlar uppgifter för vår räkning, med servrar i USA: Clerk (inloggning), Neon (databas) och Vercel (webbhotell). De behandlar endast de uppgifter som behövs för att tillhandahålla sin tjänst. Genom att godkänna denna policy godtar du denna överföring.',
+        ],
+      },
+      {
+        title: '6. Dina rättigheter',
+        paragraphs: ['Som registrerad kan du:'],
+        items: [
+          'Få kännedom om, uppdatera och rätta dina personuppgifter.',
+          'Begära bevis på det samtycke du gav.',
+          'Bli informerad om hur dina uppgifter har använts.',
+          'Återkalla ditt samtycke och begära radering av dina uppgifter, när det inte finns någon rättslig skyldighet att behålla dem.',
+          'Få tillgång till dina uppgifter kostnadsfritt.',
+          'Lämna klagomål till Superintendencia de Industria y Comercio (SIC, Colombias tillsynsmyndighet för industri och handel) efter att först ha kontaktat oss.',
+        ],
+      },
+      {
+        title: '7. Så utövar du dina rättigheter',
+        paragraphs: [
+          'Skriv till cafecolombiano889@proton.me med ditt namn, e-postadressen för ditt konto och din begäran. Vi besvarar förfrågningar inom 10 arbetsdagar (kan förlängas med 5) och klagomål inom 15 arbetsdagar (kan förlängas med 8), i enlighet med artiklarna 14 och 15 i lag 1581 från 2012.',
+          'Du kan också själv radera ditt konto och dina sparade offerter under Mitt konto.',
+        ],
+      },
+      {
+        title: '8. Säkerhet och lagringstid',
+        paragraphs: [
+          'Inloggningen sker med engångskoder som skickas till din e-post; vi ber aldrig om och lagrar aldrig lösenord. Vi behåller dina uppgifter så länge ditt konto är aktivt. Om du raderar det raderar vi dina uppgifter och sparade offerter; redan utfärdade proformafakturor och fakturor sparas under den tid som handels- och skattelagstiftningen kräver.',
+        ],
+      },
+      {
+        title: '9. Cookies',
+        paragraphs: [
+          'Webbplatsen använder endast de cookies som behövs för att hålla din session öppen när du loggar in. Vi använder inga reklamcookies.',
+        ],
+      },
+      {
+        title: '10. Ändringar av denna policy',
+        paragraphs: [
+          'Om denna policy ändras på ett sätt som påverkar hur vi använder dina uppgifter publicerar vi den nya versionen här och ber om ditt samtycke på nytt nästa gång du loggar in.',
+        ],
+      },
+    ],
+  },
+
+  faq: {
+    eyebrow: 'Frågor från köpare',
+    title: 'Vanliga frågor',
+    lead: 'Korta, sakliga svar. Om din fråga inte finns här, skriv till oss — vi svarar på engelska eller spanska inom 24 timmar på arbetsdagar.',
+    items: [
+      {
+        q: 'Vilket kaffe exporterar ni?',
+        a: 'Colombianskt råkaffe av arabica: specialkaffekvalitet (Excelso EP, screen 14+, 84+ SCA-poäng cuppat av Q-Grader) och kommersiell kvalitet (SCA 80–83) för blandningar. Vi levererar också rostat kaffe som hela bönor och malet, även private label, rostat på beställning i Bogotá.',
+      },
+      {
+        q: 'Vilken är minsta order?',
+        a: 'Det finns ingen minsta kvantitet för prover (250 g – 1 kg). Kurirpartier omfattar från 10 kg upp till 60 kg råkaffe eller 50 kg rostat kaffe. För sjöfrakt arbetar vi från en halv container (10 t, 143 säckar à 70 kg) upp till en hel 20\'-container (275 säckar, cirka 19,25 t) och kontrakt på flera containrar.',
+      },
+      {
+        q: 'Skickar ni prover, och vad kostar de?',
+        a: 'Ja. Offertprover på 250–500 g per profil skickas med DHL Express. För kvalificerade köpare bjuder vi på kaffet och du står för kurirfrakten; större provpartier faktureras per kilo med frakten som en egen rad. Ett förskeppningsprov från det faktiska partiet skickas innan någon container lastas.',
+      },
+      {
+        q: 'Hur sätter ni era priser?',
+        a: 'Containrar prissätts mot ”C”-kontraktet i New York plus en differential som avtalas på kontraktsdagen, FOB Cartagena eller CIF till din hamn. Vår kalkylator online visar ett indikativt pris FOB Cartagena för en 20\'-container; eftersom marknaden rör sig dagligen anges det fasta priset i ett daterat offertblad med egen giltighetstid. Kurirpartier (10–60 kg råkaffe eller 10–50 kg rostat kaffe) prissätts per kilo, och med ett kostnadsfritt konto kan du direkt se en uppskattning av levererat pris (DAP) på https://www.entrecafescolombianos.coffee/sv/fraktkalkylator.',
+      },
+      {
+        q: 'Vilka Incoterms arbetar ni med?',
+        a: 'DAP din adress för kurirpartier (DHL Express, dörr till dörr), EXW och FCA Bogotá för kurir och flyg på begäran, FOB Cartagena eller Santa Marta för sjöfrakt, och CFR eller CIF till din hamn när du vill att vi står för frakt och försäkring.',
+      },
+      {
+        q: 'Från vilka hamnar skickar ni, och till vilka?',
+        a: 'Vi lastar i Cartagena eller Santa Marta vid den karibiska kusten. Vi har lämnat offerter till Göteborg, Hamburg, Antwerpen, Rotterdam, Valencia, Kapstaden, Walvis Bay, Ashdod, Jebel Ali och USA:s östkust; alla hamnar med en linje från Cartagena kan offereras.',
+      },
+      {
+        q: 'Hur lång är leveranstiden?',
+        a: 'Kurirförsändelser kommer fram inom 5–8 arbetsdagar över hela världen. Sjöfrakt tar 18–35 dagar beroende på rutt. Räkna med 4–6 veckor från kontrakt till lastning för en container: torrbearbetning, inspektion av Almacafé och fartygsbokning.',
+      },
+      {
+        q: 'Vilka dokument följer med försändelsen?',
+        a: 'Handelsfaktura, packlista, konossement eller flygfraktsedel, ICO-ursprungscertifikat, partiets datablad och cuppingprotokoll från Q-Grader, Almacafés kvalitetscertifikat för containrar, försäkringsbevis vid CIF och sundhetscertifikat där destinationen kräver ett sådant.',
+      },
+      {
+        q: 'Behöver jag ett sundhetscertifikat för att importera råkaffe till EU?',
+        a: 'Nej. Råkaffebönor ligger utanför bilaga XI till förordning (EU) 2019/2072, så EU kräver varken sundhetscertifikat eller registrering i TRACES. Andra destinationer kan kräva ett, och då skaffar vi det från ICA.',
+      },
+      {
+        q: 'Uppfyller ert kaffe EUDR?',
+        a: 'EUDR kräver geolokalisering av markområden, produktionsdatum och en försäkran om att ingen avskogning skett, som importören lämnar in i TRACES. Vi bygger upp data på markområdesnivå med våra leverantörer och anger på varje offertblad om ett parti har geolokalisering av gården. Vi beskriver inte ett parti som EUDR-klart om inte uppgifterna finns.',
+      },
+      {
+        q: 'Vilken tull betalar colombianskt kaffe i EU?',
+        a: 'Råkaffe: 0 %, för alla ursprung, inget ursprungsbevis behövs. Rostat kaffe: 7,5 % tredjelandstull (MFN), eller 0 % med ursprungsförsäkran EU–Colombia, som vi utfärdar.',
+      },
+      {
+        q: 'Kan ni rosta och packa under mitt varumärke?',
+        a: 'Ja. Vårt partnerrosteri i Bogotá rostar efter din profil och packar i påsar på 250 g, 500 g, 1 kg eller i grossistpåsar, med eller utan tryck. Rostat kaffe skickas 1–5 dagar efter rostning.',
+      },
+      {
+        q: 'Säljer ni inom Colombia?',
+        a: 'Ja. Rostat och malet kaffe till kaféer, kontor och företag, i 250 g, 500 g, 1 kg och i bulk, med elektronisk faktura i colombianska pesos. Vi finns i Bogotá.',
+      },
+      {
+        q: 'Vilka är betalningsvillkoren?',
+        a: 'Prover och kurirpartier betalas i förskott via banköverföring. För containrar avtalar vi en handpenning vid kontrakt och resten mot dokument, eller en bekräftad remburs. Fakturor utfärdas i amerikanska dollar.',
+      },
+      {
+        q: 'Vilka är ni, juridiskt sett?',
+        a: 'Entre Cafés Colombianos är en kaffeexportverksamhet registrerad hos Bogotás handelskammare 2026, registrerad exportör hos Colombias kaffeodlarförbund och godkänd för elektronisk fakturering hos DIAN. Den drivs av grundaren, David Leonardo Ramírez Contreras.',
+      },
+    ],
+  },
+
+  about: {
+    imageAlt: 'Kaffeplantage i soluppgången i den colombianska kordiljären',
+    title: 'Om Entre Cafés Colombianos',
+    story: [
+      'Entre Cafés Colombianos är en colombiansk kaffeexportör med bas i Bogotá, grundad 2026 av David Leonardo Ramírez Contreras. Vi köper från odlarfamiljer och kvalitetsinriktade leverantörer i landets södra och västra delar — Huila, Cauca, Valle del Cauca, Nariño och Quindío — och exporterar råkaffe och rostat kaffe direkt till rosterier, importörer och distributörer.',
+      'Vi började i liten skala, och det med avsikt: de första försändelserna var rostat kaffe till Sverige med kurir, vilket lärde oss hela det colombianska exportärendet — försäljningsanmälan till FNC, transitdokument, kaffeavgift, inspektion av Almacafé, tull — för egen räkning i stället för genom en tredje parts licens. Det är det ärendet vi i dag hanterar för varje parti, från en kurirlåda på 45 kg till en container.',
+      'Det vi erbjuder marknaden är ärliga storlekar och ärlig dokumentation: halva containrar och blandade laster som de stora handelshusen inte bryr sig om, en dokumenterad cuppingpoäng och ett tydligt besked om EU-reglerna — tullar, växtskydd och EUDR — innan du binder dig.',
+    ],
+    factsTitle: 'Fakta om företaget',
+    facts: [
+      { label: 'Juridisk form', value: 'Enskild näringsidkare (persona natural) registrerad hos Bogotás handelskammare, juni 2026. Verksamhet: partihandel med livsmedel (CIIU 4631).' },
+      { label: 'Exportörsregistrering', value: 'Colombias kaffeodlarförbund (FNC). Godkänd för elektronisk fakturering hos DIAN.' },
+      { label: 'Sanitär registrering', value: 'INVIMA NSA-0006451-2019 (rostade produkter).' },
+      { label: 'Plats', value: 'Bogotá D.C., Colombia · GMT-5.' },
+      { label: 'Språk', value: 'Engelska och spanska.' },
+      { label: 'Grundare', value: 'David Leonardo Ramírez Contreras — exportchef.' },
+    ],
+    marketsTitle: 'Vart vi skickar och offererar',
+    marketsText:
+      'Vår första exportmarknad var Sverige. Sedan dess har vi lämnat offerter på råkaffe och rostat kaffe till köpare i Europa, Mellanöstern, Afrika och Amerika, från kurirpartier till containrar.',
+    shippedLabel: 'Levererat',
+    shipped: ['Sverige', 'Colombia (inrikes)'],
+    quotingLabel: 'Offererat / aktiva förfrågningar',
+    quoting: ['Belgien', 'Spanien', 'Nederländerna', 'Tyskland', 'USA', 'Sydafrika', 'Namibia', 'Förenade Arabemiraten', 'Israel', 'Saudiarabien'],
+  },
+
+  contact: {
+    whatsappMessage: 'Hej! Jag vill ha en offert på colombianskt kaffe.',
+    title: 'Kontakt',
+    lead: 'En person svarar: David Ramírez, exportchef och grundare. Skriv på engelska eller spanska.',
+    whatsapp: 'WhatsApp',
+    email: 'E-post',
+    responseNote: 'Vi svarar inom 24 timmar på arbetsdagar (Bogotá, GMT-5).',
+    askTitle: 'Berätta följande så får du snabbt en offert',
+    askItems: [
+      'Destinationsland och hamn (eller flygplats för kurirpartier)',
+      'Kvantitet — kilo, säckar eller containrar',
+      'Kvalitet: specialkaffe 84+, kommersiellt, eller rostat/private label',
+      'Önskad Incoterm (FOB, CIF, FCA …)',
+      'När du behöver det',
+    ],
+  },
+
+  common: {
+    inquirySubject: 'Förfrågan — {name} (Entre Cafés Colombianos)',
+    inquiryBody: 'Hej!\n\nJag är intresserad av ”{name}”.\n\nKvantitet/provstorlek: \nDestinationsland: \nÖnskad Incoterm (FOB/CIF): \nTidsplan: \n\nTack.',
+    inquiryWhatsapp: 'Hej! Jag vill ha information om: {name}',
+    zoomPhoto: 'Förstora foto av {name}',
+    heroImageAlt: 'Colombianskt kaffe',
+    prevSlide: 'Föregående bild',
+    nextSlide: 'Nästa bild',
+    imagePreview: 'Förhandsvisning av bild',
+    close: 'Stäng',
+    languageSelector: 'Språkväljare',
+    menu: 'Meny',
+    colombia: 'Colombia',
+    pricingNote: 'Kurirpartier: direkt fraktuppskattning online med ett kostnadsfritt konto · containrar: pris på begäran.',
+    sampleSize: 'Storlekar',
+    altitude: 'Höjd',
+    process: 'Process',
+    requestQuote: 'Begär offert',
+    requestSamples: 'Begär prover',
+    whatsapp: 'WhatsApp',
+    email: 'E-post',
+    readMore: 'Läs mer',
+  },
+};

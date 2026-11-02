@@ -2,10 +2,8 @@ import { Language } from './types';
 import { CONTENT } from './content';
 
 /**
- * Short UI strings (navigation, buttons, labels).
- * English is the source of truth; Spanish is complete; nl/de/fr/sv keep the
- * original translations and fall back to English for anything new.
- * Long-form page content lives in content.ts (en + es).
+ * Short UI strings (navigation, buttons, labels), complete in every language.
+ * Long-form page content lives in content.ts (en + es) and src/content/<lang>.ts.
  */
 
 type TranslationKeys = {
@@ -60,7 +58,7 @@ type TranslationKeys = {
   // General
 };
 
-type Translations = { en: TranslationKeys } & Record<Exclude<Language, 'en'>, Partial<TranslationKeys>>;
+type Translations = Record<Language, TranslationKeys>;
 
 const REGIONS_EN = 'Huila, Cauca, Valle del Cauca, Nariño and Quindío';
 
@@ -139,27 +137,29 @@ const translations: Translations = {
     nav_profiles: 'Smaakprofielen',
     nav_products: 'Producten',
     nav_export: 'Export & logistiek',
-    nav_shipping: 'Verzendkosten',
+    nav_shipping: 'Verzendcalculator',
     nav_faq: 'FAQ',
-    nav_about: 'Over Ons',
+    nav_about: 'Over ons',
     nav_contact: 'Contact',
     nav_admin: 'Beheer',
+    nav_account: 'Mijn account',
+    nav_privacy: 'Privacybeleid',
     nav_login: 'Inloggen',
     nav_logout: 'Uitloggen',
 
-    hero_title: 'Colombiaanse groene koffie, rechtstreeks geëxporteerd vanuit de oorsprong',
-    hero_subtitle: 'Excelso EP, zeef 14+, SCA 84+ gecupt door een Q-Grader. Gewassen Castillo, Colombia en Caturra uit Huila, Cauca, Valle del Cauca, Nariño en Quindío. Monsters per koerier, luchtvracht tot 60 kg en 20\'-containers FOB Cartagena of CIF uw haven.',
-    hero_cta: 'Bekijk de specificaties',
-    hero_badge: 'Direct uit Colombia · Geregistreerd exporteur',
+    hero_title: CONTENT.nl.hero.title,
+    hero_subtitle: CONTENT.nl.hero.subtitle,
+    hero_cta: CONTENT.nl.hero.cta,
+    hero_badge: CONTENT.nl.hero.badge,
 
-    roast_green: 'Groen (Ongebrand)',
-    roast_medium: 'Medium Branding',
-    roast_medium_high: 'Medium-Hoge Branding',
+    roast_green: 'Groen (ongebrand)',
+    roast_medium: 'Medium branding',
+    roast_medium_high: 'Medium-donkere branding',
     roast_decaf: 'Cafeïnevrij',
 
     footer_tagline: 'Colombiaanse groene en gebrande koffie uit Huila, Cauca, Valle del Cauca, Nariño en Quindío — rechtstreeks geëxporteerd vanuit Bogotá.',
     footer_contact: 'Contact',
-    footer_links: 'Snelle Links',
+    footer_links: 'Snelle links',
     footer_rights: 'Alle rechten voorbehouden.',
     footer_export_markets: 'Exportmarkten',
     footer_export_markets_text: 'Geleverd aan Zweden; offertes in Europa, het Midden-Oosten, Afrika en Amerika — van koerierszendingen tot containers.',
@@ -171,22 +171,24 @@ const translations: Translations = {
     nav_profiles: 'Geschmacksprofile',
     nav_products: 'Produkte',
     nav_export: 'Export & Logistik',
-    nav_shipping: 'Versandkosten',
+    nav_shipping: 'Versandrechner',
     nav_faq: 'FAQ',
-    nav_about: 'Über Uns',
+    nav_about: 'Über uns',
     nav_contact: 'Kontakt',
     nav_admin: 'Admin',
+    nav_account: 'Mein Konto',
+    nav_privacy: 'Datenschutz',
     nav_login: 'Anmelden',
     nav_logout: 'Abmelden',
 
-    hero_title: 'Kolumbianischer Rohkaffee, direkt vom Ursprung exportiert',
-    hero_subtitle: 'Excelso EP, Sieb 14+, SCA 84+ von einem Q-Grader verkostet. Gewaschener Castillo, Colombia und Caturra aus Huila, Cauca, Valle del Cauca, Nariño und Quindío. Muster per Kurier, Luftfracht bis 60 kg und 20\'-Container FOB Cartagena oder CIF Ihr Hafen.',
-    hero_cta: 'Spezifikationen ansehen',
-    hero_badge: 'Direkt aus Kolumbien · Registrierter Exporteur',
+    hero_title: CONTENT.de.hero.title,
+    hero_subtitle: CONTENT.de.hero.subtitle,
+    hero_cta: CONTENT.de.hero.cta,
+    hero_badge: CONTENT.de.hero.badge,
 
-    roast_green: 'Grün (Ungeröstet)',
+    roast_green: 'Grün (ungeröstet)',
     roast_medium: 'Mittlere Röstung',
-    roast_medium_high: 'Mittel-Kräftige Röstung',
+    roast_medium_high: 'Mittelkräftige Röstung',
     roast_decaf: 'Entkoffeiniert',
 
     footer_tagline: 'Kolumbianischer Roh- und Röstkaffee aus Huila, Cauca, Valle del Cauca, Nariño und Quindío — direkt aus Bogotá exportiert.',
@@ -200,30 +202,32 @@ const translations: Translations = {
   fr: {
     nav_home: 'Accueil',
     nav_green: 'Café vert',
-    nav_profiles: 'Profils de tasse',
+    nav_profiles: 'Profils en tasse',
     nav_products: 'Produits',
     nav_export: 'Export & logistique',
-    nav_shipping: 'Frais d’envoi',
+    nav_shipping: 'Devis d’expédition',
     nav_faq: 'FAQ',
-    nav_about: 'À Propos',
+    nav_about: 'À propos',
     nav_contact: 'Contact',
     nav_admin: 'Admin',
+    nav_account: 'Mon compte',
+    nav_privacy: 'Confidentialité',
     nav_login: 'Connexion',
     nav_logout: 'Déconnexion',
 
-    hero_title: 'Café vert colombien, exporté directement depuis l\'origine',
-    hero_subtitle: 'Excelso EP, tamis 14+, SCA 84+ noté par un Q-Grader. Castillo, Colombia et Caturra lavés de Huila, Cauca, Valle del Cauca, Nariño et Quindío. Échantillons par coursier, lots aériens jusqu\'à 60 kg et conteneurs 20\' FOB Cartagena ou CIF votre port.',
-    hero_cta: 'Voir les spécifications',
-    hero_badge: 'Direct de Colombie · Exportateur enregistré',
+    hero_title: CONTENT.fr.hero.title,
+    hero_subtitle: CONTENT.fr.hero.subtitle,
+    hero_cta: CONTENT.fr.hero.cta,
+    hero_badge: CONTENT.fr.hero.badge,
 
-    roast_green: 'Vert (Non Torréfié)',
-    roast_medium: 'Torréfaction Moyenne',
-    roast_medium_high: 'Torréfaction Moyenne-Forte',
+    roast_green: 'Vert (non torréfié)',
+    roast_medium: 'Torréfaction moyenne',
+    roast_medium_high: 'Torréfaction moyenne-forte',
     roast_decaf: 'Décaféiné',
 
     footer_tagline: 'Café vert et torréfié colombien de Huila, Cauca, Valle del Cauca, Nariño et Quindío — exporté directement depuis Bogotá.',
     footer_contact: 'Contact',
-    footer_links: 'Liens Rapides',
+    footer_links: 'Liens rapides',
     footer_rights: 'Tous droits réservés.',
     footer_export_markets: "Marchés d'exportation",
     footer_export_markets_text: 'Livré en Suède ; devis en Europe, au Moyen-Orient, en Afrique et en Amérique — du colis coursier au conteneur.',
@@ -232,25 +236,27 @@ const translations: Translations = {
   sv: {
     nav_home: 'Hem',
     nav_green: 'Råkaffe',
-    nav_profiles: 'Koppprofiler',
+    nav_profiles: 'Smakprofiler',
     nav_products: 'Produkter',
     nav_export: 'Export & logistik',
-    nav_shipping: 'Fraktkostnad',
+    nav_shipping: 'Fraktkalkylator',
     nav_faq: 'FAQ',
-    nav_about: 'Om Oss',
+    nav_about: 'Om oss',
     nav_contact: 'Kontakt',
     nav_admin: 'Admin',
-    nav_login: 'Logga In',
-    nav_logout: 'Logga Ut',
+    nav_account: 'Mitt konto',
+    nav_privacy: 'Integritetspolicy',
+    nav_login: 'Logga in',
+    nav_logout: 'Logga ut',
 
-    hero_title: 'Colombianskt råkaffe, exporterat direkt från ursprunget',
-    hero_subtitle: 'Excelso EP, sikt 14+, SCA 84+ provsmakat av Q-Grader. Tvättad Castillo, Colombia och Caturra från Huila, Cauca, Valle del Cauca, Nariño och Quindío. Prover med kurir, flygfrakt upp till 60 kg och 20\'-containrar FOB Cartagena eller CIF din hamn.',
-    hero_cta: 'Se specifikationerna',
-    hero_badge: 'Direkt från Colombia · Registrerad exportör',
+    hero_title: CONTENT.sv.hero.title,
+    hero_subtitle: CONTENT.sv.hero.subtitle,
+    hero_cta: CONTENT.sv.hero.cta,
+    hero_badge: CONTENT.sv.hero.badge,
 
-    roast_green: 'Grön (Orostad)',
+    roast_green: 'Grön (orostad)',
     roast_medium: 'Mediumrostning',
-    roast_medium_high: 'Medium-Hög Rostning',
+    roast_medium_high: 'Medium–mörk rostning',
     roast_decaf: 'Koffeinfritt',
 
     footer_tagline: 'Colombianskt rå- och rostat kaffe från Huila, Cauca, Valle del Cauca, Nariño och Quindío — exporterat direkt från Bogotá.',

@@ -15,6 +15,7 @@ export default function Privacy({ lang }: Props) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <PageHeader eyebrow={p.eyebrow} title={p.title} lead={p.lead} />
         <p className="text-center -mt-8 mb-12 text-xs uppercase tracking-wider text-coffee-500 font-semibold">{p.updated}</p>
+        {p.translationNote && <p className="text-center -mt-8 mb-10 text-sm text-coffee-600 italic">{p.translationNote}</p>}
         <div className="bg-white rounded-2xl shadow-md p-6 md:p-10 space-y-8">
           {p.sections.map((s) => (
             <section key={s.title}>

@@ -19,7 +19,10 @@ import {
   ShippingProductGroup,
   ShippingProductId,
   ShippingQuote,
+  destinationInText,
+  destinationName,
 } from '../shipping';
+import { LOCALES } from '../locale';
 
 interface Props {
   lang: Language;
@@ -63,8 +66,7 @@ export default function Shipping({ lang, navigate }: Props) {
   const c = content(lang);
   const s = c.shipping;
   const sc = s.container;
-  const isEs = lang === 'es';
-  const locale = isEs ? 'es-CO' : 'en-US';
+  const locale = LOCALES[lang];
 
   const [mode, setMode] = useState<Mode>('courier');
   const [country, setCountry] = useState('');
@@ -153,10 +155,10 @@ export default function Shipping({ lang, navigate }: Props) {
     new Intl.NumberFormat(locale, { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
   const num = (n: number) => new Intl.NumberFormat(locale).format(n);
 
-  const destName = (d: (typeof SHIPPING_DESTINATIONS)[number]) => (isEs ? d.es : d.en);
+  const destName = (d: (typeof SHIPPING_DESTINATIONS)[number]) => destinationName(d, lang);
   const destinations = [...SHIPPING_DESTINATIONS].sort((a, b) => destName(a).localeCompare(destName(b), lang));
   const destination = SHIPPING_DESTINATIONS.find((d) => d.code === country);
-  const countryInText = destination ? (isEs ? destination.es : destination.enIn) : '';
+  const countryInText = destination ? destinationInText(destination, lang) : '';
 
   // Prefilled WhatsApp / email: as much of the selection as we know.
   let message: string;

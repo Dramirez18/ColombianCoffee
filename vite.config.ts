@@ -43,8 +43,13 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // Solo el español de Clerk (85 KB); el paquete completo trae todos los idiomas (3,9 MB).
+      // Solo los idiomas de la web (~90 KB cada uno, se cargan al abrir el login); el paquete
+      // completo de Clerk trae todos los idiomas (3,9 MB).
       'clerk-localization-es': fileURLToPath(new URL('./node_modules/@clerk/localizations/dist/es-ES.mjs', import.meta.url)),
+      'clerk-localization-nl': fileURLToPath(new URL('./node_modules/@clerk/localizations/dist/nl-NL.mjs', import.meta.url)),
+      'clerk-localization-de': fileURLToPath(new URL('./node_modules/@clerk/localizations/dist/de-DE.mjs', import.meta.url)),
+      'clerk-localization-fr': fileURLToPath(new URL('./node_modules/@clerk/localizations/dist/fr-FR.mjs', import.meta.url)),
+      'clerk-localization-sv': fileURLToPath(new URL('./node_modules/@clerk/localizations/dist/sv-SE.mjs', import.meta.url)),
       '@': new URL('./', import.meta.url).pathname,
     },
   },

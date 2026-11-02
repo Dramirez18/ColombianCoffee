@@ -115,6 +115,16 @@ const ES_OVERRIDES: Tree = {
   },
 };
 
+/** Clerk's own translation of each site language (English is built in). */
+const CLERK_LOCALIZATION: Record<Language, () => Promise<Tree | undefined>> = {
+  en: async () => undefined,
+  es: () => import('clerk-localization-es').then((m) => merge(m.esES as unknown as Tree, ES_OVERRIDES)),
+  nl: () => import('clerk-localization-nl').then((m) => m.nlNL as unknown as Tree),
+  de: () => import('clerk-localization-de').then((m) => m.deDE as unknown as Tree),
+  fr: () => import('clerk-localization-fr').then((m) => m.frFR as unknown as Tree),
+  sv: () => import('clerk-localization-sv').then((m) => m.svSE as unknown as Tree),
+};
+
 function merge(base: Tree, extra: Tree): Tree {
   const out: Tree = { ...base };
   for (const [k, v] of Object.entries(extra)) {
@@ -174,6 +184,8 @@ export function AuthProvider({ lang, activeTab, children }: { lang: Language; ac
   const keyRef = useRef<string | null>(null);
   const clerkRef = useRef<Clerk | null>(null);
   const loading = useRef<Promise<Clerk | null> | null>(null);
+  const langRef = useRef(lang);
+  const loadedLang = useRef<Language | null>(null);
 
   const authFetch = useCallback(async (input: string, init: RequestInit = {}) => {
     const token = await clerkRef.current?.session?.getToken();
@@ -203,8 +215,9 @@ export function AuthProvider({ lang, activeTab, children }: { lang: Language; ac
       try {
         const [{ clerk, ClerkUI }, localization] = await Promise.all([
           loadClerkScripts(keyRef.current!),
-          lang === 'es' ? import('clerk-localization-es').then((m) => merge(m.esES as unknown as Tree, ES_OVERRIDES)) : Promise.resolve(undefined),
+          CLERK_LOCALIZATION[langRef.current](),
         ]);
+        loadedLang.current = langRef.current;
         await clerk.load({
           ui: { ClerkUI },
           routerPush: clerkNavigate,
@@ -231,9 +244,20 @@ export function AuthProvider({ lang, activeTab, children }: { lang: Language; ac
       }
     })();
     return loading.current;
-    // The UI language of Clerk is the one active when it first loads.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadMe]);
+
+  // Clerk follows the site's language selector, also after it has loaded.
+  useEffect(() => {
+    langRef.current = lang;
+    const clerk = clerkRef.current;
+    if (!clerk || loadedLang.current === lang) return;
+    loadedLang.current = lang;
+    void CLERK_LOCALIZATION[lang]().then((localization) => {
+      // Internal API: if a Clerk update removes it, the modal simply keeps its first language.
+      const update = (clerk as unknown as { __internal_updateProps?: (p: { options: Record<string, unknown> }) => void }).__internal_updateProps;
+      update?.call(clerk, { options: { localization } });
+    });
+  }, [lang]);
 
   useEffect(() => {
     // The old fake login kept visitors' details in this browser; erase them.

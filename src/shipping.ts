@@ -19,6 +19,20 @@ export type {
 } from '../shared/shipping-catalog.js';
 
 import type { ContainerProductId, ShippingProductId } from '../shared/shipping-catalog.js';
+import { DESTINATIONS } from '../shared/shipping-catalog.js';
+import type { Language } from './types';
+
+type Destination = (typeof DESTINATIONS)[number];
+
+/** Country name in a list or table. */
+export function destinationName(d: Destination, lang: Language): string {
+  return d[lang];
+}
+
+/** Country name inside a sentence ("ship to the United States"). */
+export function destinationInText(d: Destination, lang: Language): string {
+  return lang === 'en' ? d.enIn : d[lang];
+}
 
 export interface ShippingQuote {
   currency: 'USD';

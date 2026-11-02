@@ -1,3 +1,4 @@
+import { LOCALES } from '../locale';
 import { CheckCircle2, ArrowDown, Calculator, MessageCircle } from 'lucide-react';
 import { Language, Tab } from '../types';
 import { content, CupProfile } from '../content';
@@ -34,8 +35,8 @@ const RADAR: Partial<Record<CupProfile['id'], { values: number[]; showValues: bo
 export default function Profiles({ lang, navigate }: Props) {
   const c = content(lang);
   const p = c.profiles;
-  const isEs = lang === 'es';
-  const fmt = (n: number) => (n === 10 ? '10' : isEs ? n.toFixed(1).replace('.', ',') : n.toFixed(1));
+  const decimal = new Intl.NumberFormat(LOCALES[lang], { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const fmt = (n: number) => (n === 10 ? '10' : decimal.format(n));
   const fill = (s: string, name: string) => s.replace('{name}', name);
   const waLink = (msg: string) => `${COMPANY.contact.whatsappLink}?text=${encodeURIComponent(msg)}`;
 

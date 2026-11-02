@@ -1,11 +1,16 @@
 import { Language, Product } from './types';
 import { PublicTab } from './router';
 import type { ContainerProductGroup, ContainerProductId, ShippingProductGroup, ShippingProductId } from './shipping';
+import { IMG_GREEN, IMG_ROASTED } from './content/assets';
+import { nl } from './content/nl';
+import { de } from './content/de';
+import { fr } from './content/fr';
+import { sv } from './content/sv';
 
 /**
  * Everything a buyer (or a crawler) needs to know, as plain facts.
- * English and Spanish are maintained side by side; the other UI languages
- * fall back to English for this content.
+ * English (source) and Spanish live here; Dutch, German, French and Swedish
+ * are full translations in src/content/<lang>.ts with the same shape.
  *
  * Keep it factual: every line here may be quoted back to a customer by a
  * search engine or an AI assistant.
@@ -47,6 +52,8 @@ export interface SiteContent {
   meta: Record<PublicTab, PageMeta>;
   hero: { badge: string; title: string; subtitle: string; cta: string };
   home: {
+    roastVideo: { eyebrow: string; title: string; text: string; chips: string[] };
+    qcImageAlt: string;
     productsEyebrow: string;
     productsTitle: string;
     productsLead: string;
@@ -56,6 +63,9 @@ export interface SiteContent {
     contact: { eyebrow: string; title: string; text: string };
   };
   green: {
+    imageAlt: string;
+    offerMessage: string;
+    offerSubject: string;
     eyebrow: string;
     title: string;
     lead: string;
@@ -263,6 +273,8 @@ export interface SiteContent {
     tooMany: string;
   };
   privacy: {
+    /** Only in translations: the Spanish text is the one that prevails. */
+    translationNote?: string;
     eyebrow: string;
     title: string;
     lead: string;
@@ -271,6 +283,7 @@ export interface SiteContent {
   };
   faq: { eyebrow: string; title: string; lead: string; items: Faq[] };
   about: {
+    imageAlt: string;
     title: string;
     story: string[];
     factsTitle: string;
@@ -283,6 +296,7 @@ export interface SiteContent {
     quoting: string[];
   };
   contact: {
+    whatsappMessage: string;
     title: string;
     lead: string;
     whatsapp: string;
@@ -292,6 +306,18 @@ export interface SiteContent {
     askItems: string[];
   };
   common: {
+    inquirySubject: string; // {name}
+    inquiryBody: string; // {name}
+    inquiryWhatsapp: string; // {name}
+    zoomPhoto: string; // {name}
+    heroImageAlt: string;
+    prevSlide: string;
+    nextSlide: string;
+    imagePreview: string;
+    close: string;
+    languageSelector: string;
+    menu: string;
+    colombia: string;
     pricingNote: string;
     sampleSize: string;
     altitude: string;
@@ -304,8 +330,6 @@ export interface SiteContent {
   };
 }
 
-const IMG_GREEN = '/products/grano-verde.jpg';
-const IMG_ROASTED = '/products/grano-tostado-medio.jpg';
 
 // ---------------------------------------------------------------------------
 // ENGLISH
@@ -373,6 +397,13 @@ const en: SiteContent = {
   },
 
   home: {
+    roastVideo: {
+      eyebrow: 'From the roastery',
+      title: 'See our roast come to life',
+      text: 'A real batch of our specialty Colombian beans, roasted to a balanced medium profile — caramel, chocolate and red-fruit sweetness. From the highlands of Huila to your roastery, this is the coffee we export to the world.',
+      chips: ['84+ SCA specialty', 'Fully washed · 1,500+ MASL'],
+    },
+    qcImageAlt: 'Quality control at origin — CoffMeter reading 10.9% moisture and 797 g/L density on a green coffee lot',
     productsEyebrow: 'Green · Roasted · Ground',
     productsTitle: 'What we supply',
     productsLead:
@@ -419,6 +450,9 @@ const en: SiteContent = {
   },
 
   green: {
+    imageAlt: 'Colombian green coffee beans, Excelso EP screen 14+, sample lot 84',
+    offerMessage: 'Hi, I would like an offer sheet for Excelso EP green coffee.',
+    offerSubject: 'Green coffee quote — Entre Cafés Colombianos',
     eyebrow: 'Green coffee · Export specification',
     title: 'Colombian green coffee — Excelso EP, screen 14+, SCA 84+',
     lead:
@@ -996,6 +1030,7 @@ const en: SiteContent = {
     tooMany: 'You reached the daily limit of saved quotes. Write to us and we will help you.',
   },
   privacy: {
+    translationNote: 'This English text is a translation for convenience; in case of any difference, the Spanish version of this policy prevails.',
     eyebrow: 'Legal',
     title: 'Personal data protection policy',
     lead: 'How Entre Cafés Colombianos collects, uses and protects your personal data, under Colombian Law 1581 of 2012 and its regulations.',
@@ -1149,6 +1184,7 @@ const en: SiteContent = {
   },
 
   about: {
+    imageAlt: 'Coffee plantation at sunrise in the Colombian cordillera',
     title: 'About Entre Cafés Colombianos',
     story: [
       'Entre Cafés Colombianos is a Colombian coffee exporter based in Bogotá, founded in 2026 by David Leonardo Ramírez Contreras. We buy from farming families and quality-focused suppliers in the south and west of the country — Huila, Cauca, Valle del Cauca, Nariño and Quindío — and export green and roasted coffee directly to roasters, importers and distributors.',
@@ -1174,6 +1210,7 @@ const en: SiteContent = {
   },
 
   contact: {
+    whatsappMessage: 'Hi, I would like a quote for Colombian coffee.',
     title: 'Contact',
     lead: 'One person answers: David Ramírez, export manager and founder. Write in English or Spanish.',
     whatsapp: 'WhatsApp',
@@ -1190,6 +1227,18 @@ const en: SiteContent = {
   },
 
   common: {
+    inquirySubject: 'Inquiry — {name} (Entre Cafés Colombianos)',
+    inquiryBody: 'Hello,\n\nI am interested in your "{name}".\n\nQuantity / sample size: \nDestination country: \nPreferred Incoterm (FOB / CIF): \nTimeline: \n\nThanks.',
+    inquiryWhatsapp: 'Hi! I would like information about: {name}',
+    zoomPhoto: 'Zoom photo of {name}',
+    heroImageAlt: 'Colombian coffee',
+    prevSlide: 'Previous slide',
+    nextSlide: 'Next slide',
+    imagePreview: 'Image preview',
+    close: 'Close',
+    languageSelector: 'Language selector',
+    menu: 'Menu',
+    colombia: 'Colombia',
     pricingNote: 'Courier lots: instant online shipping estimate with a free account · containers: pricing on request.',
     sampleSize: 'Sizes',
     altitude: 'Altitude',
@@ -1268,6 +1317,13 @@ const es: SiteContent = {
   },
 
   home: {
+    roastVideo: {
+      eyebrow: 'Desde la tostadora',
+      title: 'Vea nuestra tostión en acción',
+      text: 'Un lote real de nuestro café colombiano de especialidad, tostado a un perfil medio y balanceado — dulzor de caramelo, chocolate y frutos rojos. De las montañas del Huila a su tostadora: este es el café que exportamos al mundo.',
+      chips: ['Especialidad SCA 84+', 'Lavado · más de 1.500 m s. n. m.'],
+    },
+    qcImageAlt: 'Control de calidad en origen — lectura del CoffMeter: 10,9 % de humedad y 797 g/L de densidad en un lote de café verde',
     productsEyebrow: 'Verde · Tostado · Molido',
     productsTitle: 'Qué suministramos',
     productsLead:
@@ -1314,6 +1370,9 @@ const es: SiteContent = {
   },
 
   green: {
+    imageAlt: 'Granos de café verde colombiano, Excelso EP malla 14+, lote de muestra 84',
+    offerMessage: 'Hola, quiero una oferta de café verde Excelso EP.',
+    offerSubject: 'Cotización café verde — Entre Cafés Colombianos',
     eyebrow: 'Café verde · Especificación de exportación',
     title: 'Café verde colombiano — Excelso EP, malla 14+, SCA 84+',
     lead:
@@ -2044,6 +2103,7 @@ const es: SiteContent = {
   },
 
   about: {
+    imageAlt: 'Cafetal al amanecer en la cordillera colombiana',
     title: 'Sobre Entre Cafés Colombianos',
     story: [
       'Entre Cafés Colombianos es un exportador de café con sede en Bogotá, fundado en 2026 por David Leonardo Ramírez Contreras. Compramos a familias caficultoras y proveedores enfocados en calidad del sur y el occidente del país — Huila, Cauca, Valle del Cauca, Nariño y Quindío — y exportamos café verde y tostado directamente a tostadores, importadores y distribuidores.',
@@ -2069,6 +2129,7 @@ const es: SiteContent = {
   },
 
   contact: {
+    whatsappMessage: 'Hola, quiero cotizar café colombiano.',
     title: 'Contacto',
     lead: 'Responde una sola persona: David Ramírez, gerente de exportaciones y fundador. Escriba en español o inglés.',
     whatsapp: 'WhatsApp',
@@ -2085,6 +2146,18 @@ const es: SiteContent = {
   },
 
   common: {
+    inquirySubject: 'Consulta — {name} (Entre Cafés Colombianos)',
+    inquiryBody: 'Hola,\n\nMe interesa "{name}".\n\nCantidad / tamaño de muestra: \nPaís de destino: \nIncoterm preferido (FOB / CIF): \nFecha: \n\nGracias.',
+    inquiryWhatsapp: 'Hola, quiero información sobre: {name}',
+    zoomPhoto: 'Ampliar la foto de {name}',
+    heroImageAlt: 'Café colombiano',
+    prevSlide: 'Diapositiva anterior',
+    nextSlide: 'Diapositiva siguiente',
+    imagePreview: 'Vista ampliada de la imagen',
+    close: 'Cerrar',
+    languageSelector: 'Selector de idioma',
+    menu: 'Menú',
+    colombia: 'Colombia',
     pricingNote: 'Lotes courier: estimado al instante en el cotizador de envío, con cuenta gratuita · contenedores: precio bajo solicitud.',
     sampleSize: 'Presentaciones',
     altitude: 'Altura',
@@ -2097,8 +2170,8 @@ const es: SiteContent = {
   },
 };
 
-export const CONTENT: Record<'en' | 'es', SiteContent> = { en, es };
+export const CONTENT: Record<Language, SiteContent> = { en, es, nl, de, fr, sv };
 
 export function content(lang: Language): SiteContent {
-  return lang === 'es' ? es : en;
+  return CONTENT[lang] ?? en;
 }

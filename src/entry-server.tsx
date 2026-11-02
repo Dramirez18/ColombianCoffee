@@ -4,6 +4,7 @@ import { content } from './content';
 import { COMPANY } from './constants';
 import { Language } from './types';
 import { prerenderPages, absoluteUrl, SITE_URL, PRERENDER_LANGS, PublicTab, ROUTES } from './router';
+import { OG_LOCALES } from './locale';
 
 /**
  * Build-time entry used by scripts/prerender.mjs. Produces, for every public
@@ -176,7 +177,8 @@ export function head(tab: PublicTab, lang: Language): string {
     `<link rel="alternate" hreflang="x-default" href="${absoluteUrl(tab, 'en')}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${esc(COMPANY.name)}" />`,
-    `<meta property="og:locale" content="${lang === 'es' ? 'es_CO' : 'en_US'}" />`,
+    `<meta property="og:locale" content="${OG_LOCALES[lang]}" />`,
+    ...PRERENDER_LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALES[l]}" />`),
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:title" content="${esc(meta.title)}" />`,
     `<meta property="og:description" content="${esc(meta.description)}" />`,

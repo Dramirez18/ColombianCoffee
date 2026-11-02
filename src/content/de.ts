@@ -1,0 +1,920 @@
+import type { SiteContent } from '../content';
+import { IMG_GREEN, IMG_ROASTED } from './assets';
+
+// German — full translation of the English content in src/content.ts (same shape, same order).
+export const de: SiteContent = {
+  meta: {
+    home: {
+      title: 'Entre Cafés Colombianos | Exporteur von kolumbianischem Rohkaffee – Excelso EP, SCA 84+',
+      description:
+        'Exporteur von kolumbianischem Roh- und Röstkaffee in Bogotá. Excelso EP, Siebgröße 14+, SCA 84+, von einem Q-Grader bewertet, vollständig gewaschen, aus Huila, Cauca, Valle del Cauca, Nariño und Quindío. Muster per DHL, Paletten und 20\'-Container FOB Cartagena / CIF. Englisch und Spanisch.',
+    },
+    green: {
+      title: 'Kolumbianischer Rohkaffee – Excelso EP, Siebgröße 14+, SCA 84+ | Entre Cafés Colombianos',
+      description:
+        'Spezifikationen unseres kolumbianischen Rohkaffees: Excelso European Preparation, Siebgröße 14+, Castillo/Colombia/Caturra, vollständig gewaschen, 10–12 % Feuchtigkeit, 750–800 g/L, 70-kg-Säcke mit GrainPro-Innensack. Regionen: Huila, Cauca, Valle del Cauca, Nariño, Quindío.',
+    },
+    products: {
+      title: 'Produkte – Kolumbianischer Rohkaffee, Röstkaffee und gemahlener Kaffee | Entre Cafés Colombianos',
+      description:
+        'Spezialitäten-Rohkaffee (SCA 84+), Rohkaffee in Handelsqualität für Blends, Röstkaffee in mittlerer Röstung als ganze Bohne und gemahlen, Private Label. Muster ab 250 g, Luftfrachtpartien bis 60 kg, Container ab 10 t.',
+    },
+    export: {
+      title: 'Export & Logistik – Muster, Paletten, Container, Incoterms, EUDR | Entre Cafés Colombianos',
+      description:
+        'So versenden wir kolumbianischen Kaffee: DHL Express für Muster und Partien bis 60 kg, Luftfrachtpaletten, 20\'-Container (275 × 70 kg) FOB Cartagena oder CIF. Dokumente, Qualitätskontrolle durch FNC/Almacafé, EU-Zölle und EUDR-Rückverfolgbarkeit erklärt.',
+    },
+    shipping: {
+      title: 'Versandrechner – Kolumbianischer Kaffee per DHL Express geliefert | Entre Cafés Colombianos',
+      description:
+        'Ermitteln Sie den voraussichtlichen Lieferpreis für kolumbianischen Rohkaffee (10–60 kg) oder Röstkaffee (10–50 kg) per DHL Express in die USA, nach Spanien, Deutschland, Frankreich, in die Niederlande, nach Belgien, Schweden, Polen oder in die VAE: Kaffee, Verpackung und Fracht in einer Gesamtsumme in USD. Außerdem 20\'-Container mit Rohkaffee, FOB Cartagena. Kostenloses Konto.',
+    },
+    profiles: {
+      title: 'Geschmacksprofile – Kolumbianischer Rohkaffee: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
+      description:
+        'Geschmacksprofile der kolumbianischen Rohkaffees, die wir anbieten: Huila (Acevedo) 86+, Selecto 84+ aus Huila, Cauca, Valle del Cauca und Quindío, Tolima Castillo 81,82 und eine Partie aus Nariño mit 77,0. Aromanoten, Cupping-Scores, Herkunft und Aufbereitung.',
+    },
+    privacy: {
+      title: 'Richtlinie zum Schutz personenbezogener Daten | Entre Cafés Colombianos',
+      description:
+        'Wie Entre Cafés Colombianos personenbezogene Daten nach dem kolumbianischen Gesetz 1581 von 2012 erhebt, verwendet und schützt: Zwecke, Dienstleister, Ihre Rechte und wie Sie sie ausüben.',
+    },
+    faq: {
+      title: 'Häufige Fragen – Rohkaffee aus Kolumbien kaufen | Entre Cafés Colombianos',
+      description:
+        'Mindestbestellmenge, Musterregelung, Preisbildung auf Basis des New Yorker „C“-Kontrakts plus Differenzial, Incoterms, Transitzeiten, Dokumente, Anforderungen an Pflanzengesundheit und EUDR, Röstung und Private Label. Antworten eines kolumbianischen Kaffeeexporteurs.',
+    },
+    about: {
+      title: 'Über uns – Kolumbianischer Kaffeeexporteur in Bogotá | Entre Cafés Colombianos',
+      description:
+        'Entre Cafés Colombianos ist ein registrierter kolumbianischer Kaffeeexporteur mit Sitz in Bogotá, gegründet 2026. Wir beziehen unseren Kaffee von Kaffeebauernfamilien und qualitätsorientierten Lieferanten in Huila, Cauca, Valle del Cauca, Nariño und Quindío und exportieren nach Europa, in den Nahen Osten, nach Afrika und auf den amerikanischen Kontinent.',
+    },
+    contact: {
+      title: 'Kontakt – Muster oder Angebot anfordern | Entre Cafés Colombianos',
+      description:
+        'Sprechen Sie mit David Ramírez, Exportleiter von Entre Cafés Colombianos, Bogotá. WhatsApp +57 315 067 0591 · cafecolombiano889@proton.me. Englisch und Spanisch. Antwort innerhalb von 24 Stunden an Werktagen.',
+    },
+  },
+
+  hero: {
+    badge: 'Direkt aus Kolumbien · Registrierter Exporteur',
+    title: 'Kolumbianischer Rohkaffee, direkt aus dem Ursprung exportiert',
+    subtitle:
+      'Excelso EP, Siebgröße 14+, SCA 84+, von einem Q-Grader bewertet. Vollständig gewaschener Castillo, Colombia und Caturra aus Huila, Cauca, Valle del Cauca, Nariño und Quindío. Muster per Kurier, Luftfrachtpartien bis 60 kg und 20\'-Container FOB Cartagena oder CIF Ihr Bestimmungshafen.',
+    cta: 'Rohkaffee-Spezifikationen ansehen',
+  },
+
+  home: {
+    roastVideo: {
+      eyebrow: 'Aus der Rösterei',
+      title: 'Erleben Sie unsere Röstung',
+      text: 'Eine echte Charge unserer kolumbianischen Spezialitätenbohnen, geröstet auf ein ausgewogenes mittleres Profil – Karamell, Schokolade und die Süße roter Früchte. Aus dem Hochland von Huila bis in Ihre Rösterei: Das ist der Kaffee, den wir in die ganze Welt exportieren.',
+      chips: ['Spezialitätenkaffee 84+ SCA', 'Vollständig gewaschen · 1.500+ m ü. M.'],
+    },
+    qcImageAlt: 'Qualitätskontrolle im Ursprung – CoffMeter-Messung mit 10,9 % Feuchtigkeit und 797 g/L Dichte an einer Rohkaffeepartie',
+    productsEyebrow: 'Roh · Geröstet · Gemahlen',
+    productsTitle: 'Was wir liefern',
+    productsLead:
+      'Spezialitäten-Rohkaffee für Röstereien und Importeure, Rohkaffee in Handelsqualität für Blends sowie Röstkaffee für Distributoren und Private Label. Klicken Sie auf ein Foto, um die Bohnen genauer anzusehen.',
+    allProducts: 'Gesamter Katalog',
+    quality: {
+      badge: 'Qualitätskontrolle im Ursprung',
+      title: 'Jede Partie gemessen. Jede Sendung dokumentiert.',
+      text:
+        'Feuchtigkeit, Dichte und Siebgröße werden bei jedem Muster geprüft, bevor es Kolumbien verlässt, und jeder Container wird vor der Verladung erneut von Almacafé geprüft, der Qualitätssparte des kolumbianischen Kaffeebauernverbands (FNC). Abgebildet: eine tatsächliche Messung an einer aktuellen Rohkaffeepartie – 10,9 % Feuchtigkeit und 797 g/L Dichte, innerhalb der Excelso-Spezifikation. Jeder Specialty-Partie liegt ein unterschriebenes Cupping-Protokoll eines Q-Graders bei.',
+      certLabel: 'Gesundheitsregistrierung',
+    },
+    why: {
+      title: 'Warum bei Entre Cafés Colombianos kaufen',
+      items: [
+        {
+          title: 'Registrierter Exporteur, kein Makler',
+          text:
+            'Wir sind beim kolumbianischen Kaffeebauernverband (FNC) und bei der Steuerbehörde (DIAN) registriert und wickeln die gesamte Exportakte selbst ab: Verkaufsanmeldung, Transitschein, Almacafé-Inspektion, Kaffeeabgabe und Zollabfertigung.',
+        },
+        {
+          title: 'Spezialitätenqualität, geprüft',
+          text:
+            'Unser Exportstandard ist Excelso EP, Siebgröße 14+, 84+ SCA-Punkte, bewertet von einem zertifizierten Q-Grader. Handelsqualität (SCA 80–83) ist für Blends erhältlich, wenn der Preis wichtiger ist als der Score.',
+        },
+        {
+          title: 'Logistik in der passenden Größe',
+          text:
+            'Vom 250-g-Muster per DHL bis zum 20\'-Container mit 275 Säcken. Halbe Container (10 t) und gemischte Ladungen aus Roh- und Röstkaffee sind möglich – Größen, mit denen sich die großen Handelshäuser nicht abgeben.',
+        },
+        {
+          title: 'Klare Antworten zur EU-Konformität',
+          text:
+            'Rohkaffee wird zollfrei (0 %) in die EU eingeführt und benötigt kein Pflanzengesundheitszeugnis. Zur EUDR sagen wir Ihnen offen, welche Partien heute eine Geolokalisierung der Farm haben und welche nicht.',
+        },
+      ],
+    },
+    contact: {
+      eyebrow: 'B2B · Nur Großhandel',
+      title: 'Nennen Sie uns Zielort, Menge und Zeitrahmen',
+      text:
+        'Wir arbeiten mit Röstereien, Importeuren, Distributoren und Händlern. Nennen Sie uns den Hafen, die Menge und den gewünschten Termin, und wir melden uns mit einem Angebotsblatt und Mustern – auf Englisch oder Spanisch, innerhalb von 24 Stunden an Werktagen.',
+    },
+  },
+
+  green: {
+    imageAlt: 'Kolumbianische Rohkaffeebohnen, Excelso EP Siebgröße 14+, Musterpartie 84',
+    offerMessage: 'Guten Tag, ich hätte gern ein Angebotsblatt für Rohkaffee Excelso EP.',
+    offerSubject: 'Angebot Rohkaffee – Entre Cafés Colombianos',
+    eyebrow: 'Rohkaffee · Exportspezifikation',
+    title: 'Kolumbianischer Rohkaffee – Excelso EP, Siebgröße 14+, SCA 84+',
+    lead:
+      'Dies ist unsere Standard-Exportspezifikation. Jede Partie wird mit einem eigenen Datenblatt (Varietät, Aufbereitung, Höhenlage, Cupping-Score, Feuchtigkeit, Siebgröße) und einem unterschriebenen Cupping-Protokoll verschickt. Alle folgenden Angaben werden pro Partie bestätigt, bevor Sie sich festlegen.',
+    specsTitle: 'Standardspezifikation',
+    specs: [
+      { label: 'Produkt', value: 'Grüne Arabica-Kaffeebohnen, ungeröstet, nicht entkoffeiniert. HS 0901.11 (Kolumbien 0901.11.10.00 · KN der EU 0901 11 00).' },
+      { label: 'Güteklasse / Sortierung', value: 'Excelso, European Preparation (EP). Geschält, Pergamenthaut entfernt. UGQ-Sortierung für Partien in Handelsqualität erhältlich.' },
+      { label: 'Siebgröße', value: 'Siebgröße 14+ (5,5 mm), maschinell nach Größe sortiert und elektronisch auf Defekte farbsortiert. Siebgröße 15+ oder Supremo 17+ auf Anfrage, je nach Verfügbarkeit.' },
+      { label: 'Art / Varietät', value: '100 % Arabica. Überwiegend Castillo; je nach Partie und Region auch Colombia, Caturra, Bourbon und Tabi.' },
+      { label: 'Aufbereitung', value: 'Vollständig gewaschen (entpulpt, 12–24 h fermentiert, gewaschen, in der Sonne oder maschinell getrocknet). Honey- und Natural-Mikrolots auf Anfrage, auf Vorbestellung.' },
+      { label: 'Cupping-Score', value: '84+ SCA-Punkte, bestätigt von einem zertifizierten Q-Grader. Das unterschriebene Cupping-Protokoll begleitet die Partie.' },
+      { label: 'Geschmacksprofil', value: 'Süße von Zuckerrohr und Panela, Zitrussäure (Mandarine / Orange), cremiger Körper, florale Aromen; Karamell, Milchschokolade und rote Früchte in der Röstung. Saubere, ausgewogene Tasse.' },
+      { label: 'Feuchtigkeit', value: '10–12 %. Pro Partie angegeben und vor der Verschiffung von Almacafé erneut geprüft.' },
+      { label: 'Wasseraktivität', value: 'Auf Anfrage pro Partie gemessen; Zielwert unter 0,70 aw als praktische Kontrolle gegen Ochratoxin.' },
+      { label: 'Dichte', value: '750–800 g/L.' },
+      { label: 'Defekte', value: 'Spezialitätensortierung: höchstens 5 Volldefekte pro 350 g (SCA-Rohkaffeebewertung). Vorverschiffungsmuster und Typmusterfreigabe vor der Verladung.' },
+      { label: 'Höhenlage', value: '1.500–1.900+ Meter über dem Meeresspiegel (je nach Partie).' },
+      { label: 'Ernte', value: 'Aktuelle Ernte. Haupternte September–Dezember; Zwischenernte (Mitaca) April–Juni. In Cauca liegt der Höhepunkt zwischen April und Juli.' },
+      { label: 'Verpackung', value: '70-kg-Säcke aus Fique / Jute mit hermetischem Innensack (Typ GrainPro). 35-kg-Säcke und 1.000-kg-Big-Bags auf Anfrage. Muster 250 g – 1 kg, vakuumverpackt.' },
+      { label: 'Sackmarkierung', value: 'Partienummer, Herkunft, Nettogewicht, Erntejahr und die ICO-Kennzeichnung auf jeden Sack schabloniert.' },
+      { label: 'Haltbarkeit', value: '12 Monate ab Verschiffung im hermetischen Innensack, trocken und kühl gelagert.' },
+    ],
+    regionsTitle: 'Woher der Kaffee kommt',
+    regionsLead:
+      'Wir beziehen unseren Kaffee über Kaffeebauernfamilien und qualitätsorientierte Lieferanten im Süden und Westen Kolumbiens. Drei Regionen bilden den Kern des Angebots; die anderen kommen je nach Erntefenster und Verfügbarkeit hinzu.',
+    regions: [
+      {
+        name: 'Huila',
+        altitude: '1.200–1.900 m ü. M. (unsere Partien 1.500+)',
+        harvest: 'Haupternte Sept.–Dez. · Mitaca Apr.–Juni',
+        varieties: 'Castillo, Colombia, Caturra',
+        cup: 'Süße von Panela und Zuckerrohr, Säure von Mandarine / Orange, cremiger Körper, florales Finish.',
+        use: 'Das Referenzprofil des Angebots – die sichere Mitte für eine Filterröstung.',
+      },
+      {
+        name: 'Cauca',
+        altitude: '1.500–2.100 m ü. M.',
+        harvest: 'Haupternte Apr.–Juli · Mitaca Okt.–Dez.',
+        varieties: 'Castillo, Colombia, Caturra, Typica',
+        cup: 'Lebhaft und hell: zitrisch und floral, teeartige Klarheit, leichterer Körper, langer süßer Nachgeschmack.',
+        use: 'Eine leichtere, aromatischere Filterpartie, bei der die Säure das Verkaufsargument ist.',
+      },
+      {
+        name: 'Valle del Cauca',
+        altitude: '1.300–1.900 m ü. M.',
+        harvest: 'Haupternte Sept.–Dez. · Mitaca Apr.–Juni',
+        varieties: 'Castillo, Colombia, Caturra, Bourbon',
+        cup: 'Runder und süßer: Karamell und Kakao, sanfte Säure, mittlerer bis kräftiger Körper, nussiges Finish.',
+        use: 'Basis für Espresso und Blends, wenn Körper und Süße wichtiger sind als Säure.',
+      },
+    ],
+    regionLabels: { altitude: 'Höhenlage', harvest: 'Ernte', varieties: 'Varietäten', cup: 'Tasse', use: 'Ideal für' },
+    alsoTitle: 'Weitere Herkünfte',
+    alsoText:
+      'Nariño (1.650–1.800 m ü. M., begrenzte Partien), Quindío, Tolima, Risaralda (Pereira) und die Sierra Nevada de Santa Marta (saisonal). Partien aus einer einzigen Region bieten wir an, wenn die Ernte es zulässt; andernfalls bieten wir eine Mischung auf Departamento-Ebene an und vermerken das im Angebotsblatt.',
+    gradesTitle: 'Qualitäten, die wir anbieten',
+    grades: [
+      {
+        title: 'Spezialitätenqualität – SCA 84+',
+        text: 'Excelso EP, Siebgröße 14+, von einem Q-Grader bewertet. Für Specialty-Röstereien und Importeure, die einen dokumentierten Score und ein gleichbleibendes Profil benötigen.',
+      },
+      {
+        title: 'Handelsqualität – SCA 80–83',
+        text: 'Excelso- / UGQ-Sortierung, Siebgröße 14+, saubere Tasse ohne Specialty-Anspruch. Für Blends, Private Label und Röstereien, die nach Preis kaufen; der Preis richtet sich nach dem Marktdifferenzial.',
+      },
+      {
+        title: 'Mikrolots – auf Anfrage',
+        text: 'Partien von einzelnen Farmen, Bourbon, Honey- oder Natural-Aufbereitung, in kleinen Mengen und auf Vorbestellung. Die Verfügbarkeit hängt von der Ernte ab.',
+      },
+    ],
+    pricingTitle: 'So kalkulieren wir unsere Preise',
+    pricingText:
+      'Containergeschäfte werden auf Basis des New Yorker „C“-Kontrakts plus eines am Vertragsdatum vereinbarten Differenzials kalkuliert, FOB Cartagena oder CIF Ihr Bestimmungshafen – so wird kolumbianischer Kaffee gehandelt. Kurierpartien von 10–60 kg werden pro Kilogramm berechnet, die Fracht als eigene Position, und unser Online-Versandrechner (kostenloses Konto) zeigt Ihnen sofort den Lieferpreis. Für einen 20\'-Container liefert der Rechner einen unverbindlichen Richtpreis FOB Cartagena; da sich der Markt täglich bewegt, steht der feste Preis in einem datierten Angebotsblatt.',
+  },
+
+  products: {
+    eyebrow: 'Großhandelskatalog',
+    title: 'Produkte',
+    lead:
+      'Rohkaffee ist unser Kerngeschäft; Röstkaffee und gemahlenen Kaffee liefern wir für Distributoren, Private Label und den kolumbianischen Markt. Für Kurierpartien gibt es eine sofortige Schätzung des Lieferpreises; Container werden auf Anfrage nach Herkunftspartie, Menge und Incoterm kalkuliert.',
+    items: [
+      {
+        id: 'green-specialty',
+        name: 'Spezialitäten-Rohkaffee – Excelso EP, SCA 84+',
+        description:
+          'Ungerösteter kolumbianischer Arabica, Excelso European Preparation, Siebgröße 14+, vollständig gewaschen, 84+ SCA-Punkte, von einem Q-Grader bewertet. Castillo, Colombia und Caturra aus Huila, Cauca, Valle del Cauca, Nariño und Quindío. Feuchtigkeit 10–12 %, Dichte 750–800 g/L. 70-kg-Säcke mit GrainPro-Innensack. Muster 250 g – 1 kg; Luftfrachtpartien bis 60 kg; Container ab 10 t.',
+        origin: 'Huila · Cauca · Valle del Cauca · Nariño · Quindío',
+        roastLevel: 'green',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_GREEN,
+        stock: 10000,
+        weight: 'Muster 250 g – 1 kg · Partien ab 10 kg · Container 10–19,25 t',
+        active: true,
+        flavorNotes: ['Panela', 'Mandarine', 'Karamell', 'Milchschokolade', 'Rote Früchte'],
+        altitude: '1.500–1.900+ m ü. M.',
+        process: 'Vollständig gewaschen',
+      },
+      {
+        id: 'green-commercial',
+        name: 'Rohkaffee in Handelsqualität – Excelso / UGQ, SCA 80–83',
+        description:
+          'Sauberer, einwandfreier kolumbianischer Rohkaffee für Blends, Private Label und Röstungen in großen Mengen. Excelso- oder UGQ-Sortierung, Siebgröße 14+, vollständig gewaschen, Feuchtigkeit 10–12 %. Container werden auf Basis des Marktdifferenzials kalkuliert, FOB Cartagena oder CIF; Kurierpartien auf Anfrage. Auf dem Seeweg vom halben Container (10 t, 143 Säcke) bis zu vollen 20\'-Containern (275 Säcke × 70 kg).',
+        origin: 'Mischung aus Departamentos – Huila, Cauca, Valle del Cauca, Quindío',
+        roastLevel: 'green',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_GREEN,
+        stock: 10000,
+        weight: 'Kurierpartien auf Anfrage · per Seefracht ab 10 t (halber 20\') · 19,25 t pro vollem 20\'-Container',
+        active: true,
+        flavorNotes: ['Karamell', 'Schokolade', 'Milde Zitrusnoten'],
+        altitude: '1.300–1.900 m ü. M.',
+        process: 'Vollständig gewaschen',
+      },
+      {
+        id: 'roasted-medium',
+        name: 'Röstkaffee – ganze Bohne oder gemahlen, mittlere Röstung',
+        description:
+          'Kolumbianischer Spezialitätenkaffee, von unserer Partnerrösterei in Bogotá auf Bestellung geröstet. Mittleres (Agtron 55–65) oder mittelstarkes (45–55) Profil; Karamell und Milchschokolade mit sanfter Säure roter Früchte. Ganze Bohne oder gemahlen für Filter / Espresso. Vakuumbeutel mit Einweg-Aromaventil, 250 g, 500 g und 1 kg; Großhandel 5–25 kg. Versand 1–5 Tage nach der Röstung. Private Label möglich.',
+        origin: 'Huila · Cauca · Valle del Cauca',
+        roastLevel: 'medium',
+        price: 0,
+        wholesaleDiscount: 0,
+        image: IMG_ROASTED,
+        stock: 500,
+        weight: '250 g · 500 g · 1 kg · Großhandel 5–25 kg',
+        active: true,
+        flavorNotes: ['Karamell', 'Milchschokolade', 'Rote Früchte'],
+        altitude: '1.500+ m ü. M.',
+        process: 'Gewaschen · auf Bestellung geröstet',
+      },
+    ],
+    roastedTitle: 'Röstkaffee – Spezifikation',
+    roastedLead: 'Auf Bestellung in Bogotá geröstet, damit er Kolumbien frisch verlässt. Die Profile lassen sich nach Ihren Vorgaben einstellen.',
+    roasted: [
+      { label: 'Röstgrad', value: 'Mittel (Agtron 55–65) als Standard · mittelstark (Agtron 45–55) oder heller auf Anfrage.' },
+      { label: 'Format', value: 'Ganze Bohne oder gemahlen (Filter, Espresso, French Press).' },
+      { label: 'Verpackung', value: 'Vakuumversiegelte Mehrschichtbeutel mit Einweg-Aromaventil: 250 g, 500 g, 1 kg. Großhandel 5–25 kg. Neutrale Beutel für Ihre eigene Marke.' },
+      { label: 'Frische', value: 'Pro Bestellung geröstet, Versand 1–5 Tage nach der Röstung. Am besten innerhalb von 60 Tagen nach der Röstung; versiegelt 12 Monate haltbar.' },
+      { label: 'Exportmenge', value: 'Bis zu 50 kg Röstkaffee pro Kuriersendung im FNC-Kleinmengenverfahren; größere Mengen als regulärer Export per Luft- oder Seefracht.' },
+      { label: 'EU-Zoll', value: 'Röstkaffee unterliegt in der EU einem Zollsatz von 7,5 % (MFN); 0 % mit der Ursprungserklärung nach dem Abkommen EU–Kolumbien, die wir ausstellen.' },
+    ],
+    privateLabel: {
+      title: 'Private Label und individuelle Profile',
+      text:
+        'Wir rösten und verpacken nach Ihren Vorgaben – Profil, Mahlgrad, Beutelgröße, bedruckt oder unbedruckt – und versenden unter Ihrer Marke. Die Mindestmengen hängen vom Beutelformat ab; fragen Sie nach der aktuellen Übersicht.',
+    },
+    domestic: {
+      title: 'Verkauf innerhalb Kolumbiens',
+      text:
+        'Wir liefern auch Röstkaffee und gemahlenen Kaffee an Cafés, Büros und Unternehmen in Kolumbien (250 g, 500 g, 1 kg und lose Ware), elektronisch in Pesos fakturiert. Schreiben Sie uns per WhatsApp nach Bogotá.',
+    },
+  },
+
+  export: {
+    eyebrow: 'Export & Logistik',
+    title: 'Vom Muster bis zum Container – so versenden wir',
+    lead:
+      'Die kolumbianische Seite übernehmen wir vollständig: Einkauf, Schälung und Qualitätskontrolle, die Kaffee-Exportakte bei der FNC, Zoll und Frachtbuchung. Sie nennen uns den Hafen und den Incoterm.',
+    sections: [
+      {
+        title: 'Sendungsgrößen',
+        rows: [
+          { label: 'Angebotsmuster', value: '250 g – 1 kg pro Profil, vakuumverpackt, per DHL Express. Für qualifizierte Käufer übernehmen wir das Angebotsmuster; Sie tragen die Kurierkosten.' },
+          { label: 'Kleine Partien per Kurier', value: 'Bis zu 60 kg Rohkaffee oder 50 kg Röstkaffee pro Sendung im FNC-Kleinmengenverfahren. DHL Express von Tür zu Tür, weltweit 5–8 Werktage, mit Sendungsverfolgung.' },
+          { label: 'Paletten', value: '100–1.000 kg als konsolidierte Luftfracht (DHL Global Forwarding) oder LCL-Seefracht. Exportakte, Transitschein und Kaffeeabgabe übernehmen wir.' },
+          { label: 'Container', value: '20\' FCL: 275 Säcke × 70 kg ≈ 19,25 t. Halber Container: 10 t = 143 Säcke. Gemischte Ladungen aus Roh- und Röstkaffee möglich. Mehrere Container im Rahmen eines Terminkontrakts.' },
+        ],
+      },
+      {
+        title: 'Konditionen und Routen',
+        rows: [
+          { label: 'Incoterms 2020', value: 'DAP Ihre Adresse (Kurierpartien, DHL Express) · EXW / FCA Bogotá (Kurier und Luftfracht) · FOB Cartagena oder Santa Marta · CFR / CIF Bestimmungshafen.' },
+          { label: 'Verladehäfen', value: 'Cartagena (Contecar) oder Santa Marta an der Karibik – Direktdienste nach Nordeuropa und ins Mittelmeer.' },
+          { label: 'Angebotene Zielhäfen', value: 'Unter anderem Göteborg, Hamburg, Antwerpen, Rotterdam, Valencia, Kapstadt, Walvis Bay, Ashdod, Jebel Ali und die US-Ostküste.' },
+          { label: 'Transitzeit', value: 'Kurier 5–8 Werktage. Seefracht 18–35 Tage, je nach Route und Umschlag.' },
+          { label: 'Vorlaufzeit', value: 'Kurierpartien: 1–2 Wochen ab Zahlung. Container: in der Regel 4–6 Wochen vom Vertrag bis zur Verladung (Schälung, Almacafé-Inspektion und Buchung).' },
+          { label: 'Zahlung', value: 'Muster und Kurierpartien: Vorauskasse per Banküberweisung. Container: Anzahlung bei Vertragsabschluss und Restzahlung gegen Dokumente oder ein bestätigtes Akkreditiv. Fakturierung in USD.' },
+          { label: 'Preisbildung', value: 'Container: NY „C“ plus ein vereinbartes Differenzial, bei Vertragsabschluss fixiert, mit einem unverbindlichen Richtpreis FOB Cartagena für einen 20\'-Container im Online-Rechner. Kurierpartien: pro Kilogramm, Fracht als eigene Position; der Online-Versandrechner zeigt sofort den Lieferpreis. Jedes Angebot hat seine eigene Gültigkeitsdauer.' },
+        ],
+      },
+    ],
+    docsTitle: 'Dokumente zu jeder Sendung',
+    docs: [
+      'Handelsrechnung (elektronisch, von der DIAN autorisiert) und Pack- / Gewichtsliste',
+      'Konnossement oder Luftfrachtbrief',
+      'ICO-Ursprungszeugnis; Ursprungserklärung EU–Kolumbien für Röstkaffee (0 % Zoll)',
+      'Partiedatenblatt und unterschriebenes Cupping-Protokoll eines Q-Graders (Specialty-Partien)',
+      'Almacafé-Qualitätszertifikat und FNC-Transitschein (Containersendungen)',
+      'Pflanzengesundheitszeugnis (ICA), wenn das Zielland es verlangt – die EU verlangt es für Rohkaffee nicht',
+      'Versicherungszertifikat bei CIF',
+    ],
+    complianceTitle: 'Konformität, klar erklärt',
+    compliance: [
+      {
+        title: 'Kolumbianische Exportakte',
+        text:
+          'Registrierter Kaffeeexporteur beim kolumbianischen Kaffeebauernverband (FNC) und bei der DIAN. Zu jedem Export gehören eine Verkaufsanmeldung im Portal Cafetero, ein FNC-Transitschein, die Gewichts- und Qualitätsinspektion durch Almacafé, die Zahlung der Kaffeeabgabe und die Ausfuhranmeldung beim Zoll (SAE). All das erledigen wir selbst; kein Spediteur kann das.',
+      },
+      {
+        title: 'EU-Einfuhr: Zölle und Pflanzengesundheit',
+        text:
+          'Rohkaffee wird für alle Ursprünge zollfrei (0 %) in die Europäische Union eingeführt, ohne dass ein Ursprungszeugnis erforderlich ist. Röstkaffee unterliegt 7,5 % Zoll, sofern nicht das Handelsabkommen EU–Kolumbien greift; deshalb stellen wir die Ursprungserklärung aus. Für Rohkaffee ist kein Pflanzengesundheitszeugnis erforderlich (er fällt nicht unter Anhang XI der Verordnung (EU) 2019/2072); wenn ein anderes Zielland eines verlangt, stellen wir es über das ICA aus.',
+      },
+      {
+        title: 'EUDR – Entwaldungsverordnung',
+        text:
+          'Die EU-Entwaldungsverordnung verlangt die Geolokalisierung jeder Parzelle (Polygone über 4 ha), Angaben zum Erzeugungszeitraum und eine Erklärung, dass nach dem 31.12.2020 keine Entwaldung stattgefunden hat; die Sorgfaltserklärung reicht der Importeur in TRACES ein. Wir bauen mit unseren Lieferanten Daten auf Parzellenebene für Partien mit EU-Bestimmung auf und geben in jedem Angebotsblatt an, ob eine Partie heute eine Geolokalisierung der Farm hat. Wir verkaufen Ihnen keine Partie als EUDR-konform, wenn die Daten nicht vorliegen.',
+      },
+      {
+        title: 'Lebensmittelsicherheit',
+        text:
+          'INVIMA-Gesundheitsregistrierung NSA-0006451-2019 für Röstprodukte. Feuchtigkeit auf 10–12 % kontrolliert und Wasseraktivität auf Anfrage gemessen, um das Ochratoxin-Risiko gering zu halten. Der Kaffee wird nie begast.',
+      },
+    ],
+  },
+
+  shipping: {
+    eyebrow: 'Versandrechner',
+    title: 'Was kostet kolumbianischer Kaffee bis vor Ihre Tür?',
+    lead:
+      'Wählen Sie Ihr Land, den Kaffee und die Menge. Sie erhalten sofort den Lieferpreis – Kaffee, Verpackung und DHL-Express-Fracht – in US-Dollar. Für Kurierpartien von 10 bis 60 kg Rohkaffee oder 10 bis 50 kg Röstkaffee sowie für 20\'-Container mit Rohkaffee FOB Cartagena. Kostenlos für registrierte Käufer.',
+    formTitle: 'Ihre Sendung',
+    gate: {
+      title: 'Erstellen Sie Ihr kostenloses Konto, um ein Angebot zu erhalten',
+      text: 'Der Rechner ist für registrierte Käufer. Registrieren Sie sich mit Ihrer E-Mail-Adresse – wir senden Ihnen einen Einmalcode, kein Passwort – und kalkulieren Sie, so oft Sie möchten.',
+      signUp: 'Kostenloses Konto erstellen',
+      signIn: 'Ich habe bereits ein Konto',
+      consent: 'Mit der Erstellung Ihres Kontos akzeptieren Sie unsere',
+      consentLink: 'Richtlinie zum Schutz personenbezogener Daten',
+      perksTitle: 'Mit Ihrem Konto',
+      perks: [
+        'Sofortiger Lieferpreis in US-Dollar: Kaffee, Verpackung und Fracht',
+        'Kurierpartien von 10–60 kg und 20\'-Container FOB Cartagena',
+        'Angebote speichern und die Proforma mit einem Klick anfordern',
+        'Ihr Angebotsverlauf unter „Mein Konto“',
+      ],
+      noAccount: 'Sie möchten sich lieber nicht registrieren? Schreiben Sie uns per WhatsApp oder E-Mail (unten), und wir erstellen Ihnen ein Angebot.',
+      profileTitle: 'Ein letzter Schritt: Ihre Angaben',
+      profileText: 'Ihr Konto ist eingerichtet. Um den Rechner freizuschalten, benötigen wir Ihren Namen und Ihre Einwilligung in unsere Richtlinie zum Schutz personenbezogener Daten (kolumbianisches Gesetz 1581). Das dauert weniger als eine Minute.',
+      profileCta: 'Meine Angaben vervollständigen',
+      checking: 'Ihre Sitzung wird geprüft …',
+    },
+    modeLabel: 'Sendungsart',
+    modes: {
+      courier: { title: 'Kurierpartie', detail: '10–60 kg Rohkaffee oder 10–50 kg Röstkaffee · DHL Express bis an Ihre Tür (DAP)' },
+      container: { title: '20\'-Container', detail: '100–275 Säcke à 70 kg · Rohkaffee · FOB Cartagena' },
+    },
+    container: {
+      coffeeLabel: 'Rohkaffee',
+      groups: { standard: 'Gewaschen und entkoffeiniert', process: 'Honey, Natural und fermentiert', variety: 'Seltene Varietäten' },
+      products: {
+        'washed-79': 'Gewaschen, Handelsqualität · SCA 79',
+        'washed-81-antioquia': 'Gewaschen · SCA 81 · Antioquia',
+        'washed-82': 'Gewaschen · SCA 82',
+        'washed-84-antioquia': 'Gewaschen · SCA 84 · Antioquia',
+        'decaf-84': 'Entkoffeiniert (gewaschen) · SCA 84',
+        'honey-yellow-85': 'Yellow Honey · SCA 85,5',
+        'fermented-85': 'Verlängerte Fermentation · SCA 85,5',
+        'honey-red-86': 'Red Honey · SCA 86',
+        'fermented-86': 'Verlängerte Fermentation · SCA 86+',
+        'honey-black-86': 'Black Honey · SCA 86,5',
+        'natural-86': 'Natural · SCA 86,5',
+        'natural-87': 'Natural · SCA 87',
+        'chiroso-87': 'Varietät Chiroso, gewaschen · SCA 87',
+        'pink-bourbon-87': 'Pink Bourbon, gewaschen · SCA 87,5',
+        'geisha-88': 'Geisha, Honey · SCA 88,5',
+        'wush-wush-89': 'Wush Wush, Natural · SCA 89',
+      },
+      bagsLabel: 'Menge (Säcke à 70 kg)',
+      bagsHint: 'Von {min} Säcken ({minKg} kg) bis zu {full} Säcken ({fullKg} kg), einem vollen 20\'-Container. Je voller der Container, desto niedriger der Preis pro Kilogramm.',
+      idle: 'Wählen Sie einen Kaffee und die Anzahl der Säcke, um den FOB-Preis zu sehen.',
+      belowMin: 'Containerpreise gelten ab {min} Säcken ({minKg} kg). Für kleinere Partien nutzen Sie die Kurieroption oder schreiben Sie uns.',
+      overLimit: 'Bei mehr als {full} Säcken benötigen Sie mehr als einen 20\'-Container – schreiben Sie uns für ein Angebot über mehrere Container.',
+      perKgLine: 'Preis pro Kilogramm, FOB Cartagena',
+      perLbLine: 'Preis pro Pfund (lb)',
+      totalLine: 'Gesamt FOB Cartagena · {bags} Säcke ({kg} kg)',
+      fullNote: 'Voller 20\'-Container: der beste Preis pro Kilogramm.',
+      partialNote: 'Teilcontainer. Füllen Sie ihn auf {full} Säcke auf, um den besten Preis pro Kilogramm zu erhalten – Sie können verschiedene Kaffees mischen, um ihn zu vervollständigen.',
+      disclaimer:
+        'Unverbindlicher Richtwert in US-Dollar, kein verbindliches Angebot. Rohkaffeepreise bewegen sich täglich mit dem Markt; Preis und Gültigkeit bestätigen wir in einem datierten Angebotsblatt.',
+      included: [
+        'Rohkaffee in 70-kg-Exportsäcken (hermetischer Innensack auf Anfrage)',
+        'Kolumbianische Exportakte: FNC-Kaffeeabgabe, Almacafé-Qualitätszertifikat, Ausfuhranmeldung und Ursprungszeugnis',
+        'Inlandstransport nach Cartagena, Beladung des Containers, Hafenumschlag und Konnossement',
+        'FOB Cartagena (Incoterms 2020): Der Kaffee wird in Cartagena an Bord geliefert',
+      ],
+      notIncluded: [
+        'Seefracht und Versicherung – CFR / CIF bis zu Ihrem Hafen kalkulieren wir auf Anfrage',
+        'Hafengebühren im Bestimmungshafen, Einfuhrzölle und Steuern',
+        'Registrierungen, die Ihr Land vom Importeur verlangt – siehe Einfuhrhinweise unten',
+      ],
+      paymentNote:
+        'Anzahlung bei Vertragsabschluss und Restzahlung gegen Dokumente oder ein bestätigtes Akkreditiv. In der Regel 4–6 Wochen vom Vertrag bis zur Verladung. Bei Partien mit EU-Bestimmung wird die EUDR-Geolokalisierung der Farmen im Angebot Partie für Partie bestätigt.',
+      whatsappQuote: 'Guten Tag, ich hätte gern ein Angebot für {bags} Säcke ({kg} kg) Rohkaffee, {product}, FOB Cartagena. Schätzung auf der Website: {total} ({perKg}/kg).',
+      whatsappNoPrice: 'Guten Tag, ich hätte gern ein Angebot für {bags} Säcke Rohkaffee, {product}, FOB Cartagena.',
+      emailSubject: 'Containerangebot – {bags} Säcke, {product}',
+    },
+    countryLabel: 'Zielland',
+    countryPlaceholder: 'Land auswählen …',
+    otherCountry: 'Anderes Land',
+    productLabel: 'Kaffee',
+    groups: { green: 'Rohkaffee', roasted: 'Röstkaffee' },
+    products: {
+      'green-basic': { name: 'Rohkaffee Basis', detail: 'Nariño · gewaschen · Cupping-Score 77,0 · siehe Geschmacksprofil', inText: 'Rohkaffee Basis' },
+      'green-excelso': { name: 'Rohkaffee Excelso', detail: 'Selecto: Huila, Cauca, Valle, Quindío · Excelso EP · SCA 84+', inText: 'Rohkaffee Excelso' },
+      'green-supremo': { name: 'Rohkaffee Supremo', detail: 'Huila · Acevedo, 1.580 m ü. M. · gewaschen · SCA 86+', inText: 'Rohkaffee Supremo' },
+      'roasted-castillo': { name: 'Röstkaffee Castillo', detail: 'Ganze Bohne · mittlere Röstung · 1-kg-Ventilbeutel, neutral', inText: 'Röstkaffee Castillo' },
+      'roasted-bourbon': { name: 'Röstkaffee Bourbon', detail: 'Bourbon-Varietäten · ganze Bohne · 1-kg-Ventilbeutel, neutral', inText: 'Röstkaffee Bourbon' },
+      'roasted-fermented': { name: 'Röstkaffee mit Spezialfermentation', detail: 'Kokos-, Erdbeer-, Tabak- und weitere Fermentationen · ganze Bohne · 1-kg-Ventilbeutel', inText: 'Röstkaffee mit Spezialfermentation' },
+    },
+    kgLabel: 'Menge (kg, netto)',
+    kgHint: 'Von {min} bis {max} kg für diesen Kaffee. Für Muster von 250 g – 1 kg schreiben Sie uns.',
+    resultTitle: 'Ihre Schätzung',
+    idle: 'Wählen Sie ein Zielland und eine Menge, um den Lieferpreis zu sehen.',
+    loading: 'Wird berechnet …',
+    error: 'Wir konnten die Schätzung gerade nicht berechnen. Schreiben Sie uns, und wir kalkulieren sie von Hand.',
+    belowMin: 'Die Mindestmenge pro Sendung beträgt {min} kg. Für Muster von 250 g – 1 kg schreiben Sie uns per WhatsApp.',
+    overLimit:
+      'Über {max} kg wird dieser Kaffee nicht mehr als Kurierpartie verschickt. Paletten per Luftfracht und Container per Seefracht kalkulieren wir im Einzelfall – schreiben Sie uns.',
+    otherCountryText:
+      'Wir versenden weltweit mit DHL Express. Nennen Sie uns Ihr Land und die Menge, und wir senden Ihnen ein genaues Angebot.',
+    coffeeLine: 'Kaffee · {kg} kg × {price}/kg',
+    prepLine: 'Verpackung und Exportvorbereitung',
+    freightLine: 'DHL-Express-Fracht, von Tür zu Tür',
+    totalLine: 'Gesamtpreis geliefert (DAP)',
+    perKgLine: 'Pro Kilogramm, geliefert',
+    boxesLine: 'Versand in {n} Karton(s), ca. {kg} kg brutto.',
+    disclaimer:
+      'Unverbindlicher Richtwert in US-Dollar, kein verbindliches Angebot. Unsere Preise werden in kolumbianischen Pesos festgelegt und zum offiziellen Tageskurs umgerechnet, und der DHL-Treibstoffzuschlag ändert sich wöchentlich; den endgültigen Preis bestätigen wir in einer schriftlichen Proforma-Rechnung.',
+    includedTitle: 'Was im Preis enthalten ist',
+    packing: {
+      green: 'Der Kaffee exportfertig verpackt: hermetische Innensäcke (Typ GrainPro) in Kartons mit bis zu 24 kg',
+      roasted: 'Der Kaffee exportfertig verpackt: 1-kg-Beutel mit Einweg-Entgasungsventil in Kartons mit bis zu 24 kg',
+    },
+    included: [
+      'Kolumbianische Exportpapiere im FNC-Kleinmengenverfahren, Handelsrechnung und Packliste',
+      'Fracht mit DHL Express Worldwide, von Tür zu Tür und mit Sendungsverfolgung – 5–8 Werktage',
+      'Geliefert benannter Ort (DAP): Der Kaffee kommt an Ihrer Adresse an',
+    ],
+    notIncludedTitle: 'Was nicht enthalten ist',
+    notIncluded: [
+      'Einfuhrzölle, Einfuhrumsatzsteuer und Verzollungsgebühren im Zielland – diese zahlt der Importeur',
+      'Der DHL-Zuschlag für abgelegene Gebiete, falls für Ihre Postleitzahl einer anfällt – wir prüfen das vor der Proforma',
+      'Registrierungen, die Ihr Land vom Importeur verlangt – siehe Einfuhrhinweise unten',
+      'Bankgebühren für Ihre Überweisung',
+    ],
+    paymentNote:
+      'Vorauskasse per Banküberweisung, Fakturierung in USD. Vorlaufzeit 1–2 Wochen ab Zahlung (für die Vereinigten Staaten, sobald die FDA-Registrierung bestätigt ist).',
+    notesTitle: 'Einfuhrhinweise nach Land',
+    notesLead: 'Was der Importeur bei der Ankunft benötigt. Wenn Sie oben ein Land auswählen, öffnet sich der passende Hinweis.',
+    countryNotes: {
+      US: 'Kaffee für die Vereinigten Staaten muss in einer bei der FDA registrierten Anlage geröstet und verpackt – bei Rohkaffee geschält und gelagert – werden. Wir versenden in die USA erst, wenn diese Registrierung für Ihre Partie bestätigt ist, und nennen Ihnen das Datum in der Proforma. Jede Sendung benötigt eine FDA Prior Notice (Vorabanmeldung), die wir mit Ihnen oder Ihrem Zollagenten veranlassen. Als Importeur müssen Sie das Foreign Supplier Verification Program (FSVP) einhalten und eine DUNS-Nummer haben. Röstkaffee in Einzelhandelsbeuteln benötigt englische Etiketten mit dem Nettogewicht in Unzen und Gramm. Der US-Einfuhrzoll auf Roh- und Röstkaffee beträgt 0 %.',
+      DE: 'Rohkaffee wird zollfrei (0 %) in die EU eingeführt; Röstkaffee unterliegt 7,5 % Zoll, sofern nicht die Ursprungserklärung EU–Kolumbien greift, die wir ausstellen. Die Einfuhrumsatzsteuer wird zum deutschen Satz erhoben und vom Importeur gezahlt. Für die gewerbliche Einfuhr benötigen Sie eine EORI-Nummer und für den Weiterverkauf eine Registrierung als Lebensmittelunternehmen bei der örtlichen Behörde.',
+      BE: 'Rohkaffee wird zollfrei (0 %) in die EU eingeführt; Röstkaffee unterliegt 7,5 % Zoll, sofern nicht die Ursprungserklärung EU–Kolumbien greift, die wir ausstellen. Die Einfuhrumsatzsteuer wird zum belgischen Satz erhoben und vom Importeur gezahlt. Für die gewerbliche Einfuhr benötigen Sie eine EORI-Nummer und für den Weiterverkauf eine Registrierung als Lebensmittelunternehmen bei der nationalen Lebensmittelbehörde.',
+      ES: 'Rohkaffee wird zollfrei (0 %) in die EU eingeführt; Röstkaffee unterliegt 7,5 % Zoll, sofern nicht die Ursprungserklärung EU–Kolumbien greift, die wir ausstellen. Spanien erhebt auf Kaffee eine Einfuhrumsatzsteuer von etwa 10 % und wendet eine amtliche Einfuhrkontrolle für Lebensmittel (AGRIM) an, die DHL abwickelt. Für den Weiterverkauf benötigen Sie eine EORI-Nummer und eine Registrierung als Lebensmittelunternehmen (RGSEAA).',
+      FR: 'Rohkaffee wird zollfrei (0 %) in die EU eingeführt; Röstkaffee unterliegt 7,5 % Zoll, sofern nicht die Ursprungserklärung EU–Kolumbien greift, die wir ausstellen. Die Einfuhrumsatzsteuer wird zum französischen Satz erhoben und vom Importeur gezahlt. Für die gewerbliche Einfuhr benötigen Sie eine EORI-Nummer und für den Weiterverkauf eine Registrierung als Lebensmittelunternehmen bei der örtlichen Behörde.',
+      NL: 'Rohkaffee wird zollfrei (0 %) in die EU eingeführt; Röstkaffee unterliegt 7,5 % Zoll, sofern nicht die Ursprungserklärung EU–Kolumbien greift, die wir ausstellen. Die Einfuhrumsatzsteuer wird zum niederländischen Satz erhoben und vom Importeur gezahlt. Für die gewerbliche Einfuhr benötigen Sie eine EORI-Nummer und für den Weiterverkauf eine Registrierung als Lebensmittelunternehmen bei der nationalen Lebensmittelbehörde.',
+      PL: 'Rohkaffee wird zollfrei (0 %) in die EU eingeführt; Röstkaffee unterliegt 7,5 % Zoll, sofern nicht die Ursprungserklärung EU–Kolumbien greift, die wir ausstellen. Die Einfuhrumsatzsteuer wird zum polnischen Satz erhoben und vom Importeur gezahlt. Für die gewerbliche Einfuhr benötigen Sie eine EORI-Nummer und für den Weiterverkauf eine Registrierung als Lebensmittelunternehmen bei der Sanitärbehörde.',
+      SE: 'Rohkaffee wird zollfrei (0 %) in die EU eingeführt; Röstkaffee unterliegt 7,5 % Zoll, sofern nicht die Ursprungserklärung EU–Kolumbien greift, die wir ausstellen. Die Einfuhrumsatzsteuer wird zum schwedischen Satz erhoben und vom Importeur gezahlt. Für die gewerbliche Einfuhr benötigen Sie eine EORI-Nummer und für den Weiterverkauf eine Registrierung als Lebensmittelunternehmen bei der örtlichen Behörde.',
+      AE: 'In den VAE benötigt der Importeur in der Regel eine Lebensmittelhandelslizenz und muss jedes Produkt und jedes Etikett bei der örtlichen Lebensmittelbehörde registrieren (in Abu Dhabi: ADAFSA), mit arabischer Kennzeichnung. Klären Sie das, bevor Sie bestellen.',
+    },
+    ctaTitle: 'Bereit zu bestellen oder benötigen Sie ein genaues Angebot?',
+    ctaText:
+      'Senden Sie diese Schätzung per WhatsApp oder E-Mail an David, und wir antworten innerhalb von 24 Stunden an Werktagen mit einer schriftlichen Proforma-Rechnung.',
+    whatsappQuote: 'Guten Tag, ich hätte gern ein Angebot für {kg} kg {product} inklusive Lieferung. Zielland: {country}. Schätzung auf der Website: {total} (DAP).',
+    whatsappNoPrice: 'Guten Tag, ich hätte gern ein Angebot für {kg} kg {product} inklusive Lieferung. Zielland: {country}.',
+    whatsappOther: 'Guten Tag, ich hätte gern ein Versandangebot für {kg} kg {product} in mein Land: ',
+    whatsappGeneric: 'Guten Tag, ich hätte gern ein Versandangebot für kolumbianischen Kaffee.',
+    emailSubject: 'Versandangebot – {kg} kg {product}',
+  },
+
+  profiles: {
+    eyebrow: 'Rohkaffee · Geschmacksprofile',
+    title: 'Geschmacksprofile der Kaffees, die wir anbieten',
+    lead:
+      'Vier kolumbianische Rohkaffees, jeweils mit Geschmacksprofil, Cupping-Score, Herkunft und Aufbereitung. Alle sind Rohkaffee – ungeröstete Bohnen, bereit für Ihre Röstung.',
+    updated: 'Aktualisiert am 31. Oktober 2026',
+    compareTitle: 'Auf einen Blick',
+    compareLabels: { origin: 'Herkunft', score: 'Cupping-Score', acidity: 'Säure', process: 'Aufbereitung', presentation: 'Lieferform', estimator: 'Im Versandrechner' },
+    presentation: 'Rohkaffee (ungeröstet)',
+    scoreLabel: 'Cupping-Score',
+    viewProfile: 'Vollständiges Profil ansehen',
+    radarTitle: 'Cupping-Attribute',
+    radarShapeNote: 'Profilform laut technischem Datenblatt der Partie; die Punktwerte je Attribut werden nicht veröffentlicht.',
+    axes: ['Duft & Aroma', 'Geschmack', 'Nachgeschmack', 'Säure', 'Körper', 'Gleichmäßigkeit', 'Balance', 'Saubere Tasse', 'Süße', 'Gesamteindruck'],
+    attributesTitle: 'Cupping-Protokoll',
+    attributeCols: ['Attribut', 'Punkte', 'Notizen des Cuppers'],
+    totalLabel: 'Cupping-Score',
+    totalNote: 'Summe der zehn Attribute',
+    inEstimator: 'Im Versandrechner als „{name}“',
+    onRequest: 'Angebot auf Anfrage',
+    estimatorCta: 'Sendung kalkulieren',
+    quoteCta: 'Angebot anfordern',
+    ctaTitle: 'Verkosten Sie selbst',
+    ctaText:
+      'Wir senden Angebotsmuster von 250–500 g pro Profil per DHL Express. Teilen Sie uns mit, welche Kaffees Sie verkosten möchten und wohin wir sie schicken sollen.',
+    whatsappMessage: 'Guten Tag, ich hätte gern Muster Ihrer Rohkaffees. Diese Profile interessieren mich: ',
+    whatsappProfile: 'Guten Tag, ich hätte gern ein Angebot für Ihren Rohkaffee {name}.',
+    emailSubject: 'Rohkaffeemuster – Geschmacksprofile',
+    greenCallout: {
+      title: 'Geschmacksprofile unserer aktuellen Kaffees',
+      text: 'Huila 86+, Selecto 84+, Tolima und eine Partie aus Nariño: Aromanoten, Cupping-Scores, Herkunft und Aufbereitung im direkten Vergleich.',
+      cta: 'Geschmacksprofile ansehen',
+    },
+    items: [
+      {
+        id: 'huila',
+        name: 'Huila',
+        grade: 'Supremo',
+        subtitle: 'Acevedo, Huila · 1.580 m ü. M.',
+        score: '86+',
+        notes: ['Zitrus', 'Panela', 'Floral', 'Aromatisch'],
+        summary:
+          'Eine zitrische, aromatische Tasse mit Panela-Süße und floralen Noten. Sauber, gleichmäßig, ausgewogen und süß – diese vier Attribute erreichen das obere Ende der Skala.',
+        facts: ['Rohkaffee · gewaschen', '48 h Fermentation in der Kirsche und 48 h nach dem Entpulpen', '10 bis 12 Tage getrocknet'],
+        origin: 'Acevedo, Huila',
+        acidity: 'Zitrisch',
+        process: 'Gewaschen',
+        specsTitle: 'Herkunft und Aufbereitung',
+        specs: [
+          { label: 'Departamento', value: 'Huila' },
+          { label: 'Gemeinde', value: 'Acevedo' },
+          { label: 'Höhenlage', value: '1.580 m ü. M.' },
+          { label: 'Lieferform', value: 'Rohkaffee (ungeröstet)' },
+          { label: 'Aufbereitung', value: 'Gewaschen' },
+          { label: 'Fermentation in der Kirsche', value: '48 Stunden' },
+          { label: 'Fermentation nach dem Entpulpen', value: '48 Stunden' },
+          { label: 'Trocknung', value: '10 bis 12 Tage' },
+        ],
+        estimator: 'Rohkaffee Supremo',
+      },
+      {
+        id: 'selecto',
+        name: 'Selecto',
+        grade: 'Excelso EP',
+        subtitle: 'Huila · Cauca · Valle del Cauca · Quindío',
+        score: '84+',
+        notes: ['Zuckerrohr', 'Panela', 'Mandarine', 'Orange', 'Cremiger Körper', 'Aromatisch', 'Floral'],
+        summary:
+          'Eine süße, aromatische Tasse: Zuckerrohr und Panela, Zitrussäure mit Noten von Mandarine oder Orange, cremiger Körper und florale Noten. Sauber, ausgewogen und lang anhaltend. Bewertet von einem Q-Grader.',
+        facts: ['Rohkaffee · überwiegend Castillo', 'Bohnen über Siebgröße 14', 'Elektronische Defektsortierung'],
+        origin: 'Huila, Cauca, Valle del Cauca und Quindío',
+        acidity: 'Zitrisch, mit Noten von Mandarine oder Orange',
+        process: 'Gewaschen',
+        specsTitle: 'Herkunft und Spezifikation',
+        specs: [
+          { label: 'Herkunft', value: 'Huila, Cauca, Valle del Cauca und Quindío, je nach Ernte gemischt' },
+          { label: 'Varietät', value: 'Überwiegend Castillo' },
+          { label: 'Lieferform', value: 'Rohkaffee (ungeröstet), 100 % Arabica' },
+          { label: 'Bohnengröße', value: 'Über Siebgröße 14' },
+          { label: 'Sortierung', value: 'Maschinelle Siebung und elektronische Defektsortierung' },
+          { label: 'Feuchtigkeit', value: 'Vor jeder Partie geprüft' },
+          { label: 'Bewertung', value: 'Über 84 SCA-Punkte, bewertet von einem Q-Grader' },
+        ],
+        estimator: 'Rohkaffee Excelso',
+      },
+      {
+        id: 'tolima',
+        name: 'Tolima',
+        grade: 'UGQ-Exportqualität',
+        subtitle: 'Tolima · gewaschener Castillo',
+        score: '81,82',
+        notes: ['Kakao', 'Panela', 'Zuckerrohr', 'Schokolade', 'Karamell', 'Mittlere Zitrussäure'],
+        summary:
+          'Eine geradlinige, süße Tasse: Kakao, Panela, Zuckerrohr, Schokolade und Karamell, mit mittlerer Zitrussäure. Eher einfach als komplex – gemacht für Blends oder einen Espresso für jeden Tag.',
+        facts: ['Rohkaffee · UGQ-Exportqualität', 'Feuchtigkeit 10 bis 12 %'],
+        origin: 'Tolima',
+        acidity: 'Mittel, zitrisch',
+        process: 'Gewaschen',
+        specsTitle: 'Herkunft und Aufbereitung',
+        specs: [
+          { label: 'Departamento', value: 'Tolima' },
+          { label: 'Varietät', value: 'Castillo' },
+          { label: 'Aufbereitung', value: 'Gewaschen' },
+          { label: 'Lieferform', value: 'Rohkaffee (ungeröstet), geschält und exportfertig' },
+          { label: 'Qualität', value: 'UGQ-Exportqualität' },
+          { label: 'Feuchtigkeit', value: '10 bis 12 %' },
+        ],
+      },
+      {
+        id: 'basico',
+        name: 'Basis',
+        grade: 'Partie aus Nariño',
+        subtitle: 'Nariño · 1.650–1.800 m ü. M.',
+        score: '77,0',
+        notes: ['Mandarine', 'Rosenhonig', 'Jasmin', 'Zuckerrohr', 'Rote Früchte', 'Feigen', 'Zitronengras', 'Grüne Traube', 'Karamell'],
+        summary:
+          'Mandarine, Rosenhonig und Jasmin im Aroma; Zuckerrohr, dezente rote Früchte, Feigen und Zitronengras in der Tasse. Saftige Säure wie von grünen Trauben; runder, leichter Körper mit honigartiger Textur und einem Finish von Karamell.',
+        facts: ['Rohkaffee · Castillo, Colombia und Caturra · gewaschen', 'Verkostet am 10. September 2026'],
+        origin: 'Nariño',
+        acidity: 'Saftig, wie grüne Trauben',
+        process: 'Gewaschen',
+        specsTitle: 'Herkunft und Aufbereitung',
+        specs: [
+          { label: 'Höhenlage', value: '1.650 bis 1.800 m ü. M.' },
+          { label: 'Varietäten', value: 'Castillo, Colombia und Caturra' },
+          { label: 'Lieferform', value: 'Rohkaffee (ungeröstet)' },
+          { label: 'Aufbereitung', value: 'Gewaschen' },
+          { label: 'Cupping-Datum', value: '10. September 2026' },
+        ],
+        attributes: [
+          { label: 'Duft & Aroma', score: '6,5', note: 'Mandarine, Rosenhonig in geringer Intensität, dezent florale Jasminnote, Zuckerrohr' },
+          { label: 'Geschmack', score: '7,0', note: 'Zuckerrohr, angenehme und dezente rote Früchte, Feigen, Zitronengras' },
+          { label: 'Nachgeschmack', score: '7,0', note: 'angenehm, Karamell' },
+          { label: 'Säure', score: '6,5', note: 'saftig, wie grüne Trauben' },
+          { label: 'Körper', score: '7,0', note: 'rund und leicht, mit leicht honigartigem Mundgefühl' },
+          { label: 'Gleichmäßigkeit', score: '10', note: 'OK' },
+          { label: 'Balance', score: '10', note: 'OK' },
+          { label: 'Saubere Tasse', score: '10', note: 'OK' },
+          { label: 'Süße', score: '6,0', note: 'Zuckerrohr' },
+          { label: 'Gesamteindruck', score: '7,0', note: 'ausgewogener Kaffee mit sehr gutem Körper, süß und mit sehr stabiler Säure' },
+        ],
+        estimator: 'Rohkaffee Basis',
+      },
+    ],
+  },
+
+  account: {
+    title: 'Mein Konto',
+    lead: 'Ihre gespeicherten Angebote und Ihre Angaben. Melden Sie sich mit Ihrer E-Mail-Adresse an: Wir senden Ihnen einen Einmalcode, ein Passwort ist nicht nötig.',
+    loading: 'Ihr Konto wird geladen …',
+    unavailable: 'Kundenkonten sind derzeit nicht verfügbar. Schreiben Sie uns per WhatsApp oder E-Mail, und wir helfen Ihnen weiter.',
+    signedOutTitle: 'Melden Sie sich an, um Ihre Angebote zu sehen',
+    signedOutText: 'Mit Ihrem Konto nutzen Sie den Versandrechner, speichern Ihre Angebote und fordern die Proforma mit einem Klick an. Jeder kann mit seiner E-Mail-Adresse ein Konto erstellen.',
+    signInCta: 'Mit E-Mail-Adresse anmelden',
+    profileTitle: 'Ihre Angaben',
+    profileLead: 'Wir verwenden sie, um Ihre Proforma zu erstellen und Sie zu Ihren Angeboten zu kontaktieren.',
+    fields: { name: 'Vollständiger Name', company: 'Unternehmen', country: 'Land', phone: 'WhatsApp / Telefon' },
+    optional: 'optional',
+    consentLabel: 'Ich willige ein, dass Entre Cafés Colombianos meine personenbezogenen Daten zu den in der {policy} beschriebenen Zwecken verarbeitet.',
+    consentLink: 'Datenschutzrichtlinie',
+    policyUpdated: 'Unsere Datenschutzrichtlinie wurde aktualisiert. Bitte lesen Sie sie und bestätigen Sie Ihre Einwilligung, um fortzufahren.',
+    save: 'Meine Angaben speichern',
+    saving: 'Wird gespeichert …',
+    saveError: 'Wir konnten Ihre Angaben nicht speichern. Bitte versuchen Sie es erneut.',
+    nameRequired: 'Bitte geben Sie Ihren vollständigen Namen ein.',
+    consentRequired: 'Für die Erstellung Ihres Kontos ist Ihre Einwilligung erforderlich.',
+    hello: 'Guten Tag, {name}',
+    editProfile: 'Meine Angaben bearbeiten',
+    cancel: 'Abbrechen',
+    quotesTitle: 'Meine Angebote',
+    quotesEmpty: 'Sie haben noch keine Angebote gespeichert.',
+    newQuote: 'Neue Schätzung erstellen',
+    cols: { date: 'Datum', coffee: 'Kaffee', quantity: 'Menge', destination: 'Ziel', total: 'Gesamt', status: 'Status' },
+    statuses: { new: 'Eingegangen', proforma_sent: 'Proforma gesendet', won: 'Bestätigt', lost: 'Geschlossen' },
+    bags: '{n} Säcke',
+    fob: 'FOB Cartagena',
+    signOut: 'Abmelden',
+    deleteTitle: 'Mein Konto löschen',
+    deleteText: 'Löscht Ihr Konto, Ihre Angaben und Ihre gespeicherten Angebote. Bereits ausgestellte Proforma-Rechnungen und Rechnungen werden gemäß den gesetzlichen Vorgaben aufbewahrt.',
+    deleteCta: 'Mein Konto und meine Daten löschen',
+    deleteConfirm: 'Damit werden Ihr Konto und alle gespeicherten Angebote gelöscht. Möchten Sie fortfahren?',
+    deleted: 'Ihr Konto und Ihre Daten wurden gelöscht.',
+  },
+  admin: {
+    title: 'Angebotsanfragen',
+    forbidden: 'Diese Seite ist nur für den Administrator bestimmt.',
+    refresh: 'Aktualisieren',
+    exportCsv: 'CSV herunterladen',
+    filterAll: 'Alle',
+    empty: 'Noch keine Angebotsanfragen.',
+    count: '{n} Anfragen',
+    customer: 'Kunde',
+    note: 'Notiz',
+  },
+  saveQuote: {
+    save: 'Speichern und Proforma anfordern',
+    saving: 'Wird gespeichert …',
+    saved: 'Gespeichert. Wir senden Ihnen die Proforma.',
+    viewInAccount: 'Unter „Mein Konto“ ansehen',
+    error: 'Das Speichern ist fehlgeschlagen. Bitte versuchen Sie es erneut.',
+    tooMany: 'Sie haben das Tageslimit für gespeicherte Angebote erreicht. Schreiben Sie uns, und wir helfen Ihnen weiter.',
+  },
+  privacy: {
+    translationNote: 'Dieser deutsche Text ist eine Übersetzung, die nur der leichteren Verständlichkeit dient; bei Abweichungen ist die spanische Fassung dieser Richtlinie maßgeblich.',
+    eyebrow: 'Rechtliches',
+    title: 'Richtlinie zum Schutz personenbezogener Daten',
+    lead: 'Wie Entre Cafés Colombianos Ihre personenbezogenen Daten nach dem kolumbianischen Gesetz 1581 von 2012 und seinen Durchführungsbestimmungen erhebt, verwendet und schützt.',
+    updated: 'In Kraft seit dem 31. Oktober 2026',
+    sections: [
+      {
+        title: '1. Verantwortlicher',
+        paragraphs: [
+          'Entre Cafés Colombianos, ein von David Leonardo Ramírez Contreras betriebenes Kaffeeexportunternehmen mit Sitz in Bogotá D.C., Kolumbien.',
+          'Kontakt für alle Fragen zu Ihren Daten: cafecolombiano889@proton.me · WhatsApp +57 315 067 0591.',
+        ],
+      },
+      {
+        title: '2. Welche Daten wir verarbeiten',
+        paragraphs: ['Nur die Daten, die wir benötigen, um Ihnen Kaffee anzubieten und zu verkaufen:'],
+        items: [
+          'E-Mail-Adresse, mit der Sie sich per Einmalcode anmelden.',
+          'Vollständiger Name, Unternehmen, Land und, falls Sie sie angeben, Ihre WhatsApp- oder Telefonnummer.',
+          'Die Angebote, die Sie speichern: Kaffee, Menge, Ziel und geschätzter Preis.',
+          'Was Sie uns per WhatsApp oder E-Mail senden, wenn Sie ein Angebot oder Muster anfordern.',
+        ],
+      },
+      {
+        title: '3. Zwecke',
+        paragraphs: ['Wir verwenden Ihre Daten, um:'],
+        items: [
+          'Ihr Kundenkonto zu erstellen und zu verwalten.',
+          'Ihre Angebotsanfragen zu beantworten und Proforma-Rechnungen, Rechnungen und Versanddokumente zu erstellen.',
+          'Sie zu Ihren Angeboten, Bestellungen und Mustern zu kontaktieren.',
+          'Unsere gesetzlichen, steuerlichen und zollrechtlichen Pflichten als Exporteur zu erfüllen.',
+        ],
+      },
+      {
+        title: '4. Einwilligung',
+        paragraphs: [
+          'Wenn Sie Ihr Konto erstellen, bitten wir Sie um Ihre vorherige, ausdrückliche und informierte Einwilligung, Ihre Daten zu diesen Zwecken zu verarbeiten, und dokumentieren, wann Sie sie erteilt haben. Sie können sie jederzeit widerrufen.',
+        ],
+      },
+      {
+        title: '5. Dienstleister (Auftragsverarbeiter) und internationale Übermittlung',
+        paragraphs: [
+          'Für den Betrieb der Website und der Kundenkonten nutzen wir Dienstleister, die Daten in unserem Auftrag verarbeiten, mit Servern in den Vereinigten Staaten: Clerk (Anmeldung), Neon (Datenbank) und Vercel (Website-Hosting). Sie verarbeiten nur die Daten, die zur Erbringung ihres Dienstes erforderlich sind. Mit Ihrer Einwilligung in diese Richtlinie akzeptieren Sie diese Übermittlung.',
+        ],
+      },
+      {
+        title: '6. Ihre Rechte',
+        paragraphs: ['Als betroffene Person können Sie:'],
+        items: [
+          'Ihre personenbezogenen Daten einsehen, aktualisieren und berichtigen.',
+          'Einen Nachweis über die von Ihnen erteilte Einwilligung verlangen.',
+          'Darüber informiert werden, wie Ihre Daten verwendet wurden.',
+          'Ihre Einwilligung widerrufen und die Löschung Ihrer Daten verlangen, sofern keine gesetzliche Pflicht zu ihrer Aufbewahrung besteht.',
+          'Unentgeltlich auf Ihre Daten zugreifen.',
+          'Beschwerde bei der Aufsichtsbehörde für Industrie und Handel (Superintendencia de Industria y Comercio, SIC) einlegen, nachdem Sie sich zuvor an uns gewandt haben.',
+        ],
+      },
+      {
+        title: '7. So üben Sie Ihre Rechte aus',
+        paragraphs: [
+          'Schreiben Sie an cafecolombiano889@proton.me und nennen Sie Ihren Namen, die E-Mail-Adresse Ihres Kontos und Ihr Anliegen. Anfragen beantworten wir innerhalb von 10 Arbeitstagen (verlängerbar um 5), Beanstandungen innerhalb von 15 Arbeitstagen (verlängerbar um 8), wie in den Artikeln 14 und 15 des Gesetzes 1581 von 2012 festgelegt.',
+          'Sie können Ihr Konto und Ihre gespeicherten Angebote auch selbst unter „Mein Konto“ löschen.',
+        ],
+      },
+      {
+        title: '8. Sicherheit und Aufbewahrung',
+        paragraphs: [
+          'Die Anmeldung erfolgt über Einmalcodes, die an Ihre E-Mail-Adresse gesendet werden; wir fragen nie nach Passwörtern und speichern keine. Wir bewahren Ihre Daten auf, solange Ihr Konto aktiv ist. Wenn Sie es löschen, löschen wir Ihre Angaben und gespeicherten Angebote; bereits ausgestellte Proforma-Rechnungen und Rechnungen werden so lange aufbewahrt, wie es das Handels- und Steuerrecht verlangt.',
+        ],
+      },
+      {
+        title: '9. Cookies',
+        paragraphs: [
+          'Die Website verwendet nur die Cookies, die nötig sind, um Ihre Sitzung nach der Anmeldung aufrechtzuerhalten. Wir verwenden keine Werbe-Cookies.',
+        ],
+      },
+      {
+        title: '10. Änderungen dieser Richtlinie',
+        paragraphs: [
+          'Ändert sich diese Richtlinie in einer Weise, die die Verwendung Ihrer Daten betrifft, veröffentlichen wir die neue Fassung hier und bitten Sie bei Ihrer nächsten Anmeldung erneut um Ihre Einwilligung.',
+        ],
+      },
+    ],
+  },
+
+  faq: {
+    eyebrow: 'Fragen von Käufern',
+    title: 'Häufige Fragen',
+    lead: 'Kurze, sachliche Antworten. Wenn Ihre Frage nicht dabei ist, schreiben Sie uns – wir antworten auf Englisch oder Spanisch innerhalb von 24 Stunden an Werktagen.',
+    items: [
+      {
+        q: 'Welchen Kaffee exportieren Sie?',
+        a: 'Kolumbianischen Arabica-Rohkaffee: Spezialitätenqualität (Excelso EP, Siebgröße 14+, 84+ SCA-Punkte, von einem Q-Grader bewertet) und Handelsqualität (SCA 80–83) für Blends. Außerdem liefern wir Röstkaffee als ganze Bohne und gemahlen, auch als Private Label, auf Bestellung in Bogotá geröstet.',
+      },
+      {
+        q: 'Wie hoch ist die Mindestbestellmenge?',
+        a: 'Für Muster (250 g – 1 kg) gibt es kein Minimum. Kurierpartien reichen von 10 kg bis zu 60 kg Rohkaffee oder 50 kg Röstkaffee. Bei Seefracht arbeiten wir vom halben Container (10 t, 143 Säcke à 70 kg) bis zum vollen 20\'-Container (275 Säcke, ca. 19,25 t) sowie mit Verträgen über mehrere Container.',
+      },
+      {
+        q: 'Senden Sie Muster, und was kosten sie?',
+        a: 'Ja. Angebotsmuster von 250–500 g pro Profil werden per DHL Express verschickt. Für qualifizierte Käufer übernehmen wir den Kaffee, und Sie tragen die Kurierkosten; größere Musterpartien werden pro Kilogramm berechnet, die Fracht als eigene Position. Bevor ein Container verladen wird, senden wir ein Vorverschiffungsmuster aus der tatsächlichen Partie.',
+      },
+      {
+        q: 'Wie legen Sie Ihre Preise fest?',
+        a: 'Container werden auf Basis des New Yorker „C“-Kontrakts plus eines am Vertragsdatum vereinbarten Differenzials kalkuliert, FOB Cartagena oder CIF Ihr Bestimmungshafen. Unser Online-Rechner zeigt einen unverbindlichen Richtpreis FOB Cartagena für einen 20\'-Container; da sich der Markt täglich bewegt, steht der feste Preis in einem datierten Angebotsblatt mit eigener Gültigkeit. Kurierpartien (10–60 kg Rohkaffee oder 10–50 kg Röstkaffee) werden pro Kilogramm berechnet, und mit einem kostenlosen Konto sehen Sie unter https://www.entrecafescolombianos.coffee/de/versandrechner sofort eine Schätzung des Lieferpreises (DAP).',
+      },
+      {
+        q: 'Mit welchen Incoterms arbeiten Sie?',
+        a: 'DAP Ihre Adresse für Kurierpartien (DHL Express, von Tür zu Tür), EXW und FCA Bogotá für Kurier- und Luftfracht auf Anfrage, FOB Cartagena oder Santa Marta für Seefracht sowie CFR oder CIF bis zu Ihrem Hafen, wenn wir Fracht und Versicherung übernehmen sollen.',
+      },
+      {
+        q: 'Von welchen Häfen aus und wohin versenden Sie?',
+        a: 'Wir verladen in Cartagena oder Santa Marta an der Karibikküste. Angebote haben wir bereits für Göteborg, Hamburg, Antwerpen, Rotterdam, Valencia, Kapstadt, Walvis Bay, Ashdod, Jebel Ali und die US-Ostküste erstellt; jeder Hafen mit einer Verbindung ab Cartagena kann angeboten werden.',
+      },
+      {
+        q: 'Wie lange dauert die Lieferung?',
+        a: 'Kuriersendungen kommen weltweit in 5–8 Werktagen an. Seefracht dauert je nach Route 18–35 Tage. Für einen Container rechnen Sie mit 4–6 Wochen vom Vertrag bis zur Verladung: Schälung, Almacafé-Inspektion und Schiffsbuchung.',
+      },
+      {
+        q: 'Welche Dokumente liegen der Sendung bei?',
+        a: 'Handelsrechnung, Packliste, Konnossement oder Luftfrachtbrief, ICO-Ursprungszeugnis, das Partiedatenblatt und das Cupping-Protokoll des Q-Graders, bei Containern das Almacafé-Qualitätszertifikat, bei CIF ein Versicherungszertifikat sowie ein Pflanzengesundheitszeugnis, wenn das Zielland eines verlangt.',
+      },
+      {
+        q: 'Brauche ich ein Pflanzengesundheitszeugnis, um Rohkaffee in die EU einzuführen?',
+        a: 'Nein. Rohkaffeebohnen fallen nicht unter Anhang XI der Verordnung (EU) 2019/2072, daher verlangt die EU weder ein Pflanzengesundheitszeugnis noch einen Eintrag in TRACES. Andere Zielländer können eines verlangen; in diesem Fall beschaffen wir es beim ICA.',
+      },
+      {
+        q: 'Ist Ihr Kaffee EUDR-konform?',
+        a: 'Die EUDR verlangt die Geolokalisierung der Parzellen, Angaben zum Erzeugungszeitraum und eine Erklärung über entwaldungsfreie Erzeugung, die der Importeur in TRACES einreicht. Wir bauen mit unseren Lieferanten Daten auf Parzellenebene auf und geben in jedem Angebotsblatt an, ob eine Partie eine Geolokalisierung der Farm hat. Wir bezeichnen keine Partie als EUDR-konform, wenn die Daten nicht vorliegen.',
+      },
+      {
+        q: 'Welchen Zoll zahlt kolumbianischer Kaffee in der EU?',
+        a: 'Rohkaffee: 0 %, für alle Ursprünge, kein Ursprungsnachweis erforderlich. Röstkaffee: 7,5 % (MFN) oder 0 % mit der Ursprungserklärung EU–Kolumbien, die wir ausstellen.',
+      },
+      {
+        q: 'Können Sie unter meiner Marke rösten und verpacken?',
+        a: 'Ja. Unsere Partnerrösterei in Bogotá röstet nach Ihrem Profil und verpackt in Beutel zu 250 g, 500 g, 1 kg oder in Großhandelsgebinde, bedruckt oder unbedruckt. Röstkaffee wird 1–5 Tage nach der Röstung versandt.',
+      },
+      {
+        q: 'Verkaufen Sie auch innerhalb Kolumbiens?',
+        a: 'Ja. Röstkaffee und gemahlenen Kaffee für Cafés, Büros und Unternehmen, in 250 g, 500 g, 1 kg und als lose Ware, elektronisch in kolumbianischen Pesos fakturiert. Wir sitzen in Bogotá.',
+      },
+      {
+        q: 'Welche Zahlungsbedingungen gelten?',
+        a: 'Muster und Kurierpartien werden per Banküberweisung im Voraus bezahlt. Für Container vereinbaren wir eine Anzahlung bei Vertragsabschluss und die Restzahlung gegen Dokumente oder ein bestätigtes Akkreditiv. Die Rechnungen werden in US-Dollar ausgestellt.',
+      },
+      {
+        q: 'Wer sind Sie rechtlich gesehen?',
+        a: 'Entre Cafés Colombianos ist ein Kaffeeexportunternehmen, das 2026 bei der Handelskammer Bogotá eingetragen wurde, registrierter Exporteur beim kolumbianischen Kaffeebauernverband und von der DIAN zugelassener Aussteller elektronischer Rechnungen. Geführt wird es von seinem Gründer, David Leonardo Ramírez Contreras.',
+      },
+    ],
+  },
+
+  about: {
+    imageAlt: 'Kaffeeplantage bei Sonnenaufgang in der kolumbianischen Kordillere',
+    title: 'Über Entre Cafés Colombianos',
+    story: [
+      'Entre Cafés Colombianos ist ein kolumbianischer Kaffeeexporteur mit Sitz in Bogotá, 2026 von David Leonardo Ramírez Contreras gegründet. Wir kaufen bei Kaffeebauernfamilien und qualitätsorientierten Lieferanten im Süden und Westen des Landes – Huila, Cauca, Valle del Cauca, Nariño und Quindío – und exportieren Roh- und Röstkaffee direkt an Röstereien, Importeure und Distributoren.',
+      'Wir haben bewusst klein angefangen: Die ersten Sendungen waren Röstkaffee per Kurier nach Schweden. Dabei haben wir die vollständige kolumbianische Exportakte kennengelernt – FNC-Verkaufsanmeldung, Transitschein, Kaffeeabgabe, Almacafé-Inspektion, Zoll –, und zwar auf eigene Rechnung statt über die Lizenz eines Dritten. Genau diese Akte führen wir heute für jede Partie, vom 45-kg-Kurierkarton bis zum Container.',
+      'Was wir dem Markt bieten, sind ehrliche Mengen und ehrliche Papiere: halbe Container und gemischte Ladungen, mit denen sich die großen Handelshäuser nicht abgeben, ein dokumentierter Cupping-Score und eine klare Antwort zu den EU-Vorschriften – Zölle, Pflanzengesundheit und EUDR –, bevor Sie sich festlegen.',
+    ],
+    factsTitle: 'Unternehmensdaten',
+    facts: [
+      { label: 'Rechtsform', value: 'Einzelunternehmen (persona natural), eingetragen bei der Handelskammer Bogotá, Juni 2026. Tätigkeit: Großhandel mit Lebensmitteln (CIIU 4631).' },
+      { label: 'Exporteurregistrierung', value: 'Kolumbianischer Kaffeebauernverband (FNC). Von der DIAN zur elektronischen Rechnungsstellung zugelassen.' },
+      { label: 'Gesundheitsregistrierung', value: 'INVIMA NSA-0006451-2019 (Röstprodukte).' },
+      { label: 'Standort', value: 'Bogotá D.C., Kolumbien · GMT-5.' },
+      { label: 'Sprachen', value: 'Englisch und Spanisch.' },
+      { label: 'Gründer', value: 'David Leonardo Ramírez Contreras – Exportleiter.' },
+    ],
+    marketsTitle: 'Wohin wir liefern und wofür wir Angebote erstellen',
+    marketsText:
+      'Unser erster Exportmarkt war Schweden. Seitdem haben wir Käufern in Europa, im Nahen Osten, in Afrika und auf dem amerikanischen Kontinent Roh- und Röstkaffee angeboten, von Kurierpartien bis zu Containern.',
+    shippedLabel: 'Geliefert',
+    shipped: ['Schweden', 'Kolumbien (Inland)'],
+    quotingLabel: 'Angebote / aktive Anfragen',
+    quoting: ['Belgien', 'Spanien', 'Niederlande', 'Deutschland', 'Vereinigte Staaten', 'Südafrika', 'Namibia', 'Vereinigte Arabische Emirate', 'Israel', 'Saudi-Arabien'],
+  },
+
+  contact: {
+    whatsappMessage: 'Guten Tag, ich hätte gern ein Angebot für kolumbianischen Kaffee.',
+    title: 'Kontakt',
+    lead: 'Es antwortet eine Person: David Ramírez, Exportleiter und Gründer. Schreiben Sie auf Englisch oder Spanisch.',
+    whatsapp: 'WhatsApp',
+    email: 'E-Mail',
+    responseNote: 'Wir antworten innerhalb von 24 Stunden an Werktagen (Bogotá, GMT-5).',
+    askTitle: 'Für ein schnelles Angebot nennen Sie uns',
+    askItems: [
+      'Zielland und Hafen (bzw. Flughafen bei Kurierpartien)',
+      'Menge – Kilogramm, Säcke oder Container',
+      'Qualität: Spezialitätenqualität 84+, Handelsqualität oder Röstkaffee / Private Label',
+      'Bevorzugter Incoterm (FOB, CIF, FCA …)',
+      'Gewünschter Termin',
+    ],
+  },
+
+  common: {
+    inquirySubject: 'Anfrage – {name} (Entre Cafés Colombianos)',
+    inquiryBody: 'Guten Tag,\n\nich interessiere mich für Ihr Produkt „{name}“.\n\nMenge / Mustergröße: \nZielland: \nBevorzugter Incoterm (FOB / CIF): \nZeitrahmen: \n\nVielen Dank.',
+    inquiryWhatsapp: 'Guten Tag! Ich hätte gern Informationen zu: {name}',
+    zoomPhoto: 'Foto von {name} vergrößern',
+    heroImageAlt: 'Kolumbianischer Kaffee',
+    prevSlide: 'Vorheriges Bild',
+    nextSlide: 'Nächstes Bild',
+    imagePreview: 'Bildvorschau',
+    close: 'Schließen',
+    languageSelector: 'Sprachauswahl',
+    menu: 'Menü',
+    colombia: 'Kolumbien',
+    pricingNote: 'Kurierpartien: sofortige Online-Versandschätzung mit kostenlosem Konto · Container: Preis auf Anfrage.',
+    sampleSize: 'Größen',
+    altitude: 'Höhenlage',
+    process: 'Aufbereitung',
+    requestQuote: 'Angebot anfordern',
+    requestSamples: 'Muster anfordern',
+    whatsapp: 'WhatsApp',
+    email: 'E-Mail',
+    readMore: 'Mehr erfahren',
+  },
+};

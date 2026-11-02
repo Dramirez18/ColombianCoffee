@@ -1,3 +1,4 @@
+import { content } from '../content';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Mountain, Award, Truck } from 'lucide-react';
 import { Language } from '../types';
@@ -54,7 +55,7 @@ export default function HeroCarousel({ lang, onExplore }: HeroCarouselProps) {
         >
           <img
             src={slide.image}
-            alt="Colombian Coffee"
+            alt={content(lang).common.heroImageAlt}
             loading={i === 0 ? 'eager' : 'lazy'}
             fetchPriority={i === 0 ? 'high' : 'low'}
             decoding="async"
@@ -107,14 +108,14 @@ export default function HeroCarousel({ lang, onExplore }: HeroCarouselProps) {
       {/* Nav Arrows - hidden on mobile (use dots instead) */}
       <button
         onClick={prev}
-        aria-label="Previous slide"
+        aria-label={content(lang).common.prevSlide}
         className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-full transition-colors"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={next}
-        aria-label="Next slide"
+        aria-label={content(lang).common.nextSlide}
         className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-full transition-colors"
       >
         <ChevronRight className="w-6 h-6" />
