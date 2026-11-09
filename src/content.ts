@@ -48,6 +48,21 @@ export interface CupProfile {
   attributes?: { label: string; score: string; note: string }[];
 }
 
+export type RoastedCoffeeId = 'castillo' | 'pink-bourbon' | 'fresa' | 'coco' | 'vainilla' | 'sandia';
+/** Same data as the printed bag labels. */
+export interface RoastedCoffee {
+  name: string;
+  tagline: string;
+  variety: string;
+  process: string;
+  fermentation?: string;
+  origin: string;
+  altitude: string;
+  roast: string;
+  notes: string[];
+  ingredients: string;
+}
+
 export interface SiteContent {
   meta: Record<PublicTab, PageMeta>;
   hero: { badge: string; title: string; subtitle: string; cta: string };
@@ -83,6 +98,14 @@ export interface SiteContent {
     pricingText: string;
   };
   products: {
+    /** Real photos and spec sheets of the roasted coffees (photo by id in Products.tsx). */
+    gallery: {
+      title: string;
+      lead: string;
+      note: string;
+      labels: { variety: string; process: string; fermentation: string; origin: string; altitude: string; roast: string; notes: string; ingredients: string };
+      coffees: Record<RoastedCoffeeId, RoastedCoffee>;
+    };
     eyebrow: string;
     title: string;
     lead: string;
@@ -530,6 +553,94 @@ const en: SiteContent = {
   },
 
   products: {
+    gallery: {
+      title: 'Our roasted coffees, in real photos',
+      lead: 'The same roasted lots we pack for export orders: two varieties and four double fermentations from Huila, filter roast, whole bean.',
+      note: 'Photos taken by us in natural light; only the white balance was corrected.',
+      labels: {
+        variety: 'Variety',
+        process: 'Process',
+        fermentation: 'Fermentation',
+        origin: 'Origin',
+        altitude: 'Altitude',
+        roast: 'Roast',
+        notes: 'Tasting notes',
+        ingredients: 'Ingredients',
+      },
+      coffees: {
+        'castillo': {
+          name: 'Castillo',
+          tagline: 'Washed · SCA 85',
+          variety: 'Castillo',
+          process: 'Washed',
+          fermentation: '48 h in cherry + 48 h pulped',
+          origin: 'Huila, Colombia',
+          altitude: '1,580 masl',
+          roast: 'Filter roast',
+          notes: ['Citrus', 'Panela', 'Floral', 'Aromatic'],
+          ingredients: '100% roasted Arabica coffee beans.',
+        },
+        'pink-bourbon': {
+          name: 'Pink Bourbon',
+          tagline: 'Honey process · SCA 87',
+          variety: 'Pink Bourbon',
+          process: 'Honey',
+          origin: 'Huila, Colombia',
+          altitude: '1,580 masl',
+          roast: 'Filter roast',
+          notes: ['Plum', 'Peach', 'Red berries', 'Sugar cane'],
+          ingredients: '100% roasted Arabica coffee beans.',
+        },
+        'fresa': {
+          name: 'Strawberry',
+          tagline: 'Double fermentation · SCA 87',
+          variety: 'Bourbon',
+          process: 'Washed',
+          fermentation: 'Cherry, then yeast + strawberry',
+          origin: 'Huila, Colombia',
+          altitude: '1,580 masl',
+          roast: 'Filter roast',
+          notes: ['Strawberry', 'Citrus', 'Floral'],
+          ingredients: 'Roasted Arabica coffee beans, fermented with yeast and strawberry.',
+        },
+        'coco': {
+          name: 'Coconut',
+          tagline: 'Double fermentation · SCA 87',
+          variety: 'Bourbon',
+          process: 'Washed',
+          fermentation: 'Cherry, then yeast + coconut',
+          origin: 'Huila, Colombia',
+          altitude: '1,580 masl',
+          roast: 'Filter roast',
+          notes: ['Coconut', 'Citrus', 'Floral'],
+          ingredients: 'Roasted Arabica coffee beans, fermented with yeast and coconut.',
+        },
+        'vainilla': {
+          name: 'Vanilla',
+          tagline: 'Double fermentation · SCA 87',
+          variety: 'Bourbon',
+          process: 'Washed',
+          fermentation: 'Cherry, then yeast + vanilla',
+          origin: 'Huila, Colombia',
+          altitude: '1,580 masl',
+          roast: 'Filter roast',
+          notes: ['Vanilla', 'Citrus', 'Floral'],
+          ingredients: 'Roasted Arabica coffee beans, fermented with yeast and food-grade flavourings (vanilla).',
+        },
+        'sandia': {
+          name: 'Watermelon',
+          tagline: 'Double fermentation · SCA 87',
+          variety: 'Bourbon',
+          process: 'Washed',
+          fermentation: 'Cherry, then yeast + watermelon',
+          origin: 'Huila, Colombia',
+          altitude: '1,580 masl',
+          roast: 'Filter roast',
+          notes: ['Watermelon', 'Citrus', 'Floral'],
+          ingredients: 'Roasted Arabica coffee beans, fermented with yeast and watermelon.',
+        },
+      },
+    },
     eyebrow: 'Wholesale catalogue',
     title: 'Products',
     lead:
@@ -1450,6 +1561,94 @@ const es: SiteContent = {
   },
 
   products: {
+    gallery: {
+      title: 'Nuestros cafés tostados, en fotos reales',
+      lead: 'Los mismos lotes tostados que empacamos para pedidos de exportación: dos variedades y cuatro dobles fermentaciones del Huila, tostión para filtro, en grano.',
+      note: 'Fotos tomadas por nosotros con luz natural; solo se corrigió el balance de blancos.',
+      labels: {
+        variety: 'Variedad',
+        process: 'Proceso',
+        fermentation: 'Fermentación',
+        origin: 'Origen',
+        altitude: 'Altitud',
+        roast: 'Tostión',
+        notes: 'Notas de cata',
+        ingredients: 'Ingredientes',
+      },
+      coffees: {
+        'castillo': {
+          name: 'Castillo',
+          tagline: 'Lavado · SCA 85',
+          variety: 'Castillo',
+          process: 'Lavado',
+          fermentation: '48 h en cereza + 48 h despulpado',
+          origin: 'Huila, Colombia',
+          altitude: '1.580 m s. n. m.',
+          roast: 'Tostión para filtro',
+          notes: ['Cítricos', 'Panela', 'Floral', 'Aromático'],
+          ingredients: '100 % café arábica tostado en grano.',
+        },
+        'pink-bourbon': {
+          name: 'Pink Bourbon',
+          tagline: 'Proceso honey · SCA 87',
+          variety: 'Pink Bourbon',
+          process: 'Honey',
+          origin: 'Huila, Colombia',
+          altitude: '1.580 m s. n. m.',
+          roast: 'Tostión para filtro',
+          notes: ['Ciruela', 'Durazno', 'Frutos rojos', 'Caña de azúcar'],
+          ingredients: '100 % café arábica tostado en grano.',
+        },
+        'fresa': {
+          name: 'Fresa',
+          tagline: 'Doble fermentación · SCA 87',
+          variety: 'Bourbon',
+          process: 'Lavado',
+          fermentation: 'En cereza, luego levadura + fresa',
+          origin: 'Huila, Colombia',
+          altitude: '1.580 m s. n. m.',
+          roast: 'Tostión para filtro',
+          notes: ['Fresa', 'Cítricos', 'Floral'],
+          ingredients: 'Café arábica tostado en grano, fermentado con levadura y fresa.',
+        },
+        'coco': {
+          name: 'Coco',
+          tagline: 'Doble fermentación · SCA 87',
+          variety: 'Bourbon',
+          process: 'Lavado',
+          fermentation: 'En cereza, luego levadura + coco',
+          origin: 'Huila, Colombia',
+          altitude: '1.580 m s. n. m.',
+          roast: 'Tostión para filtro',
+          notes: ['Coco', 'Cítricos', 'Floral'],
+          ingredients: 'Café arábica tostado en grano, fermentado con levadura y coco.',
+        },
+        'vainilla': {
+          name: 'Vainilla',
+          tagline: 'Doble fermentación · SCA 87',
+          variety: 'Bourbon',
+          process: 'Lavado',
+          fermentation: 'En cereza, luego levadura + vainilla',
+          origin: 'Huila, Colombia',
+          altitude: '1.580 m s. n. m.',
+          roast: 'Tostión para filtro',
+          notes: ['Vainilla', 'Cítricos', 'Floral'],
+          ingredients: 'Café arábica tostado en grano, fermentado con levadura y saborizantes de grado alimentario (vainilla).',
+        },
+        'sandia': {
+          name: 'Sandía',
+          tagline: 'Doble fermentación · SCA 87',
+          variety: 'Bourbon',
+          process: 'Lavado',
+          fermentation: 'En cereza, luego levadura + sandía',
+          origin: 'Huila, Colombia',
+          altitude: '1.580 m s. n. m.',
+          roast: 'Tostión para filtro',
+          notes: ['Sandía', 'Cítricos', 'Floral'],
+          ingredients: 'Café arábica tostado en grano, fermentado con levadura y sandía.',
+        },
+      },
+    },
     eyebrow: 'Catálogo mayorista',
     title: 'Productos',
     lead:
