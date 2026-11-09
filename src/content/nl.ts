@@ -388,7 +388,7 @@ export const nl: SiteContent = {
           { label: 'Geoffreerde bestemmingen', value: 'Onder andere Göteborg, Hamburg, Antwerpen, Rotterdam, Valencia, Kaapstad, Walvisbaai, Ashdod, Jebel Ali en de oostkust van de VS.' },
           { label: 'Transittijd', value: 'Koerier 5–8 werkdagen. Zeevracht 18–35 dagen, afhankelijk van route en overslag.' },
           { label: 'Levertijd', value: 'Koerierspartijen: 1–2 weken na betaling. Containers: doorgaans 4–6 weken van contract tot laden (droge verwerking, inspectie door Almacafé en boeking).' },
-          { label: 'Betaling', value: 'Monsters en koerierspartijen: vooruitbetaling per bankoverschrijving. Containers: aanbetaling bij contract en restant tegen documenten, of een geconfirmeerd documentair krediet. Facturering in USD.' },
+          { label: 'Betaling', value: 'Monsters, koerierspartijen en containers: 100% vooruitbetaling per bankoverschrijving, vóór verzending. Wij werken niet met aanbetaling en restant, betaling tegen documenten of documentair krediet. Facturering in USD.' },
           { label: 'Prijsvorming', value: 'Containers: NY "C" plus een overeengekomen differentieel, vastgelegd bij contract, met een indicatieve prijs FOB Cartagena voor een 20\'-container in de online calculator. Koerierspartijen: per kilogram, vracht als aparte post; de online verzendcalculator geeft direct de geleverde prijs. Elke offerte heeft een eigen geldigheidsduur.' },
         ],
       },
@@ -504,7 +504,7 @@ export const nl: SiteContent = {
         'Eventuele registraties die uw land van de importeur eist — zie de invoerinformatie hieronder',
       ],
       paymentNote:
-        'Aanbetaling bij contract en restant tegen documenten, of een geconfirmeerd documentair krediet. Doorgaans 4–6 weken van contract tot laden. Voor partijen met bestemming EU wordt de EUDR-geolocatie van de boerderij per partij in de offerte bevestigd.',
+        '100% vooruitbetaling per bankoverschrijving bij ondertekening van het contract; droge verwerking en boeking starten na ontvangst van de betaling. Doorgaans 4–6 weken van betaling tot laden. Voor partijen met bestemming EU wordt de EUDR-geolocatie van de boerderij per partij in de offerte bevestigd.',
       whatsappQuote: 'Goedendag, ik ontvang graag een offerte voor {bags} zakken ({kg} kg) groene koffie, {product}, FOB Cartagena. Raming op de website: {total} ({perKg}/kg).',
       whatsappNoPrice: 'Goedendag, ik ontvang graag een offerte voor {bags} zakken groene koffie, {product}, FOB Cartagena.',
       emailSubject: 'Containerofferte — {bags} zakken, {product}',
@@ -964,7 +964,7 @@ export const nl: SiteContent = {
       },
       {
         q: 'Wat zijn de betalingsvoorwaarden?',
-        a: 'Monsters en koerierspartijen worden vooruitbetaald per bankoverschrijving. Voor containers spreken wij een aanbetaling bij contract af met het restant tegen documenten, of een geconfirmeerd documentair krediet. Facturen worden uitgegeven in Amerikaanse dollars.',
+        a: 'Elke bestelling — monsters, koerierspartijen en containers — wordt 100% vooruitbetaald per bankoverschrijving, vóór verzending. Wij werken niet met aanbetaling en restant, betaling tegen documenten of documentair krediet. Facturen worden uitgegeven in Amerikaanse dollars.',
       },
       {
         q: 'Wie bent u, juridisch gezien?',

@@ -388,7 +388,7 @@ export const sv: SiteContent = {
           { label: 'Offererade destinationer', value: 'Göteborg, Hamburg, Antwerpen, Rotterdam, Valencia, Kapstaden, Walvis Bay, Ashdod, Jebel Ali och USA:s östkust, med flera.' },
           { label: 'Transittid', value: 'Kurir 5–8 arbetsdagar. Sjöfrakt 18–35 dagar beroende på rutt och omlastning.' },
           { label: 'Ledtid', value: 'Kurirpartier: 1–2 veckor från betalning. Containrar: normalt 4–6 veckor från kontrakt till lastning (torrbearbetning, inspektion av Almacafé och bokning).' },
-          { label: 'Betalning', value: 'Prover och kurirpartier: i förskott via banköverföring. Containrar: handpenning vid kontrakt och resten mot dokument, eller en bekräftad remburs. Fakturering i USD.' },
+          { label: 'Betalning', value: 'Prover, kurirpartier och containrar: 100 % i förskott via banköverföring, före avsändning. Vi arbetar inte med handpenning och restbetalning, betalning mot dokument eller remburs. Fakturering i USD.' },
           { label: 'Prissättning', value: 'Containrar: NY ”C” plus en avtalad differential, fastställd vid kontrakt, med ett indikativt pris FOB Cartagena för en 20\'-container i fraktkalkylatorn online. Kurirpartier: per kilo, frakten som en egen rad; fraktkalkylatorn online ger det levererade priset direkt. Varje offert har sin egen giltighetstid.' },
         ],
       },
@@ -504,7 +504,7 @@ export const sv: SiteContent = {
         'Eventuell registrering som ditt land kräver av importören — se importanvisningarna nedan',
       ],
       paymentNote:
-        'Handpenning vid kontrakt och resten mot dokument, eller en bekräftad remburs. Normalt 4–6 veckor från kontrakt till lastning. För partier till EU bekräftas EUDR-geolokaliseringen av gården parti för parti i offerten.',
+        '100 % i förskott via banköverföring när kontraktet undertecknas; torrbearbetning och bokning påbörjas när betalningen har kommit in. Normalt 4–6 veckor från betalning till lastning. För partier till EU bekräftas EUDR-geolokaliseringen av gården parti för parti i offerten.',
       whatsappQuote: 'Hej! Jag vill ha en offert på {bags} säckar ({kg} kg) råkaffe, {product}, FOB Cartagena. Uppskattning från webbplatsen: {total} ({perKg}/kg).',
       whatsappNoPrice: 'Hej! Jag vill ha en offert på {bags} säckar råkaffe, {product}, FOB Cartagena.',
       emailSubject: 'Containeroffert — {bags} säckar, {product}',
@@ -964,7 +964,7 @@ export const sv: SiteContent = {
       },
       {
         q: 'Vilka är betalningsvillkoren?',
-        a: 'Prover och kurirpartier betalas i förskott via banköverföring. För containrar avtalar vi en handpenning vid kontrakt och resten mot dokument, eller en bekräftad remburs. Fakturor utfärdas i amerikanska dollar.',
+        a: 'Alla beställningar – prover, kurirpartier och containrar – betalas till 100 % i förskott via banköverföring, före avsändning. Vi arbetar inte med handpenning och restbetalning, betalning mot dokument eller remburs. Fakturor utfärdas i amerikanska dollar.',
       },
       {
         q: 'Vilka är ni, juridiskt sett?',

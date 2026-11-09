@@ -746,7 +746,7 @@ const en: SiteContent = {
           { label: 'Destinations quoted', value: 'Gothenburg, Hamburg, Antwerp, Rotterdam, Valencia, Cape Town, Walvis Bay, Ashdod, Jebel Ali and US East Coast, among others.' },
           { label: 'Transit', value: 'Courier 5–8 business days. Sea freight 18–35 days depending on route and transhipment.' },
           { label: 'Lead time', value: 'Courier lots: 1–2 weeks from payment. Containers: typically 4–6 weeks from contract to loading (milling, Almacafé inspection and booking).' },
-          { label: 'Payment', value: 'Samples and courier lots: in advance by bank transfer. Containers: deposit on contract with the balance against documents, or a confirmed letter of credit. Invoiced in USD.' },
+          { label: 'Payment', value: 'Samples, courier lots and containers: 100% in advance by bank transfer, before shipment. We do not work with deposit and balance, payment against documents or letters of credit. Invoiced in USD.' },
           { label: 'Pricing', value: 'Containers: NY "C" plus an agreed differential, fixed at contract, with an indicative FOB Cartagena price for a 20\' container in the online estimator. Courier lots: per kilogram, freight as its own line; the online shipping estimator gives the delivered price instantly. Every offer carries its own validity period.' },
         ],
       },
@@ -862,7 +862,7 @@ const en: SiteContent = {
         'Any registration your country requires from the importer — see the import notes below',
       ],
       paymentNote:
-        'Deposit on contract and balance against documents, or a confirmed letter of credit. Typically 4–6 weeks from contract to loading. For EU-bound lots, EUDR farm geolocation is confirmed lot by lot in the offer.',
+        '100% in advance by bank transfer once the contract is signed; milling and booking start when the payment is received. Typically 4–6 weeks from payment to loading. For EU-bound lots, EUDR farm geolocation is confirmed lot by lot in the offer.',
       whatsappQuote: 'Hi, I would like a quote for {bags} bags ({kg} kg) of green coffee, {product}, FOB Cartagena. Website estimate: {total} ({perKg}/kg).',
       whatsappNoPrice: 'Hi, I would like a quote for {bags} bags of green coffee, {product}, FOB Cartagena.',
       emailSubject: 'Container quote — {bags} bags, {product}',
@@ -1322,7 +1322,7 @@ const en: SiteContent = {
       },
       {
         q: 'What are the payment terms?',
-        a: 'Samples and courier lots are paid in advance by bank transfer. For containers we agree a deposit on contract with the balance against documents, or a confirmed letter of credit. Invoices are issued in US dollars.',
+        a: 'Every order — samples, courier lots and containers — is paid 100% in advance by bank transfer, before shipment. We do not work with deposit and balance, payment against documents or letters of credit. Invoices are issued in US dollars.',
       },
       {
         q: 'Who are you, legally?',
@@ -1788,7 +1788,7 @@ const es: SiteContent = {
           { label: 'Destinos cotizados', value: 'Gotemburgo, Hamburgo, Amberes, Róterdam, Valencia, Ciudad del Cabo, Walvis Bay, Ashdod, Jebel Ali y costa este de EE. UU., entre otros.' },
           { label: 'Tránsito', value: 'Courier 5–8 días hábiles. Marítimo 18–35 días según ruta y transbordo.' },
           { label: 'Plazo de entrega', value: 'Lotes courier: 1–2 semanas desde el pago. Contenedores: normalmente 4–6 semanas de contrato a cargue (trilla, inspección de Almacafé y reserva).' },
-          { label: 'Pago', value: 'Muestras y lotes courier: anticipado por transferencia bancaria. Contenedores: depósito al contrato y saldo contra documentos, o carta de crédito confirmada. Facturado en USD.' },
+          { label: 'Pago', value: 'Muestras, lotes courier y contenedores: 100 % anticipado por transferencia bancaria, antes del despacho. No trabajamos con anticipo y saldo, pago contra documentos ni carta de crédito. Facturado en USD.' },
           { label: 'Precio', value: 'Contenedores: "C" de Nueva York más diferencial acordado, fijado al contrato, con un precio indicativo FOB Cartagena para un contenedor de 20\' en el cotizador. Lotes courier: por kilogramo, flete como línea aparte, con un estimado instantáneo puesto en destino en nuestro cotizador de envío. Cada oferta trae su propia vigencia.' },
         ],
       },
@@ -1904,7 +1904,7 @@ const es: SiteContent = {
         'Los registros que su país exija al importador — vea las notas de importación más abajo',
       ],
       paymentNote:
-        'Anticipo al firmar y saldo contra documentos, o carta de crédito confirmada. Normalmente de 4 a 6 semanas desde el contrato hasta el embarque. Para lotes con destino a la UE, la geolocalización de fincas que exige el EUDR se confirma lote por lote en la oferta.',
+        '100 % anticipado por transferencia bancaria al firmar el contrato; la trilla y la reserva empiezan al recibir el pago. Normalmente de 4 a 6 semanas desde el pago hasta el embarque. Para lotes con destino a la UE, la geolocalización de fincas que exige el EUDR se confirma lote por lote en la oferta.',
       whatsappQuote: 'Hola, quiero cotizar {bags} sacos ({kg} kg) de café verde, {product}, FOB Cartagena. Estimado de la web: {total} ({perKg}/kg).',
       whatsappNoPrice: 'Hola, quiero cotizar {bags} sacos de café verde, {product}, FOB Cartagena.',
       emailSubject: 'Cotización de contenedor — {bags} sacos, {product}',
@@ -2363,7 +2363,7 @@ const es: SiteContent = {
       },
       {
         q: '¿Cuáles son las condiciones de pago?',
-        a: 'Las muestras y los lotes courier se pagan por anticipado mediante transferencia bancaria. Para contenedores acordamos un depósito al contrato y el saldo contra documentos, o una carta de crédito confirmada. Las facturas se emiten en dólares.',
+        a: 'Todo pedido —muestras, lotes courier y contenedores— se paga 100 % por anticipado mediante transferencia bancaria, antes del despacho. No trabajamos con anticipo y saldo, pago contra documentos ni carta de crédito. Las facturas se emiten en dólares.',
       },
       {
         q: '¿Quiénes son, legalmente?',
