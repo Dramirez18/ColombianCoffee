@@ -388,7 +388,7 @@ export const fr: SiteContent = {
           { label: 'Destinations déjà cotées', value: 'Göteborg, Hambourg, Anvers, Rotterdam, Valence (Espagne), Le Cap, Walvis Bay, Ashdod, Jebel Ali et la côte Est des États-Unis, entre autres.' },
           { label: 'Transit', value: 'Express : 5–8 jours ouvrés. Fret maritime : 18–35 jours selon la route et les transbordements.' },
           { label: 'Délai', value: 'Lots express : 1–2 semaines après paiement. Conteneurs : généralement 4–6 semaines entre le contrat et le chargement (usinage, inspection Almacafé et réservation).' },
-          { label: 'Paiement', value: 'Échantillons et lots express : à l’avance par virement bancaire. Conteneurs : acompte à la signature du contrat et solde contre documents, ou lettre de crédit confirmée. Facturation en USD.' },
+          { label: 'Paiement', value: 'Échantillons, lots express et conteneurs : 100 % à l’avance par virement bancaire, avant l’expédition. Pas d’acompte avec solde, de paiement contre documents ni de lettre de crédit. Facturation en USD.' },
           { label: 'Prix', value: 'Conteneurs : « C » de New York plus un différentiel convenu, fixé au contrat, avec un prix indicatif FOB Cartagena pour un conteneur 20\' dans le simulateur en ligne. Lots express : au kilogramme, fret sur une ligne distincte ; le simulateur de devis d’expédition en ligne donne instantanément le prix livré. Chaque offre a sa propre durée de validité.' },
         ],
       },
@@ -504,7 +504,7 @@ export const fr: SiteContent = {
         'Tout enregistrement que votre pays exige de l’importateur — voir les notes d’importation ci-dessous',
       ],
       paymentNote:
-        'Acompte à la signature du contrat et solde contre documents, ou lettre de crédit confirmée. Généralement 4 à 6 semaines entre le contrat et le chargement. Pour les lots destinés à l’UE, la géolocalisation des fermes exigée par l’EUDR est confirmée lot par lot dans l’offre.',
+        '100 % à l’avance par virement bancaire à la signature du contrat ; l’usinage et la réservation commencent à réception du paiement. Généralement 4 à 6 semaines entre le paiement et le chargement. Pour les lots destinés à l’UE, la géolocalisation des fermes exigée par l’EUDR est confirmée lot par lot dans l’offre.',
       whatsappQuote: 'Bonjour, je souhaiterais un devis pour {bags} sacs ({kg} kg) de café vert, {product}, FOB Cartagena. Estimation du site : {total} ({perKg}/kg).',
       whatsappNoPrice: 'Bonjour, je souhaiterais un devis pour {bags} sacs de café vert, {product}, FOB Cartagena.',
       emailSubject: 'Devis conteneur — {bags} sacs, {product}',
@@ -964,7 +964,7 @@ export const fr: SiteContent = {
       },
       {
         q: 'Quelles sont les conditions de paiement ?',
-        a: 'Les échantillons et les lots express sont payés à l’avance par virement bancaire. Pour les conteneurs, nous convenons d’un acompte à la signature du contrat et du solde contre documents, ou d’une lettre de crédit confirmée. Les factures sont émises en dollars américains.',
+        a: 'Toute commande — échantillons, lots express et conteneurs — est payée à 100 % à l’avance par virement bancaire, avant l’expédition. Nous ne travaillons pas avec acompte et solde, paiement contre documents ni lettre de crédit. Les factures sont émises en dollars américains.',
       },
       {
         q: 'Qui êtes-vous, juridiquement ?',

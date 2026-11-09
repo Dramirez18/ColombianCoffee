@@ -388,7 +388,7 @@ export const de: SiteContent = {
           { label: 'Angebotene Zielhäfen', value: 'Unter anderem Göteborg, Hamburg, Antwerpen, Rotterdam, Valencia, Kapstadt, Walvis Bay, Ashdod, Jebel Ali und die US-Ostküste.' },
           { label: 'Transitzeit', value: 'Kurier 5–8 Werktage. Seefracht 18–35 Tage, je nach Route und Umschlag.' },
           { label: 'Vorlaufzeit', value: 'Kurierpartien: 1–2 Wochen ab Zahlung. Container: in der Regel 4–6 Wochen vom Vertrag bis zur Verladung (Schälung, Almacafé-Inspektion und Buchung).' },
-          { label: 'Zahlung', value: 'Muster und Kurierpartien: Vorauskasse per Banküberweisung. Container: Anzahlung bei Vertragsabschluss und Restzahlung gegen Dokumente oder ein bestätigtes Akkreditiv. Fakturierung in USD.' },
+          { label: 'Zahlung', value: 'Muster, Kurierpartien und Container: 100 % Vorauskasse per Banküberweisung, vor dem Versand. Keine Anzahlung mit Restzahlung, keine Zahlung gegen Dokumente und kein Akkreditiv. Fakturierung in USD.' },
           { label: 'Preisbildung', value: 'Container: NY „C“ plus ein vereinbartes Differenzial, bei Vertragsabschluss fixiert, mit einem unverbindlichen Richtpreis FOB Cartagena für einen 20\'-Container im Online-Rechner. Kurierpartien: pro Kilogramm, Fracht als eigene Position; der Online-Versandrechner zeigt sofort den Lieferpreis. Jedes Angebot hat seine eigene Gültigkeitsdauer.' },
         ],
       },
@@ -504,7 +504,7 @@ export const de: SiteContent = {
         'Registrierungen, die Ihr Land vom Importeur verlangt – siehe Einfuhrhinweise unten',
       ],
       paymentNote:
-        'Anzahlung bei Vertragsabschluss und Restzahlung gegen Dokumente oder ein bestätigtes Akkreditiv. In der Regel 4–6 Wochen vom Vertrag bis zur Verladung. Bei Partien mit EU-Bestimmung wird die EUDR-Geolokalisierung der Farmen im Angebot Partie für Partie bestätigt.',
+        '100 % Vorauskasse per Banküberweisung bei Vertragsabschluss; Schälung und Buchung beginnen nach Zahlungseingang. In der Regel 4–6 Wochen von der Zahlung bis zur Verladung. Bei Partien mit EU-Bestimmung wird die EUDR-Geolokalisierung der Farmen im Angebot Partie für Partie bestätigt.',
       whatsappQuote: 'Guten Tag, ich hätte gern ein Angebot für {bags} Säcke ({kg} kg) Rohkaffee, {product}, FOB Cartagena. Schätzung auf der Website: {total} ({perKg}/kg).',
       whatsappNoPrice: 'Guten Tag, ich hätte gern ein Angebot für {bags} Säcke Rohkaffee, {product}, FOB Cartagena.',
       emailSubject: 'Containerangebot – {bags} Säcke, {product}',
@@ -964,7 +964,7 @@ export const de: SiteContent = {
       },
       {
         q: 'Welche Zahlungsbedingungen gelten?',
-        a: 'Muster und Kurierpartien werden per Banküberweisung im Voraus bezahlt. Für Container vereinbaren wir eine Anzahlung bei Vertragsabschluss und die Restzahlung gegen Dokumente oder ein bestätigtes Akkreditiv. Die Rechnungen werden in US-Dollar ausgestellt.',
+        a: 'Jede Bestellung – Muster, Kurierpartien und Container – wird zu 100 % im Voraus per Banküberweisung bezahlt, vor dem Versand. Wir arbeiten nicht mit Anzahlung und Restzahlung, Zahlung gegen Dokumente oder Akkreditiv. Die Rechnungen werden in US-Dollar ausgestellt.',
       },
       {
         q: 'Wer sind Sie rechtlich gesehen?',
