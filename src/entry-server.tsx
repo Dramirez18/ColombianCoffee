@@ -113,11 +113,12 @@ function cupProfiles(lang: Language) {
         countryOfOrigin: 'CO',
         url: `${absoluteUrl('profiles', lang)}#${p.id}`,
         additionalProperty: [
-          { '@type': 'PropertyValue', name: c.profiles.compareLabels.score, value: p.score },
+          // A lot without its own cupping sheet publishes no score or notes.
+          ...(p.score ? [{ '@type': 'PropertyValue', name: c.profiles.compareLabels.score, value: p.score }] : []),
           { '@type': 'PropertyValue', name: c.profiles.compareLabels.origin, value: p.origin },
           { '@type': 'PropertyValue', name: c.profiles.compareLabels.process, value: p.process },
           { '@type': 'PropertyValue', name: c.profiles.compareLabels.acidity, value: p.acidity },
-          { '@type': 'PropertyValue', name: 'Cup notes', value: p.notes.join(', ') },
+          ...(p.notes.length ? [{ '@type': 'PropertyValue', name: 'Cup notes', value: p.notes.join(', ') }] : []),
         ],
       },
     })),

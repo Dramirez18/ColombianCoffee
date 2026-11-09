@@ -29,11 +29,12 @@ export interface Region {
 export interface Faq { q: string; a: string }
 export interface TitledText { title: string; text: string }
 export interface CupProfile {
-  id: 'huila' | 'selecto' | 'tolima' | 'basico';
+  id: 'huila' | 'selecto' | 'tolima' | 'narino' | 'basico';
   name: string;
   grade: string;
   subtitle: string;
-  score: string;
+  /** Absent while the lot has no cupping sheet of its own. */
+  score?: string;
   notes: string[];
   summary: string;
   facts: string[];
@@ -45,7 +46,8 @@ export interface CupProfile {
   /** Nombre del mismo café en el cotizador de envío (si está ahí). */
   estimator?: string;
   /** Hoja de cata por atributo, cuando existe. */
-  attributes?: { label: string; score: string; note: string }[];
+  /** Without scores when the sheet's attribute figures are not published. */
+  attributes?: { label: string; score?: string; note: string }[];
 }
 
 export type RoastedCoffeeId = 'castillo' | 'pink-bourbon' | 'fresa' | 'coco' | 'vainilla' | 'sandia';
@@ -219,6 +221,7 @@ export interface SiteContent {
     compareLabels: { origin: string; score: string; acidity: string; process: string; presentation: string; estimator: string };
     presentation: string;
     scoreLabel: string;
+    scorePending: string;
     viewProfile: string;
     radarTitle: string;
     radarShapeNote: string;
@@ -387,7 +390,7 @@ const en: SiteContent = {
     profiles: {
       title: 'Cup Profiles — Colombian Green Coffee: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
       description:
-        'Cup profiles of the Colombian green coffees we offer: Huila (Acevedo) 86+, Selecto 84+ from Huila, Cauca, Valle del Cauca and Quindío, Tolima Castillo 81.82 and a Nariño lot at 77.0. Flavour notes, cupping scores, origin and process.',
+        'Cup profiles of the Colombian green coffees we offer: Huila (Acevedo) 86+, Selecto 84+ from Huila, Cauca, Valle del Cauca and Quindío, Tolima Castillo 84.75 and a Nariño lot at 84.5. Flavour notes, cupping scores, origin and process.',
     },
     privacy: {
       title: 'Personal Data Protection Policy | Entre Cafés Colombianos',
@@ -870,7 +873,7 @@ const en: SiteContent = {
     productLabel: 'Coffee',
     groups: { green: 'Green coffee', roasted: 'Roasted coffee' },
     products: {
-      'green-basic': { name: 'Basic green coffee', detail: 'Nariño · washed · cup score 77.0 · see its cup profile', inText: 'basic green coffee' },
+      'green-basic': { name: 'Basic green coffee', detail: 'Nariño · entry-level lot · cupping sheet pending · see its cup profile', inText: 'basic green coffee' },
       'green-excelso': { name: 'Excelso green coffee', detail: 'Selecto: Huila, Cauca, Valle, Quindío · Excelso EP · SCA 84+', inText: 'Excelso green coffee' },
       'green-supremo': { name: 'Supremo green coffee', detail: 'Huila · Acevedo, 1,580 masl · washed · SCA 86+', inText: 'Supremo green coffee' },
       'roasted-castillo': { name: 'Castillo roasted coffee', detail: 'Whole bean · medium roast · 1 kg valve bags, unbranded', inText: 'Castillo roasted coffee' },
@@ -942,12 +945,13 @@ const en: SiteContent = {
     eyebrow: 'Green coffee · cup profiles',
     title: 'Cup profiles of the coffees we offer',
     lead:
-      'Four Colombian green coffees, each with its cup profile, cupping score, origin and process. All of them are green coffee — unroasted beans, ready for your roaster.',
-    updated: 'Updated 31 October 2026',
+      'Five Colombian green coffees, each with its cup profile, origin and process, and the cupping score of every lot that already has its sheet. All of them are green coffee — unroasted beans, ready for your roaster.',
+    updated: 'Updated 8 November 2026',
     compareTitle: 'At a glance',
     compareLabels: { origin: 'Origin', score: 'Cup score', acidity: 'Acidity', process: 'Process', presentation: 'Presentation', estimator: 'In the shipping estimate' },
     presentation: 'Green coffee (unroasted)',
     scoreLabel: 'cup score',
+    scorePending: 'Cupping sheet pending',
     viewProfile: 'See the full profile',
     radarTitle: 'Cupping attributes',
     radarShapeNote: 'Profile shape from the lot’s technical sheet; attribute scores are not published.',
@@ -1027,31 +1031,45 @@ const en: SiteContent = {
         id: 'tolima',
         name: 'Tolima',
         grade: 'UGQ export grade',
-        subtitle: 'Tolima · washed Castillo',
-        score: '81.82',
-        notes: ['Cocoa', 'Panela', 'Sugarcane', 'Chocolate', 'Caramel', 'Medium citrus acidity'],
+        subtitle: 'Valle de San Juan, Tolima · washed Castillo',
+        score: '84.75',
+        notes: ['Fruity', 'Sugarcane', 'Caramel', 'Chocolate', 'Liquorice', 'Citrus aftertaste'],
         summary:
-          'A straightforward, sweet cup: cocoa, panela, sugarcane, chocolate and caramel, with medium citrus acidity. Simple rather than complex — made for blends or an everyday espresso.',
-        facts: ['Green coffee · UGQ export grade', 'Moisture 10 to 12%'],
+          'A sweet, clean cup: fruity, sugarcane, caramel and chocolate in the aroma; chocolate and sugarcane in the cup, with a citrus aftertaste. Balanced acidity and a light body; the cupper highlights the caramel sweetness, liquorice and a fruity note.',
+        facts: ['Green coffee · UGQ export grade', 'Moisture 10.5%', 'Cupped on 9 June 2026'],
         origin: 'Tolima',
-        acidity: 'Medium citrus',
+        acidity: 'Balanced, citrus',
         process: 'Washed',
         specsTitle: 'Origin and process',
         specs: [
-          { label: 'Department', value: 'Tolima' },
+          { label: 'Municipality', value: 'Valle de San Juan, Tolima' },
           { label: 'Variety', value: 'Castillo' },
           { label: 'Process', value: 'Washed' },
           { label: 'Presentation', value: 'Green coffee (unroasted), dry-milled and ready for export' },
           { label: 'Grade', value: 'UGQ export grade' },
-          { label: 'Moisture', value: '10 to 12%' },
+          { label: 'Moisture', value: '10.5%' },
+          { label: 'Yield factor', value: '88' },
+          { label: 'Cupping date', value: '9 June 2026' },
+        ],
+        attributes: [
+          { label: 'Fragrance & aroma', note: 'fruity, sugarcane, caramel, chocolate' },
+          { label: 'Flavour', note: 'chocolate, sugarcane' },
+          { label: 'Aftertaste', note: 'citrus' },
+          { label: 'Acidity', note: 'balanced' },
+          { label: 'Body', note: 'light' },
+          { label: 'Uniformity', note: 'consistent in every cup' },
+          { label: 'Balance', note: 'moderate' },
+          { label: 'Clean cup', note: 'clean cup' },
+          { label: 'Sweetness', note: 'sugarcane' },
+          { label: 'Overall', note: 'caramel sweetness, liquorice and a fruity note in the cup, with citrus acidity' },
         ],
       },
       {
-        id: 'basico',
-        name: 'Basic',
-        grade: 'Nariño lot',
+        id: 'narino',
+        name: 'Nariño',
+        grade: 'Specialty lot',
         subtitle: 'Nariño · 1,650–1,800 masl',
-        score: '77.0',
+        score: '84.5',
         notes: ['Mandarin', 'Rose honey', 'Jasmine', 'Sugarcane', 'Red fruits', 'Figs', 'Lemongrass', 'Green grape', 'Caramel'],
         summary:
           'Mandarin, rose honey and jasmine in the aroma; sugarcane, subtle red fruits, figs and lemongrass in the cup. Juicy acidity like green grape; a round, light body with a honey-like texture and a caramel finish.',
@@ -1068,16 +1086,35 @@ const en: SiteContent = {
           { label: 'Cupping date', value: '10 September 2026' },
         ],
         attributes: [
-          { label: 'Fragrance & aroma', score: '6.5', note: 'mandarin, low-intensity rose honey, subtle jasmine floral, sugarcane' },
-          { label: 'Flavour', score: '7.0', note: 'sugarcane, pleasant and subtle red fruits, figs, lemongrass' },
-          { label: 'Aftertaste', score: '7.0', note: 'pleasant, caramel' },
-          { label: 'Acidity', score: '6.5', note: 'juicy, like green grape' },
-          { label: 'Body', score: '7.0', note: 'round and light, with a slight honey-like feel' },
-          { label: 'Uniformity', score: '10', note: 'OK' },
-          { label: 'Balance', score: '10', note: 'OK' },
-          { label: 'Clean cup', score: '10', note: 'OK' },
-          { label: 'Sweetness', score: '6.0', note: 'sugarcane' },
-          { label: 'Overall', score: '7.0', note: 'balanced coffee with very good body, sweet and a very stable acidity' },
+          { label: 'Fragrance & aroma', note: 'mandarin, low-intensity rose honey, subtle jasmine floral, sugarcane' },
+          { label: 'Flavour', note: 'sugarcane, pleasant and subtle red fruits, figs, lemongrass' },
+          { label: 'Aftertaste', note: 'pleasant, caramel' },
+          { label: 'Acidity', note: 'juicy, like green grape' },
+          { label: 'Body', note: 'round and light, with a slight honey-like feel' },
+          { label: 'Uniformity', note: 'OK' },
+          { label: 'Balance', note: 'OK' },
+          { label: 'Clean cup', note: 'OK' },
+          { label: 'Sweetness', note: 'sugarcane' },
+          { label: 'Overall', note: 'balanced coffee with very good body, sweet and a very stable acidity' },
+        ],
+      },
+      {
+        id: 'basico',
+        name: 'Basic',
+        grade: 'Entry-level Nariño lot',
+        subtitle: 'Nariño · for blends',
+        notes: [],
+        summary:
+          'Our entry-level green coffee from Nariño, priced for blends and volume. This lot does not have its own cupping sheet yet, so we publish no score or tasting notes until it has been cupped; a sample is available on request.',
+        facts: ['Green coffee · Nariño', 'Cupping sheet pending'],
+        origin: 'Nariño',
+        acidity: 'Pending cupping',
+        process: 'To be confirmed',
+        specsTitle: 'Origin and process',
+        specs: [
+          { label: 'Department', value: 'Nariño' },
+          { label: 'Presentation', value: 'Green coffee (unroasted)' },
+          { label: 'Cupping sheet', value: 'Pending' },
         ],
         estimator: 'Basic green coffee',
       },
@@ -1395,7 +1432,7 @@ const es: SiteContent = {
     profiles: {
       title: 'Perfiles de taza — Café verde colombiano: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
       description:
-        'Perfiles de taza de los cafés verdes colombianos que ofrecemos: Huila (Acevedo) 86+, Selecto 84+ de Huila, Cauca, Valle del Cauca y Quindío, Tolima Castillo 81,82 y un lote de Nariño de 77,0. Notas en taza, puntaje de cata, origen y proceso.',
+        'Perfiles de taza de los cafés verdes colombianos que ofrecemos: Huila (Acevedo) 86+, Selecto 84+ de Huila, Cauca, Valle del Cauca y Quindío, Tolima Castillo 84,75 y un lote de Nariño de 84,5. Notas en taza, puntaje de cata, origen y proceso.',
     },
     privacy: {
       title: 'Política de tratamiento de datos personales | Entre Cafés Colombianos',
@@ -1878,7 +1915,7 @@ const es: SiteContent = {
     productLabel: 'Café',
     groups: { green: 'Café verde', roasted: 'Café tostado' },
     products: {
-      'green-basic': { name: 'Café verde básico', detail: 'Nariño · lavado · taza 77,0 · vea su perfil de taza', inText: 'café verde básico' },
+      'green-basic': { name: 'Café verde básico', detail: 'Nariño · lote básico · hoja de cata pendiente · vea su perfil de taza', inText: 'café verde básico' },
       'green-excelso': { name: 'Café verde Excelso', detail: 'Selecto: Huila, Cauca, Valle, Quindío · Excelso EP · SCA 84+', inText: 'café verde Excelso' },
       'green-supremo': { name: 'Café verde Supremo', detail: 'Huila · Acevedo, 1.580 msnm · lavado · SCA 86+', inText: 'café verde Supremo' },
       'roasted-castillo': { name: 'Café tostado Castillo', detail: 'En grano · tostión media · bolsas de 1 kg con válvula, sin marca', inText: 'café tostado Castillo' },
@@ -1950,12 +1987,13 @@ const es: SiteContent = {
     eyebrow: 'Café verde · perfiles de taza',
     title: 'Perfiles de taza de los cafés que ofrecemos',
     lead:
-      'Cuatro cafés verdes colombianos, cada uno con su perfil en taza, su puntaje de cata, su origen y su proceso. Todos son café verde en almendra, sin tostar, listos para su tostadora.',
-    updated: 'Actualizado el 31 de octubre de 2026',
+      'Cinco cafés verdes colombianos, cada uno con su perfil de taza, origen y proceso, y el puntaje de cata de cada lote que ya tiene su hoja. Todos son café verde — granos sin tostar, listos para su tostadora.',
+    updated: 'Actualizado el 8 de noviembre de 2026',
     compareTitle: 'A simple vista',
     compareLabels: { origin: 'Origen', score: 'Puntaje de taza', acidity: 'Acidez', process: 'Proceso', presentation: 'Presentación', estimator: 'En el cotizador de envío' },
     presentation: 'Café verde en almendra',
     scoreLabel: 'puntaje de taza',
+    scorePending: 'Hoja de cata pendiente',
     viewProfile: 'Ver el perfil completo',
     radarTitle: 'Atributos de la cata',
     radarShapeNote: 'Forma del perfil según la ficha técnica del lote; los puntajes por atributo no se publican.',
@@ -2035,31 +2073,45 @@ const es: SiteContent = {
         id: 'tolima',
         name: 'Tolima',
         grade: 'Grado de exportación UGQ',
-        subtitle: 'Tolima · Castillo lavado',
-        score: '81,82',
-        notes: ['Cacao', 'Panela', 'Caña de azúcar', 'Chocolate', 'Caramelo', 'Acidez cítrica media'],
+        subtitle: 'Valle de San Juan, Tolima · Castillo lavado',
+        score: '84,75',
+        notes: ['Frutal', 'Caña de azúcar', 'Caramelo', 'Chocolate', 'Regaliz', 'Final cítrico'],
         summary:
-          'Una taza directa y dulce: cacao, panela, caña de azúcar, chocolate y caramelo, con acidez cítrica media. Sencilla más que compleja; pensada para mezcla o para un espresso de todos los días.',
-        facts: ['Café verde · grado de exportación UGQ', 'Humedad de 10 a 12 %'],
+          'Una taza dulce y limpia: frutal, caña de azúcar, caramelo y chocolate en el aroma; chocolate y caña de azúcar en boca, con un final cítrico. Acidez balanceada y cuerpo ligero; el catador resalta el dulce a caramelo, el regaliz y una nota frutal.',
+        facts: ['Café verde · Grado de exportación UGQ', 'Humedad 10,5 %', 'Catado el 9 de junio de 2026'],
         origin: 'Tolima',
-        acidity: 'Cítrica media',
+        acidity: 'Balanceada, cítrica',
         process: 'Lavado',
         specsTitle: 'Origen y proceso',
         specs: [
-          { label: 'Departamento', value: 'Tolima' },
+          { label: 'Municipio', value: 'Valle de San Juan, Tolima' },
           { label: 'Variedad', value: 'Castillo' },
           { label: 'Proceso', value: 'Lavado' },
           { label: 'Presentación', value: 'Café verde en almendra, trillado en seco, listo para exportar' },
-          { label: 'Grado', value: 'UGQ, grado de exportación' },
-          { label: 'Humedad', value: '10 a 12 %' },
+          { label: 'Grado', value: 'Grado de exportación UGQ' },
+          { label: 'Humedad', value: '10,5 %' },
+          { label: 'Factor de rendimiento', value: '88' },
+          { label: 'Fecha de cata', value: '9 de junio de 2026' },
+        ],
+        attributes: [
+          { label: 'Fragancia y aroma', note: 'frutal, caña de azúcar, caramelo, chocolate' },
+          { label: 'Sabor', note: 'chocolate, caña de azúcar' },
+          { label: 'Sabor residual', note: 'cítrico' },
+          { label: 'Acidez', note: 'balanceada' },
+          { label: 'Cuerpo', note: 'ligero' },
+          { label: 'Uniformidad', note: 'consistente en todas las tazas' },
+          { label: 'Balance', note: 'moderado' },
+          { label: 'Taza limpia', note: 'taza limpia' },
+          { label: 'Dulzor', note: 'caña de azúcar' },
+          { label: 'Impresión global', note: 'se resalta el dulce a caramelo, regaliz y nota frutal en taza, con acidez cítrica' },
         ],
       },
       {
-        id: 'basico',
-        name: 'Básico',
-        grade: 'Lote de Nariño',
+        id: 'narino',
+        name: 'Nariño',
+        grade: 'Lote de especialidad',
         subtitle: 'Nariño · 1.650–1.800 msnm',
-        score: '77,0',
+        score: '84,5',
         notes: ['Mandarina', 'Miel de rosas', 'Jazmín', 'Caña de azúcar', 'Frutos rojos', 'Brevas', 'Limoncillo', 'Uva verde', 'Caramelo'],
         summary:
           'Mandarina, miel de rosas y jazmín en el aroma; caña de azúcar, frutos rojos sutiles, brevas y limoncillo en taza. Acidez jugosa, como la uva verde; cuerpo redondo y ligero con textura de miel y un final a caramelo.',
@@ -2076,16 +2128,35 @@ const es: SiteContent = {
           { label: 'Fecha de cata', value: '10 de septiembre de 2026' },
         ],
         attributes: [
-          { label: 'Fragancia y aroma', score: '6,5', note: 'mandarina, miel de rosas de baja intensidad, sutil floral a jazmín, caña de azúcar' },
-          { label: 'Sabor', score: '7,0', note: 'caña de azúcar, agradable y sutil frutos rojos, brevas, limoncillo' },
-          { label: 'Sabor residual', score: '7,0', note: 'agradable a caramelo' },
-          { label: 'Acidez', score: '6,5', note: 'jugosa, como la uva verde' },
-          { label: 'Cuerpo', score: '7,0', note: 'redondo y ligero, con leve sensación a miel' },
-          { label: 'Uniformidad', score: '10', note: 'ok' },
-          { label: 'Balance', score: '10', note: 'ok' },
-          { label: 'Taza limpia', score: '10', note: 'ok' },
-          { label: 'Dulzor', score: '6,0', note: 'caña de azúcar' },
-          { label: 'Impresión global', score: '7,0', note: 'café balanceado con muy buen cuerpo, dulce y una acidez muy estable' },
+          { label: 'Fragancia y aroma', note: 'mandarina, miel de rosas de baja intensidad, sutil floral a jazmín, caña de azúcar' },
+          { label: 'Sabor', note: 'caña de azúcar, agradable y sutil frutos rojos, brevas, limoncillo' },
+          { label: 'Sabor residual', note: 'agradable a caramelo' },
+          { label: 'Acidez', note: 'jugosa, como la uva verde' },
+          { label: 'Cuerpo', note: 'redondo y ligero, con leve sensación a miel' },
+          { label: 'Uniformidad', note: 'ok' },
+          { label: 'Balance', note: 'ok' },
+          { label: 'Taza limpia', note: 'ok' },
+          { label: 'Dulzor', note: 'caña de azúcar' },
+          { label: 'Impresión global', note: 'café balanceado con muy buen cuerpo, dulce y una acidez muy estable' },
+        ],
+      },
+      {
+        id: 'basico',
+        name: 'Básico',
+        grade: 'Lote básico de Nariño',
+        subtitle: 'Nariño · para mezclas',
+        notes: [],
+        summary:
+          'Nuestro café verde básico de Nariño, con precio pensado para mezclas y volumen. Este lote todavía no tiene hoja de cata propia, así que no publicamos puntaje ni notas en taza hasta catarlo; hay muestra disponible bajo solicitud.',
+        facts: ['Café verde · Nariño', 'Hoja de cata pendiente'],
+        origin: 'Nariño',
+        acidity: 'Pendiente de cata',
+        process: 'Por confirmar',
+        specsTitle: 'Origen y proceso',
+        specs: [
+          { label: 'Departamento', value: 'Nariño' },
+          { label: 'Presentación', value: 'Café verde (sin tostar)' },
+          { label: 'Hoja de cata', value: 'Pendiente' },
         ],
         estimator: 'Café verde básico',
       },
