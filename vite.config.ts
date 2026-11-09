@@ -32,8 +32,13 @@ const apiRoutes: Plugin = {
   },
 }
 
+// Customer login is live everywhere except the Vercel production build, until Clerk's production
+// instance is ready and LOGIN_IN_PRODUCTION=true is set there. Same rule as loginEnabled() in api/_auth.js.
+const loginPublic = process.env.VERCEL_ENV !== 'production' || process.env.LOGIN_IN_PRODUCTION === 'true';
+
 export default defineConfig({
   plugins: [react(), tailwindcss(), apiRoutes],
+  define: { __LOGIN_PUBLIC__: JSON.stringify(loginPublic) },
   server: {
     fs: {
       // Los valores por defecto de Vite + las carpetas del servidor: con `--host 0.0.0.0` cualquier

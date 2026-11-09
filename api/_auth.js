@@ -27,8 +27,13 @@ export function publishableKey() {
   return process.env.CLERK_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || process.env.VITE_CLERK_PUBLISHABLE_KEY || '';
 }
 
-/** El login está activo solo con las dos claves de Clerk y la base de datos. */
+/**
+ * El login está activo solo con las dos claves de Clerk y la base de datos. En producción, además, solo
+ * con LOGIN_IN_PRODUCTION=true: hasta tener la instancia de producción de Clerk, la web pública funciona
+ * sin cuentas (el cotizador queda abierto). Misma regla que __LOGIN_PUBLIC__ en vite.config.ts.
+ */
 export function loginEnabled() {
+  if (process.env.VERCEL_ENV === 'production' && process.env.LOGIN_IN_PRODUCTION !== 'true') return false;
   return Boolean(publishableKey() && authConfigured() && (process.env.DATABASE_URL || process.env.POSTGRES_URL));
 }
 
@@ -46,7 +51,7 @@ function adminEmails() {
  * @returns {Promise<string | null>} el id del usuario, o null si no hay sesión válida.
  */
 export async function verifySession(req) {
-  if (!authConfigured()) return null;
+  if (!loginEnabled()) return null;
   const header = String(req.headers?.authorization ?? '');
   const token = header.startsWith('Bearer ') ? header.slice(7).trim() : '';
   if (!token) return null;

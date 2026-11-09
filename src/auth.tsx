@@ -179,7 +179,9 @@ async function loadClerkScripts(publishableKey: string): Promise<{ clerk: Clerk;
 }
 
 export function AuthProvider({ lang, activeTab, children }: { lang: Language; activeTab: Tab; children: ReactNode }) {
-  const [state, setState] = useState<AuthState>({ ...SIGNED_OUT, status: 'loading' });
+  // Login not published in this build: "disabled" from the first render, so the pre-rendered pages
+  // already show the open estimator and no sign-in button.
+  const [state, setState] = useState<AuthState>({ ...SIGNED_OUT, status: __LOGIN_PUBLIC__ ? 'loading' : 'disabled' });
   const [sessionHint, setSessionHint] = useState(false);
   const keyRef = useRef<string | null>(null);
   const clerkRef = useRef<Clerk | null>(null);
@@ -263,6 +265,7 @@ export function AuthProvider({ lang, activeTab, children }: { lang: Language; ac
     // The old fake login kept visitors' details in this browser; erase them.
     localStorage.removeItem('huila-user');
     localStorage.removeItem('huila-clients');
+    if (!__LOGIN_PUBLIC__) return;
     setSessionHint(hasSessionHint());
     let cancelled = false;
     fetch('/api/auth-config')
