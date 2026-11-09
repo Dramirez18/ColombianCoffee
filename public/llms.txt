@@ -19,15 +19,18 @@
   private label available. Shipped 1–5 days after roasting.
 - Sales inside Colombia: roasted and ground coffee for cafés, offices and companies.
 
-## Current cup profiles (31 October 2026, green coffee)
+## Current cup profiles (8 November 2026, green coffee)
 - Huila (Acevedo, 1,580 masl), Supremo, SCA 86+: citrus, panela, floral, aromatic; washed,
   48 h fermentation in the cherry and 48 h after pulping, dried 10–12 days.
 - Selecto (Huila, Cauca, Valle del Cauca, Quindío blend), Excelso EP, SCA 84+ by Q-Grader:
   sugarcane, panela, mandarin, orange, creamy body, floral; mainly Castillo, screen 14+.
-- Tolima, washed Castillo, UGQ export grade, 81.82: cocoa, panela, sugarcane, chocolate,
-  caramel, medium citrus acidity; moisture 10–12%.
-- Basic (Nariño, 1,650–1,800 masl), cup score 77.0 (cupping sheet of 10 Sep 2026): mandarin,
-  rose honey, jasmine, red fruits, figs, lemongrass, green-grape acidity, caramel finish.
+- Tolima (Valle de San Juan), washed Castillo, UGQ export grade, cup score 84.75 (cupping
+  sheet of 9 Jun 2026): fruity, sugarcane, caramel, chocolate, liquorice, citrus aftertaste;
+  balanced acidity, light body; moisture 10.5%.
+- Nariño (1,650–1,800 masl), Castillo, Colombia and Caturra, washed, cup score 84.5 (cupping
+  sheet of 10 Sep 2026): mandarin, rose honey, jasmine, red fruits, figs, lemongrass,
+  green-grape acidity, caramel finish.
+- Basic (Nariño), entry-level lot for blends: cupping sheet pending, no score published yet.
 - Full profiles: https://www.entrecafescolombianos.coffee/cup-profiles
 
 ## Where the coffee comes from
