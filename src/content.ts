@@ -382,7 +382,7 @@ const en: SiteContent = {
     shipping: {
       title: 'Shipping Estimate — Colombian Coffee Delivered by DHL Express | Entre Cafés Colombianos',
       description:
-        'Estimate the delivered price of Colombian green coffee (10–60 kg) or roasted coffee (10–50 kg) by DHL Express to the US, Spain, Germany, France, the Netherlands, Belgium, Sweden, Poland or the UAE: coffee, packing and freight in one USD total. Also 20\' containers of green coffee, FOB Cartagena. Free account.',
+        'Estimate the delivered price of Colombian green coffee (10–60 kg) or roasted coffee (10–50 kg) by DHL Express to the US, Spain, Germany, France, the Netherlands, Belgium, Sweden, Poland or the UAE: coffee, packing and freight in one USD total. Also 20\' containers of green coffee, FOB Cartagena.',
     },
     profiles: {
       title: 'Cup Profiles — Colombian Green Coffee: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
@@ -549,7 +549,7 @@ const en: SiteContent = {
     ],
     pricingTitle: 'How we price',
     pricingText:
-      'Container business is priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port — the way Colombian coffee is traded. Courier lots of 10–60 kg are priced per kilogram, with freight as its own line, and our online shipping estimator (free account) gives you the delivered price instantly. For a 20\' container the estimator gives an indicative FOB Cartagena price; because the market moves daily, the firm price goes in a dated offer sheet.',
+      'Container business is priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port — the way Colombian coffee is traded. Courier lots of 10–60 kg are priced per kilogram, with freight as its own line, and our online shipping estimator gives you the delivered price instantly. For a 20\' container the estimator gives an indicative FOB Cartagena price; because the market moves daily, the firm price goes in a dated offer sheet.',
   },
 
   products: {
@@ -787,7 +787,7 @@ const en: SiteContent = {
     eyebrow: 'Shipping estimate',
     title: 'What will it cost to get Colombian coffee to your door?',
     lead:
-      'Pick your country, the coffee and the quantity. You get the delivered price — coffee, packing and DHL Express freight — in US dollars, instantly. For courier lots of 10 to 60 kg of green or 10 to 50 kg of roasted coffee, and for 20\' containers of green coffee FOB Cartagena. Free for registered buyers.',
+      'Pick your country, the coffee and the quantity. You get the delivered price — coffee, packing and DHL Express freight — in US dollars, instantly. For courier lots of 10 to 60 kg of green or 10 to 50 kg of roasted coffee, and for 20\' containers of green coffee FOB Cartagena.',
     formTitle: 'Your shipment',
     gate: {
       title: 'Create your free account to get a quote',
@@ -1245,7 +1245,7 @@ const en: SiteContent = {
       },
       {
         q: 'How do you set your prices?',
-        a: 'Containers are priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port. Our online estimator shows an indicative FOB Cartagena price for a 20\' container; because the market moves daily, the firm price goes in a dated offer sheet with its own validity. Courier lots (10–60 kg of green or 10–50 kg of roasted coffee) are priced per kilogram, and with a free account you can see an instant delivered (DAP) estimate at https://www.entrecafescolombianos.coffee/shipping-estimate.',
+        a: 'Containers are priced against the New York "C" contract plus a differential agreed on the contract date, FOB Cartagena or CIF your port. Our online estimator shows an indicative FOB Cartagena price for a 20\' container; because the market moves daily, the firm price goes in a dated offer sheet with its own validity. Courier lots (10–60 kg of green or 10–50 kg of roasted coffee) are priced per kilogram, and you can see an instant delivered (DAP) estimate at https://www.entrecafescolombianos.coffee/shipping-estimate.',
       },
       {
         q: 'Which Incoterms do you work with?',
@@ -1350,7 +1350,7 @@ const en: SiteContent = {
     languageSelector: 'Language selector',
     menu: 'Menu',
     colombia: 'Colombia',
-    pricingNote: 'Courier lots: instant online shipping estimate with a free account · containers: pricing on request.',
+    pricingNote: 'Courier lots: instant online shipping estimate · containers: pricing on request.',
     sampleSize: 'Sizes',
     altitude: 'Altitude',
     process: 'Process',
@@ -1390,7 +1390,7 @@ const es: SiteContent = {
     shipping: {
       title: 'Cotizador de envío — Café colombiano entregado por DHL Express | Entre Cafés Colombianos',
       description:
-        'Calcule el precio puesto en destino de café colombiano verde (10–60 kg) o tostado (10–50 kg) por DHL Express a Estados Unidos, España, Alemania, Francia, Países Bajos, Bélgica, Suecia, Polonia o Emiratos: café, empaque y flete en un solo total en USD. También contenedores de 20\' de café verde, FOB Cartagena. Cuenta gratuita.',
+        'Calcule el precio puesto en destino de café colombiano verde (10–60 kg) o tostado (10–50 kg) por DHL Express a Estados Unidos, España, Alemania, Francia, Países Bajos, Bélgica, Suecia, Polonia o Emiratos: café, empaque y flete en un solo total en USD. También contenedores de 20\' de café verde, FOB Cartagena.',
     },
     profiles: {
       title: 'Perfiles de taza — Café verde colombiano: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
@@ -1557,7 +1557,7 @@ const es: SiteContent = {
     ],
     pricingTitle: 'Cómo fijamos el precio',
     pricingText:
-      'El negocio de contenedores se cotiza sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto — como se comercia el café colombiano. Los lotes courier de 10 a 60 kg se cotizan por kilogramo, con el flete como línea aparte, y con una cuenta gratuita puede ver al instante un estimado puesto en destino en nuestro cotizador de envío. Para un contenedor de 20\' el cotizador da un precio indicativo FOB Cartagena; como el mercado se mueve a diario, el precio en firme va en una hoja de oferta con fecha.',
+      'El negocio de contenedores se cotiza sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto — como se comercia el café colombiano. Los lotes courier de 10 a 60 kg se cotizan por kilogramo, con el flete como línea aparte, y puede ver al instante un estimado puesto en destino en nuestro cotizador de envío. Para un contenedor de 20\' el cotizador da un precio indicativo FOB Cartagena; como el mercado se mueve a diario, el precio en firme va en una hoja de oferta con fecha.',
   },
 
   products: {
@@ -1795,7 +1795,7 @@ const es: SiteContent = {
     eyebrow: 'Cotizador de envío',
     title: '¿Cuánto cuesta llevar café colombiano hasta su puerta?',
     lead:
-      'Elija su país, el café y la cantidad. Al instante ve el precio puesto en destino — café, empaque y flete DHL Express — en dólares. Para lotes courier de 10 a 60 kg de verde o de 10 a 50 kg de tostado, y para contenedores de 20\' de café verde FOB Cartagena. Gratis para compradores registrados.',
+      'Elija su país, el café y la cantidad. Al instante ve el precio puesto en destino — café, empaque y flete DHL Express — en dólares. Para lotes courier de 10 a 60 kg de verde o de 10 a 50 kg de tostado, y para contenedores de 20\' de café verde FOB Cartagena.',
     formTitle: 'Su envío',
     gate: {
       title: 'Cree su cuenta gratis para cotizar',
@@ -2252,7 +2252,7 @@ const es: SiteContent = {
       },
       {
         q: '¿Cómo fijan los precios?',
-        a: 'Los contenedores se cotizan sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto. Nuestro cotizador en línea muestra un precio indicativo FOB Cartagena para un contenedor de 20\'; como el mercado se mueve a diario, el precio en firme va en una hoja de oferta con fecha y vigencia propia. Los lotes courier (10 a 60 kg de verde o 10 a 50 kg de tostado) se cotizan por kilogramo, y con una cuenta gratuita puede ver al instante un estimado puesto en destino (DAP) en https://www.entrecafescolombianos.coffee/es/cotizador-de-envio.',
+        a: 'Los contenedores se cotizan sobre el contrato "C" de Nueva York más un diferencial acordado en la fecha del contrato, FOB Cartagena o CIF en su puerto. Nuestro cotizador en línea muestra un precio indicativo FOB Cartagena para un contenedor de 20\'; como el mercado se mueve a diario, el precio en firme va en una hoja de oferta con fecha y vigencia propia. Los lotes courier (10 a 60 kg de verde o 10 a 50 kg de tostado) se cotizan por kilogramo, y puede ver al instante un estimado puesto en destino (DAP) en https://www.entrecafescolombianos.coffee/es/cotizador-de-envio.',
       },
       {
         q: '¿Con qué Incoterms trabajan?',
@@ -2357,7 +2357,7 @@ const es: SiteContent = {
     languageSelector: 'Selector de idioma',
     menu: 'Menú',
     colombia: 'Colombia',
-    pricingNote: 'Lotes courier: estimado al instante en el cotizador de envío, con cuenta gratuita · contenedores: precio bajo solicitud.',
+    pricingNote: 'Lotes courier: estimado al instante en el cotizador de envío · contenedores: precio bajo solicitud.',
     sampleSize: 'Presentaciones',
     altitude: 'Altura',
     process: 'Proceso',

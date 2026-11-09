@@ -27,7 +27,7 @@ export const sv: SiteContent = {
     shipping: {
       title: 'Fraktkalkylator — colombianskt kaffe levererat med DHL Express | Entre Cafés Colombianos',
       description:
-        'Beräkna det levererade priset för colombianskt råkaffe (10–60 kg) eller rostat kaffe (10–50 kg) med DHL Express till USA, Spanien, Tyskland, Frankrike, Nederländerna, Belgien, Sverige, Polen eller Förenade Arabemiraten: kaffe, förpackning och frakt i en totalsumma i USD. Även 20\'-containrar med råkaffe, FOB Cartagena. Kostnadsfritt konto.',
+        'Beräkna det levererade priset för colombianskt råkaffe (10–60 kg) eller rostat kaffe (10–50 kg) med DHL Express till USA, Spanien, Tyskland, Frankrike, Nederländerna, Belgien, Sverige, Polen eller Förenade Arabemiraten: kaffe, förpackning och frakt i en totalsumma i USD. Även 20\'-containrar med råkaffe, FOB Cartagena.',
     },
     profiles: {
       title: 'Smakprofiler — colombianskt råkaffe: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
@@ -194,7 +194,7 @@ export const sv: SiteContent = {
     ],
     pricingTitle: 'Så prissätter vi',
     pricingText:
-      'Containeraffärer prissätts mot ”C”-kontraktet i New York plus en differential som avtalas på kontraktsdagen, FOB Cartagena eller CIF till din hamn — så som colombianskt kaffe handlas. Kurirpartier på 10–60 kg prissätts per kilo, med frakten som en egen rad, och vår fraktkalkylator online (kostnadsfritt konto) ger dig det levererade priset direkt. För en 20\'-container ger kalkylatorn ett indikativt pris FOB Cartagena; eftersom marknaden rör sig dagligen anges det fasta priset i ett daterat offertblad.',
+      'Containeraffärer prissätts mot ”C”-kontraktet i New York plus en differential som avtalas på kontraktsdagen, FOB Cartagena eller CIF till din hamn — så som colombianskt kaffe handlas. Kurirpartier på 10–60 kg prissätts per kilo, med frakten som en egen rad, och vår fraktkalkylator online ger dig det levererade priset direkt. För en 20\'-container ger kalkylatorn ett indikativt pris FOB Cartagena; eftersom marknaden rör sig dagligen anges det fasta priset i ett daterat offertblad.',
   },
 
   products: {
@@ -432,7 +432,7 @@ export const sv: SiteContent = {
     eyebrow: 'Fraktkalkylator',
     title: 'Vad kostar det att få colombianskt kaffe levererat till din dörr?',
     lead:
-      'Välj land, kaffe och kvantitet. Du får det levererade priset — kaffe, förpackning och frakt med DHL Express — i amerikanska dollar, direkt. För kurirpartier på 10 till 60 kg råkaffe eller 10 till 50 kg rostat kaffe, och för 20\'-containrar med råkaffe FOB Cartagena. Kostnadsfritt för registrerade köpare.',
+      'Välj land, kaffe och kvantitet. Du får det levererade priset — kaffe, förpackning och frakt med DHL Express — i amerikanska dollar, direkt. För kurirpartier på 10 till 60 kg råkaffe eller 10 till 50 kg rostat kaffe, och för 20\'-containrar med råkaffe FOB Cartagena.',
     formTitle: 'Din försändelse',
     gate: {
       title: 'Skapa ditt kostnadsfria konto för att få en offert',
@@ -890,7 +890,7 @@ export const sv: SiteContent = {
       },
       {
         q: 'Hur sätter ni era priser?',
-        a: 'Containrar prissätts mot ”C”-kontraktet i New York plus en differential som avtalas på kontraktsdagen, FOB Cartagena eller CIF till din hamn. Vår kalkylator online visar ett indikativt pris FOB Cartagena för en 20\'-container; eftersom marknaden rör sig dagligen anges det fasta priset i ett daterat offertblad med egen giltighetstid. Kurirpartier (10–60 kg råkaffe eller 10–50 kg rostat kaffe) prissätts per kilo, och med ett kostnadsfritt konto kan du direkt se en uppskattning av levererat pris (DAP) på https://www.entrecafescolombianos.coffee/sv/fraktkalkylator.',
+        a: 'Containrar prissätts mot ”C”-kontraktet i New York plus en differential som avtalas på kontraktsdagen, FOB Cartagena eller CIF till din hamn. Vår kalkylator online visar ett indikativt pris FOB Cartagena för en 20\'-container; eftersom marknaden rör sig dagligen anges det fasta priset i ett daterat offertblad med egen giltighetstid. Kurirpartier (10–60 kg råkaffe eller 10–50 kg rostat kaffe) prissätts per kilo, och du kan direkt se en uppskattning av levererat pris (DAP) på https://www.entrecafescolombianos.coffee/sv/fraktkalkylator.',
       },
       {
         q: 'Vilka Incoterms arbetar ni med?',
@@ -995,7 +995,7 @@ export const sv: SiteContent = {
     languageSelector: 'Språkväljare',
     menu: 'Meny',
     colombia: 'Colombia',
-    pricingNote: 'Kurirpartier: direkt fraktuppskattning online med ett kostnadsfritt konto · containrar: pris på begäran.',
+    pricingNote: 'Kurirpartier: direkt fraktuppskattning online · containrar: pris på begäran.',
     sampleSize: 'Storlekar',
     altitude: 'Höjd',
     process: 'Process',

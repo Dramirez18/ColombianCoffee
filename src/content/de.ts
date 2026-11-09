@@ -27,7 +27,7 @@ export const de: SiteContent = {
     shipping: {
       title: 'Versandrechner – Kolumbianischer Kaffee per DHL Express geliefert | Entre Cafés Colombianos',
       description:
-        'Ermitteln Sie den voraussichtlichen Lieferpreis für kolumbianischen Rohkaffee (10–60 kg) oder Röstkaffee (10–50 kg) per DHL Express in die USA, nach Spanien, Deutschland, Frankreich, in die Niederlande, nach Belgien, Schweden, Polen oder in die VAE: Kaffee, Verpackung und Fracht in einer Gesamtsumme in USD. Außerdem 20\'-Container mit Rohkaffee, FOB Cartagena. Kostenloses Konto.',
+        'Ermitteln Sie den voraussichtlichen Lieferpreis für kolumbianischen Rohkaffee (10–60 kg) oder Röstkaffee (10–50 kg) per DHL Express in die USA, nach Spanien, Deutschland, Frankreich, in die Niederlande, nach Belgien, Schweden, Polen oder in die VAE: Kaffee, Verpackung und Fracht in einer Gesamtsumme in USD. Außerdem 20\'-Container mit Rohkaffee, FOB Cartagena.',
     },
     profiles: {
       title: 'Geschmacksprofile – Kolumbianischer Rohkaffee: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
@@ -194,7 +194,7 @@ export const de: SiteContent = {
     ],
     pricingTitle: 'So kalkulieren wir unsere Preise',
     pricingText:
-      'Containergeschäfte werden auf Basis des New Yorker „C“-Kontrakts plus eines am Vertragsdatum vereinbarten Differenzials kalkuliert, FOB Cartagena oder CIF Ihr Bestimmungshafen – so wird kolumbianischer Kaffee gehandelt. Kurierpartien von 10–60 kg werden pro Kilogramm berechnet, die Fracht als eigene Position, und unser Online-Versandrechner (kostenloses Konto) zeigt Ihnen sofort den Lieferpreis. Für einen 20\'-Container liefert der Rechner einen unverbindlichen Richtpreis FOB Cartagena; da sich der Markt täglich bewegt, steht der feste Preis in einem datierten Angebotsblatt.',
+      'Containergeschäfte werden auf Basis des New Yorker „C“-Kontrakts plus eines am Vertragsdatum vereinbarten Differenzials kalkuliert, FOB Cartagena oder CIF Ihr Bestimmungshafen – so wird kolumbianischer Kaffee gehandelt. Kurierpartien von 10–60 kg werden pro Kilogramm berechnet, die Fracht als eigene Position, und unser Online-Versandrechner zeigt Ihnen sofort den Lieferpreis. Für einen 20\'-Container liefert der Rechner einen unverbindlichen Richtpreis FOB Cartagena; da sich der Markt täglich bewegt, steht der feste Preis in einem datierten Angebotsblatt.',
   },
 
   products: {
@@ -432,7 +432,7 @@ export const de: SiteContent = {
     eyebrow: 'Versandrechner',
     title: 'Was kostet kolumbianischer Kaffee bis vor Ihre Tür?',
     lead:
-      'Wählen Sie Ihr Land, den Kaffee und die Menge. Sie erhalten sofort den Lieferpreis – Kaffee, Verpackung und DHL-Express-Fracht – in US-Dollar. Für Kurierpartien von 10 bis 60 kg Rohkaffee oder 10 bis 50 kg Röstkaffee sowie für 20\'-Container mit Rohkaffee FOB Cartagena. Kostenlos für registrierte Käufer.',
+      'Wählen Sie Ihr Land, den Kaffee und die Menge. Sie erhalten sofort den Lieferpreis – Kaffee, Verpackung und DHL-Express-Fracht – in US-Dollar. Für Kurierpartien von 10 bis 60 kg Rohkaffee oder 10 bis 50 kg Röstkaffee sowie für 20\'-Container mit Rohkaffee FOB Cartagena.',
     formTitle: 'Ihre Sendung',
     gate: {
       title: 'Erstellen Sie Ihr kostenloses Konto, um ein Angebot zu erhalten',
@@ -890,7 +890,7 @@ export const de: SiteContent = {
       },
       {
         q: 'Wie legen Sie Ihre Preise fest?',
-        a: 'Container werden auf Basis des New Yorker „C“-Kontrakts plus eines am Vertragsdatum vereinbarten Differenzials kalkuliert, FOB Cartagena oder CIF Ihr Bestimmungshafen. Unser Online-Rechner zeigt einen unverbindlichen Richtpreis FOB Cartagena für einen 20\'-Container; da sich der Markt täglich bewegt, steht der feste Preis in einem datierten Angebotsblatt mit eigener Gültigkeit. Kurierpartien (10–60 kg Rohkaffee oder 10–50 kg Röstkaffee) werden pro Kilogramm berechnet, und mit einem kostenlosen Konto sehen Sie unter https://www.entrecafescolombianos.coffee/de/versandrechner sofort eine Schätzung des Lieferpreises (DAP).',
+        a: 'Container werden auf Basis des New Yorker „C“-Kontrakts plus eines am Vertragsdatum vereinbarten Differenzials kalkuliert, FOB Cartagena oder CIF Ihr Bestimmungshafen. Unser Online-Rechner zeigt einen unverbindlichen Richtpreis FOB Cartagena für einen 20\'-Container; da sich der Markt täglich bewegt, steht der feste Preis in einem datierten Angebotsblatt mit eigener Gültigkeit. Kurierpartien (10–60 kg Rohkaffee oder 10–50 kg Röstkaffee) werden pro Kilogramm berechnet, und Sie sehen unter https://www.entrecafescolombianos.coffee/de/versandrechner sofort eine Schätzung des Lieferpreises (DAP).',
       },
       {
         q: 'Mit welchen Incoterms arbeiten Sie?',
@@ -995,7 +995,7 @@ export const de: SiteContent = {
     languageSelector: 'Sprachauswahl',
     menu: 'Menü',
     colombia: 'Kolumbien',
-    pricingNote: 'Kurierpartien: sofortige Online-Versandschätzung mit kostenlosem Konto · Container: Preis auf Anfrage.',
+    pricingNote: 'Kurierpartien: sofortige Online-Versandschätzung · Container: Preis auf Anfrage.',
     sampleSize: 'Größen',
     altitude: 'Höhenlage',
     process: 'Aufbereitung',

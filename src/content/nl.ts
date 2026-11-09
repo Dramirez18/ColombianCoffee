@@ -27,7 +27,7 @@ export const nl: SiteContent = {
     shipping: {
       title: 'Verzendcalculator — Colombiaanse koffie geleverd door DHL Express | Entre Cafés Colombianos',
       description:
-        'Krijg een raming van de geleverde prijs van Colombiaanse groene koffie (10–60 kg) of gebrande koffie (10–50 kg) per DHL Express naar de VS, Spanje, Duitsland, Frankrijk, Nederland, België, Zweden, Polen of de VAE: koffie, verpakking en vracht in één totaalbedrag in USD. Ook 20\'-containers groene koffie, FOB Cartagena. Gratis account.',
+        'Krijg een raming van de geleverde prijs van Colombiaanse groene koffie (10–60 kg) of gebrande koffie (10–50 kg) per DHL Express naar de VS, Spanje, Duitsland, Frankrijk, Nederland, België, Zweden, Polen of de VAE: koffie, verpakking en vracht in één totaalbedrag in USD. Ook 20\'-containers groene koffie, FOB Cartagena.',
     },
     profiles: {
       title: 'Smaakprofielen — Colombiaanse groene koffie: Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
@@ -194,7 +194,7 @@ export const nl: SiteContent = {
     ],
     pricingTitle: 'Hoe wij prijzen bepalen',
     pricingText:
-      'Containerhandel wordt geprijsd op basis van het New Yorkse "C"-contract plus een differentieel dat op de contractdatum wordt overeengekomen, FOB Cartagena of CIF uw haven — zoals Colombiaanse koffie wordt verhandeld. Koerierspartijen van 10–60 kg worden per kilogram geprijsd, met de vracht als aparte post, en onze online verzendcalculator (gratis account) geeft u direct de geleverde prijs. Voor een 20\'-container geeft de calculator een indicatieve prijs FOB Cartagena; omdat de markt dagelijks beweegt, komt de vaste prijs in een gedateerd offerteblad.',
+      'Containerhandel wordt geprijsd op basis van het New Yorkse "C"-contract plus een differentieel dat op de contractdatum wordt overeengekomen, FOB Cartagena of CIF uw haven — zoals Colombiaanse koffie wordt verhandeld. Koerierspartijen van 10–60 kg worden per kilogram geprijsd, met de vracht als aparte post, en onze online verzendcalculator geeft u direct de geleverde prijs. Voor een 20\'-container geeft de calculator een indicatieve prijs FOB Cartagena; omdat de markt dagelijks beweegt, komt de vaste prijs in een gedateerd offerteblad.',
   },
 
   products: {
@@ -432,7 +432,7 @@ export const nl: SiteContent = {
     eyebrow: 'Verzendcalculator',
     title: 'Wat kost het om Colombiaanse koffie tot aan uw deur te krijgen?',
     lead:
-      'Kies uw land, de koffie en de hoeveelheid. U krijgt direct de geleverde prijs — koffie, verpakking en DHL Express-vracht — in Amerikaanse dollars. Voor koerierspartijen van 10 tot 60 kg groene of 10 tot 50 kg gebrande koffie, en voor 20\'-containers groene koffie FOB Cartagena. Gratis voor geregistreerde kopers.',
+      'Kies uw land, de koffie en de hoeveelheid. U krijgt direct de geleverde prijs — koffie, verpakking en DHL Express-vracht — in Amerikaanse dollars. Voor koerierspartijen van 10 tot 60 kg groene of 10 tot 50 kg gebrande koffie, en voor 20\'-containers groene koffie FOB Cartagena.',
     formTitle: 'Uw zending',
     gate: {
       title: 'Maak uw gratis account aan voor een offerte',
@@ -890,7 +890,7 @@ export const nl: SiteContent = {
       },
       {
         q: 'Hoe bepaalt u uw prijzen?',
-        a: 'Containers worden geprijsd op basis van het New Yorkse "C"-contract plus een differentieel dat op de contractdatum wordt overeengekomen, FOB Cartagena of CIF uw haven. Onze online calculator toont een indicatieve prijs FOB Cartagena voor een 20\'-container; omdat de markt dagelijks beweegt, komt de vaste prijs in een gedateerd offerteblad met een eigen geldigheidsduur. Koerierspartijen (10–60 kg groene of 10–50 kg gebrande koffie) worden per kilogram geprijsd, en met een gratis account ziet u direct een raming van de geleverde prijs (DAP) op https://www.entrecafescolombianos.coffee/nl/verzendcalculator.',
+        a: 'Containers worden geprijsd op basis van het New Yorkse "C"-contract plus een differentieel dat op de contractdatum wordt overeengekomen, FOB Cartagena of CIF uw haven. Onze online calculator toont een indicatieve prijs FOB Cartagena voor een 20\'-container; omdat de markt dagelijks beweegt, komt de vaste prijs in een gedateerd offerteblad met een eigen geldigheidsduur. Koerierspartijen (10–60 kg groene of 10–50 kg gebrande koffie) worden per kilogram geprijsd, en u ziet direct een raming van de geleverde prijs (DAP) op https://www.entrecafescolombianos.coffee/nl/verzendcalculator.',
       },
       {
         q: 'Met welke Incoterms werkt u?',
@@ -995,7 +995,7 @@ export const nl: SiteContent = {
     languageSelector: 'Taalkeuze',
     menu: 'Menu',
     colombia: 'Colombia',
-    pricingNote: 'Koerierspartijen: directe online verzendraming met een gratis account · containers: prijs op aanvraag.',
+    pricingNote: 'Koerierspartijen: directe online verzendraming · containers: prijs op aanvraag.',
     sampleSize: 'Formaten',
     altitude: 'Hoogte',
     process: 'Proces',

@@ -27,7 +27,7 @@ export const fr: SiteContent = {
     shipping: {
       title: 'Devis d’expédition — café colombien livré par DHL Express | Entre Cafés Colombianos',
       description:
-        'Estimez le prix livré du café vert colombien (10–60 kg) ou du café torréfié (10–50 kg) par DHL Express vers les États-Unis, l’Espagne, l’Allemagne, la France, les Pays-Bas, la Belgique, la Suède, la Pologne ou les Émirats arabes unis : café, emballage et fret en un seul total en USD. Également des conteneurs 20\' de café vert, FOB Cartagena. Compte gratuit.',
+        'Estimez le prix livré du café vert colombien (10–60 kg) ou du café torréfié (10–50 kg) par DHL Express vers les États-Unis, l’Espagne, l’Allemagne, la France, les Pays-Bas, la Belgique, la Suède, la Pologne ou les Émirats arabes unis : café, emballage et fret en un seul total en USD. Également des conteneurs 20\' de café vert, FOB Cartagena.',
     },
     profiles: {
       title: 'Profils en tasse — café vert colombien : Huila 86+, Selecto 84+, Tolima, Nariño | Entre Cafés Colombianos',
@@ -194,7 +194,7 @@ export const fr: SiteContent = {
     ],
     pricingTitle: 'Comment nous fixons nos prix',
     pricingText:
-      'Les affaires en conteneur sont cotées sur le contrat « C » de New York plus un différentiel convenu à la date du contrat, FOB Cartagena ou CIF votre port — comme se négocie le café colombien. Les lots express de 10 à 60 kg sont facturés au kilogramme, avec le fret sur une ligne distincte, et notre simulateur de devis d’expédition en ligne (compte gratuit) vous donne instantanément le prix livré. Pour un conteneur 20\', le simulateur donne un prix indicatif FOB Cartagena ; le marché évoluant chaque jour, le prix ferme figure dans une fiche d’offre datée.',
+      'Les affaires en conteneur sont cotées sur le contrat « C » de New York plus un différentiel convenu à la date du contrat, FOB Cartagena ou CIF votre port — comme se négocie le café colombien. Les lots express de 10 à 60 kg sont facturés au kilogramme, avec le fret sur une ligne distincte, et notre simulateur de devis d’expédition en ligne vous donne instantanément le prix livré. Pour un conteneur 20\', le simulateur donne un prix indicatif FOB Cartagena ; le marché évoluant chaque jour, le prix ferme figure dans une fiche d’offre datée.',
   },
 
   products: {
@@ -432,7 +432,7 @@ export const fr: SiteContent = {
     eyebrow: 'Devis d’expédition',
     title: 'Combien coûte l’acheminement du café colombien jusqu’à votre porte ?',
     lead:
-      'Choisissez votre pays, le café et la quantité. Vous obtenez instantanément le prix livré — café, emballage et fret DHL Express — en dollars américains. Pour les lots express de 10 à 60 kg de café vert ou de 10 à 50 kg de café torréfié, et pour les conteneurs 20\' de café vert FOB Cartagena. Gratuit pour les acheteurs inscrits.',
+      'Choisissez votre pays, le café et la quantité. Vous obtenez instantanément le prix livré — café, emballage et fret DHL Express — en dollars américains. Pour les lots express de 10 à 60 kg de café vert ou de 10 à 50 kg de café torréfié, et pour les conteneurs 20\' de café vert FOB Cartagena.',
     formTitle: 'Votre envoi',
     gate: {
       title: 'Créez votre compte gratuit pour obtenir un devis',
@@ -890,7 +890,7 @@ export const fr: SiteContent = {
       },
       {
         q: 'Comment fixez-vous vos prix ?',
-        a: 'Les conteneurs sont cotés sur le contrat « C » de New York plus un différentiel convenu à la date du contrat, FOB Cartagena ou CIF votre port. Notre simulateur en ligne affiche un prix indicatif FOB Cartagena pour un conteneur 20\' ; le marché évoluant chaque jour, le prix ferme figure dans une fiche d’offre datée, avec sa propre durée de validité. Les lots express (10–60 kg de café vert ou 10–50 kg de café torréfié) sont facturés au kilogramme et, avec un compte gratuit, vous obtenez une estimation instantanée du prix livré (DAP) sur https://www.entrecafescolombianos.coffee/fr/devis-expedition.',
+        a: 'Les conteneurs sont cotés sur le contrat « C » de New York plus un différentiel convenu à la date du contrat, FOB Cartagena ou CIF votre port. Notre simulateur en ligne affiche un prix indicatif FOB Cartagena pour un conteneur 20\' ; le marché évoluant chaque jour, le prix ferme figure dans une fiche d’offre datée, avec sa propre durée de validité. Les lots express (10–60 kg de café vert ou 10–50 kg de café torréfié) sont facturés au kilogramme et vous obtenez une estimation instantanée du prix livré (DAP) sur https://www.entrecafescolombianos.coffee/fr/devis-expedition.',
       },
       {
         q: 'Avec quels Incoterms travaillez-vous ?',
@@ -995,7 +995,7 @@ export const fr: SiteContent = {
     languageSelector: 'Sélecteur de langue',
     menu: 'Menu',
     colombia: 'Colombie',
-    pricingNote: 'Lots express : devis d’expédition instantané en ligne avec un compte gratuit · conteneurs : prix sur demande.',
+    pricingNote: 'Lots express : devis d’expédition instantané en ligne · conteneurs : prix sur demande.',
     sampleSize: 'Formats',
     altitude: 'Altitude',
     process: 'Procédé',
