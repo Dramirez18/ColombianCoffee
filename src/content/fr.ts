@@ -374,7 +374,7 @@ export const fr: SiteContent = {
       {
         title: 'Tailles d’expédition',
         rows: [
-          { label: 'Échantillons d’offre', value: '250 g – 1 kg par profil, sous vide, par DHL Express. Pour les acheteurs qualifiés, l’échantillon d’offre est offert ; vous prenez en charge le transport express.' },
+          { label: 'Échantillons d’offre', value: '250 g – 1 kg par profil, sous vide, par DHL Express. Les échantillons sont facturés : un petit prix au kilogramme pour le café, plus le transport express, le tout réglé avant l’expédition.' },
           { label: 'Petits lots par messagerie express', value: 'Jusqu’à 60 kg de café vert ou 50 kg de café torréfié par envoi dans le cadre du régime des petites quantités de la FNC. DHL Express de porte à porte, 5–8 jours ouvrés dans le monde entier, avec suivi.' },
           { label: 'Palettes', value: '100–1 000 kg en fret aérien groupé (DHL Global Forwarding) ou en groupage maritime (LCL). Dossier d’exportation, guide de transit et contribution caféière pris en charge par nos soins.' },
           { label: 'Conteneurs', value: '20\' FCL : 275 sacs × 70 kg ≈ 19,25 t. Demi-conteneur : 10 t = 143 sacs. Chargements mixtes vert / torréfié possibles. Plusieurs conteneurs sous contrat à terme.' },
@@ -920,7 +920,7 @@ export const fr: SiteContent = {
       },
       {
         q: 'Envoyez-vous des échantillons, et combien coûtent-ils ?',
-        a: 'Oui. Les échantillons d’offre de 250–500 g par profil partent par DHL Express. Pour les acheteurs qualifiés, le café est offert et vous prenez en charge le transport express ; les lots d’échantillons plus importants sont facturés au kilogramme, avec le fret sur une ligne distincte. Un échantillon de pré-expédition issu du lot réel est envoyé avant le chargement de tout conteneur.',
+        a: 'Oui. Les échantillons d’offre de 250–500 g par profil partent par DHL Express. Ils sont facturés : un petit prix au kilogramme pour le café, plus le transport express, le tout réglé avant l’expédition ; les lots d’échantillons plus importants sont facturés au kilogramme, avec le fret sur une ligne distincte. Un échantillon de pré-expédition issu du lot réel est envoyé avant le chargement de tout conteneur.',
       },
       {
         q: 'Comment fixez-vous vos prix ?',

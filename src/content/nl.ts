@@ -374,7 +374,7 @@ export const nl: SiteContent = {
       {
         title: 'Zendingsgrootten',
         rows: [
-          { label: 'Aanbiedingsmonsters', value: '250 g – 1 kg per profiel, vacuümverpakt, per DHL Express. Voor gekwalificeerde kopers is het aanbiedingsmonster voor onze rekening; u betaalt de koerier.' },
+          { label: 'Aanbiedingsmonsters', value: '250 g – 1 kg per profiel, vacuümverpakt, per DHL Express. Monsters worden in rekening gebracht: een kleine prijs per kilogram voor de koffie plus de koeriersvracht, beide te betalen vóór verzending.' },
           { label: 'Kleine partijen per koerier', value: 'Tot 60 kg groene of 50 kg gebrande koffie per zending onder de FNC-regeling voor kleine hoeveelheden. DHL Express van deur tot deur, wereldwijd 5–8 werkdagen, met track & trace.' },
           { label: 'Pallets', value: '100–1.000 kg via gegroepeerde luchtvracht (DHL Global Forwarding) of LCL-zeevracht. Exportdossier, vervoersdocument en koffieheffing worden door ons geregeld.' },
           { label: 'Containers', value: '20\' FCL: 275 zakken × 70 kg ≈ 19,25 t. Halve container: 10 t = 143 zakken. Gemengde ladingen groen / gebrand mogelijk. Meerdere containers op termijncontract.' },
@@ -920,7 +920,7 @@ export const nl: SiteContent = {
       },
       {
         q: 'Stuurt u monsters, en wat kosten die?',
-        a: 'Ja. Aanbiedingsmonsters van 250–500 g per profiel gaan per DHL Express. Voor gekwalificeerde kopers is de koffie voor onze rekening en betaalt u de koerier; grotere monsterpartijen worden per kilogram gefactureerd, met de vracht als aparte post. Vóór het laden van een container wordt een pre-shipmentmonster van de daadwerkelijke partij verstuurd.',
+        a: 'Ja. Aanbiedingsmonsters van 250–500 g per profiel gaan per DHL Express. Ze worden in rekening gebracht: een kleine prijs per kilogram voor de koffie plus de koeriersvracht, beide te betalen vóór verzending; grotere monsterpartijen worden per kilogram gefactureerd, met de vracht als aparte post. Vóór het laden van een container wordt een pre-shipmentmonster van de daadwerkelijke partij verstuurd.',
       },
       {
         q: 'Hoe bepaalt u uw prijzen?',
