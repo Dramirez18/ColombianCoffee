@@ -374,7 +374,7 @@ export const sv: SiteContent = {
       {
         title: 'Leveransstorlekar',
         rows: [
-          { label: 'Offertprover', value: '250 g – 1 kg per profil, vakuumförpackade, med DHL Express. För kvalificerade köpare bjuder vi på offertprovet; du står för kurirfrakten.' },
+          { label: 'Offertprover', value: '250 g – 1 kg per profil, vakuumförpackade, med DHL Express. Proverna debiteras: ett litet kilopris för kaffet plus kurirfrakten, båda betalas före avsändning.' },
           { label: 'Små partier med kurir', value: 'Upp till 60 kg råkaffe eller 50 kg rostat kaffe per försändelse inom FNC:s regelverk för små kvantiteter. DHL Express dörr till dörr, 5–8 arbetsdagar över hela världen, med spårning.' },
           { label: 'Pallar', value: '100–1 000 kg med samlastad flygfrakt (DHL Global Forwarding) eller LCL-sjöfrakt. Exportärende, transitdokument och kaffeavgift sköts av oss.' },
           { label: 'Containrar', value: '20\' FCL: 275 säckar × 70 kg ≈ 19,25 t. Halv container: 10 t = 143 säckar. Blandade laster av råkaffe/rostat kaffe möjliga. Flera containrar på terminskontrakt.' },
@@ -920,7 +920,7 @@ export const sv: SiteContent = {
       },
       {
         q: 'Skickar ni prover, och vad kostar de?',
-        a: 'Ja. Offertprover på 250–500 g per profil skickas med DHL Express. För kvalificerade köpare bjuder vi på kaffet och du står för kurirfrakten; större provpartier faktureras per kilo med frakten som en egen rad. Ett förskeppningsprov från det faktiska partiet skickas innan någon container lastas.',
+        a: 'Ja. Offertprover på 250–500 g per profil skickas med DHL Express. De debiteras: ett litet kilopris för kaffet plus kurirfrakten, båda betalas före avsändning; större provpartier faktureras per kilo med frakten som en egen rad. Ett förskeppningsprov från det faktiska partiet skickas innan någon container lastas.',
       },
       {
         q: 'Hur sätter ni era priser?',

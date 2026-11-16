@@ -732,7 +732,7 @@ const en: SiteContent = {
       {
         title: 'Shipment sizes',
         rows: [
-          { label: 'Offer samples', value: '250 g – 1 kg per profile, vacuum-sealed, by DHL Express. For qualified buyers the offer sample is on us; you cover the courier.' },
+          { label: 'Offer samples', value: '250 g – 1 kg per profile, vacuum-sealed, by DHL Express. Samples are charged: a small per-kilogram price for the coffee plus the courier freight, both paid before dispatch.' },
           { label: 'Small lots by courier', value: 'Up to 60 kg of green or 50 kg of roasted coffee per shipment under the FNC small-quantity regime. DHL Express door to door, 5–8 business days worldwide, tracked.' },
           { label: 'Pallets', value: '100–1,000 kg by consolidated air cargo (DHL Global Forwarding) or LCL sea freight. Export file, transit guide and coffee contribution handled by us.' },
           { label: 'Containers', value: '20\' FCL: 275 bags × 70 kg ≈ 19.25 t. Half container: 10 t = 143 bags. Mixed green / roasted loads possible. Multi-container on forward contract.' },
@@ -1278,7 +1278,7 @@ const en: SiteContent = {
       },
       {
         q: 'Do you send samples, and what do they cost?',
-        a: 'Yes. Offer samples of 250–500 g per profile go by DHL Express. For qualified buyers the coffee is on us and you cover the courier; larger sample lots are invoiced per kilogram with freight as its own line. A pre-shipment sample from the actual lot is sent before any container is loaded.',
+        a: 'Yes. Offer samples of 250–500 g per profile go by DHL Express. They are charged: a small per-kilogram price for the coffee plus the courier freight, both paid before dispatch; larger sample lots are invoiced per kilogram with freight as its own line. A pre-shipment sample from the actual lot is sent before any container is loaded.',
       },
       {
         q: 'How do you set your prices?',
@@ -1774,7 +1774,7 @@ const es: SiteContent = {
       {
         title: 'Tamaños de envío',
         rows: [
-          { label: 'Muestras de oferta', value: '250 g – 1 kg por perfil, al vacío, por DHL Express. Para compradores calificados la muestra corre por nuestra cuenta; usted cubre el courier.' },
+          { label: 'Muestras de oferta', value: '250 g – 1 kg por perfil, al vacío, por DHL Express. Las muestras se cobran: un precio pequeño por kilogramo de café más el flete del courier, ambos antes del despacho.' },
           { label: 'Lotes pequeños por courier', value: 'Hasta 60 kg de verde o 50 kg de tostado por envío bajo el régimen de pequeñas cantidades de la FNC. DHL Express puerta a puerta, 5–8 días hábiles a todo el mundo, con rastreo.' },
           { label: 'Pallets', value: '100–1.000 kg por carga aérea consolidada (DHL Global Forwarding) o marítimo LCL. Expediente de exportación, guía de tránsito y contribución cafetera a cargo nuestro.' },
           { label: 'Contenedores', value: '20\' FCL: 275 sacos × 70 kg ≈ 19,25 t. Medio contenedor: 10 t = 143 sacos. Cargas mixtas verde / tostado posibles. Multicontenedor con contrato a futuro.' },
@@ -2319,7 +2319,7 @@ const es: SiteContent = {
       },
       {
         q: '¿Envían muestras y cuánto cuestan?',
-        a: 'Sí. Las muestras de oferta de 250–500 g por perfil van por DHL Express. Para compradores calificados el café corre por nuestra cuenta y usted cubre el courier; los lotes de muestra más grandes se facturan por kilogramo con el flete como línea aparte. Antes de cargar cualquier contenedor se envía una muestra de pre-embarque del lote real.',
+        a: 'Sí. Las muestras de oferta de 250–500 g por perfil van por DHL Express. Se cobran: un precio pequeño por kilogramo de café más el flete del courier, ambos antes del despacho; los lotes de muestra más grandes se facturan por kilogramo con el flete como línea aparte. Antes de cargar cualquier contenedor se envía una muestra de pre-embarque del lote real.',
       },
       {
         q: '¿Cómo fijan los precios?',

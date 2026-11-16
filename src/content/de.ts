@@ -374,7 +374,7 @@ export const de: SiteContent = {
       {
         title: 'Sendungsgrößen',
         rows: [
-          { label: 'Angebotsmuster', value: '250 g – 1 kg pro Profil, vakuumverpackt, per DHL Express. Für qualifizierte Käufer übernehmen wir das Angebotsmuster; Sie tragen die Kurierkosten.' },
+          { label: 'Angebotsmuster', value: '250 g – 1 kg pro Profil, vakuumverpackt, per DHL Express. Muster sind kostenpflichtig: ein kleiner Kilopreis für den Kaffee plus die Kurierkosten, beides vor dem Versand zu zahlen.' },
           { label: 'Kleine Partien per Kurier', value: 'Bis zu 60 kg Rohkaffee oder 50 kg Röstkaffee pro Sendung im FNC-Kleinmengenverfahren. DHL Express von Tür zu Tür, weltweit 5–8 Werktage, mit Sendungsverfolgung.' },
           { label: 'Paletten', value: '100–1.000 kg als konsolidierte Luftfracht (DHL Global Forwarding) oder LCL-Seefracht. Exportakte, Transitschein und Kaffeeabgabe übernehmen wir.' },
           { label: 'Container', value: '20\' FCL: 275 Säcke × 70 kg ≈ 19,25 t. Halber Container: 10 t = 143 Säcke. Gemischte Ladungen aus Roh- und Röstkaffee möglich. Mehrere Container im Rahmen eines Terminkontrakts.' },
@@ -920,7 +920,7 @@ export const de: SiteContent = {
       },
       {
         q: 'Senden Sie Muster, und was kosten sie?',
-        a: 'Ja. Angebotsmuster von 250–500 g pro Profil werden per DHL Express verschickt. Für qualifizierte Käufer übernehmen wir den Kaffee, und Sie tragen die Kurierkosten; größere Musterpartien werden pro Kilogramm berechnet, die Fracht als eigene Position. Bevor ein Container verladen wird, senden wir ein Vorverschiffungsmuster aus der tatsächlichen Partie.',
+        a: 'Ja. Angebotsmuster von 250–500 g pro Profil werden per DHL Express verschickt. Sie sind kostenpflichtig: ein kleiner Kilopreis für den Kaffee plus die Kurierkosten, beides vor dem Versand zu zahlen; größere Musterpartien werden pro Kilogramm berechnet, die Fracht als eigene Position. Bevor ein Container verladen wird, senden wir ein Vorverschiffungsmuster aus der tatsächlichen Partie.',
       },
       {
         q: 'Wie legen Sie Ihre Preise fest?',
